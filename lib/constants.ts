@@ -205,6 +205,15 @@ export const portfolioProjects: PortfolioProject[] = [
     icon: "Brain",
   },
   {
+    title: "Markdown to PDF Converter",
+    description:
+      "Real-time markdown editor with live preview and server-side PDF generation. Built with React + FastAPI + WeasyPrint for professional document export.",
+    url: "https://markdown-to-pdf-six.vercel.app/",
+    tags: ["React", "FastAPI", "Python", "PDF", "Full Stack"],
+    levels: [5],
+    icon: "FileText",
+  },
+  {
     title: "YouTube Transcript Scraper",
     description:
       "Extract transcripts from any YouTube video — free, fast, and API-ready. Built for automation workflows with n8n, Zapier, and Make compatibility.",
