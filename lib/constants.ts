@@ -185,6 +185,27 @@ export const trustItems = [
   "LLM Trainer & Evaluator",
 ];
 
+export type PortfolioProject = {
+  title: string;
+  description: string;
+  url: string;
+  tags: string[];
+  levels: number[];
+  icon: string;
+};
+
+export const portfolioProjects: PortfolioProject[] = [
+  {
+    title: "YouTube Transcript Scraper",
+    description:
+      "Extract transcripts from any YouTube video — free, fast, and API-ready. Built for automation workflows with n8n, Zapier, and Make compatibility.",
+    url: "https://youtube-scrapper-pi.vercel.app/",
+    tags: ["API", "n8n", "Zapier", "Make", "Automation"],
+    levels: [2, 5],
+    icon: "Play",
+  },
+];
+
 export const whyIntelliforge = [
   {
     icon: "Globe",

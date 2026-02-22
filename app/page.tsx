@@ -1,13 +1,27 @@
 import Link from "next/link";
-import { ArrowRight, Globe, Shield, Zap, Users } from "lucide-react";
+import {
+  ArrowRight,
+  Globe,
+  Shield,
+  Zap,
+  Users,
+  ExternalLink,
+  Play,
+} from "lucide-react";
 import { Hero } from "@/components/hero";
 import { ServiceCard } from "@/components/service-card";
 import { MissionBadge } from "@/components/mission-badge";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
-import { services, whyIntelliforge } from "@/lib/constants";
+import { services, whyIntelliforge, portfolioProjects } from "@/lib/constants";
 
-const iconMap: Record<string, React.ElementType> = { Globe, Shield, Zap, Users };
+const iconMap: Record<string, React.ElementType> = {
+  Globe,
+  Shield,
+  Zap,
+  Users,
+  Play,
+};
 
 export default function HomePage() {
   return (
@@ -38,6 +52,66 @@ export default function HomePage() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* Portfolio */}
+      <section className="py-24 bg-navy-light/50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="Portfolio"
+            title="Built by Us, Powered by AI"
+            description="Real tools and products we've built — proof of what's possible at every level."
+          />
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {portfolioProjects.map((project, i) => {
+              const Icon = iconMap[project.icon] || Zap;
+              return (
+                <AnimateOnScroll key={project.title} delay={i * 0.1}>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glass-card group block h-full rounded-2xl p-6 lg:p-8 transition-all hover:border-indigo/30"
+                  >
+                    <div className="mb-4 flex items-center justify-between">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo to-violet transition-transform group-hover:scale-110">
+                        <Icon className="h-6 w-6 text-white" />
+                      </div>
+                      <ExternalLink className="h-4 w-4 text-gray-500 transition-colors group-hover:text-cyan" />
+                    </div>
+
+                    <h3 className="text-lg font-bold text-white group-hover:text-cyan transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-400">
+                      {project.description}
+                    </p>
+
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.levels.map((level) => (
+                        <span
+                          key={level}
+                          className="rounded-full bg-gradient-to-r from-indigo/20 to-violet/20 px-2.5 py-0.5 text-xs font-semibold text-indigo"
+                        >
+                          Level {level}
+                        </span>
+                      ))}
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-border px-2.5 py-0.5 text-xs text-gray-400"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </a>
+                </AnimateOnScroll>
+              );
+            })}
+          </div>
         </div>
       </section>
 
