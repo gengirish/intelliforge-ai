@@ -31,12 +31,12 @@ export const metadata: Metadata = {
     "Bharat AI Mission",
     "IntelliForge AI",
   ],
-  authors: [{ name: "Girish Basavaraj Hiremath" }],
+  authors: [{ name: "IntelliForge AI" }],
   openGraph: {
     title: "IntelliForge AI — AI Solutions for Every Level of Your Business",
     description:
       "End-to-end AI solutions from prompt engineering to full app development. Aligned with the Bharat AI Mission.",
-    url: "https://intelliforge.ai",
+    url: "https://intelliforge.tech",
     siteName: "IntelliForge AI",
     locale: "en_IN",
     type: "website",

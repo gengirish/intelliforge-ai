@@ -3,9 +3,9 @@ export const siteConfig = {
   tagline: "AI Solutions for Every Level of Your Business",
   description:
     "IntelliForge AI is a Hyderabad-based AI agency offering end-to-end AI solutions — from prompt engineering to full app development. Aligned with the Bharat AI Mission.",
-  url: "https://intelliforge.ai",
-  founder: "Girish Basavaraj Hiremath",
-  email: "contact@intelliforge.ai",
+  url: "https://intelliforge.tech",
+  founder: "The IntelliForge Team",
+  email: "contact@intelliforge.tech",
   phone: "+91-XXXXXXXXXX",
   whatsapp: "91XXXXXXXXXX",
   address: "Virtual Office, Hyderabad, Telangana, India",
@@ -178,13 +178,11 @@ export const pricingTiers: PricingTier[] = [
 
 export const trustItems = [
   "13+ Years Experience",
-  "JPMC",
-  "Wells Fargo",
-  "Santander",
-  "Labcorp",
-  "Ericsson",
-  "Qualcomm",
-  "Turing LLM Trainer",
+  "Fortune 500 Clients",
+  "Banking & Fintech",
+  "Pharma & Healthcare",
+  "Telecom & IoT",
+  "LLM Trainer & Evaluator",
 ];
 
 export const whyIntelliforge = [
@@ -198,7 +196,7 @@ export const whyIntelliforge = [
     icon: "Shield",
     title: "13+ Years Enterprise Engineering",
     description:
-      "Every AI solution is backed by deep enterprise experience across banking, pharma, telecom, and IoT at companies like JPMC, Wells Fargo, and Qualcomm.",
+      "Every AI solution is backed by deep enterprise experience across banking, pharma, telecom, and IoT — working with Fortune 500 companies globally.",
   },
   {
     icon: "Zap",

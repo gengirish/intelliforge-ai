@@ -74,16 +74,18 @@ export function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <span className="font-medium text-gray-400">Trusted expertise from:</span>
-            {["JPMC", "Wells Fargo", "Santander", "Labcorp", "Ericsson", "Qualcomm"].map(
-              (client) => (
-                <span key={client} className="font-semibold text-gray-400">
-                  {client}
-                </span>
-              )
-            )}
-            <span className="text-gray-600">|</span>
-            <span className="font-medium text-cyan/70">M.Tech DSAI — IIIT Dharwad</span>
+            {[
+              "13+ Years Enterprise Experience",
+              "Fortune 500 Clients",
+              "Banking & Fintech",
+              "Pharma & Healthcare",
+              "Telecom & IoT",
+              "M.Tech DSAI — IIIT Dharwad",
+            ].map((item) => (
+              <span key={item} className="rounded-full border border-border px-3 py-1 text-xs font-medium text-gray-400">
+                {item}
+              </span>
+            ))}
           </motion.div>
         </div>
       </div>

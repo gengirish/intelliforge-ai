@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "What industries do you serve?",
-    a: "Our founder has enterprise experience across banking (JPMC, Wells Fargo, Santander), pharma (Labcorp), telecom (Ericsson), and IoT (Qualcomm). We serve businesses in any industry that can benefit from AI.",
+    a: "Our team has enterprise experience across banking & fintech, pharma & healthcare, telecom, and IoT — working with Fortune 500 companies globally. We serve businesses in any industry that can benefit from AI.",
   },
   {
     q: "Do you offer ongoing support after project completion?",
@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "What makes IntelliForge different from other AI agencies?",
-    a: "Two things: depth and breadth. We're backed by 13+ years of enterprise engineering (not just marketing), and we cover all 5 levels of AI readiness — most agencies only do one or two. Plus, our founder actively trains LLMs at Turing, so we're practitioners, not just consultants.",
+    a: "Two things: depth and breadth. We're backed by 13+ years of enterprise engineering (not just marketing), and we cover all 5 levels of AI readiness — most agencies only do one or two. Plus, we actively train and evaluate LLMs, so we're practitioners, not just consultants.",
   },
 ];
 

@@ -45,7 +45,7 @@ An Individual Proprietorship (Sole Proprietorship) is the simplest business stru
   - Business name declaration / Udyam certificate
   - Passport-size photos
 - **Recommended banks**: ICICI, HDFC, Kotak (good digital banking for proprietorships)
-- Open the account in the name: **"IntelliForge AI — Girish Basavaraj Hiremath"**
+- Open the account in the name: **"IntelliForge AI — [Your Full Name]"**
 
 ### Step 5: Udyam Registration (MSME)
 - [ ] Register at [udyamregistration.gov.in](https://udyamregistration.gov.in/)
@@ -88,12 +88,11 @@ An Individual Proprietorship (Sole Proprietorship) is the simplest business stru
 ## 3. Domain & Digital Presence
 
 ### Domain Name
-- [ ] Register **intelliforge.ai** (or alternative)
-- Registrars: [Namecheap](https://namecheap.com), [GoDaddy](https://godaddy.com), [Google Domains](https://domains.google)
-- `.ai` domains typically cost ₹5,000–8,000/year
+- [x] Registered **intelliforge.tech** via GoDaddy
+- `.tech` domains typically cost ₹150–400/year (first year), ~₹3,500/year renewal
 
 ### Business Email
-- [ ] Set up **contact@intelliforge.ai** using:
+- [ ] Set up **contact@intelliforge.tech** using:
   - [Google Workspace](https://workspace.google.com/) (₹136/user/month)
   - [Zoho Mail](https://www.zoho.com/mail/) (free for 1 user)
 
@@ -175,7 +174,7 @@ An Individual Proprietorship (Sole Proprietorship) is the simplest business stru
 | Item | Cost (Approx.) |
 |------|----------------|
 | Virtual Office (myHQ) | ₹5,000–10,000/month |
-| Domain (.ai) | ₹5,000–8,000/year |
+| Domain (.tech) | ₹150–3,500/year |
 | Google Workspace Email | ₹1,632/year |
 | GST Registration | Free (or ₹500 via CA) |
 | Udyam Registration | Free |

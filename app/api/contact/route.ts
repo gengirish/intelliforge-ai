@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
 
     const { error } = await resend.emails.send({
       from: "IntelliForge AI <onboarding@resend.dev>",
-      to: [process.env.CONTACT_EMAIL || "contact@intelliforge.ai"],
+      to: [process.env.CONTACT_EMAIL || "contact@intelliforge.tech"],
       subject: `New Inquiry: ${service} — from ${name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">

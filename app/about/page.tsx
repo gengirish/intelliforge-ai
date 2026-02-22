@@ -16,7 +16,7 @@ import { founder } from "@/lib/founder";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about IntelliForge AI — founded by Girish Hiremath with 13+ years of enterprise experience, aligned with the Bharat AI Mission to democratize AI for India.",
+    "Learn about IntelliForge AI — built on 13+ years of enterprise experience, aligned with the Bharat AI Mission to democratize AI for India.",
 };
 
 export default function AboutPage() {
@@ -60,7 +60,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: "13+", label: "Years Experience" },
-                { value: "6+", label: "Enterprise Clients" },
+                { value: "5+", label: "Industries Served" },
                 { value: "5", label: "AI Service Levels" },
                 { value: "100%", label: "AI-First Approach" },
               ].map((stat, i) => (
@@ -139,8 +139,8 @@ export default function AboutPage() {
         {/* Founder Section */}
         <section className="mb-20">
           <SectionHeading
-            label="Meet the Founder"
-            title={founder.name}
+            label="Our Expertise"
+            title="Built by Practitioners, Not Just Consultants"
             description={founder.headline}
           />
 
@@ -187,20 +187,20 @@ export default function AboutPage() {
                 </div>
               </AnimateOnScroll>
 
-              {/* Enterprise Experience */}
+              {/* Industry Experience */}
               <AnimateOnScroll delay={0.2}>
                 <div className="mt-8">
                   <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gray-300">
                     <Briefcase className="h-4 w-4 text-indigo" />
-                    Enterprise Client Experience
+                    Industry Experience
                   </h4>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {founder.clients.map((client) => (
+                    {founder.industries.map((industry) => (
                       <span
-                        key={client}
+                        key={industry}
                         className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-medium text-gray-300"
                       >
-                        {client}
+                        {industry}
                       </span>
                     ))}
                   </div>

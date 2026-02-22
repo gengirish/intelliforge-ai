@@ -79,7 +79,7 @@ export function ContactForm() {
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
-            placeholder="Girish Hiremath"
+            placeholder="Your full name"
           />
         </div>
         <div>
