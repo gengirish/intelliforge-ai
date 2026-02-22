@@ -196,6 +196,15 @@ export type PortfolioProject = {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    title: "Multi-Agent Deep Research",
+    description:
+      "AI-powered deep research platform using multiple agents working in parallel to generate comprehensive research reports with citations — fast and autonomous.",
+    url: "https://multi-agent-deep-research-eight.vercel.app/research",
+    tags: ["Multi-Agent", "RAG", "LLM", "Deep Research", "Autonomous"],
+    levels: [4, 5],
+    icon: "Brain",
+  },
+  {
     title: "YouTube Transcript Scraper",
     description:
       "Extract transcripts from any YouTube video — free, fast, and API-ready. Built for automation workflows with n8n, Zapier, and Make compatibility.",

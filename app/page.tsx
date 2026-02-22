@@ -7,6 +7,7 @@ import {
   Users,
   ExternalLink,
   Play,
+  Brain,
 } from "lucide-react";
 import { Hero } from "@/components/hero";
 import { ServiceCard } from "@/components/service-card";
@@ -21,6 +22,7 @@ const iconMap: Record<string, React.ElementType> = {
   Zap,
   Users,
   Play,
+  Brain,
 };
 
 export default function HomePage() {
