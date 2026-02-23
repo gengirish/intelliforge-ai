@@ -194,7 +194,71 @@ export type PortfolioProject = {
   icon: string;
 };
 
+export type ProductizedService = {
+  name: string;
+  tagline: string;
+  description: string;
+  features: string[];
+  levels: number[];
+  tiers: { name: string; includes: string; turnaround: string; price: string }[];
+  targetAudience: string[];
+  demoUrl: string;
+};
+
+export const aiDigitalProfile: ProductizedService = {
+  name: "AI Digital Profile",
+  tagline:
+    "Get a production-ready, AI-powered portfolio website built in hours — not weeks.",
+  description:
+    "We build stunning, interactive digital profile websites for professionals, founders, and consultants. Each profile features a neural-themed dark design, animated sections, career visualizations, and a \"Talk to My Resume\" AI chatbot trained on your career data — so recruiters, clients, and collaborators can have a conversation with your professional story.",
+  features: [
+    "Interactive single-page portfolio (Next.js + React)",
+    "AI chat assistant that answers questions about your career",
+    "Animated skill visualizations and career timeline",
+    "SEO-optimized metadata and social sharing (OG images)",
+    "Mobile-responsive, dark-themed neural design",
+    "Deployed live on Vercel with custom domain support",
+  ],
+  levels: [4, 5],
+  tiers: [
+    {
+      name: "Starter",
+      includes: "Data setup + default theme + live deployment",
+      turnaround: "Same day",
+      price: "₹9,999",
+    },
+    {
+      name: "Professional",
+      includes: "Custom theme + AI chat + projects + testimonials",
+      turnaround: "1–2 days",
+      price: "₹24,999",
+    },
+    {
+      name: "Premium",
+      includes: "Full customization + custom sections + ongoing updates",
+      turnaround: "3–5 days",
+      price: "₹49,999",
+    },
+  ],
+  targetAudience: [
+    "Tech professionals looking to stand out",
+    "Founders and consultants building personal brand",
+    "Freelancers who need a portfolio fast",
+    "Anyone who wants their resume to talk back",
+  ],
+  demoUrl: "https://girishbhiremath.vercel.app",
+};
+
 export const portfolioProjects: PortfolioProject[] = [
+  {
+    title: "AI Digital Profile",
+    description:
+      "Interactive portfolio website with a \"Talk to My Resume\" AI chatbot. Neural-themed design with animated career visualizations, skill maps, and SEO optimization — built and deployed in hours.",
+    url: "https://girishbhiremath.vercel.app",
+    tags: ["Next.js", "AI Chatbot", "Portfolio", "RAG", "Vercel"],
+    levels: [4, 5],
+    icon: "UserCircle",
+  },
   {
     title: "Multi-Agent Deep Research",
     description:

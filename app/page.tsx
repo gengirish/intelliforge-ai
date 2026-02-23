@@ -9,6 +9,7 @@ import {
   Play,
   Brain,
   FileText,
+  UserCircle,
 } from "lucide-react";
 import { Hero } from "@/components/hero";
 import { ServiceCard } from "@/components/service-card";
@@ -25,6 +26,7 @@ const iconMap: Record<string, React.ElementType> = {
   Play,
   Brain,
   FileText,
+  UserCircle,
 };
 
 export default function HomePage() {

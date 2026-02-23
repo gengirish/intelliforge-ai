@@ -1,16 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  ExternalLink,
+  Check,
+  Clock,
+  Sparkles,
+  UserCircle,
+  MessageSquare,
+  BarChart3,
+  Search,
+  Smartphone,
+  Globe,
+} from "lucide-react";
 import { ServiceCard } from "@/components/service-card";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
-import { services } from "@/lib/constants";
+import { services, aiDigitalProfile } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
     "Explore IntelliForge AI's 5-level AI service framework — from prompt engineering and workflow automation to AI agents and full application development.",
 };
+
+const featureIcons = [UserCircle, MessageSquare, BarChart3, Search, Smartphone, Globe];
 
 export default function ServicesPage() {
   return (
@@ -73,6 +87,116 @@ export default function ServicesPage() {
             </div>
           </div>
         </AnimateOnScroll>
+
+        {/* AI Digital Profile — Productized Service */}
+        <section className="mt-24">
+          <SectionHeading
+            label="Productized Service"
+            title="AI Digital Profile"
+            description={aiDigitalProfile.tagline}
+          />
+
+          <AnimateOnScroll>
+            <div className="rounded-2xl border border-indigo/20 bg-gradient-to-br from-indigo/5 via-navy-light to-violet/5 p-8 sm:p-10">
+              <div className="grid gap-10 lg:grid-cols-2">
+                {/* Left — Description + Features */}
+                <div>
+                  <p className="text-gray-400 leading-relaxed">
+                    {aiDigitalProfile.description}
+                  </p>
+
+                  <div className="mt-6 flex gap-2">
+                    {aiDigitalProfile.levels.map((level) => (
+                      <span
+                        key={level}
+                        className="rounded-full bg-gradient-to-r from-indigo/20 to-violet/20 px-3 py-1 text-xs font-semibold text-indigo"
+                      >
+                        Level {level}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h4 className="mt-6 text-sm font-semibold uppercase tracking-wider text-gray-300">
+                    What&apos;s Included
+                  </h4>
+                  <ul className="mt-3 space-y-3">
+                    {aiDigitalProfile.features.map((feature, i) => {
+                      const Icon = featureIcons[i] || Check;
+                      return (
+                        <li key={feature} className="flex items-start gap-3 text-sm text-gray-300">
+                          <Icon className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
+                          {feature}
+                        </li>
+                      );
+                    })}
+                  </ul>
+
+                  <a
+                    href={aiDigitalProfile.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-cyan transition-colors hover:text-cyan-light"
+                  >
+                    <Sparkles className="h-4 w-4" />
+                    View Live Demo
+                    <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                </div>
+
+                {/* Right — Tiers */}
+                <div>
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-300">
+                    Pricing Tiers
+                  </h4>
+                  <div className="mt-3 space-y-4">
+                    {aiDigitalProfile.tiers.map((tier, i) => (
+                      <AnimateOnScroll key={tier.name} delay={i * 0.1}>
+                        <div
+                          className={`rounded-xl p-5 ${
+                            i === 1
+                              ? "border border-indigo/30 bg-indigo/10"
+                              : "bg-surface"
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <h5 className="font-bold text-white">{tier.name}</h5>
+                            <span className="text-lg font-bold gradient-text">
+                              {tier.price}
+                            </span>
+                          </div>
+                          <p className="mt-1 text-sm text-gray-400">{tier.includes}</p>
+                          <div className="mt-2 flex items-center gap-1.5 text-xs text-gray-500">
+                            <Clock className="h-3 w-3" />
+                            {tier.turnaround}
+                          </div>
+                        </div>
+                      </AnimateOnScroll>
+                    ))}
+                  </div>
+
+                  <h4 className="mt-8 text-sm font-semibold uppercase tracking-wider text-gray-300">
+                    Who It&apos;s For
+                  </h4>
+                  <ul className="mt-3 space-y-2">
+                    {aiDigitalProfile.targetAudience.map((audience) => (
+                      <li key={audience} className="flex items-start gap-2 text-sm text-gray-400">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
+                        {audience}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href="/contact"
+                    className="mt-6 block w-full rounded-full bg-gradient-to-r from-indigo to-violet py-3 text-center text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
+                  >
+                    Get Your AI Digital Profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </AnimateOnScroll>
+        </section>
 
         {/* CTA */}
         <AnimateOnScroll className="mt-16 text-center">
