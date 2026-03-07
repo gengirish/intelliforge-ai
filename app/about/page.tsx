@@ -7,6 +7,11 @@ import {
   Brain,
   ExternalLink,
   User,
+  Linkedin,
+  Github,
+  Twitter,
+  BookOpen,
+  Mic,
 } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
@@ -74,6 +79,24 @@ export default function AboutPage() {
             </div>
           </div>
         </AnimateOnScroll>
+
+        {/* Why IntelliForge Started */}
+        <section className="mb-20">
+          <AnimateOnScroll>
+            <div className="rounded-2xl border border-indigo/20 bg-gradient-to-br from-indigo/5 via-navy-light to-violet/5 p-8 sm:p-12">
+              <h3 className="text-2xl font-bold text-white sm:text-3xl">
+                {founder.originStory.title}
+              </h3>
+              <div className="mt-6 space-y-4">
+                {founder.originStory.paragraphs.map((p, i) => (
+                  <p key={i} className="text-gray-400 leading-relaxed">
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </AnimateOnScroll>
+        </section>
 
         {/* Bharat AI Mission Alignment */}
         <section className="mb-20">
@@ -159,6 +182,33 @@ export default function AboutPage() {
                       &ldquo;{founder.tagline}&rdquo;
                     </p>
 
+                    <div className="mt-4 flex gap-3">
+                      <a
+                        href={founder.socialLinks.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                      >
+                        <Linkedin className="h-4 w-4" />
+                      </a>
+                      <a
+                        href={founder.socialLinks.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                      >
+                        <Github className="h-4 w-4" />
+                      </a>
+                      <a
+                        href={founder.socialLinks.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                      >
+                        <Twitter className="h-4 w-4" />
+                      </a>
+                    </div>
+
                     <div className="mt-6 space-y-3">
                       {founder.credentials.map((cred) => (
                         <div key={cred.label} className="flex items-start gap-2">
@@ -232,6 +282,37 @@ export default function AboutPage() {
                   </div>
                 </div>
               </AnimateOnScroll>
+
+              {/* Publications & Talks */}
+              <AnimateOnScroll delay={0.4}>
+                <div className="mt-8">
+                  <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gray-300">
+                    <BookOpen className="h-4 w-4 text-indigo" />
+                    Publications & Talks
+                  </h4>
+                  <div className="mt-3 space-y-2">
+                    {founder.publications.map((pub) => (
+                      <a
+                        key={pub.title}
+                        href={pub.url}
+                        className="flex items-start gap-3 rounded-xl bg-surface p-3 transition-colors hover:bg-surface-hover"
+                      >
+                        {pub.type === "Talk" ? (
+                          <Mic className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
+                        ) : (
+                          <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
+                        )}
+                        <div>
+                          <p className="text-sm font-semibold text-white">
+                            {pub.title}
+                          </p>
+                          <p className="text-xs text-gray-400">{pub.type}</p>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </AnimateOnScroll>
             </div>
           </div>
         </section>
@@ -242,13 +323,13 @@ export default function AboutPage() {
             Let&apos;s Build Something Together
           </h3>
           <p className="mt-2 text-gray-400">
-            13+ years of enterprise engineering meets cutting-edge AI. Ready?
+            13+ years of enterprise engineering meets cutting-edge AI. Book a free call to discuss your goals.
           </p>
           <Link
-            href="/contact"
+            href="/contact?intent=strategy-call"
             className="group mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25"
           >
-            Start a Conversation
+            Book Free AI Strategy Call
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </AnimateOnScroll>

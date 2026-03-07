@@ -10,6 +10,36 @@ export const founder = {
     "Currently working as an LLM Trainer & Evaluator, designing RLHF pipelines, performing supervised fine-tuning, and benchmarking models on platforms like SWE-Bench and OSWorld. Also pursuing an M.Tech in Data Science & Artificial Intelligence from IIIT Dharwad — deepening research foundations while building real-world solutions.",
     "IntelliForge AI was founded with a clear mission: to make the power of AI accessible to every business in India — not just the tech giants. Aligned with the Bharat AI Mission, we bring enterprise-grade AI solutions to companies of every size.",
   ],
+  originStory: {
+    title: "Why IntelliForge Started",
+    paragraphs: [
+      "While working at Fortune 500 companies, one pattern kept repeating: big tech companies were racing ahead with AI, but millions of businesses in India were being left behind. Not because AI was too complex — but because no one was meeting them where they were.",
+      "The gap wasn't technology. It was access and guidance. Startups didn't need a team of 10 ML engineers — they needed one partner who could orchestrate AI across their entire business. Enterprises didn't need another vendor — they needed a practitioner who understood both legacy systems and cutting-edge AI.",
+      "IntelliForge AI was born to bridge that gap. Our mission: democratize AI for Indian businesses of every size, from solo founders in Tier II cities to enterprise teams in metros. Aligned with the Bharat AI Mission, we're building the future where AI works for everyone — not just the tech elite.",
+    ],
+  },
+  socialLinks: {
+    linkedin: "https://linkedin.com/in/your-profile",
+    github: "https://github.com/your-profile",
+    twitter: "https://twitter.com/your-profile",
+  },
+  publications: [
+    {
+      title: "Building Multi-Agent Systems for Enterprise Research",
+      type: "Article",
+      url: "#",
+    },
+    {
+      title: "RAG vs Fine-Tuning: A Practitioner's Guide",
+      type: "Article",
+      url: "#",
+    },
+    {
+      title: "AI Automation for Indian Businesses — Challenges & Opportunities",
+      type: "Talk",
+      url: "#",
+    },
+  ],
   credentials: [
     {
       label: "M.Tech in Data Science & AI (Pursuing)",

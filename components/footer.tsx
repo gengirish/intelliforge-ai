@@ -1,6 +1,23 @@
 import Link from "next/link";
-import { Zap, Mail, Phone, MapPin, ExternalLink } from "lucide-react";
+import {
+  Zap,
+  Mail,
+  Phone,
+  MapPin,
+  ExternalLink,
+  Linkedin,
+  Github,
+  Youtube,
+  Twitter,
+} from "lucide-react";
 import { siteConfig, navLinks } from "@/lib/constants";
+
+const socialLinks = [
+  { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
+  { icon: Github, href: siteConfig.social.github, label: "GitHub" },
+  { icon: Youtube, href: siteConfig.social.youtube, label: "YouTube" },
+  { icon: Twitter, href: siteConfig.social.twitter, label: "Twitter" },
+];
 
 export function Footer() {
   return (
@@ -19,6 +36,23 @@ export function Footer() {
             <p className="text-sm leading-relaxed text-gray-400">
               {siteConfig.description}
             </p>
+            <div className="flex items-center gap-3">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                    aria-label={social.label}
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                );
+              })}
+            </div>
           </div>
 
           <div>
@@ -36,6 +70,14 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/ai-audit"
+                  className="text-sm font-medium text-cyan transition-colors hover:text-cyan-light"
+                >
+                  Free AI Audit
+                </Link>
+              </li>
             </ul>
           </div>
 

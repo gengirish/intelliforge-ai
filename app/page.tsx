@@ -16,7 +16,17 @@ import { ServiceCard } from "@/components/service-card";
 import { MissionBadge } from "@/components/mission-badge";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
-import { services, whyIntelliforge, portfolioProjects } from "@/lib/constants";
+import { IndustryLogos } from "@/components/industry-logos";
+import { CaseStudyCard } from "@/components/case-study-card";
+import { Testimonials } from "@/components/testimonials";
+import { AiDemo } from "@/components/ai-demo";
+import {
+  services,
+  whyIntelliforge,
+  portfolioProjects,
+  caseStudies,
+  testimonials,
+} from "@/lib/constants";
 
 const iconMap: Record<string, React.ElementType> = {
   Globe,
@@ -33,6 +43,13 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+
+      {/* Industry Trust Strip */}
+      <section className="py-12 border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <IndustryLogos />
+        </div>
+      </section>
 
       {/* Services Overview */}
       <section className="py-24">
@@ -54,7 +71,7 @@ export default function HomePage() {
               href="/services"
               className="group inline-flex items-center gap-2 text-sm font-semibold text-cyan transition-colors hover:text-cyan-light"
             >
-              Explore all services in detail
+              See our full 5-level AI framework
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </AnimateOnScroll>
@@ -121,6 +138,36 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Case Studies */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="Case Studies"
+            title="Real Results, Real Impact"
+            description="See how we've helped businesses automate workflows, build AI systems, and save thousands of hours."
+          />
+
+          <div className="grid gap-8 lg:grid-cols-3">
+            {caseStudies.map((study, i) => (
+              <CaseStudyCard key={study.client} study={study} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 bg-navy-light/50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="Testimonials"
+            title="What Our Clients Say"
+            description="Don't just take our word for it — hear from businesses we've helped transform with AI."
+          />
+
+          <Testimonials testimonials={testimonials} />
+        </div>
+      </section>
+
       {/* Bharat AI Mission */}
       <section className="py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -158,6 +205,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* AI Demo Section */}
+      <section className="py-24 bg-navy-light/50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="See AI in Action"
+            title="Discover What AI Can Do for You"
+            description="Try our AI business analyzer or explore our free tools — built by us, free for everyone."
+          />
+
+          <AiDemo />
+        </div>
+      </section>
+
       {/* CTA Banner */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -166,24 +226,25 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
               <div className="relative">
                 <h2 className="text-3xl font-bold text-white sm:text-4xl">
-                  Ready to Become AI-Ready?
+                  Stop Losing Time to Manual Work
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-lg text-white/80">
-                  Whether you&apos;re just starting with AI or ready to build autonomous
-                  agents — we&apos;ll meet you at your level and take you further.
+                  Companies using our AI solutions save 20+ hours per week.
+                  Whether you&apos;re a startup or enterprise — let&apos;s build
+                  your AI advantage.
                 </p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                   <Link
-                    href="/contact"
+                    href="/contact?intent=strategy-call"
                     className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-indigo transition-all hover:bg-gray-100"
                   >
-                    Start Your AI Journey
+                    Book Free AI Strategy Call
                   </Link>
                   <Link
-                    href="/pricing"
+                    href="/ai-audit"
                     className="rounded-full border border-white/30 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-white/10"
                   >
-                    View Pricing
+                    Get Free AI Audit
                   </Link>
                 </div>
               </div>

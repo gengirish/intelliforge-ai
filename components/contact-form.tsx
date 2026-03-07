@@ -13,12 +13,31 @@ const serviceOptions = [
   "Other / Not Sure",
 ];
 
+const companySizeOptions = [
+  "Just me (Solo founder)",
+  "2–10 employees",
+  "11–50 employees",
+  "51–200 employees",
+  "200+ employees",
+];
+
+const challengeOptions = [
+  "Too many manual/repetitive tasks",
+  "Need to implement AI but don't know where to start",
+  "Existing AI tools aren't delivering results",
+  "Want to build AI-powered products",
+  "Need to upskill team on AI",
+  "Other",
+];
+
 export function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     service: "",
+    companySize: "",
+    challenge: "",
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -36,7 +55,7 @@ export function ContactForm() {
 
       if (res.ok) {
         setStatus("sent");
-        setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", service: "", companySize: "", challenge: "", message: "" });
       } else {
         setStatus("error");
       }
@@ -53,7 +72,7 @@ export function ContactForm() {
         </div>
         <h3 className="text-xl font-bold text-white">Message Sent!</h3>
         <p className="mt-2 text-gray-400">
-          Thank you for reaching out. We&apos;ll get back to you within 24 hours.
+          Thank you for reaching out. We&apos;ll get back to you within 30 minutes during business hours.
         </p>
         <button
           onClick={() => setStatus("idle")}
@@ -133,18 +152,57 @@ export function ContactForm() {
         </div>
       </div>
 
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label htmlFor="companySize" className="mb-1.5 block text-sm font-medium text-gray-300">
+            Company Size
+          </label>
+          <select
+            id="companySize"
+            value={formData.companySize}
+            onChange={(e) => setFormData({ ...formData, companySize: e.target.value })}
+            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white transition-colors focus:border-indigo focus:outline-none"
+          >
+            <option value="" className="bg-navy">Select company size...</option>
+            {companySizeOptions.map((opt) => (
+              <option key={opt} value={opt} className="bg-navy">
+                {opt}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="challenge" className="mb-1.5 block text-sm font-medium text-gray-300">
+            Biggest Challenge
+          </label>
+          <select
+            id="challenge"
+            value={formData.challenge}
+            onChange={(e) => setFormData({ ...formData, challenge: e.target.value })}
+            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white transition-colors focus:border-indigo focus:outline-none"
+          >
+            <option value="" className="bg-navy">What&apos;s your biggest challenge?</option>
+            {challengeOptions.map((opt) => (
+              <option key={opt} value={opt} className="bg-navy">
+                {opt}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
       <div>
         <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-gray-300">
-          Message
+          Tell Us About Your AI Goals
         </label>
         <textarea
           id="message"
           required
-          rows={5}
+          rows={4}
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           className="w-full resize-none rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
-          placeholder="Tell us about your project and how we can help..."
+          placeholder="What would you like to automate or build with AI? What does success look like for you?"
         />
       </div>
 

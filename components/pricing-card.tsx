@@ -46,7 +46,7 @@ export function PricingCard({ tier, index }: PricingCardProps) {
         </ul>
 
         <Link
-          href="/contact"
+          href={`/contact?intent=pricing&plan=${encodeURIComponent(tier.name)}`}
           className={`block w-full rounded-full py-3 text-center text-sm font-semibold transition-all ${
             tier.highlighted
               ? "bg-gradient-to-r from-indigo to-violet text-white hover:shadow-lg hover:shadow-indigo/25"

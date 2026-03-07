@@ -1,9 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, CalendarCheck, FileSearch } from "lucide-react";
 import { motion } from "framer-motion";
 import { MissionBadge } from "./mission-badge";
+
+const targetAudiences = ["Startups", "SaaS Companies", "Enterprises", "Agencies"];
+
+const trustBadges = [
+  "13+ Years Enterprise Experience",
+  "Fortune 500 Clients",
+  "Banking & Fintech",
+  "Pharma & Healthcare",
+  "Telecom & IoT",
+  "M.Tech DSAI — IIIT Dharwad",
+];
 
 export function Hero() {
   return (
@@ -25,14 +36,14 @@ export function Hero() {
           </motion.div>
 
           <motion.h1
-            className="mx-auto mt-6 max-w-4xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
+            className="mx-auto mt-6 max-w-5xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            AI Solutions for{" "}
-            <span className="gradient-text">Every Level</span> of Your
-            Business
+            We Build <span className="gradient-text">AI Agents</span>, Automate
+            Workflows & Ship AI Apps —{" "}
+            <span className="text-cyan">In Weeks, Not Months</span>
           </motion.h1>
 
           <motion.p
@@ -41,10 +52,26 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            From prompt engineering foundations to building full AI-powered
-            applications — we take your business through all five levels of AI
+            From prompt engineering and RAG pipelines to autonomous multi-agent
+            systems — we take your business through all five levels of AI
             readiness. Based in Hyderabad, serving India and beyond.
           </motion.p>
+
+          <motion.div
+            className="mx-auto mt-6 flex flex-wrap items-center justify-center gap-2"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+          >
+            {targetAudiences.map((audience) => (
+              <span
+                key={audience}
+                className="rounded-full bg-gradient-to-r from-indigo/15 to-violet/15 px-4 py-1.5 text-sm font-medium text-indigo"
+              >
+                {audience}
+              </span>
+            ))}
+          </motion.div>
 
           <motion.div
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
@@ -53,36 +80,33 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <Link
-              href="/services"
+              href="/contact?intent=strategy-call"
               className="group flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25"
             >
-              <Sparkles className="h-4 w-4" />
-              Explore Services
+              <CalendarCheck className="h-4 w-4" />
+              Book Free AI Strategy Call
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
-              href="/contact"
-              className="rounded-full border border-border px-8 py-4 text-sm font-semibold text-gray-300 transition-colors hover:bg-surface hover:text-white"
+              href="/ai-audit"
+              className="group flex items-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-semibold text-gray-300 transition-colors hover:bg-surface hover:text-white"
             >
-              Get in Touch
+              <FileSearch className="h-4 w-4" />
+              Get Your AI Roadmap
             </Link>
           </motion.div>
 
           <motion.div
-            className="mx-auto mt-16 flex max-w-4xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-gray-500"
+            className="mx-auto mt-16 flex max-w-4xl flex-wrap items-center justify-center gap-x-3 gap-y-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            {[
-              "13+ Years Enterprise Experience",
-              "Fortune 500 Clients",
-              "Banking & Fintech",
-              "Pharma & Healthcare",
-              "Telecom & IoT",
-              "M.Tech DSAI — IIIT Dharwad",
-            ].map((item) => (
-              <span key={item} className="rounded-full border border-border px-3 py-1 text-xs font-medium text-gray-400">
+            {trustBadges.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-border px-3 py-1 text-xs font-medium text-gray-400"
+              >
                 {item}
               </span>
             ))}

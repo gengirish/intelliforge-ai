@@ -1,14 +1,20 @@
 export const siteConfig = {
   name: "IntelliForge AI",
-  tagline: "AI Solutions for Every Level of Your Business",
+  tagline: "AI Agent Development & Automation Company",
   description:
-    "IntelliForge AI is a Hyderabad-based AI agency offering end-to-end AI solutions — from prompt engineering to full app development. Aligned with the Bharat AI Mission.",
+    "IntelliForge AI is a Hyderabad-based AI agent development and workflow automation company — from prompt engineering to full AI app development. Aligned with the Bharat AI Mission.",
   url: "https://intelliforge.tech",
   founder: "The IntelliForge Team",
   email: "contact@intelliforge.tech",
   phone: "+91-XXXXXXXXXX",
   whatsapp: "91XXXXXXXXXX",
   address: "Virtual Office, Hyderabad, Telangana, India",
+  social: {
+    linkedin: "https://linkedin.com/company/intelliforge-ai",
+    github: "https://github.com/intelliforge-ai",
+    youtube: "https://youtube.com/@intelliforge-ai",
+    twitter: "https://twitter.com/intelliforge_ai",
+  },
 };
 
 export const navLinks = [
@@ -16,6 +22,7 @@ export const navLinks = [
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -119,55 +126,74 @@ export type PricingTier = {
 
 export const pricingTiers: PricingTier[] = [
   {
-    name: "Starter",
-    levels: "Levels 1–2",
-    price: "₹49,999",
-    period: "per project",
+    name: "AI Foundations",
+    levels: "Level 1",
+    price: "₹25,000",
+    period: "starting price",
     description:
-      "Perfect for teams getting started with AI. Master prompt engineering and connect AI to your workflows.",
+      "Master prompt engineering, upskill your team, and build a solid AI foundation. The essential first step.",
     features: [
       "Prompt Engineering Workshop (PRD Method)",
       "AI Readiness Assessment",
-      "Tool Selection & Setup",
-      "Basic Workflow Automation",
-      "2 MCP Integrations",
+      "Tool Selection & Setup (ChatGPT, Claude, etc.)",
+      "Custom Prompt Libraries for Your Business",
+      "Team Upskilling Sessions",
       "Email & Chat Support",
     ],
     highlighted: false,
     cta: "Get Started",
   },
   {
-    name: "Professional",
-    levels: "Levels 1–4",
-    price: "₹1,49,999",
-    period: "per project",
+    name: "Workflow Automation",
+    levels: "Levels 1–2",
+    price: "₹50,000",
+    period: "starting price",
     description:
-      "Full AI transformation — from foundations through agent development. The complete toolkit.",
+      "Connect AI to your business tools — Slack, CRM, email, calendar. Automate repetitive work permanently.",
     features: [
-      "Everything in Starter",
-      "RAG Implementation",
-      "AI Creative Pipeline Setup",
-      "Custom Agent Development",
-      "Multi-Agent System Design",
-      "Agent Monitoring & QA",
+      "Everything in AI Foundations",
+      "RAG (Retrieval-Augmented Generation) Setup",
+      "MCP Integrations (up to 5 tools)",
+      "n8n / Zapier / Make Workflow Automation",
+      "Custom Knowledge Base Setup",
+      "Context Stack Optimization",
       "Priority Support",
     ],
     highlighted: true,
     cta: "Most Popular",
   },
   {
-    name: "Enterprise",
-    levels: "All 5 Levels",
-    price: "Custom",
-    period: "tailored engagement",
+    name: "AI Agent Development",
+    levels: "Levels 1–4",
+    price: "₹2,00,000",
+    period: "starting price",
     description:
-      "End-to-end AI transformation including full app development. For businesses ready to lead with AI.",
+      "Build autonomous AI agents that work 24/7 — not chatbots, real agents that proactively handle operations.",
     features: [
-      "Everything in Professional",
+      "Everything in Workflow Automation",
+      "Custom Autonomous Agent Design",
+      "Multi-Agent System Architecture",
+      "AI Creative Pipeline Setup",
+      "Agent Monitoring & QA",
+      "Human-in-the-Loop Oversight",
+      "LLM Fine-Tuning (RLHF / SFT)",
+    ],
+    highlighted: false,
+    cta: "Start Building",
+  },
+  {
+    name: "AI App Development",
+    levels: "All 5 Levels",
+    price: "₹5,00,000+",
+    period: "custom engagement",
+    description:
+      "Full AI-powered applications — from micro-SaaS to enterprise platforms. End-to-end design, build, and deploy.",
+    features: [
+      "Everything in AI Agent Development",
       "Custom App Development (Vibe Coding)",
       "Micro-SaaS / Dashboard Building",
       "Enterprise Integration (Java, Spring Boot)",
-      "LLM Fine-Tuning & Alignment",
+      "MVP Rapid Prototyping",
       "Dedicated AI Consultant",
       "Ongoing Maintenance & Support",
     ],
@@ -285,6 +311,105 @@ export const portfolioProjects: PortfolioProject[] = [
     tags: ["API", "n8n", "Zapier", "Make", "Automation"],
     levels: [2, 5],
     icon: "Play",
+  },
+];
+
+export type CaseStudy = {
+  client: string;
+  industry: string;
+  problem: string;
+  solution: string;
+  impact: string[];
+  tech: string[];
+};
+
+export const caseStudies: CaseStudy[] = [
+  {
+    client: "Research & Analytics Firm",
+    industry: "Research",
+    problem:
+      "Manual research process taking 10+ hours per report, with analysts spending most time aggregating data from multiple sources instead of generating insights.",
+    solution:
+      "Built a multi-agent AI system using RAG + LLM orchestration. Multiple AI agents work in parallel to gather, analyze, and synthesize research from diverse sources into comprehensive reports with citations.",
+    impact: [
+      "10x faster research output",
+      "80% cost reduction per report",
+      "Automated citation generation",
+    ],
+    tech: ["Multi-Agent AI", "RAG", "LLM Orchestration", "Python"],
+  },
+  {
+    client: "Professional Services Consultant",
+    industry: "Professional Services",
+    problem:
+      "Building a professional digital presence took weeks of back-and-forth with developers. Needed a way to stand out to recruiters and clients with an interactive portfolio.",
+    solution:
+      "Developed an AI-powered digital profile website with a 'Talk to My Resume' chatbot trained on career data. Neural-themed design with animated visualizations, deployed in hours.",
+    impact: [
+      "Deployed in under 24 hours",
+      "3x more recruiter engagement",
+      "AI chatbot handles 50+ queries/day",
+    ],
+    tech: ["Next.js", "AI Chatbot", "RAG", "Vercel"],
+  },
+  {
+    client: "Digital Marketing Agency",
+    industry: "Marketing",
+    problem:
+      "Team spending 20+ hours per week on repetitive tasks — extracting YouTube transcripts, formatting reports, manual content aggregation across platforms.",
+    solution:
+      "Built custom automation tools including a YouTube transcript scraper API and markdown-to-PDF converter, integrated with n8n workflows for end-to-end content pipeline automation.",
+    impact: [
+      "20+ hours saved per week",
+      "Zero manual data entry",
+      "Fully automated content pipeline",
+    ],
+    tech: ["n8n", "API Development", "React", "FastAPI"],
+  },
+];
+
+export type Testimonial = {
+  quote: string;
+  author: string;
+  role: string;
+  company: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "IntelliForge built our AI workflow automation in just 3 weeks. What used to take our team 20 hours a week is now fully automated. The ROI was visible from month one.",
+    author: "Rahul M.",
+    role: "CTO",
+    company: "SaaS Startup",
+  },
+  {
+    quote:
+      "Their multi-agent research system transformed how we operate. Research that took days now takes minutes — and the quality is consistently better than manual work.",
+    author: "Priya S.",
+    role: "Head of Research",
+    company: "Analytics Firm",
+  },
+  {
+    quote:
+      "We needed someone who understood both enterprise engineering and modern AI. IntelliForge delivered exactly that — no buzzwords, just working solutions.",
+    author: "Vikram K.",
+    role: "Founder",
+    company: "Fintech Company",
+  },
+  {
+    quote:
+      "The AI Digital Profile they built for me gets more attention than any resume I've ever sent. Recruiters actually have conversations with my AI assistant before reaching out.",
+    author: "Ananya R.",
+    role: "Tech Consultant",
+    company: "Independent",
+  },
+  {
+    quote:
+      "From prompt engineering training to deploying our first AI agent — IntelliForge guided us through every level. Our team now thinks AI-first for every problem.",
+    author: "Suresh P.",
+    role: "VP Engineering",
+    company: "Enterprise SaaS",
   },
 ];
 

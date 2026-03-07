@@ -201,16 +201,16 @@ export default function ServicesPage() {
         {/* CTA */}
         <AnimateOnScroll className="mt-16 text-center">
           <h3 className="text-2xl font-bold text-white">
-            Ready to start your AI journey?
+            Not sure which level is right for you?
           </h3>
           <p className="mt-2 text-gray-400">
-            Tell us where you are today, and we&apos;ll build a roadmap to get you there.
+            Book a free 30-minute strategy call. We&apos;ll assess where you are and map your AI roadmap.
           </p>
           <Link
-            href="/contact"
+            href="/contact?intent=strategy-call"
             className="group mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25"
           >
-            Get Your AI Roadmap
+            Book Free AI Strategy Call
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </AnimateOnScroll>

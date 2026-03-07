@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import { Mail, Phone, MapPin, MessageCircle, Clock } from "lucide-react";
+import Link from "next/link";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  MessageCircle,
+  Clock,
+  CalendarCheck,
+  Zap,
+} from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
@@ -8,7 +17,7 @@ import { siteConfig } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with IntelliForge AI. Whether you need AI training, workflow automation, agent development, or full app building — we're here to help.",
+    "Get in touch with IntelliForge AI. Book a free AI strategy call, chat on WhatsApp, or send us a message. We respond within 30 minutes.",
 };
 
 export default function ContactPage() {
@@ -25,15 +34,27 @@ export default function ContactPage() {
         <SectionHeading
           label="Contact Us"
           title="Let's Build Your AI Future"
-          description="Have a question, a project idea, or need a consultation? We'd love to hear from you."
+          description="Book a free strategy call, send us a message, or chat instantly on WhatsApp."
         />
+
+        {/* Response Time Guarantee */}
+        <AnimateOnScroll>
+          <div className="mb-12 flex items-center justify-center gap-3 rounded-2xl border border-cyan/20 bg-cyan/5 px-6 py-4">
+            <Zap className="h-5 w-5 text-cyan" />
+            <p className="text-sm font-medium text-cyan">
+              We respond within 30 minutes during business hours (Mon–Sat, 9 AM – 7 PM IST)
+            </p>
+          </div>
+        </AnimateOnScroll>
 
         <div className="grid gap-12 lg:grid-cols-5">
           {/* Contact Form */}
           <div className="lg:col-span-3">
             <AnimateOnScroll>
               <div className="glass-card rounded-2xl p-6 sm:p-8">
-                <h3 className="mb-6 text-xl font-bold text-white">Send Us a Message</h3>
+                <h3 className="mb-6 text-xl font-bold text-white">
+                  Tell Us About Your AI Goals
+                </h3>
                 <ContactForm />
               </div>
             </AnimateOnScroll>
@@ -41,6 +62,26 @@ export default function ContactPage() {
 
           {/* Sidebar */}
           <div className="space-y-6 lg:col-span-2">
+            {/* Calendly Booking */}
+            <AnimateOnScroll delay={0.05}>
+              <Link
+                href="https://calendly.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 rounded-2xl border border-indigo/30 bg-indigo/10 p-6 transition-colors hover:bg-indigo/20"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo to-violet">
+                  <CalendarCheck className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white">Book Free Strategy Call</h4>
+                  <p className="text-sm text-gray-400">
+                    30-min call to discuss your AI goals
+                  </p>
+                </div>
+              </Link>
+            </AnimateOnScroll>
+
             {/* WhatsApp CTA */}
             <AnimateOnScroll delay={0.1}>
               <a
@@ -53,7 +94,7 @@ export default function ContactPage() {
                   <MessageCircle className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-white">Chat on WhatsApp</h4>
+                  <h4 className="font-bold text-white">Instant Chat on WhatsApp</h4>
                   <p className="text-sm text-gray-400">
                     Quick response, usually within minutes
                   </p>

@@ -41,10 +41,10 @@ export function Navbar() {
 
         <div className="hidden md:block">
           <Link
-            href="/contact"
+            href="/contact?intent=strategy-call"
             className="rounded-full bg-gradient-to-r from-indigo to-violet px-5 py-2.5 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
           >
-            Get in Touch
+            Book Free Strategy Call
           </Link>
         </div>
 
@@ -80,11 +80,11 @@ export function Navbar() {
                 </Link>
               ))}
               <Link
-                href="/contact"
+                href="/contact?intent=strategy-call"
                 onClick={() => setMobileOpen(false)}
                 className="mt-2 block rounded-full bg-gradient-to-r from-indigo to-violet px-5 py-3 text-center text-sm font-semibold text-white"
               >
-                Get in Touch
+                Book Free Strategy Call
               </Link>
             </div>
           </motion.div>

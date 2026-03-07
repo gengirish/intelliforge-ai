@@ -4,6 +4,7 @@ import { ArrowRight, HelpCircle } from "lucide-react";
 import { PricingCard } from "@/components/pricing-card";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
+import { JsonLd, createFaqSchema } from "@/components/json-ld";
 import { pricingTiers } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -37,11 +38,20 @@ const faqs = [
     q: "What makes IntelliForge different from other AI agencies?",
     a: "Two things: depth and breadth. We're backed by 13+ years of enterprise engineering (not just marketing), and we cover all 5 levels of AI readiness — most agencies only do one or two. Plus, we actively train and evaluate LLMs, so we're practitioners, not just consultants.",
   },
+  {
+    q: "Are these prices fixed or flexible?",
+    a: "The prices shown are starting prices. Final pricing depends on scope, complexity, and timeline. We provide a detailed proposal after an initial consultation — no surprises. Every engagement is scoped to deliver clear ROI.",
+  },
+  {
+    q: "What are the payment terms?",
+    a: "We typically work on a milestone-based payment model: 40% upfront, 30% at mid-project review, and 30% on delivery. For Enterprise engagements, we offer flexible billing cycles (monthly or quarterly). All payments are GST-inclusive.",
+  },
 ];
 
 export default function PricingPage() {
   return (
     <div className="pt-24 pb-24">
+      <JsonLd data={createFaqSchema(faqs)} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <SectionHeading
@@ -51,7 +61,7 @@ export default function PricingPage() {
         />
 
         {/* Pricing Cards */}
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {pricingTiers.map((tier, i) => (
             <PricingCard key={tier.name} tier={tier} index={i} />
           ))}
@@ -98,15 +108,23 @@ export default function PricingPage() {
             Not sure which plan is right for you?
           </h3>
           <p className="mt-2 text-gray-400">
-            Let&apos;s discuss your needs — no commitment, no pressure.
+            Book a free strategy call — no commitment, no pressure. We&apos;ll map the right plan for your goals.
           </p>
-          <Link
-            href="/contact"
-            className="group mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25"
-          >
-            Get a Free Consultation
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact?intent=strategy-call"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25"
+            >
+              Book Free Strategy Call
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              href="/ai-audit"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-semibold text-gray-300 transition-colors hover:bg-surface hover:text-white"
+            >
+              Get Free AI Audit
+            </Link>
+          </div>
         </AnimateOnScroll>
       </div>
     </div>
