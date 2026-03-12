@@ -312,6 +312,33 @@ export const portfolioProjects: PortfolioProject[] = [
     levels: [2, 5],
     icon: "Play",
   },
+  {
+    title: "MoveMore",
+    description:
+      "AI-powered wellness and movement platform focused on helping users build healthier routines through guided experiences and a simple, conversion-first interface.",
+    url: "https://movemore.vercel.app/",
+    tags: ["Wellness", "AI App", "Next.js", "UX", "Vercel"],
+    levels: [5],
+    icon: "Zap",
+  },
+  {
+    title: "Interview Bot",
+    description:
+      "AI-powered interview platform with authentication and role-based experience, designed to streamline hiring workflows and improve candidate evaluation quality.",
+    url: "https://hire-with-giri.vercel.app/",
+    tags: ["Interview AI", "Hiring", "Authentication", "SaaS", "Automation"],
+    levels: [4, 5],
+    icon: "UserCircle",
+  },
+  {
+    title: "IntelliForge Learning",
+    description:
+      "End-to-end AI learning platform for session registration, training access, progress tracking, and feedback collection for scalable training operations.",
+    url: "https://learning.intelliforge.tech/",
+    tags: ["LMS", "AI Training", "Feedback", "Learning Platform", "Operations"],
+    levels: [1, 2, 5],
+    icon: "FileText",
+  },
 ];
 
 export type CaseStudy = {

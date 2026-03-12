@@ -218,6 +218,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="py-12">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <p className="text-sm text-gray-400">
+            Questions about differentiation, licensing, the 5-level framework, or fit?
+          </p>
+          <Link
+            href="/pricing#faq"
+            className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-cyan transition-colors hover:text-cyan-light"
+          >
+            Read our FAQs
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </section>
+
       {/* CTA Banner */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
