@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://intelliforge.tech"),
+  metadataBase: new URL("https://www.intelliforge.tech"),
   title: {
     default:
       "IntelliForge AI — AI Agent Development & Workflow Automation Company",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
       "IntelliForge AI — AI Agent Development & Workflow Automation Company",
     description:
       "We build AI agents, automate workflows, and ship AI apps — in weeks, not months. Hyderabad-based, serving India and beyond.",
-    url: "https://intelliforge.tech",
+    url: "https://www.intelliforge.tech",
     siteName: "IntelliForge AI",
     locale: "en_IN",
     type: "website",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       "We build AI agents, automate workflows, and ship AI apps — in weeks, not months.",
   },
   alternates: {
-    canonical: "https://intelliforge.tech",
+    canonical: "https://www.intelliforge.tech",
   },
 };
 

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://intelliforge.tech";
+const BASE_URL = "https://www.intelliforge.tech";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [

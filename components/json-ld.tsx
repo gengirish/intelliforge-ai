@@ -15,8 +15,8 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "IntelliForge AI",
-  url: "https://intelliforge.tech",
-  logo: "https://intelliforge.tech/logo.png",
+  url: "https://www.intelliforge.tech",
+  logo: "https://www.intelliforge.tech/logo.png",
   description:
     "AI Agent Development & Workflow Automation Company based in Hyderabad, India. End-to-end AI solutions from prompt engineering to full app development.",
   address: {
@@ -41,7 +41,7 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "IntelliForge AI",
-  url: "https://intelliforge.tech",
+  url: "https://www.intelliforge.tech",
   description:
     "AI consulting and development agency offering prompt engineering, workflow automation, AI agent development, and full AI app development.",
   address: {

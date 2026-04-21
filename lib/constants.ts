@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: "AI Agent Development & Automation Company",
   description:
     "IntelliForge AI is a Hyderabad-based AI agent development and workflow automation company — from prompt engineering to full AI app development. Aligned with the Bharat AI Mission.",
-  url: "https://intelliforge.tech",
+  url: "https://www.intelliforge.tech",
   founder: "The IntelliForge Team",
   email: "contact@intelliforge.tech",
   phone: "+91-XXXXXXXXXX",
