@@ -18,6 +18,13 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with IntelliForge AI. Book a free AI strategy call, chat on WhatsApp, or send us a message. We respond within 30 minutes.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact | IntelliForge AI",
+    description:
+      "Book a free AI strategy call or send a project inquiry. We respond within 30 minutes.",
+    url: "https://www.intelliforge.tech/contact",
+  },
 };
 
 export default function ContactPage() {

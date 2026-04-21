@@ -11,6 +11,13 @@ export const metadata: Metadata = {
   title: "Pricing",
   description:
     "Transparent pricing for IntelliForge AI's 5-level AI services. From starter packages to enterprise engagements — find the right plan for your business.",
+  alternates: { canonical: "/pricing" },
+  openGraph: {
+    title: "Pricing | IntelliForge AI",
+    description:
+      "Transparent INR pricing across all 5 AI service levels. Starting from ₹25,000.",
+    url: "https://www.intelliforge.tech/pricing",
+  },
 };
 
 const faqs = [

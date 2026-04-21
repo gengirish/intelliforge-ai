@@ -22,6 +22,13 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Explore IntelliForge AI's 5-level AI service framework — from prompt engineering and workflow automation to AI agents and full application development.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Services | IntelliForge AI",
+    description:
+      "5-level AI service framework: Foundations, Workflow Automation, Creative Studio, Agent Development, and full AI App Development.",
+    url: "https://www.intelliforge.tech/services",
+  },
 };
 
 const featureIcons = [UserCircle, MessageSquare, BarChart3, Search, Smartphone, Globe];

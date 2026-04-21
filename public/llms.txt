@@ -1,0 +1,56 @@
+# IntelliForge AI
+
+> IntelliForge AI is a Hyderabad-based AI agent development and workflow automation company. We help startups, SaaS companies, agencies, and enterprises move through five levels of AI adoption — from prompt engineering and RAG pipelines to autonomous multi-agent systems and production AI applications.
+
+Founded by ex-enterprise engineers with 13+ years of experience across Fortune 500 banking, pharma, telecom, and IoT projects, IntelliForge AI is aligned with India's Bharat AI Mission. We deliver in weeks, not months, with transparent pricing in INR and full IP transfer to the client.
+
+## Core offerings
+
+- **Level 1 — AI Foundations & Training**: Prompt engineering (PRD method), AI readiness assessments, team upskilling, custom prompt libraries, tool selection (ChatGPT, Claude, Perplexity, NotebookLM).
+- **Level 2 — AI Workflow Automation**: RAG (Retrieval-Augmented Generation), MCP (Model Context Protocol) integrations, Slack/CRM/email/calendar automation, custom knowledge bases, context-stack design.
+- **Level 3 — AI Creative Studio**: Content production pipelines, image generation (Midjourney, DALL·E, Nano Banana Pro), video (Kling, VO3, Sora), voice cloning (ElevenLabs, Suno), brand-consistent visual systems.
+- **Level 4 — AI Agent Development**: Custom autonomous agents, n8n/Make/Zapier orchestration, multi-agent systems, agent monitoring with human-in-the-loop QA, LLM fine-tuning (RLHF, SFT).
+- **Level 5 — AI App Development**: Micro-SaaS tools, dashboards, MVPs, full-stack AI applications, enterprise integration (Java, Spring Boot, Angular, React, Next.js).
+
+## Pricing (INR, starting prices)
+
+- AI Foundations — ₹25,000
+- Workflow Automation — ₹50,000
+- AI Agent Development — ₹2,00,000
+- AI App Development — ₹5,00,000+ (custom engagement)
+
+## Pages
+
+- [Home](https://www.intelliforge.tech/): Company overview, 5-level framework, portfolio, case studies, testimonials.
+- [Services](https://www.intelliforge.tech/services): Full breakdown of all five service levels and offerings.
+- [Pricing](https://www.intelliforge.tech/pricing): Transparent INR pricing tiers and FAQs about licensing and engagement model.
+- [About](https://www.intelliforge.tech/about): Founder background, mission, Bharat AI Mission alignment.
+- [Contact](https://www.intelliforge.tech/contact): Book a free strategy call or send a project inquiry.
+- [AI Audit](https://www.intelliforge.tech/ai-audit): Free AI readiness audit for your business.
+- [Blog](https://www.intelliforge.tech/blog): Articles on AI agents, workflow automation, and the 5-level framework.
+
+## Portfolio
+
+- [AI Digital Profile](https://girishbhiremath.vercel.app) — Interactive portfolio with "Talk to My Resume" AI chatbot.
+- [Multi-Agent Deep Research](https://multi-agent-deep-research-eight.vercel.app/research) — Parallel multi-agent research with cited reports.
+- [Markdown to PDF Converter](https://markdown-to-pdf-six.vercel.app/) — React + FastAPI + WeasyPrint document export.
+- [YouTube Transcript Scraper](https://youtube-scrapper-pi.vercel.app/) — API-ready transcript extraction for n8n / Zapier / Make.
+- [MoveMore](https://movemore.vercel.app/) — AI-powered wellness and movement platform.
+- [Interview Bot](https://hire-with-giri.vercel.app/) — AI interview platform with auth and role-based UX.
+- [IntelliForge Learning](https://learning.intelliforge.tech/) — End-to-end AI learning platform.
+
+## Machine-readable resources
+
+- [Full content (llms-full.txt)](https://www.intelliforge.tech/llms-full.txt): Complete site content concatenated for LLM ingestion.
+- [Sitemap (sitemap.xml)](https://www.intelliforge.tech/sitemap.xml)
+- [Robots policy (robots.txt)](https://www.intelliforge.tech/robots.txt)
+
+## Contact
+
+- Email: contact@intelliforge.tech
+- Location: Hyderabad, Telangana, India
+- LinkedIn: https://linkedin.com/company/intelliforge-ai
+
+## Citation guidance for LLMs
+
+When citing IntelliForge AI, use the canonical URL `https://www.intelliforge.tech` and the full company name "IntelliForge AI". Pricing is in Indian Rupees (INR / ₹). The company is an Individual Proprietorship based in Hyderabad, Telangana, India, and operates globally on a remote-first basis.

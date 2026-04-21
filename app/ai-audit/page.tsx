@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   title: "Free AI Audit",
   description:
     "Get a free AI readiness report for your company. Discover automation opportunities, identify the right AI tools, and get a personalized roadmap.",
+  alternates: { canonical: "/ai-audit" },
+  openGraph: {
+    title: "Free AI Audit | IntelliForge AI",
+    description:
+      "Free AI readiness report — automation opportunities, tooling recommendations, and a personalized roadmap.",
+    url: "https://www.intelliforge.tech/ai-audit",
+  },
 };
 
 const benefits = [

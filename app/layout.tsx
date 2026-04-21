@@ -7,7 +7,8 @@ import { WhatsAppButton } from "@/components/whatsapp-button";
 import {
   JsonLd,
   organizationSchema,
-  localBusinessSchema,
+  professionalServiceSchema,
+  websiteSchema,
 } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
 
@@ -83,11 +84,25 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* LLM / AI search discovery (llmstxt.org) */}
+        <link
+          rel="alternate"
+          type="text/markdown"
+          href="/llms.txt"
+          title="LLM-friendly site summary"
+        />
+        <link
+          rel="alternate"
+          type="text/plain"
+          href="/llms-full.txt"
+          title="Full content for LLM ingestion"
+        />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Analytics />
         <JsonLd data={organizationSchema} />
-        <JsonLd data={localBusinessSchema} />
+        <JsonLd data={professionalServiceSchema} />
+        <JsonLd data={websiteSchema} />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

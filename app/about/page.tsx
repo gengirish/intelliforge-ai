@@ -22,6 +22,13 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Learn about IntelliForge AI — built on 13+ years of enterprise experience, aligned with the Bharat AI Mission to democratize AI for India.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About | IntelliForge AI",
+    description:
+      "13+ years of enterprise engineering experience meets cutting-edge AI. Aligned with India's Bharat AI Mission.",
+    url: "https://www.intelliforge.tech/about",
+  },
 };
 
 export default function AboutPage() {

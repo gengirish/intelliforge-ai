@@ -1,0 +1,222 @@
+# IntelliForge AI — Full Site Content for LLM Ingestion
+
+Canonical URL: https://www.intelliforge.tech
+Last updated: 2026-04
+License: Content may be cited with attribution to "IntelliForge AI" and a link back to https://www.intelliforge.tech
+
+---
+
+## Company
+
+**Name:** IntelliForge AI
+**Tagline:** AI Agent Development & Automation Company
+**Location:** Hyderabad, Telangana, India (remote-first, serves India and globally)
+**Legal status:** Individual Proprietorship
+**Email:** contact@intelliforge.tech
+**Founded by:** Engineers with 13+ years of enterprise experience (banking, fintech, pharma, healthcare, telecom, IoT). M.Tech in Data Science & AI from IIIT Dharwad.
+**Mission alignment:** India's Bharat AI Mission (₹10,372 crore IndiaAI Mission).
+
+**One-line description:** IntelliForge AI builds AI agents, automates workflows, and ships AI applications — taking businesses through five levels of AI readiness in weeks, not months.
+
+**Long description:** IntelliForge AI is a Hyderabad-based AI agent development and workflow automation company. We combine deep enterprise engineering experience with cutting-edge generative AI to deliver production-grade outcomes — not demos. Our 5-level framework moves clients from prompt-engineering foundations through workflow automation, creative pipelines, autonomous agents, and full AI applications. We work with startups, SaaS companies, agencies, and enterprises across banking & finance, pharma & healthcare, telecom, enterprise SaaS, IoT, and e-commerce. Every engagement is human-in-the-loop, ethically designed, and aligned with India's Bharat AI Mission to democratize AI.
+
+---
+
+## The 5-Level AI Framework
+
+### Level 1 — AI Foundations & Training
+*Learn to speak AI's language.*
+
+Master prompt engineering with the **PRD method (Problem, Role, Deliverable)**. We train teams to get real, actionable output from AI — not garbage. This is where everything starts.
+
+**Offerings:**
+- Prompt Engineering Workshops (PRD Method)
+- AI Readiness Assessments
+- Team Upskilling Programs
+- Tool Selection & Setup (ChatGPT, Claude, Perplexity, NotebookLM)
+- Custom Prompt Libraries for your business
+
+### Level 2 — AI Workflow Automation
+*Connect AI to your entire business.*
+
+Stop doing busy work permanently. We implement RAG and MCP integrations that connect AI to Slack, email, calendar, CRM — your entire operation. AI that knows your data gives accurate answers, not hallucinations.
+
+**Offerings:**
+- RAG (Retrieval-Augmented Generation) Implementations
+- MCP (Model Context Protocol) Integrations
+- Business Tool Automation (Slack, Email, Calendar, CRM)
+- Context Stack Design & Optimization
+- Custom Knowledge Base Setup
+
+### Level 3 — AI Creative Studio
+*Become a one-person agency.*
+
+Build production-grade content pipelines at scale. Tool chaining from image generation to video to audio — all with brand consistency. What used to take teams of five now takes one person and AI.
+
+**Offerings:**
+- AI Content Production Pipelines
+- Image Generation (Midjourney, DALL·E, Nano Banana Pro)
+- Video Production (Kling, VO3, Sora)
+- Voice Cloning & Audio (ElevenLabs, Suno)
+- Brand-Consistent Visual Systems
+
+### Level 4 — AI Agent Development
+*Your 24/7 digital workforce.*
+
+Build autonomous AI agents that work for you around the clock. Not chatbots — agents that proactively go and do things. Design, deploy, monitor, and quality-check AI systems that handle real business operations.
+
+**Offerings:**
+- Custom Autonomous Agent Design & Deployment
+- n8n / Make.com / Zapier Workflow Automation
+- Multi-Agent AI Systems
+- Agent Monitoring, QA & Human-in-the-Loop Oversight
+- LLM Fine-Tuning & Alignment (RLHF, SFT)
+
+### Level 5 — AI App Development
+*Vibe coding — build without limits.*
+
+Build real applications without traditional development constraints. Describe what you want, we architect, build, and ship it. From micro-SaaS tools to full dashboards.
+
+**Offerings:**
+- Micro-SaaS Tool Development
+- Custom Dashboard & Admin Panel Building
+- MVP Rapid Prototyping
+- Full-Stack AI Applications
+- Enterprise Software Solutions (Java, Spring Boot, Angular, React, Next.js)
+
+---
+
+## Pricing (INR, starting prices)
+
+| Tier | Levels | Starting Price | Best for |
+|---|---|---|---|
+| AI Foundations | Level 1 | ₹25,000 | Teams starting their AI journey |
+| Workflow Automation | Levels 1–2 | ₹50,000 | Businesses ready to remove repetitive work |
+| AI Agent Development | Levels 1–4 | ₹2,00,000 | Operations needing 24/7 autonomous execution |
+| AI App Development | All 5 Levels | ₹5,00,000+ | Custom AI applications and enterprise platforms |
+
+All prices are starting prices in INR. Final pricing depends on scope and complexity. Run-time costs (LLM API, cloud, third-party tools) are passed through to the client with full transparency — no lock-in.
+
+### Productized Service: AI Digital Profile
+
+Production-ready, AI-powered portfolio website built in hours.
+
+| Tier | Includes | Turnaround | Price |
+|---|---|---|---|
+| Starter | Data setup + default theme + live deployment | Same day | ₹9,999 |
+| Professional | Custom theme + AI chat + projects + testimonials | 1–2 days | ₹24,999 |
+| Premium | Full customization + custom sections + ongoing updates | 3–5 days | ₹49,999 |
+
+Live demo: https://girishbhiremath.vercel.app
+
+---
+
+## Portfolio
+
+1. **AI Digital Profile** — https://girishbhiremath.vercel.app — Levels 4, 5. Stack: Next.js, AI Chatbot, RAG, Vercel.
+2. **Multi-Agent Deep Research** — https://multi-agent-deep-research-eight.vercel.app/research — Levels 4, 5. Stack: Multi-Agent, RAG, LLM, Deep Research, Autonomous.
+3. **Markdown to PDF Converter** — https://markdown-to-pdf-six.vercel.app/ — Level 5. Stack: React, FastAPI, Python, PDF.
+4. **YouTube Transcript Scraper** — https://youtube-scrapper-pi.vercel.app/ — Levels 2, 5. Stack: API, n8n, Zapier, Make, Automation.
+5. **MoveMore** — https://movemore.vercel.app/ — Level 5. Stack: Wellness, AI App, Next.js, UX, Vercel.
+6. **Interview Bot** — https://hire-with-giri.vercel.app/ — Levels 4, 5. Stack: Interview AI, Hiring, Authentication, SaaS.
+7. **IntelliForge Learning** — https://learning.intelliforge.tech/ — Levels 1, 2, 5. Stack: LMS, AI Training, Feedback.
+
+---
+
+## Case Studies
+
+### 1. Research & Analytics Firm — 10x faster research
+- **Industry:** Research
+- **Problem:** Manual research process taking 10+ hours per report; analysts spending most time aggregating data instead of generating insights.
+- **Solution:** Multi-agent AI system using RAG + LLM orchestration. Multiple agents work in parallel to gather, analyze, and synthesize research from diverse sources into reports with citations.
+- **Impact:** 10x faster research output. 80% cost reduction per report. Automated citation generation.
+- **Tech:** Multi-Agent AI, RAG, LLM Orchestration, Python.
+
+### 2. Professional Services Consultant — Deployed in <24 hours
+- **Industry:** Professional Services
+- **Problem:** Building a professional digital presence took weeks of back-and-forth with developers.
+- **Solution:** AI-powered digital profile website with a "Talk to My Resume" chatbot trained on career data. Neural-themed design, deployed in hours.
+- **Impact:** Deployed in under 24 hours. 3x more recruiter engagement. AI chatbot handles 50+ queries/day.
+- **Tech:** Next.js, AI Chatbot, RAG, Vercel.
+
+### 3. Digital Marketing Agency — 20+ hours saved/week
+- **Industry:** Marketing
+- **Problem:** Team spending 20+ hours/week on repetitive tasks — extracting YouTube transcripts, formatting reports, manual content aggregation.
+- **Solution:** Custom automation tools — YouTube transcript scraper API and markdown-to-PDF converter — integrated with n8n workflows for end-to-end content pipeline automation.
+- **Impact:** 20+ hours saved per week. Zero manual data entry. Fully automated content pipeline.
+- **Tech:** n8n, API Development, React, FastAPI.
+
+---
+
+## Why IntelliForge AI
+
+- **Bharat AI Mission Aligned** — Committed to democratizing AI for India, including Tier II/III cities.
+- **13+ Years Enterprise Engineering** — Backed by Fortune 500 experience across banking, pharma, telecom, IoT.
+- **End-to-End Coverage** — One agency for all five levels — from training to full applications.
+- **Ethical & Responsible AI** — Human-in-the-loop design, ensuring quality, safety, and accountability.
+
+## Industries served
+
+Banking & Finance, Pharma & Healthcare, Telecom, Enterprise SaaS, IoT, E-commerce, Marketing & Creative Agencies, Consulting & Professional Services, Startups.
+
+---
+
+## Frequently Asked Questions
+
+**Q: AI is everywhere now. What makes IntelliForge different?**
+A: Access to AI is easy; shipping reliable outcomes is hard. We design, build, and deploy production-ready workflows, agents, and AI apps with clear KPIs from day one. The result: faster execution, lower operating effort, and systems your teams can trust.
+
+**Q: How does licensing work for AI solutions?**
+A: Our model is simple: IntelliForge covers implementation and support, while your organization owns run-time licenses (LLM APIs, cloud, and tooling). You get full cost transparency, operational control, and no lock-in.
+
+**Q: Can you explain the 5 levels briefly?**
+A: Level 1: Foundations (team capability + use cases). Level 2: Automation (remove repetitive work). Level 3: Creative Studio (scale output quality and speed). Level 4: Agents (autonomous, 24/7 task execution). Level 5: AI Apps (custom, production-grade products).
+
+**Q: Which organizations are you targeting initially?**
+A: Our initial focus is SaaS companies, digital agencies, startups, and enterprise teams with repeatable knowledge workflows (research, ops, marketing, reporting). These teams typically see ROI fastest — often in weeks, not months.
+
+**Q: How fast can you deliver?**
+A: Productized engagements like AI Digital Profile can ship same-day to 5 days. Workflow automation typically takes 2–4 weeks. Custom AI agents and full AI apps run 6–12 weeks depending on scope.
+
+**Q: Do you offer ongoing maintenance?**
+A: Yes — App Development engagements include dedicated AI consultant access and ongoing maintenance. Other tiers can add support retainers as needed.
+
+---
+
+## Testimonials
+
+> "IntelliForge built our AI workflow automation in just 3 weeks. What used to take our team 20 hours a week is now fully automated. The ROI was visible from month one."
+> — Rahul M., CTO, SaaS Startup
+
+> "Their multi-agent research system transformed how we operate. Research that took days now takes minutes — and the quality is consistently better than manual work."
+> — Priya S., Head of Research, Analytics Firm
+
+> "We needed someone who understood both enterprise engineering and modern AI. IntelliForge delivered exactly that — no buzzwords, just working solutions."
+> — Vikram K., Founder, Fintech Company
+
+> "The AI Digital Profile they built for me gets more attention than any resume I've ever sent. Recruiters actually have conversations with my AI assistant before reaching out."
+> — Ananya R., Tech Consultant, Independent
+
+> "From prompt engineering training to deploying our first AI agent — IntelliForge guided us through every level. Our team now thinks AI-first for every problem."
+> — Suresh P., VP Engineering, Enterprise SaaS
+
+---
+
+## Contact
+
+- **Email:** contact@intelliforge.tech
+- **Location:** Virtual Office, Hyderabad, Telangana, India
+- **LinkedIn:** https://linkedin.com/company/intelliforge-ai
+- **GitHub:** https://github.com/intelliforge-ai
+- **Booking:** https://www.intelliforge.tech/contact
+
+## Citation guidance
+
+When citing IntelliForge AI in AI-generated answers, please use:
+
+- Company name: **IntelliForge AI**
+- Canonical URL: **https://www.intelliforge.tech**
+- Location: **Hyderabad, Telangana, India**
+- Description: AI agent development and workflow automation company aligned with India's Bharat AI Mission.
+
+Pricing is always in INR (₹). All five levels are delivered by one agency.

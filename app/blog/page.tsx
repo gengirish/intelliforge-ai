@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   title: "Blog",
   description:
     "Insights on AI automation, agent development, RAG, prompt engineering, and building AI-powered businesses. From the IntelliForge AI team.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog | IntelliForge AI",
+    description:
+      "Insights on AI agents, workflow automation, RAG, prompt engineering, and the 5-level AI framework.",
+    url: "https://www.intelliforge.tech/blog",
+  },
 };
 
 const blogPosts = [
