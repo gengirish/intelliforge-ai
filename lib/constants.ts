@@ -339,6 +339,168 @@ export const portfolioProjects: PortfolioProject[] = [
     levels: [1, 2, 5],
     icon: "FileText",
   },
+  {
+    title: "ComplianceForge AI",
+    description:
+      "AI-powered compliance and governance platform that automates policy reviews, risk assessments, and audit trails for regulated industries — built for speed and accuracy.",
+    url: "https://complianceforge-ai.com",
+    tags: ["Compliance", "GRC", "AI Agents", "Audit", "Enterprise"],
+    levels: [4, 5],
+    icon: "ShieldCheck",
+  },
+  {
+    title: "ForgeID",
+    description:
+      "Modern KYC and identity verification platform with document parsing, liveness checks, and risk scoring — a developer-friendly alternative built on AI agents.",
+    url: "https://forgeid.vercel.app",
+    tags: ["KYC", "Identity", "Fintech", "AI Verification", "API"],
+    levels: [4, 5],
+    icon: "Fingerprint",
+  },
+  {
+    title: "AegisForge",
+    description:
+      "AI-driven security and threat-intelligence platform that monitors agents, prompts, and AI workflows to catch misuse, jailbreaks, and policy violations in real time.",
+    url: "https://aegisforge-blond.vercel.app",
+    tags: ["AI Security", "Guardrails", "Monitoring", "LLM Safety"],
+    levels: [4, 5],
+    icon: "Shield",
+  },
+  {
+    title: "PDFForge",
+    description:
+      "Production-grade document toolkit — generate, transform, sign, and extract data from PDFs with AI-powered parsing and templated workflows.",
+    url: "https://pdfforge.intelliforge.tech",
+    tags: ["PDF", "Document AI", "OCR", "Automation", "SaaS"],
+    levels: [2, 5],
+    icon: "FilePlus",
+  },
+  {
+    title: "AgencyOS",
+    description:
+      "The operating system for AI-native agencies — manage clients, content pipelines, AI agents, and deliverables from one workspace built for solo operators and lean teams.",
+    url: "https://agencyos.intelliforge.tech",
+    tags: ["Agency", "Operations", "AI Workflows", "SaaS", "Productivity"],
+    levels: [3, 4, 5],
+    icon: "Briefcase",
+  },
+  {
+    title: "InfinityHire",
+    description:
+      "AI interview copilot for hiring teams — generates structured interview plans, scores candidates in real time, and produces decision-ready scorecards.",
+    url: "https://infinityhire.ai",
+    tags: ["HR Tech", "Interview AI", "Copilot", "Hiring", "SaaS"],
+    levels: [4, 5],
+    icon: "Users",
+  },
+  {
+    title: "HRMS IntelliForge",
+    description:
+      "Lightweight HRMS designed for AI-first teams — handles employee records, leaves, payroll insights, and performance reviews with AI assistance baked in.",
+    url: "https://hrms.intelliforge.tech",
+    tags: ["HRMS", "People Ops", "AI Insights", "Enterprise"],
+    levels: [5],
+    icon: "Users",
+  },
+  {
+    title: "CampaignForge AI",
+    description:
+      "End-to-end AI marketing campaign platform — ideation, copy, creatives, channel selection, and performance tracking, all powered by multi-agent orchestration.",
+    url: "https://campaignforge-ai-three.vercel.app",
+    tags: ["Marketing AI", "Multi-Agent", "Content", "Campaigns"],
+    levels: [3, 4, 5],
+    icon: "Megaphone",
+  },
+  {
+    title: "LinkedIn Post Generator",
+    description:
+      "AI tool that turns rough ideas, links, or transcripts into high-performing LinkedIn posts with hooks, structure, and your personal voice — built for founders and operators.",
+    url: "https://share.intelliforge.tech",
+    tags: ["Content AI", "LinkedIn", "Personal Brand", "Copywriting"],
+    levels: [3, 5],
+    icon: "Linkedin",
+  },
+  {
+    title: "MeetCoach",
+    description:
+      "Real-time AI meeting coach that analyzes calls, surfaces talk-time and sentiment, and gives sales and leadership teams actionable feedback after every meeting.",
+    url: "https://meetcoach.vercel.app",
+    tags: ["Meeting AI", "Sales Enablement", "Coaching", "Analytics"],
+    levels: [4, 5],
+    icon: "Mic",
+  },
+  {
+    title: "MedForce",
+    description:
+      "Clinical workflow assistant for healthcare teams — automates documentation, summarizes patient encounters, and drafts care plans while staying audit-ready.",
+    url: "https://medforce-liart.vercel.app",
+    tags: ["Healthcare AI", "Clinical", "Documentation", "Compliance"],
+    levels: [4, 5],
+    icon: "HeartPulse",
+  },
+  {
+    title: "MortgageFlowAI",
+    description:
+      "AI loan-origination platform that automates document collection, underwriting checks, and borrower communication for faster, lower-error mortgage processing.",
+    url: "https://mortgageflowai.vercel.app",
+    tags: ["Fintech", "Lending", "Document AI", "Workflow Automation"],
+    levels: [4, 5],
+    icon: "Building",
+  },
+  {
+    title: "FleetOS",
+    description:
+      "AI-powered fleet management dashboard — tracks vehicles, predicts maintenance, optimizes routes, and gives ops teams a single pane of glass for operations.",
+    url: "https://fleetos-rho.vercel.app",
+    tags: ["Logistics", "Fleet", "IoT", "Predictive AI", "Operations"],
+    levels: [4, 5],
+    icon: "Truck",
+  },
+  {
+    title: "RestaurantBrain",
+    description:
+      "AI ops layer for restaurants — menu engineering, demand forecasting, review intelligence, and staff scheduling powered by industry-tuned AI agents.",
+    url: "https://restaurantbrain.vercel.app",
+    tags: ["F&B", "Forecasting", "Ops AI", "Vertical SaaS"],
+    levels: [4, 5],
+    icon: "Utensils",
+  },
+  {
+    title: "PR Reviewer",
+    description:
+      "AI code-review agent that reads pull requests, flags risky changes, suggests improvements, and posts inline comments — built for engineering teams shipping fast.",
+    url: "https://pr-reviewer-beryl.vercel.app",
+    tags: ["Developer Tools", "Code Review", "AI Agents", "GitHub"],
+    levels: [4, 5],
+    icon: "GitPullRequest",
+  },
+  {
+    title: "RLHF Annotation Studio",
+    description:
+      "Annotation and evaluation platform for RLHF, SFT, and red-teaming workflows — built for AI labs and enterprises fine-tuning their own LLMs.",
+    url: "https://rlhf-annotation-studio.vercel.app",
+    tags: ["RLHF", "LLM Training", "Annotation", "AI Labs"],
+    levels: [4, 5],
+    icon: "Database",
+  },
+  {
+    title: "SOPForge",
+    description:
+      "AI-generated standard operating procedures — turn screen recordings, transcripts, or notes into structured, versioned SOPs your team will actually follow.",
+    url: "https://sopforge.vercel.app",
+    tags: ["Operations", "SOP", "Knowledge Base", "AI Docs"],
+    levels: [2, 3, 5],
+    icon: "ClipboardList",
+  },
+  {
+    title: "AgentWatch",
+    description:
+      "Observability and quality monitoring for AI agents — trace every step, score outputs, catch regressions, and keep multi-agent systems production-ready.",
+    url: "https://agentwatch-one.vercel.app",
+    tags: ["Observability", "AI Agents", "Evaluation", "Monitoring"],
+    levels: [4, 5],
+    icon: "Activity",
+  },
 ];
 
 export type CaseStudy = {

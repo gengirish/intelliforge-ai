@@ -21,8 +21,8 @@ export const organizationSchema = {
   legalName: "IntelliForge AI",
   alternateName: ["IntelliForge", "IntelliForge AI Agency"],
   url: SITE_URL,
-  logo: `${SITE_URL}/logo.png`,
-  image: `${SITE_URL}/logo.png`,
+  logo: `${SITE_URL}/logo.svg`,
+  image: `${SITE_URL}/logo.svg`,
   slogan: "We Build AI Agents, Automate Workflows & Ship AI Apps — In Weeks, Not Months",
   description:
     "AI Agent Development & Workflow Automation Company based in Hyderabad, India. End-to-end AI solutions from prompt engineering to full app development. Aligned with the Bharat AI Mission.",
@@ -85,7 +85,7 @@ export const professionalServiceSchema = {
   "@id": `${SITE_URL}#professional-service`,
   name: "IntelliForge AI",
   url: SITE_URL,
-  image: `${SITE_URL}/logo.png`,
+  image: `${SITE_URL}/logo.svg`,
   priceRange: "₹₹",
   description:
     "AI consulting and development agency offering prompt engineering, workflow automation, AI agent development, and full AI app development.",

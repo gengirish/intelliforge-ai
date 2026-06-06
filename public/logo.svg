@@ -1,0 +1,13 @@
+<!-- Interim default logo URL for SEO/schema. Replace with final brand asset — docs/branding-assets.md -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="IntelliForge AI">
+  <defs>
+    <linearGradient id="ifg-lg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#ifg-lg)"/>
+  <g transform="translate(256 256) scale(11) translate(-16 -16)">
+    <path fill="#ffffff" d="M17.2 5.5 7.5 17.2h6.4l-1.6 9.3 9.9-11.7H15.8l1.4-9.3z"/>
+  </g>
+</svg>
