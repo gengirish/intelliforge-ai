@@ -19,7 +19,7 @@ Final **logo, app icon, and illustration** should come from a human-led brand pa
 
 | Asset              | Spec / notes                                      | Path / convention        |
 |--------------------|---------------------------------------------------|---------------------------|
-| Favicon (browser)  | SVG or ICO; readable at **16×16**               | `app/icon.svg` (or `icon.png`) |
+| Favicon (browser)  | **PNG** (Chrome ignores SVG favicons); **also** `/favicon.ico` → `/icon` rewrite so hosts do not serve a default triangle | `app/icon.tsx` (`ImageResponse`) + `next.config.ts` rewrite |
 | Default logo URL   | **≥ 112×112** for Google rich results (SVG OK)  | `public/logo.svg` → `https://www.intelliforge.tech/logo.svg` |
 | Apple touch icon   | **180×180** PNG (iOS home screen)                 | `app/apple-icon.png` (add when ready) |
 | Open Graph image   | **1200×630** PNG or JPG; keep key art in center safe zone | Set `openGraph.images` + `twitter.images` in `app/layout.tsx` when file exists (e.g. `public/og/default.png`) |
@@ -35,7 +35,7 @@ Final **logo, app icon, and illustration** should come from a human-led brand pa
 
 ## After new files land
 
-1. Drop final favicon as `app/icon.png` or replace `app/icon.svg`.
+1. Replace `app/icon.tsx` with a generated or static `app/icon.png` / `app/favicon.ico`, and remove the `favicon.ico` rewrite if you ship a real `.ico` file.
 2. Replace `public/logo.svg` (or add `public/logo.png` and update `json-ld.tsx`).
 3. Add `app/apple-icon.png` (180×180).
 4. Add OG image and extend `metadata` in `app/layout.tsx` with `openGraph.images` and `twitter.images`.
