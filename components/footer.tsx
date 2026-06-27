@@ -122,7 +122,7 @@ export function Footer() {
               <li className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
                 <a
-                  href={`tel:${siteConfig.phone}`}
+                  href="tel:+918555960837"
                   className="text-sm text-gray-400 transition-colors hover:text-cyan"
                 >
                   {siteConfig.phone}

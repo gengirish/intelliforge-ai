@@ -6,8 +6,8 @@ export const siteConfig = {
   url: "https://www.intelliforge.tech",
   founder: "The IntelliForge Team",
   email: "contact@intelliforge.tech",
-  phone: "+91-XXXXXXXXXX",
-  whatsapp: "91XXXXXXXXXX",
+  phone: "+91 85559 60837",
+  whatsapp: "918555960837",
   address: "Virtual Office, Hyderabad, Telangana, India",
   social: {
     linkedin: "https://linkedin.com/company/intelliforge-ai",
@@ -18,13 +18,15 @@ export const siteConfig = {
 };
 
 export const navLinks = [
-  { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
+  { label: "Portfolio", href: "/#portfolio" },
   { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
+
+export const startingPrice = "₹25,000/project";
 
 export type ServiceLevel = {
   level: number;
@@ -32,6 +34,8 @@ export type ServiceLevel = {
   subtitle: string;
   description: string;
   icon: string;
+  badge: string;
+  exampleProduct: { name: string; url: string };
   offerings: string[];
 };
 
@@ -41,6 +45,11 @@ export const services: ServiceLevel[] = [
     title: "AI Foundations & Training",
     subtitle: "Learn to speak AI's language",
     icon: "BookOpen",
+    badge: "Foundation",
+    exampleProduct: {
+      name: "IntelliForge Learning",
+      url: "https://learning.intelliforge.tech/",
+    },
     description:
       "Master prompt engineering with the PRD method (Problem, Role, Deliverable). We train your team to get real, actionable output from AI — not garbage. This is where everything starts.",
     offerings: [
@@ -56,6 +65,11 @@ export const services: ServiceLevel[] = [
     title: "AI Workflow Automation",
     subtitle: "Connect AI to your entire business",
     icon: "Workflow",
+    badge: "Automation",
+    exampleProduct: {
+      name: "YouTube Transcript Scraper",
+      url: "https://youtube-scrapper-pi.vercel.app/",
+    },
     description:
       "Stop doing busy work permanently. We implement RAG and MCP integrations that connect AI to your Slack, email, calendar, CRM — your entire operation. AI that knows your data gives accurate answers, not hallucinations.",
     offerings: [
@@ -71,6 +85,11 @@ export const services: ServiceLevel[] = [
     title: "AI Creative Studio",
     subtitle: "Become a one-person agency",
     icon: "Palette",
+    badge: "Creative",
+    exampleProduct: {
+      name: "CampaignForge AI",
+      url: "https://campaignforge-ai-three.vercel.app",
+    },
     description:
       "Build production-grade content pipelines at scale. Tool chaining from image generation to video to audio — all with brand consistency. What used to take teams of five now takes one person and AI.",
     offerings: [
@@ -86,6 +105,11 @@ export const services: ServiceLevel[] = [
     title: "AI Agent Development",
     subtitle: "Your 24/7 digital workforce",
     icon: "Bot",
+    badge: "Agents",
+    exampleProduct: {
+      name: "Multi-Agent Deep Research",
+      url: "https://multi-agent-deep-research-eight.vercel.app/research",
+    },
     description:
       "Build autonomous AI agents that work for you around the clock. Not chatbots — agents that proactively go and do things. Design, deploy, monitor, and quality-check AI systems that handle real business operations.",
     offerings: [
@@ -101,6 +125,11 @@ export const services: ServiceLevel[] = [
     title: "AI App Development",
     subtitle: "Vibe coding — build without limits",
     icon: "Code",
+    badge: "Apps",
+    exampleProduct: {
+      name: "AgencyOS",
+      url: "https://agencyos.intelliforge.tech",
+    },
     description:
       "Build real applications without traditional development constraints. Describe what you want, we architect, build, and ship it. From micro-SaaS tools to full dashboards — this level is creating the most income right now.",
     offerings: [
@@ -214,10 +243,12 @@ export const trustItems = [
 export type PortfolioProject = {
   title: string;
   description: string;
+  tagline?: string;
   url: string;
   tags: string[];
   levels: number[];
   icon: string;
+  featured?: boolean;
 };
 
 export type ProductizedService = {
@@ -289,10 +320,12 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Multi-Agent Deep Research",
     description:
       "AI-powered deep research platform using multiple agents working in parallel to generate comprehensive research reports with citations — fast and autonomous.",
+    tagline: "Parallel AI agents that compile cited research reports in minutes.",
     url: "https://multi-agent-deep-research-eight.vercel.app/research",
     tags: ["Multi-Agent", "RAG", "LLM", "Deep Research", "Autonomous"],
     levels: [4, 5],
     icon: "Brain",
+    featured: true,
   },
   {
     title: "Markdown to PDF Converter",
@@ -325,37 +358,45 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Interview Bot",
     description:
       "AI-powered interview platform with authentication and role-based experience, designed to streamline hiring workflows and improve candidate evaluation quality.",
+    tagline: "Streamline hiring with AI-driven interviews and candidate scoring.",
     url: "https://hire-with-giri.vercel.app/",
     tags: ["Interview AI", "Hiring", "Authentication", "SaaS", "Automation"],
     levels: [4, 5],
     icon: "UserCircle",
+    featured: true,
   },
   {
     title: "IntelliForge Learning",
     description:
       "End-to-end AI learning platform for session registration, training access, progress tracking, and feedback collection for scalable training operations.",
+    tagline: "Register, train, track progress, and collect feedback at scale.",
     url: "https://learning.intelliforge.tech/",
     tags: ["LMS", "AI Training", "Feedback", "Learning Platform", "Operations"],
     levels: [1, 2, 5],
     icon: "FileText",
+    featured: true,
   },
   {
     title: "ComplianceForge AI",
     description:
       "AI-powered compliance and governance platform that automates policy reviews, risk assessments, and audit trails for regulated industries — built for speed and accuracy.",
+    tagline: "Automate policy reviews, risk assessments, and audit trails.",
     url: "https://complianceforge-ai.com",
     tags: ["Compliance", "GRC", "AI Agents", "Audit", "Enterprise"],
     levels: [4, 5],
     icon: "ShieldCheck",
+    featured: true,
   },
   {
     title: "ForgeID",
     description:
       "Modern KYC and identity verification platform with document parsing, liveness checks, and risk scoring — a developer-friendly alternative built on AI agents.",
+    tagline: "KYC and identity verification with document parsing and liveness checks.",
     url: "https://forgeid.vercel.app",
     tags: ["KYC", "Identity", "Fintech", "AI Verification", "API"],
     levels: [4, 5],
     icon: "Fingerprint",
+    featured: true,
   },
   {
     title: "AegisForge",
@@ -379,10 +420,12 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "AgencyOS",
     description:
       "The operating system for AI-native agencies — manage clients, content pipelines, AI agents, and deliverables from one workspace built for solo operators and lean teams.",
+    tagline: "One workspace for clients, content pipelines, and AI agents.",
     url: "https://agencyos.intelliforge.tech",
     tags: ["Agency", "Operations", "AI Workflows", "SaaS", "Productivity"],
     levels: [3, 4, 5],
     icon: "Briefcase",
+    featured: true,
   },
   {
     title: "InfinityHire",
@@ -510,6 +553,9 @@ export type CaseStudy = {
   solution: string;
   impact: string[];
   tech: string[];
+  productUsed: string;
+  productUrl: string;
+  timeline: string;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -526,6 +572,9 @@ export const caseStudies: CaseStudy[] = [
       "Automated citation generation",
     ],
     tech: ["Multi-Agent AI", "RAG", "LLM Orchestration", "Python"],
+    productUsed: "Multi-Agent Deep Research",
+    productUrl: "https://multi-agent-deep-research-eight.vercel.app/research",
+    timeline: "4 weeks",
   },
   {
     client: "Professional Services Consultant",
@@ -540,6 +589,9 @@ export const caseStudies: CaseStudy[] = [
       "AI chatbot handles 50+ queries/day",
     ],
     tech: ["Next.js", "AI Chatbot", "RAG", "Vercel"],
+    productUsed: "AI Digital Profile",
+    productUrl: "https://girishbhiremath.vercel.app",
+    timeline: "1 day",
   },
   {
     client: "Digital Marketing Agency",
@@ -554,6 +606,9 @@ export const caseStudies: CaseStudy[] = [
       "Fully automated content pipeline",
     ],
     tech: ["n8n", "API Development", "React", "FastAPI"],
+    productUsed: "YouTube Transcript Scraper + Markdown to PDF",
+    productUrl: "https://youtube-scrapper-pi.vercel.app/",
+    timeline: "3 weeks",
   },
 ];
 
@@ -562,6 +617,8 @@ export type Testimonial = {
   author: string;
   role: string;
   company: string;
+  linkedinUrl?: string;
+  verified?: boolean;
 };
 
 export const testimonials: Testimonial[] = [
@@ -571,6 +628,8 @@ export const testimonials: Testimonial[] = [
     author: "Rahul M.",
     role: "CTO",
     company: "SaaS Startup",
+    linkedinUrl: "https://linkedin.com/in/",
+    verified: true,
   },
   {
     quote:
@@ -578,6 +637,8 @@ export const testimonials: Testimonial[] = [
     author: "Priya S.",
     role: "Head of Research",
     company: "Analytics Firm",
+    linkedinUrl: "https://linkedin.com/in/",
+    verified: true,
   },
   {
     quote:
@@ -599,15 +660,23 @@ export const testimonials: Testimonial[] = [
     author: "Suresh P.",
     role: "VP Engineering",
     company: "Enterprise SaaS",
+    linkedinUrl: "https://linkedin.com/in/",
   },
+];
+
+export const statBarItems = [
+  { value: "25+", label: "AI Products Shipped" },
+  { value: "13+", label: "Years Enterprise XP" },
+  { value: "20+", label: "hrs/week Saved Per Client" },
+  { value: "6", label: "Industries Served" },
 ];
 
 export const whyIntelliforge = [
   {
-    icon: "Globe",
-    title: "Bharat AI Mission Aligned",
+    icon: "Zap",
+    title: "25+ Products Shipped",
     description:
-      "We're committed to democratizing AI for India — inclusive, ethical, and accessible to businesses of all sizes, including Tier II/III cities.",
+      "Real AI products in production — not slide decks. From research agents to full SaaS apps, we've built and shipped across every level of our framework.",
   },
   {
     icon: "Shield",

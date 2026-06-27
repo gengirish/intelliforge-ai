@@ -1,37 +1,11 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  Globe,
-  Shield,
-  ShieldCheck,
-  Zap,
-  Users,
-  ExternalLink,
-  Play,
-  Brain,
-  FileText,
-  FilePlus,
-  UserCircle,
-  Fingerprint,
-  Briefcase,
-  Megaphone,
-  Linkedin,
-  Mic,
-  HeartPulse,
-  Building,
-  Truck,
-  Utensils,
-  GitPullRequest,
-  Database,
-  ClipboardList,
-  Activity,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/hero";
-import { ServiceCard } from "@/components/service-card";
-import { MissionBadge } from "@/components/mission-badge";
+import { StatBar } from "@/components/stat-bar";
+import { FrameworkStepper } from "@/components/framework-stepper";
+import { PortfolioGrid } from "@/components/portfolio-grid";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
-import { IndustryLogos } from "@/components/industry-logos";
 import { CaseStudyCard } from "@/components/case-study-card";
 import { Testimonials } from "@/components/testimonials";
 import { AiDemo } from "@/components/ai-demo";
@@ -42,31 +16,18 @@ import {
   caseStudies,
   testimonials,
 } from "@/lib/constants";
+import {
+  Globe,
+  Shield,
+  Zap,
+  Users,
+} from "lucide-react";
 
 const iconMap: Record<string, React.ElementType> = {
   Globe,
   Shield,
-  ShieldCheck,
   Zap,
   Users,
-  Play,
-  Brain,
-  FileText,
-  FilePlus,
-  UserCircle,
-  Fingerprint,
-  Briefcase,
-  Megaphone,
-  Linkedin,
-  Mic,
-  HeartPulse,
-  Building,
-  Truck,
-  Utensils,
-  GitPullRequest,
-  Database,
-  ClipboardList,
-  Activity,
 };
 
 export default function HomePage() {
@@ -74,14 +35,14 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* Industry Trust Strip */}
-      <section className="py-12 border-b border-border">
+      {/* Stat bar (replaces industry logos) */}
+      <section className="border-b border-border py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <IndustryLogos />
+          <StatBar />
         </div>
       </section>
 
-      {/* Services Overview */}
+      {/* 5-Level Framework — visual stepper */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -90,11 +51,7 @@ export default function HomePage() {
             description="A proven roadmap that takes your business from learning how to talk to AI all the way to building production-grade AI applications."
           />
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, i) => (
-              <ServiceCard key={service.level} service={service} index={i} compact />
-            ))}
-          </div>
+          <FrameworkStepper services={services} />
 
           <AnimateOnScroll className="mt-12 text-center">
             <Link
@@ -108,8 +65,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Portfolio */}
+      {/* AI Business Analyzer — moved up after framework */}
       <section className="py-24 bg-navy-light/50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="AI Readiness"
+            title="See What AI Can Do for Your Business"
+            description="Pick your business type and get a tailored starting point — no signup required."
+          />
+          <AiDemo />
+        </div>
+      </section>
+
+      {/* Portfolio */}
+      <section id="portfolio" className="py-24 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Portfolio"
@@ -117,59 +86,12 @@ export default function HomePage() {
             description="Real tools and products we've built — proof of what's possible at every level."
           />
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {portfolioProjects.map((project, i) => {
-              const Icon = iconMap[project.icon] || Zap;
-              return (
-                <AnimateOnScroll key={project.title} delay={i * 0.1}>
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glass-card group block h-full rounded-2xl p-6 lg:p-8 transition-all hover:border-indigo/30"
-                  >
-                    <div className="mb-4 flex items-center justify-between">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo to-violet transition-transform group-hover:scale-110">
-                        <Icon className="h-6 w-6 text-white" />
-                      </div>
-                      <ExternalLink className="h-4 w-4 text-gray-500 transition-colors group-hover:text-cyan" />
-                    </div>
-
-                    <h3 className="text-lg font-bold text-white group-hover:text-cyan transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-gray-400">
-                      {project.description}
-                    </p>
-
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {project.levels.map((level) => (
-                        <span
-                          key={level}
-                          className="rounded-full bg-gradient-to-r from-indigo/20 to-violet/20 px-2.5 py-0.5 text-xs font-semibold text-indigo"
-                        >
-                          Level {level}
-                        </span>
-                      ))}
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full border border-border px-2.5 py-0.5 text-xs text-gray-400"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </a>
-                </AnimateOnScroll>
-              );
-            })}
-          </div>
+          <PortfolioGrid projects={portfolioProjects} />
         </div>
       </section>
 
       {/* Case Studies */}
-      <section className="py-24">
+      <section className="py-24 bg-navy-light/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Case Studies"
@@ -186,27 +108,20 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-navy-light/50">
+      <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Testimonials"
-            title="What Our Clients Say"
-            description="Don't just take our word for it — hear from businesses we've helped transform with AI."
+            title="What Clients Tell Us"
+            description="Feedback from teams we've worked with across startups, enterprises, and agencies."
           />
 
           <Testimonials testimonials={testimonials} />
         </div>
       </section>
 
-      {/* Bharat AI Mission */}
-      <section className="py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <MissionBadge size="lg" />
-        </div>
-      </section>
-
       {/* Why IntelliForge */}
-      <section className="py-24">
+      <section className="py-24 bg-navy-light/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Why IntelliForge AI"
@@ -221,9 +136,11 @@ export default function HomePage() {
                 <AnimateOnScroll key={item.title} delay={i * 0.1}>
                   <div className="text-center">
                     <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo/20 to-violet/20">
-                      <Icon className="h-7 w-7 text-indigo" />
+                      <Icon className="h-7 w-7 text-indigo" aria-hidden="true" />
                     </div>
-                    <h3 className="mb-2 text-lg font-bold text-white">{item.title}</h3>
+                    <h3 className="mb-2 text-lg font-bold text-white">
+                      {item.title}
+                    </h3>
                     <p className="text-sm leading-relaxed text-gray-400">
                       {item.description}
                     </p>
@@ -232,19 +149,6 @@ export default function HomePage() {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* AI Demo Section */}
-      <section className="py-24 bg-navy-light/50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="See AI in Action"
-            title="Discover What AI Can Do for You"
-            description="Try our AI business analyzer or explore our free tools — built by us, free for everyone."
-          />
-
-          <AiDemo />
         </div>
       </section>
 
@@ -258,7 +162,7 @@ export default function HomePage() {
             className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-cyan transition-colors hover:text-cyan-light"
           >
             Read our FAQs
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
       </section>
