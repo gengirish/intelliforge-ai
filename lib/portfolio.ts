@@ -15,6 +15,7 @@ const EXCLUDE_SLUGS = new Set([
   "aegisforge-design-v2",
   "agentguard-landing",
   "agentmemory-landing",
+  "forgeid",
   "forgeid-api",
   "rlhf-annotation-frontend",
   "landing",
@@ -44,7 +45,6 @@ const EXCLUDE_SLUGS = new Set([
 export const FEATURED_VERCEL_SLUGS = [
   "multi-agent-deep-research",
   "complianceforge",
-  "forgeid",
   "ai-native-agency",
   "interview-with-giri",
   "training-feedback",
@@ -149,17 +149,6 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     tags: ["Compliance", "GRC", "AI Agents", "Enterprise"],
     levels: [4, 5],
     icon: "ShieldCheck",
-    featured: true,
-  },
-  {
-    vercelSlug: "forgeid",
-    title: "ForgeID",
-    description:
-      "KYC and identity verification with document parsing, liveness checks, and risk scoring — built on AI agents.",
-    tagline: "Developer-friendly KYC with document parsing and liveness checks.",
-    tags: ["KYC", "Identity", "Fintech", "API"],
-    levels: [4, 5],
-    icon: "Fingerprint",
     featured: true,
   },
   {
