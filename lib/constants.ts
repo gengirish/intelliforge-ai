@@ -4,14 +4,14 @@ export const siteConfig = {
   description:
     "IntelliForge AI is a Hyderabad-based AI agent development and workflow automation company — from prompt engineering to full AI app development. Aligned with the Bharat AI Mission.",
   url: "https://www.intelliforge.tech",
-  founder: "The IntelliForge Team",
+  founder: "Girish Hiremath",
   email: "contact@intelliforge.tech",
   phone: "+91 85559 60837",
   whatsapp: "918555960837",
   address: "Virtual Office, Hyderabad, Telangana, India",
   social: {
     linkedin: "https://linkedin.com/company/intelliforge-ai",
-    github: "https://github.com/intelliforge-ai",
+    github: "https://github.com/gengirish/intelliforge-ai",
     youtube: "https://youtube.com/@intelliforge-ai",
     twitter: "https://twitter.com/intelliforge_ai",
   },
@@ -108,7 +108,7 @@ export const services: ServiceLevel[] = [
     badge: "Agents",
     exampleProduct: {
       name: "Multi-Agent Deep Research",
-      url: "https://multi-agent-deep-research-eight.vercel.app/research",
+      url: "https://deep-research.intelliforge.tech",
     },
     description:
       "Build autonomous AI agents that work for you around the clock. Not chatbots — agents that proactively go and do things. Design, deploy, monitor, and quality-check AI systems that handle real business operations.",
@@ -232,7 +232,7 @@ export const pricingTiers: PricingTier[] = [
 ];
 
 export const trustItems = [
-  "13+ Years Experience",
+  "14+ Years Experience",
   "Fortune 500 Clients",
   "Banking & Fintech",
   "Pharma & Healthcare",
@@ -306,246 +306,6 @@ export const aiDigitalProfile: ProductizedService = {
   demoUrl: "https://girishbhiremath.vercel.app",
 };
 
-export const portfolioProjects: PortfolioProject[] = [
-  {
-    title: "AI Digital Profile",
-    description:
-      "Interactive portfolio website with a \"Talk to My Resume\" AI chatbot. Neural-themed design with animated career visualizations, skill maps, and SEO optimization — built and deployed in hours.",
-    url: "https://girishbhiremath.vercel.app",
-    tags: ["Next.js", "AI Chatbot", "Portfolio", "RAG", "Vercel"],
-    levels: [4, 5],
-    icon: "UserCircle",
-  },
-  {
-    title: "Multi-Agent Deep Research",
-    description:
-      "AI-powered deep research platform using multiple agents working in parallel to generate comprehensive research reports with citations — fast and autonomous.",
-    tagline: "Parallel AI agents that compile cited research reports in minutes.",
-    url: "https://multi-agent-deep-research-eight.vercel.app/research",
-    tags: ["Multi-Agent", "RAG", "LLM", "Deep Research", "Autonomous"],
-    levels: [4, 5],
-    icon: "Brain",
-    featured: true,
-  },
-  {
-    title: "Markdown to PDF Converter",
-    description:
-      "Real-time markdown editor with live preview and server-side PDF generation. Built with React + FastAPI + WeasyPrint for professional document export.",
-    url: "https://markdown-to-pdf-six.vercel.app/",
-    tags: ["React", "FastAPI", "Python", "PDF", "Full Stack"],
-    levels: [5],
-    icon: "FileText",
-  },
-  {
-    title: "YouTube Transcript Scraper",
-    description:
-      "Extract transcripts from any YouTube video — free, fast, and API-ready. Built for automation workflows with n8n, Zapier, and Make compatibility.",
-    url: "https://youtube-scrapper-pi.vercel.app/",
-    tags: ["API", "n8n", "Zapier", "Make", "Automation"],
-    levels: [2, 5],
-    icon: "Play",
-  },
-  {
-    title: "MoveMore",
-    description:
-      "AI-powered wellness and movement platform focused on helping users build healthier routines through guided experiences and a simple, conversion-first interface.",
-    url: "https://movemore.vercel.app/",
-    tags: ["Wellness", "AI App", "Next.js", "UX", "Vercel"],
-    levels: [5],
-    icon: "Zap",
-  },
-  {
-    title: "Interview Bot",
-    description:
-      "AI-powered interview platform with authentication and role-based experience, designed to streamline hiring workflows and improve candidate evaluation quality.",
-    tagline: "Streamline hiring with AI-driven interviews and candidate scoring.",
-    url: "https://hire-with-giri.vercel.app/",
-    tags: ["Interview AI", "Hiring", "Authentication", "SaaS", "Automation"],
-    levels: [4, 5],
-    icon: "UserCircle",
-    featured: true,
-  },
-  {
-    title: "IntelliForge Learning",
-    description:
-      "End-to-end AI learning platform for session registration, training access, progress tracking, and feedback collection for scalable training operations.",
-    tagline: "Register, train, track progress, and collect feedback at scale.",
-    url: "https://learning.intelliforge.tech/",
-    tags: ["LMS", "AI Training", "Feedback", "Learning Platform", "Operations"],
-    levels: [1, 2, 5],
-    icon: "FileText",
-    featured: true,
-  },
-  {
-    title: "ComplianceForge AI",
-    description:
-      "AI-powered compliance and governance platform that automates policy reviews, risk assessments, and audit trails for regulated industries — built for speed and accuracy.",
-    tagline: "Automate policy reviews, risk assessments, and audit trails.",
-    url: "https://complianceforge-ai.com",
-    tags: ["Compliance", "GRC", "AI Agents", "Audit", "Enterprise"],
-    levels: [4, 5],
-    icon: "ShieldCheck",
-    featured: true,
-  },
-  {
-    title: "ForgeID",
-    description:
-      "Modern KYC and identity verification platform with document parsing, liveness checks, and risk scoring — a developer-friendly alternative built on AI agents.",
-    tagline: "KYC and identity verification with document parsing and liveness checks.",
-    url: "https://forgeid.vercel.app",
-    tags: ["KYC", "Identity", "Fintech", "AI Verification", "API"],
-    levels: [4, 5],
-    icon: "Fingerprint",
-    featured: true,
-  },
-  {
-    title: "AegisForge",
-    description:
-      "AI-driven security and threat-intelligence platform that monitors agents, prompts, and AI workflows to catch misuse, jailbreaks, and policy violations in real time.",
-    url: "https://aegisforge-blond.vercel.app",
-    tags: ["AI Security", "Guardrails", "Monitoring", "LLM Safety"],
-    levels: [4, 5],
-    icon: "Shield",
-  },
-  {
-    title: "PDFForge",
-    description:
-      "Production-grade document toolkit — generate, transform, sign, and extract data from PDFs with AI-powered parsing and templated workflows.",
-    url: "https://pdfforge.intelliforge.tech",
-    tags: ["PDF", "Document AI", "OCR", "Automation", "SaaS"],
-    levels: [2, 5],
-    icon: "FilePlus",
-  },
-  {
-    title: "AgencyOS",
-    description:
-      "The operating system for AI-native agencies — manage clients, content pipelines, AI agents, and deliverables from one workspace built for solo operators and lean teams.",
-    tagline: "One workspace for clients, content pipelines, and AI agents.",
-    url: "https://agencyos.intelliforge.tech",
-    tags: ["Agency", "Operations", "AI Workflows", "SaaS", "Productivity"],
-    levels: [3, 4, 5],
-    icon: "Briefcase",
-    featured: true,
-  },
-  {
-    title: "InfinityHire",
-    description:
-      "AI interview copilot for hiring teams — generates structured interview plans, scores candidates in real time, and produces decision-ready scorecards.",
-    url: "https://infinityhire.ai",
-    tags: ["HR Tech", "Interview AI", "Copilot", "Hiring", "SaaS"],
-    levels: [4, 5],
-    icon: "Users",
-  },
-  {
-    title: "HRMS IntelliForge",
-    description:
-      "Lightweight HRMS designed for AI-first teams — handles employee records, leaves, payroll insights, and performance reviews with AI assistance baked in.",
-    url: "https://hrms.intelliforge.tech",
-    tags: ["HRMS", "People Ops", "AI Insights", "Enterprise"],
-    levels: [5],
-    icon: "Users",
-  },
-  {
-    title: "CampaignForge AI",
-    description:
-      "End-to-end AI marketing campaign platform — ideation, copy, creatives, channel selection, and performance tracking, all powered by multi-agent orchestration.",
-    url: "https://campaignforge-ai-three.vercel.app",
-    tags: ["Marketing AI", "Multi-Agent", "Content", "Campaigns"],
-    levels: [3, 4, 5],
-    icon: "Megaphone",
-  },
-  {
-    title: "LinkedIn Post Generator",
-    description:
-      "AI tool that turns rough ideas, links, or transcripts into high-performing LinkedIn posts with hooks, structure, and your personal voice — built for founders and operators.",
-    url: "https://share.intelliforge.tech",
-    tags: ["Content AI", "LinkedIn", "Personal Brand", "Copywriting"],
-    levels: [3, 5],
-    icon: "Linkedin",
-  },
-  {
-    title: "MeetCoach",
-    description:
-      "Real-time AI meeting coach that analyzes calls, surfaces talk-time and sentiment, and gives sales and leadership teams actionable feedback after every meeting.",
-    url: "https://meetcoach.vercel.app",
-    tags: ["Meeting AI", "Sales Enablement", "Coaching", "Analytics"],
-    levels: [4, 5],
-    icon: "Mic",
-  },
-  {
-    title: "MedForce",
-    description:
-      "Clinical workflow assistant for healthcare teams — automates documentation, summarizes patient encounters, and drafts care plans while staying audit-ready.",
-    url: "https://medforce-liart.vercel.app",
-    tags: ["Healthcare AI", "Clinical", "Documentation", "Compliance"],
-    levels: [4, 5],
-    icon: "HeartPulse",
-  },
-  {
-    title: "MortgageFlowAI",
-    description:
-      "AI loan-origination platform that automates document collection, underwriting checks, and borrower communication for faster, lower-error mortgage processing.",
-    url: "https://mortgageflowai.vercel.app",
-    tags: ["Fintech", "Lending", "Document AI", "Workflow Automation"],
-    levels: [4, 5],
-    icon: "Building",
-  },
-  {
-    title: "FleetOS",
-    description:
-      "AI-powered fleet management dashboard — tracks vehicles, predicts maintenance, optimizes routes, and gives ops teams a single pane of glass for operations.",
-    url: "https://fleetos-rho.vercel.app",
-    tags: ["Logistics", "Fleet", "IoT", "Predictive AI", "Operations"],
-    levels: [4, 5],
-    icon: "Truck",
-  },
-  {
-    title: "RestaurantBrain",
-    description:
-      "AI ops layer for restaurants — menu engineering, demand forecasting, review intelligence, and staff scheduling powered by industry-tuned AI agents.",
-    url: "https://restaurantbrain.vercel.app",
-    tags: ["F&B", "Forecasting", "Ops AI", "Vertical SaaS"],
-    levels: [4, 5],
-    icon: "Utensils",
-  },
-  {
-    title: "PR Reviewer",
-    description:
-      "AI code-review agent that reads pull requests, flags risky changes, suggests improvements, and posts inline comments — built for engineering teams shipping fast.",
-    url: "https://pr-reviewer-beryl.vercel.app",
-    tags: ["Developer Tools", "Code Review", "AI Agents", "GitHub"],
-    levels: [4, 5],
-    icon: "GitPullRequest",
-  },
-  {
-    title: "RLHF Annotation Studio",
-    description:
-      "Annotation and evaluation platform for RLHF, SFT, and red-teaming workflows — built for AI labs and enterprises fine-tuning their own LLMs.",
-    url: "https://rlhf-annotation-studio.vercel.app",
-    tags: ["RLHF", "LLM Training", "Annotation", "AI Labs"],
-    levels: [4, 5],
-    icon: "Database",
-  },
-  {
-    title: "SOPForge",
-    description:
-      "AI-generated standard operating procedures — turn screen recordings, transcripts, or notes into structured, versioned SOPs your team will actually follow.",
-    url: "https://sopforge.vercel.app",
-    tags: ["Operations", "SOP", "Knowledge Base", "AI Docs"],
-    levels: [2, 3, 5],
-    icon: "ClipboardList",
-  },
-  {
-    title: "AgentWatch",
-    description:
-      "Observability and quality monitoring for AI agents — trace every step, score outputs, catch regressions, and keep multi-agent systems production-ready.",
-    url: "https://agentwatch-one.vercel.app",
-    tags: ["Observability", "AI Agents", "Evaluation", "Monitoring"],
-    levels: [4, 5],
-    icon: "Activity",
-  },
-];
-
 export type CaseStudy = {
   client: string;
   industry: string;
@@ -573,7 +333,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     tech: ["Multi-Agent AI", "RAG", "LLM Orchestration", "Python"],
     productUsed: "Multi-Agent Deep Research",
-    productUrl: "https://multi-agent-deep-research-eight.vercel.app/research",
+    productUrl: "https://deep-research.intelliforge.tech",
     timeline: "4 weeks",
   },
   {
@@ -628,7 +388,6 @@ export const testimonials: Testimonial[] = [
     author: "Rahul M.",
     role: "CTO",
     company: "SaaS Startup",
-    linkedinUrl: "https://linkedin.com/in/",
     verified: true,
   },
   {
@@ -637,7 +396,6 @@ export const testimonials: Testimonial[] = [
     author: "Priya S.",
     role: "Head of Research",
     company: "Analytics Firm",
-    linkedinUrl: "https://linkedin.com/in/",
     verified: true,
   },
   {
@@ -660,13 +418,12 @@ export const testimonials: Testimonial[] = [
     author: "Suresh P.",
     role: "VP Engineering",
     company: "Enterprise SaaS",
-    linkedinUrl: "https://linkedin.com/in/",
   },
 ];
 
 export const statBarItems = [
-  { value: "25+", label: "AI Products Shipped" },
-  { value: "13+", label: "Years Enterprise XP" },
+  { value: "70+", label: "AI Products Shipped" },
+  { value: "14+", label: "Years Enterprise XP" },
   { value: "20+", label: "hrs/week Saved Per Client" },
   { value: "6", label: "Industries Served" },
 ];
@@ -674,15 +431,15 @@ export const statBarItems = [
 export const whyIntelliforge = [
   {
     icon: "Zap",
-    title: "25+ Products Shipped",
+    title: "70+ Products Shipped",
     description:
-      "Real AI products in production — not slide decks. From research agents to full SaaS apps, we've built and shipped across every level of our framework.",
+      "Real AI products in production on Vercel — not slide decks. From research agents to full SaaS apps across every level of our framework.",
   },
   {
     icon: "Shield",
-    title: "13+ Years Enterprise Engineering",
+    title: "14+ Years Enterprise Engineering",
     description:
-      "Every AI solution is backed by deep enterprise experience across banking, pharma, telecom, and IoT — working with Fortune 500 companies globally.",
+      "Every AI solution is backed by deep enterprise experience across banking, pharma, telecom, compliance, and IoT — Fortune 500 delivery plus M.Tech DSAI from IIIT Dharwad.",
   },
   {
     icon: "Zap",

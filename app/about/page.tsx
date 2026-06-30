@@ -9,9 +9,9 @@ import {
   User,
   Linkedin,
   Github,
-  Twitter,
+  Mail,
   BookOpen,
-  Mic,
+  Sparkles,
 } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
@@ -21,12 +21,12 @@ import { founder } from "@/lib/founder";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about IntelliForge AI — built on 13+ years of enterprise experience, aligned with the Bharat AI Mission to democratize AI for India.",
+    "Learn about IntelliForge AI — founded by Girish Hiremath, built on 14+ years of enterprise experience and M.Tech DSAI @ IIIT Dharwad.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About | IntelliForge AI",
     description:
-      "13+ years of enterprise engineering experience meets cutting-edge AI. Aligned with India's Bharat AI Mission.",
+      "14+ years of enterprise engineering and M.Tech DSAI — aligned with India's Bharat AI Mission.",
     url: "https://www.intelliforge.tech/about",
   },
 };
@@ -70,12 +70,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              {[
-                { value: "13+", label: "Years Experience" },
-                { value: "5+", label: "Industries Served" },
-                { value: "5", label: "AI Service Levels" },
-                { value: "100%", label: "AI-First Approach" },
-              ].map((stat, i) => (
+              {founder.stats.map((stat, i) => (
                 <AnimateOnScroll key={stat.label} delay={i * 0.1}>
                   <div className="glass-card rounded-2xl p-6 text-center">
                     <div className="text-3xl font-bold gradient-text">{stat.value}</div>
@@ -169,19 +164,30 @@ export default function AboutPage() {
         {/* Founder Section */}
         <section className="mb-20">
           <SectionHeading
-            label="Our Expertise"
+            label="Founder"
             title="Built by Practitioners, Not Just Consultants"
             description={founder.headline}
           />
 
           <div className="grid gap-12 lg:grid-cols-5">
-            {/* Founder Profile */}
             <div className="lg:col-span-2">
               <AnimateOnScroll>
                 <div className="glass-card overflow-hidden rounded-2xl">
-                  <div className="flex h-64 items-center justify-center bg-gradient-to-br from-indigo/20 to-violet/20">
-                    <User className="h-24 w-24 text-indigo/50" />
-                  </div>
+                  <a
+                    href={founder.portfolioUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-64 flex-col items-center justify-center bg-gradient-to-br from-indigo/20 to-violet/20 transition-colors hover:from-indigo/30 hover:to-violet/30"
+                    aria-label="View Girish Hiremath full portfolio"
+                  >
+                    <span className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo to-violet text-2xl font-bold text-white">
+                      GH
+                    </span>
+                    <span className="mt-3 flex items-center gap-1.5 text-sm font-semibold text-cyan group-hover:text-cyan-light">
+                      View full portfolio
+                      <ExternalLink className="h-3.5 w-3.5" />
+                    </span>
+                  </a>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-white">{founder.name}</h3>
                     <p className="text-sm text-cyan">{founder.title}</p>
@@ -189,12 +195,22 @@ export default function AboutPage() {
                       &ldquo;{founder.tagline}&rdquo;
                     </p>
 
-                    <div className="mt-4 flex gap-3">
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      <a
+                        href={founder.socialLinks.portfolio}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                        aria-label="Founder portfolio"
+                      >
+                        <User className="h-4 w-4" />
+                      </a>
                       <a
                         href={founder.socialLinks.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                        aria-label="LinkedIn"
                       >
                         <Linkedin className="h-4 w-4" />
                       </a>
@@ -203,16 +219,16 @@ export default function AboutPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                        aria-label="GitHub"
                       >
                         <Github className="h-4 w-4" />
                       </a>
                       <a
-                        href={founder.socialLinks.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href={founder.socialLinks.email}
                         className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                        aria-label="Email Girish Hiremath"
                       >
-                        <Twitter className="h-4 w-4" />
+                        <Mail className="h-4 w-4" />
                       </a>
                     </div>
 
@@ -290,29 +306,45 @@ export default function AboutPage() {
                 </div>
               </AnimateOnScroll>
 
-              {/* Publications & Talks */}
+              {/* AI/ML Toolkit */}
+              <AnimateOnScroll delay={0.35}>
+                <div className="mt-8">
+                  <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gray-300">
+                    <Sparkles className="h-4 w-4 text-indigo" />
+                    AI/ML Toolkit
+                  </h4>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {founder.toolkit.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-border bg-surface px-3 py-1 text-xs text-gray-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </AnimateOnScroll>
+
+              {/* Publications & Links */}
               <AnimateOnScroll delay={0.4}>
                 <div className="mt-8">
                   <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gray-300">
                     <BookOpen className="h-4 w-4 text-indigo" />
-                    Publications & Talks
+                    Portfolio & Demos
                   </h4>
                   <div className="mt-3 space-y-2">
                     {founder.publications.map((pub) => (
                       <a
                         key={pub.title}
                         href={pub.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-start gap-3 rounded-xl bg-surface p-3 transition-colors hover:bg-surface-hover"
                       >
-                        {pub.type === "Talk" ? (
-                          <Mic className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
-                        ) : (
-                          <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
-                        )}
+                        <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
                         <div>
-                          <p className="text-sm font-semibold text-white">
-                            {pub.title}
-                          </p>
+                          <p className="text-sm font-semibold text-white">{pub.title}</p>
                           <p className="text-xs text-gray-400">{pub.type}</p>
                         </div>
                       </a>
@@ -322,6 +354,65 @@ export default function AboutPage() {
               </AnimateOnScroll>
             </div>
           </div>
+
+          {/* Featured enterprise work (from founder portfolio) */}
+          <AnimateOnScroll delay={0.2}>
+            <div className="mt-12">
+              <h4 className="text-lg font-bold text-white">Featured Enterprise Work</h4>
+              <p className="mt-1 text-sm text-gray-400">
+                Highlights from{" "}
+                <a
+                  href={founder.portfolioUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan hover:text-cyan-light"
+                >
+                  founder.intelliforge.tech
+                </a>
+              </p>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {founder.featuredWork.map((project) => (
+                  <div key={project.title} className="glass-card rounded-xl p-5">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-cyan">
+                      {project.domain}
+                    </span>
+                    <h5 className="mt-2 font-bold text-white">{project.title}</h5>
+                    <p className="mt-2 text-sm text-gray-400">{project.impact}</p>
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-border px-2 py-0.5 text-[10px] text-gray-500"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Colleague testimonials from founder portfolio */}
+          <AnimateOnScroll delay={0.3}>
+            <div className="mt-12">
+              <h4 className="text-lg font-bold text-white">What Colleagues Say</h4>
+              <div className="mt-6 grid gap-6 md:grid-cols-2">
+                {founder.colleagueTestimonials.map((t) => (
+                  <blockquote
+                    key={t.author}
+                    className="glass-card rounded-xl p-6 text-base leading-relaxed text-gray-200"
+                  >
+                    &ldquo;{t.quote}&rdquo;
+                    <footer className="mt-4 text-sm text-gray-400">
+                      — {t.author}, {t.role}
+                    </footer>
+                  </blockquote>
+                ))}
+              </div>
+            </div>
+          </AnimateOnScroll>
         </section>
 
         {/* CTA */}
@@ -330,7 +421,7 @@ export default function AboutPage() {
             Let&apos;s Build Something Together
           </h3>
           <p className="mt-2 text-gray-400">
-            13+ years of enterprise engineering meets cutting-edge AI. Book a free call to discuss your goals.
+            14+ years of enterprise engineering meets cutting-edge AI. Book a free call to discuss your goals.
           </p>
           <Link
             href="/contact?intent=strategy-call"

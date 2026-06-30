@@ -36,7 +36,7 @@ Founded by ex-enterprise engineers with 13+ years of experience across Fortune 5
 - [Markdown to PDF Converter](https://markdown-to-pdf-six.vercel.app/) — React + FastAPI + WeasyPrint document export.
 - [YouTube Transcript Scraper](https://youtube-scrapper-pi.vercel.app/) — API-ready transcript extraction for n8n / Zapier / Make.
 - [MoveMore](https://movemore.vercel.app/) — AI-powered wellness and movement platform.
-- [Interview Bot](https://hire-with-giri.vercel.app/) — AI interview platform with auth and role-based UX.
+- [Vettd](https://vettd-app.com/) — AI hiring intelligence OS with structured interviews and scored reports.
 - [IntelliForge Learning](https://learning.intelliforge.tech/) — End-to-end AI learning platform.
 
 ## Machine-readable resources

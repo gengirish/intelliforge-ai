@@ -67,15 +67,28 @@ export const organizationSchema = {
   },
   founder: {
     "@type": "Person",
-    name: "The IntelliForge Team",
+    name: "Girish Hiremath",
+    jobTitle: "Founder & AI Practitioner",
+    url: "https://founder.intelliforge.tech/",
+    email: "gen.girish@gmail.com",
     description:
-      "Engineers with 13+ years of enterprise experience across banking, fintech, pharma, healthcare, telecom, and IoT, with M.Tech in Data Science & AI from IIIT Dharwad.",
+      "AI practitioner and full stack architect with 14+ years across compliance, banking, pharma, telecom, and IoT. M.Tech in Data Science & AI from IIIT Dharwad.",
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Indian Institute of Information Technology Dharwad",
+    },
+    knowsAbout: [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Retrieval-Augmented Generation",
+      "Enterprise Software Engineering",
+    ],
   },
   sameAs: [
+    "https://founder.intelliforge.tech/",
     "https://linkedin.com/company/intelliforge-ai",
-    "https://github.com/intelliforge-ai",
+    "https://github.com/gengirish",
     "https://youtube.com/@intelliforge-ai",
-    "https://twitter.com/intelliforge_ai",
   ],
 };
 

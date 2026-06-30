@@ -12,10 +12,10 @@ import { AiDemo } from "@/components/ai-demo";
 import {
   services,
   whyIntelliforge,
-  portfolioProjects,
   caseStudies,
   testimonials,
 } from "@/lib/constants";
+import { portfolioProjects } from "@/lib/portfolio";
 import {
   Globe,
   Shield,
@@ -126,7 +126,7 @@ export default function HomePage() {
           <SectionHeading
             label="Why IntelliForge AI"
             title="Enterprise Depth, Startup Speed"
-            description="Built on 13+ years of enterprise engineering and cutting-edge AI expertise."
+            description="Built on 14+ years of enterprise engineering, M.Tech DSAI @ IIIT Dharwad, and 68+ AI products shipped."
           />
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

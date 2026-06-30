@@ -6,6 +6,7 @@ import { ArrowRight, CalendarCheck, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MissionBadge } from "./mission-badge";
 import { startingPrice } from "@/lib/constants";
+import { portfolioProjectCount } from "@/lib/portfolio";
 
 type AudienceKey = "Startups" | "SaaS Companies" | "Enterprises" | "Agencies";
 
@@ -22,7 +23,7 @@ const audienceCopy: Record<AudienceKey, string> = {
   "SaaS Companies":
     "Embed AI agents into your product, reduce churn, and ship faster with our battle-tested pipeline.",
   Enterprises:
-    "Enterprise-grade AI systems backed by 13+ years across Fortune 500 — banking, pharma, telecom, IoT.",
+    "Enterprise-grade AI systems backed by 14+ years across Fortune 500 — banking, pharma, telecom, compliance, IoT.",
   Agencies:
     "Become a one-person AI agency. We handle the build; you handle the client.",
 };
@@ -59,8 +60,8 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             We&apos;ve Shipped{" "}
-            <span className="gradient-text">25 AI Products</span> in 6 Months.
-            Yours Is Next.
+            <span className="gradient-text">{portfolioProjectCount}+ AI Products</span>{" "}
+            on Vercel. Yours Is Next.
           </motion.h1>
 
           <motion.p

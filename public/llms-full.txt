@@ -118,7 +118,7 @@ Live demo: https://girishbhiremath.vercel.app
 3. **Markdown to PDF Converter** — https://markdown-to-pdf-six.vercel.app/ — Level 5. Stack: React, FastAPI, Python, PDF.
 4. **YouTube Transcript Scraper** — https://youtube-scrapper-pi.vercel.app/ — Levels 2, 5. Stack: API, n8n, Zapier, Make, Automation.
 5. **MoveMore** — https://movemore.vercel.app/ — Level 5. Stack: Wellness, AI App, Next.js, UX, Vercel.
-6. **Interview Bot** — https://hire-with-giri.vercel.app/ — Levels 4, 5. Stack: Interview AI, Hiring, Authentication, SaaS.
+6. **Vettd** — https://vettd-app.com/ — Levels 4, 5. Stack: AI Interview, Hiring Intelligence, Scored Reports, Integrity Monitoring.
 7. **IntelliForge Learning** — https://learning.intelliforge.tech/ — Levels 1, 2, 5. Stack: LMS, AI Training, Feedback.
 
 ---
