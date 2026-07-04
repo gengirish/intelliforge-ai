@@ -79,10 +79,10 @@ export function AiDemo() {
           <Sparkles className="h-6 w-6 text-white" aria-hidden="true" />
         </div>
         <h3 className="text-lg font-bold text-white">
-          AI Business Analyzer
+          See where you&apos;d start on our 5-level framework
         </h3>
         <p className="mt-1 text-sm text-gray-400">
-          Select your business type to see specific automation opportunities.
+          This is how we think about your business — try it.
         </p>
 
         <div className="relative mt-6">

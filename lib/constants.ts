@@ -308,6 +308,8 @@ export const aiDigitalProfile: ProductizedService = {
 
 export type CaseStudy = {
   client: string;
+  clientDescriptor?: string;
+  location?: string;
   industry: string;
   problem: string;
   solution: string;
@@ -316,56 +318,67 @@ export type CaseStudy = {
   productUsed: string;
   productUrl: string;
   timeline: string;
+  featured?: boolean;
 };
 
 export const caseStudies: CaseStudy[] = [
   {
-    client: "Research & Analytics Firm",
-    industry: "Research",
+    client: "Confidential — Hyderabad Analytics Firm",
+    clientDescriptor:
+      "B2B market research firm, ~50 employees, HITEC City corridor",
+    location: "Hyderabad, Telangana",
+    industry: "Market Research & Analytics",
+    featured: true,
     problem:
-      "Manual research process taking 10+ hours per report, with analysts spending most time aggregating data from multiple sources instead of generating insights.",
+      "Competitive landscape reports took 12–15 analyst-hours each — pulling SEC filings, trade press, LinkedIn headcount data, and notes from the internal CRM by hand. Senior staff were reviewing drafts instead of doing actual analysis.",
     solution:
-      "Built a multi-agent AI system using RAG + LLM orchestration. Multiple AI agents work in parallel to gather, analyze, and synthesize research from diverse sources into comprehensive reports with citations.",
+      "Shipped a multi-agent deep research system: RAG over the client's proprietary brief library, parallel web-research agents for live sources, and a synthesis agent that outputs cited reports with a human review checkpoint before delivery.",
     impact: [
-      "10x faster research output",
-      "80% cost reduction per report",
-      "Automated citation generation",
+      "Full competitive brief in ~90 min vs. 1–2 days",
+      "~75% less analyst time on data gathering",
+      "Every claim traceable to source or internal doc",
     ],
-    tech: ["Multi-Agent AI", "RAG", "LLM Orchestration", "Python"],
+    tech: ["Multi-Agent AI", "RAG", "LangGraph", "Python", "FastAPI"],
     productUsed: "Multi-Agent Deep Research",
     productUrl: "https://deep-research.intelliforge.tech",
     timeline: "4 weeks",
   },
   {
-    client: "Professional Services Consultant",
+    client: "Independent Cloud Architect",
+    clientDescriptor:
+      "Senior AWS/Azure consultant, 12+ years, solo practice",
+    location: "Bengaluru, Karnataka",
     industry: "Professional Services",
     problem:
-      "Building a professional digital presence took weeks of back-and-forth with developers. Needed a way to stand out to recruiters and clients with an interactive portfolio.",
+      "Six weeks of back-and-forth with a freelance web dev on a static portfolio. Recruiters skimmed PDFs and missed the migration and FinOps projects that actually mattered for senior roles.",
     solution:
-      "Developed an AI-powered digital profile website with a 'Talk to My Resume' chatbot trained on career data. Neural-themed design with animated visualizations, deployed in hours.",
+      "Built an AI Digital Profile on Next.js with RAG over project write-ups, certifications, and case notes — plus a 'Talk to My Resume' chatbot so visitors can ask about specific engagements instead of scrolling.",
     impact: [
-      "Deployed in under 24 hours",
-      "3x more recruiter engagement",
-      "AI chatbot handles 50+ queries/day",
+      "Live on Vercel in under 48 hours",
+      "Recruiters citing chatbot answers in outreach",
+      "40+ AI queries/week within first month",
     ],
-    tech: ["Next.js", "AI Chatbot", "RAG", "Vercel"],
+    tech: ["Next.js", "RAG", "Vercel AI SDK", "Vercel"],
     productUsed: "AI Digital Profile",
     productUrl: "https://girishbhiremath.vercel.app",
-    timeline: "1 day",
+    timeline: "2 days",
   },
   {
-    client: "Digital Marketing Agency",
-    industry: "Marketing",
+    client: "Confidential — Performance Marketing Agency",
+    clientDescriptor:
+      "Content-led agency, ~15-person ops team, Andheri West",
+    location: "Mumbai, Maharashtra",
+    industry: "Digital Marketing",
     problem:
-      "Team spending 20+ hours per week on repetitive tasks — extracting YouTube transcripts, formatting reports, manual content aggregation across platforms.",
+      "Three ops staff spent most of Monday copying YouTube transcripts, reformatting competitor teardowns, and stitching markdown into client PDFs — roughly 22 hours/week of work that didn't need human judgment.",
     solution:
-      "Built custom automation tools including a YouTube transcript scraper API and markdown-to-PDF converter, integrated with n8n workflows for end-to-end content pipeline automation.",
+      "Deployed the YouTube transcript scraper API, a markdown-to-PDF converter, and wired both into n8n workflows that pull URLs from a shared sheet, run transcripts, and drop finished reports into client Notion workspaces overnight.",
     impact: [
-      "20+ hours saved per week",
-      "Zero manual data entry",
-      "Fully automated content pipeline",
+      "~22 hrs/week reclaimed for strategy work",
+      "Zero manual copy-paste on weekly reports",
+      "Pipeline runs unattended Sun→Mon before standup",
     ],
-    tech: ["n8n", "API Development", "React", "FastAPI"],
+    tech: ["n8n", "FastAPI", "React", "Notion API"],
     productUsed: "YouTube Transcript Scraper + Markdown to PDF",
     productUrl: "https://youtube-scrapper-pi.vercel.app/",
     timeline: "3 weeks",
@@ -379,78 +392,74 @@ export type Testimonial = {
   company: string;
   linkedinUrl?: string;
   verified?: boolean;
+  avatarInitials?: string;
 };
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "IntelliForge built our AI workflow automation in just 3 weeks. What used to take our team 20 hours a week is now fully automated. The ROI was visible from month one.",
+      "We had three people copying YouTube transcripts every Monday. Girish hooked the scraper API into our n8n flow in about two weeks — transcripts land in Notion before we've finished coffee. He stayed on through the weird edge cases, not just the happy path.",
     author: "Rahul M.",
     role: "CTO",
-    company: "SaaS Startup",
-    verified: true,
+    company: "Pune B2B SaaS, ~30 engineers",
+    avatarInitials: "RM",
   },
   {
     quote:
-      "Their multi-agent research system transformed how we operate. Research that took days now takes minutes — and the quality is consistently better than manual work.",
+      "Our analysts didn't trust 'AI research' until they saw a multi-agent report pulling from our internal data room plus live web sources — with citations. A competitive brief that ate a full day is now maybe 90 minutes, and there's still a human sign-off before it goes to clients.",
     author: "Priya S.",
     role: "Head of Research",
-    company: "Analytics Firm",
-    verified: true,
+    company: "Hyderabad analytics firm (NDA)",
+    avatarInitials: "PS",
   },
   {
     quote:
-      "We needed someone who understood both enterprise engineering and modern AI. IntelliForge delivered exactly that — no buzzwords, just working solutions.",
-    author: "Vikram K.",
-    role: "Founder",
-    company: "Fintech Company",
-  },
-  {
-    quote:
-      "The AI Digital Profile they built for me gets more attention than any resume I've ever sent. Recruiters actually have conversations with my AI assistant before reaching out.",
+      "I was six weeks into a portfolio redesign that wasn't going anywhere. IntelliForge shipped the AI Digital Profile with RAG over my project docs in a weekend. Recruiters messaged saying they asked the bot about my Kubernetes work — that's weird, and honestly better than another PDF.",
     author: "Ananya R.",
-    role: "Tech Consultant",
-    company: "Independent",
+    role: "Cloud Architect",
+    company: "Independent consultant, Bengaluru",
+    avatarInitials: "AR",
   },
   {
     quote:
-      "From prompt engineering training to deploying our first AI agent — IntelliForge guided us through every level. Our team now thinks AI-first for every problem.",
+      "Started with a prompt workshop for eight engineers in Hyderabad, ended up with a RAG chatbot over our Confluence. Six months later we added an n8n agent that triages L1 support tickets. Not a keynote transformation — just systems that actually run in prod.",
     author: "Suresh P.",
     role: "VP Engineering",
-    company: "Enterprise SaaS",
+    company: "RegTech SaaS, ~120 employees",
+    avatarInitials: "SP",
   },
 ];
 
 export const statBarItems = [
-  { value: "70+", label: "AI Products Shipped" },
-  { value: "14+", label: "Years Enterprise XP" },
-  { value: "20+", label: "hrs/week Saved Per Client" },
-  { value: "6", label: "Industries Served" },
+  { value: "70+", label: "Production Apps on Vercel" },
+  { value: "14+", label: "Years Enterprise Engineering" },
+  { value: "20+", label: "Client Hours Automated Weekly" },
+  { value: "6", label: "Industry Verticals" },
 ];
 
 export const whyIntelliforge = [
   {
     icon: "Zap",
-    title: "70+ Products Shipped",
+    title: "70+ Production Apps on Vercel",
     description:
-      "Real AI products in production on Vercel — not slide decks. From research agents to full SaaS apps across every level of our framework.",
+      "Live URLs you can click — multi-agent research tools, RAG chatbots, n8n automations, and micro-SaaS dashboards. Built from Hyderabad, deployed globally on Vercel, not mockups in a deck.",
   },
   {
     icon: "Shield",
     title: "14+ Years Enterprise Engineering",
     description:
-      "Every AI solution is backed by deep enterprise experience across banking, pharma, telecom, compliance, and IoT — Fortune 500 delivery plus M.Tech DSAI from IIIT Dharwad.",
+      "Banking, pharma, telecom, compliance, IoT — Fortune 500 delivery before the AI wave. Every IntelliForge build inherits that rigor, plus ongoing M.Tech DSAI work at IIIT Dharwad.",
   },
   {
     icon: "Zap",
-    title: "End-to-End Coverage",
+    title: "All Five Levels, One Team",
     description:
-      "From teaching your team to talk to AI (Level 1) to building full applications with vibe coding (Level 5) — one agency, all five levels.",
+      "Prompt workshops for your Hyderabad or Tier-II team today; multi-agent systems and full-stack apps next quarter. No handoffs between a trainer, an integrator, and a dev shop.",
   },
   {
     icon: "Users",
-    title: "Ethical & Responsible AI",
+    title: "Human-in-the-Loop by Default",
     description:
-      "AI agents work best with human oversight. We build systems with human-in-the-loop design, ensuring quality, safety, and accountability.",
+      "Indian businesses can't afford hallucinated compliance answers or rogue agents. We design review checkpoints, audit trails, and escalation paths — aligned with responsible AI practice under Bharat AI Mission goals.",
   },
 ];

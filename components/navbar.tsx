@@ -26,12 +26,16 @@ export function Navbar() {
       aria-label="Main navigation"
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2" aria-label="IntelliForge AI home">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo to-violet">
-            <Zap className="h-5 w-5 text-white" aria-hidden="true" />
+        <Link href="/" className="flex items-center gap-2.5" aria-label="IntelliForge AI home">
+          <div className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-indigo/30 bg-indigo/15">
+            <span
+              className="absolute bottom-0 left-1 right-1 h-0.5 rounded-full bg-forge/70"
+              aria-hidden="true"
+            />
+            <Zap className="h-4 w-4 text-indigo" aria-hidden="true" />
           </div>
-          <span className="text-lg font-bold text-white">
-            Intelli<span className="text-cyan">Forge</span> AI
+          <span className="font-display text-lg font-bold tracking-tight text-white">
+            Intelli<span className="text-forge">Forge</span> AI
           </span>
         </Link>
 

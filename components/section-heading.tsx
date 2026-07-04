@@ -16,11 +16,19 @@ export function SectionHeading({
   return (
     <AnimateOnScroll className={`mb-16 ${centered ? "text-center" : ""}`}>
       {label && (
-        <span className="mb-3 inline-block rounded-full border border-cyan/30 bg-cyan/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-cyan">
-          {label}
-        </span>
+        <div
+          className={`mb-4 flex items-center gap-2 ${centered ? "justify-center" : ""}`}
+        >
+          <span
+            className="h-1.5 w-1.5 shrink-0 rounded-full bg-forge"
+            aria-hidden="true"
+          />
+          <span className="border-l-2 border-forge/50 pl-3 font-mono text-xs font-medium uppercase tracking-widest text-gray-400">
+            {label}
+          </span>
+        </div>
       )}
-      <h2 className="mt-2 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+      <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {description && (

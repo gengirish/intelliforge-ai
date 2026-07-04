@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {
+  Plus_Jakarta_Sans,
+  Source_Sans_3,
+  JetBrains_Mono,
+} from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -12,8 +16,21 @@ import {
 } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
 
-const inter = Inter({
-  variable: "--font-inter",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
+});
+
+const sourceSans3 = Source_Sans_3({
+  variable: "--font-source-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -98,7 +115,9 @@ export default function RootLayout({
           title="Full content for LLM ingestion"
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body
+        className={`${sourceSans3.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+      >
         <Analytics />
         <JsonLd data={organizationSchema} />
         <JsonLd data={professionalServiceSchema} />

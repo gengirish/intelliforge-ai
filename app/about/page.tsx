@@ -16,7 +16,11 @@ import {
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { MissionBadge } from "@/components/mission-badge";
+import { Testimonials } from "@/components/testimonials";
+import { CaseStudyCard } from "@/components/case-study-card";
+import { StatBar } from "@/components/stat-bar";
 import { founder } from "@/lib/founder";
+import { caseStudies, testimonials } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About",
@@ -413,6 +417,35 @@ export default function AboutPage() {
               </div>
             </div>
           </AnimateOnScroll>
+        </section>
+
+        {/* Stats */}
+        <section className="mb-20 border-y border-border py-12">
+          <StatBar />
+        </section>
+
+        {/* More case studies */}
+        <section className="mb-20">
+          <SectionHeading
+            label="Case Studies"
+            title="More Client Work"
+            description="Detailed outcomes from engagements across research, consulting, and marketing — with live products you can try."
+          />
+          <div className="grid gap-8 lg:grid-cols-3">
+            {caseStudies.map((study, i) => (
+              <CaseStudyCard key={study.client} study={study} index={i} />
+            ))}
+          </div>
+        </section>
+
+        {/* Client testimonials */}
+        <section className="mb-20">
+          <SectionHeading
+            label="Testimonials"
+            title="What Clients Tell Us"
+            description="Feedback from teams we've worked with across startups, enterprises, and agencies."
+          />
+          <Testimonials testimonials={testimonials} />
         </section>
 
         {/* CTA */}

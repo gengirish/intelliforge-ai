@@ -19,13 +19,13 @@ const audiences: AudienceKey[] = [
 
 const audienceCopy: Record<AudienceKey, string> = {
   Startups:
-    "Zero to AI-powered MVP — without burning runway on the wrong stack.",
+    "Idea to AI-powered MVP — without burning runway on the wrong stack.",
   "SaaS Companies":
-    "Embed AI agents into your product, reduce churn, and ship faster with our battle-tested pipeline.",
+    "Embed agents in your product, cut churn, and ship features your competitors can't copy.",
   Enterprises:
-    "Enterprise-grade AI systems backed by 14+ years across Fortune 500 — banking, pharma, telecom, compliance, IoT.",
+    "Production AI that respects compliance and legacy systems — banking, pharma, telecom, IoT.",
   Agencies:
-    "Become a one-person AI agency. We handle the build; you handle the client.",
+    "White-label AI builds. You keep the client; we handle the engineering.",
 };
 
 export function Hero() {
@@ -54,14 +54,13 @@ export function Hero() {
           </motion.div>
 
           <motion.h1
-            className="mx-auto mt-6 max-w-5xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
+            className="font-display mx-auto mt-6 max-w-5xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            We&apos;ve Shipped{" "}
-            <span className="gradient-text">{portfolioProjectCount}+ AI Products</span>{" "}
-            on Vercel. Yours Is Next.
+            Enterprise Engineers Who{" "}
+            <span className="gradient-text">Ship AI for India</span>
           </motion.h1>
 
           <motion.p
@@ -70,9 +69,20 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            From RAG pipelines to autonomous multi-agent systems — we take
-            Hyderabad-based businesses through all five levels of AI readiness.
-            In weeks, not months.
+            Based in Hyderabad — we bridge Fortune 500 engineering with production
+            AI: RAG pipelines, multi-agent systems, full-stack apps.{" "}
+            {portfolioProjectCount}+ products live on Vercel through our 5-Level
+            Framework.
+          </motion.p>
+
+          <motion.p
+            className="mx-auto mt-3 max-w-xl text-sm text-gray-500"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.22 }}
+          >
+            Led by Girish Hiremath — 14+ years enterprise, M.Tech DSAI @ IIIT
+            Dharwad
           </motion.p>
 
           <motion.div
