@@ -80,7 +80,7 @@ export const organizationSchema = {
     name: "Girish Hiremath",
     jobTitle: "Founder & AI Practitioner",
     url: "https://founder.intelliforge.tech/",
-    email: "gen.girish@gmail.com",
+    email: siteConfig.email,
     description:
       "AI practitioner and full stack architect with 14+ years across compliance, banking, pharma, telecom, and IoT. M.Tech in Data Science & AI from IIIT Dharwad.",
     alumniOf: {
@@ -182,14 +182,6 @@ export const websiteSchema = {
     "AI Agent Development & Workflow Automation Company based in Hyderabad, India.",
   publisher: { "@id": `${SITE_URL}#organization` },
   inLanguage: "en-IN",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 export function createFaqSchema(

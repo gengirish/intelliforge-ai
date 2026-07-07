@@ -1,8 +1,12 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, ExternalLink } from "lucide-react";
 import { AnimateOnScroll } from "./animate-on-scroll";
 import { founder } from "@/lib/founder";
 import { portfolioProjectCount } from "@/lib/portfolio";
+
+const FOUNDER_AVATAR_URL =
+  "https://avatars.githubusercontent.com/u/gengirish";
 
 const proofPoints = [
   "Fortune 500 delivery across banking, pharma, telecom, compliance, and IoT",
@@ -18,12 +22,13 @@ export function FounderSpotlight() {
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
             <div className="glass-card rounded-2xl p-6 sm:p-8">
               <div className="flex items-start gap-4">
-                <span
-                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo to-violet text-lg font-bold text-white"
-                  aria-hidden="true"
-                >
-                  GH
-                </span>
+                <Image
+                  src={FOUNDER_AVATAR_URL}
+                  alt={founder.name}
+                  width={56}
+                  height={56}
+                  className="h-14 w-14 shrink-0 rounded-xl object-cover ring-1 ring-white/10"
+                />
                 <div>
                   <h2 className="font-display text-xl font-bold text-white sm:text-2xl">
                     {founder.name}

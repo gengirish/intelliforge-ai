@@ -5,7 +5,7 @@ export const siteConfig = {
     "IntelliForge AI is a Hyderabad-based AI agent development and workflow automation company — from prompt engineering to full AI app development. Aligned with the Bharat AI Mission.",
   url: "https://www.intelliforge.tech",
   founder: "Girish Hiremath",
-  email: "gen.girish@gmail.com",
+  email: "support@intelliforge.tech",
   phone: "+91 85559 60837",
   whatsapp: "918555960837",
   address:
@@ -31,6 +31,8 @@ export const siteConfig = {
     youtube: "https://youtube.com/@intelliforge-ai",
     twitter: "https://twitter.com/intelliforge_ai",
   },
+  bookingUrl:
+    process.env.NEXT_PUBLIC_CALENDLY_URL || "/contact?intent=strategy-call",
 };
 
 export const navLinks = [
@@ -38,7 +40,7 @@ export const navLinks = [
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
+  // Blog hidden from nav — no published posts yet; /blog remains reachable via direct URL
   { label: "Contact", href: "/contact" },
 ];
 

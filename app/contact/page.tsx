@@ -9,7 +9,7 @@ import {
   CalendarCheck,
   Zap,
 } from "lucide-react";
-import { ContactForm } from "@/components/contact-form";
+import { ContactPageForm } from "@/components/contact-page-form";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { siteConfig } from "@/lib/constants";
@@ -33,6 +33,10 @@ export default function ContactPage() {
   const whatsappMessage = encodeURIComponent(
     "Hi! I'm interested in IntelliForge AI's services. Can we discuss?"
   );
+  const bookingUrl = siteConfig.bookingUrl;
+  const isExternalBooking = bookingUrl.startsWith("http");
+  const bookingCardClass =
+    "flex items-center gap-4 rounded-2xl border border-indigo/30 bg-indigo/10 p-6 transition-colors hover:bg-indigo/20";
 
   return (
     <div className="pt-24 pb-24">
@@ -62,7 +66,7 @@ export default function ContactPage() {
                 <h3 className="mb-6 text-xl font-bold text-white">
                   Tell Us About Your AI Goals
                 </h3>
-                <ContactForm />
+                <ContactPageForm />
               </div>
             </AnimateOnScroll>
           </div>
@@ -71,22 +75,36 @@ export default function ContactPage() {
           <div className="space-y-6 lg:col-span-2">
             {/* Calendly Booking */}
             <AnimateOnScroll delay={0.05}>
-              <Link
-                href="https://calendly.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-2xl border border-indigo/30 bg-indigo/10 p-6 transition-colors hover:bg-indigo/20"
-              >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo to-violet">
-                  <CalendarCheck className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-white">Book Free Strategy Call</h4>
-                  <p className="text-sm text-gray-400">
-                    30-min call to discuss your AI goals
-                  </p>
-                </div>
-              </Link>
+              {isExternalBooking ? (
+                <a
+                  href={bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={bookingCardClass}
+                >
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo to-violet">
+                    <CalendarCheck className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white">Book Free Strategy Call</h4>
+                    <p className="text-sm text-gray-400">
+                      30-min call to discuss your AI goals
+                    </p>
+                  </div>
+                </a>
+              ) : (
+                <Link href={bookingUrl} className={bookingCardClass}>
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo to-violet">
+                    <CalendarCheck className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white">Book Free Strategy Call</h4>
+                    <p className="text-sm text-gray-400">
+                      30-min call to discuss your AI goals
+                    </p>
+                  </div>
+                </Link>
+              )}
             </AnimateOnScroll>
 
             {/* WhatsApp CTA */}

@@ -45,7 +45,12 @@ const blogPosts = [
     readTime: "12 min read",
     date: "March 2026",
   },
-];
+] as const;
+
+function guideRequestHref(title: string) {
+  const topic = encodeURIComponent(title);
+  return `/contact?intent=guide-request&topic=${topic}`;
+}
 
 export default function BlogPage() {
   return (
@@ -81,54 +86,44 @@ export default function BlogPage() {
                 </p>
 
                 <div className="mt-4">
-                  <span className="group/link inline-flex items-center gap-1 text-sm font-semibold text-cyan transition-colors hover:text-cyan-light">
-                    Coming Soon
+                  <Link
+                    href={guideRequestHref(post.title)}
+                    className="group/link inline-flex items-center gap-1 text-sm font-semibold text-cyan transition-colors hover:text-cyan-light"
+                  >
+                    Request this guide
                     <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                  </span>
+                  </Link>
                 </div>
               </article>
             </AnimateOnScroll>
           ))}
         </div>
 
-        {/* Newsletter CTA */}
         <AnimateOnScroll className="mt-16">
           <div className="mx-auto max-w-2xl rounded-2xl border border-indigo/20 bg-gradient-to-br from-indigo/5 via-navy-light to-violet/5 p-8 text-center sm:p-12">
             <h3 className="text-xl font-bold text-white sm:text-2xl">
-              Get AI Insights in Your Inbox
+              Ready to put these ideas to work?
             </h3>
             <p className="mt-2 text-sm text-gray-400">
-              Weekly tips on AI automation, agent development, and building
-              AI-powered businesses. No spam, unsubscribe anytime.
+              Guides are in progress — meanwhile, get a personalized AI readiness
+              report or book a strategy call with our team.
             </p>
-            <form className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <input
-                type="email"
-                placeholder="you@company.com"
-                className="rounded-full border border-border bg-surface px-5 py-3 text-sm text-white placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none sm:w-72"
-              />
-              <button
-                type="button"
-                className="rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link
+                href="/ai-audit"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
               >
-                Subscribe
-              </button>
-            </form>
+                Get a free AI audit
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/contact?intent=strategy-call"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-indigo/40 hover:bg-surface-hover"
+              >
+                Book a strategy call
+              </Link>
+            </div>
           </div>
-        </AnimateOnScroll>
-
-        {/* CTA */}
-        <AnimateOnScroll className="mt-12 text-center">
-          <p className="text-sm text-gray-400">
-            Want to implement these ideas?{" "}
-            <Link
-              href="/contact?intent=strategy-call"
-              className="font-medium text-cyan hover:text-cyan-light"
-            >
-              Book a free strategy call
-            </Link>{" "}
-            and let&apos;s discuss.
-          </p>
         </AnimateOnScroll>
       </div>
     </div>

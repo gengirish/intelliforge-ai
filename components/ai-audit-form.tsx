@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   ArrowRight,
   ArrowLeft,
@@ -11,14 +11,24 @@ import {
   Wrench,
   AlertTriangle,
   User,
+  FileText,
+  Sparkles,
+  Target,
+  Clock,
 } from "lucide-react";
+import {
+  generateAuditReport,
+  formatAuditReportText,
+  type AuditReport,
+} from "@/lib/audit-report";
 
 const steps = [
   { id: 1, label: "Company", icon: Building2 },
   { id: 2, label: "Industry", icon: Briefcase },
   { id: 3, label: "Tools", icon: Wrench },
   { id: 4, label: "Challenge", icon: AlertTriangle },
-  { id: 5, label: "Contact", icon: User },
+  { id: 5, label: "Report", icon: FileText },
+  { id: 6, label: "Contact", icon: User },
 ];
 
 const companySizes = [
@@ -59,6 +69,102 @@ const challenges = [
   "Want to reduce costs with automation",
 ];
 
+function AuditReportCard({ report }: { report: AuditReport }) {
+  return (
+    <div className="space-y-5">
+      {/* Maturity Score */}
+      <div className="rounded-xl border border-indigo/20 bg-gradient-to-br from-indigo/10 to-violet/10 p-5">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-wider text-indigo-300">
+              Your AI Maturity
+            </p>
+            <h4 className="mt-1 text-xl font-bold text-white">
+              {report.maturityLabel}
+            </h4>
+            <p className="mt-1 text-sm text-gray-400">
+              Level {report.maturityLevel} of 5
+            </p>
+          </div>
+          <div className="flex gap-1.5">
+            {[1, 2, 3, 4, 5].map((level) => (
+              <div
+                key={level}
+                className={`h-8 w-2 rounded-full transition-all ${
+                  level <= report.maturityLevel
+                    ? "bg-gradient-to-t from-indigo to-violet"
+                    : "bg-surface"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Recommended Service */}
+      <div className="rounded-xl border border-border bg-surface p-5">
+        <div className="flex items-center gap-2 text-indigo-300">
+          <Sparkles className="h-4 w-4" />
+          <p className="text-xs font-medium uppercase tracking-wider">
+            Recommended Path
+          </p>
+        </div>
+        <p className="mt-2 text-lg font-semibold text-white">
+          Level {report.recommendedLevel}: {report.recommendedService}
+        </p>
+        <div className="mt-3 flex items-center gap-2 text-sm text-gray-400">
+          <Clock className="h-4 w-4 shrink-0 text-violet-400" />
+          <span>
+            Estimated timeline:{" "}
+            <strong className="text-gray-200">{report.estimatedTimeline}</strong>
+          </span>
+        </div>
+      </div>
+
+      {/* Top Opportunities */}
+      <div className="rounded-xl border border-border bg-surface p-5">
+        <div className="flex items-center gap-2 text-indigo-300">
+          <Target className="h-4 w-4" />
+          <p className="text-xs font-medium uppercase tracking-wider">
+            Top Opportunities
+          </p>
+        </div>
+        <ul className="mt-3 space-y-2.5">
+          {report.topOpportunities.map((opp, i) => (
+            <li
+              key={opp}
+              className="flex gap-3 text-sm text-gray-300"
+            >
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-indigo/20 text-xs font-bold text-indigo-300">
+                {i + 1}
+              </span>
+              {opp}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Next Steps */}
+      <div className="rounded-xl border border-border bg-surface p-5">
+        <p className="text-xs font-medium uppercase tracking-wider text-violet-300">
+          Recommended Next Steps
+        </p>
+        <ul className="mt-3 space-y-2">
+          {report.nextSteps.map((step) => (
+            <li
+              key={step}
+              className="flex gap-2 text-sm text-gray-400"
+            >
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" />
+              {step}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 export function AiAuditForm() {
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -73,6 +179,16 @@ export function AiAuditForm() {
     email: "",
   });
 
+  const report = useMemo(() => {
+    if (!formData.challenge) return null;
+    return generateAuditReport({
+      companySize: formData.companySize,
+      industry: formData.industry,
+      tools: formData.tools,
+      challenge: formData.challenge,
+    });
+  }, [formData.companySize, formData.industry, formData.tools, formData.challenge]);
+
   const canProceed = () => {
     switch (step) {
       case 1:
@@ -84,6 +200,8 @@ export function AiAuditForm() {
       case 4:
         return formData.challenge !== "";
       case 5:
+        return true;
+      case 6:
         return formData.name !== "" && formData.email !== "";
       default:
         return false;
@@ -100,8 +218,19 @@ export function AiAuditForm() {
   };
 
   const handleSubmit = async () => {
+    if (!report) return;
     setStatus("sending");
     try {
+      const reportText = formatAuditReportText(
+        {
+          companySize: formData.companySize,
+          industry: formData.industry,
+          tools: formData.tools,
+          challenge: formData.challenge,
+        },
+        report
+      );
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -109,7 +238,9 @@ export function AiAuditForm() {
           name: formData.name,
           email: formData.email,
           service: "Free AI Audit",
-          message: `AI Audit Request:\nCompany Size: ${formData.companySize}\nIndustry: ${formData.industry}\nCurrent Tools: ${formData.tools.join(", ")}\nBiggest Challenge: ${formData.challenge}`,
+          companySize: formData.companySize,
+          challenge: formData.challenge,
+          message: reportText,
         }),
       });
       if (res.ok) {
@@ -122,28 +253,32 @@ export function AiAuditForm() {
     }
   };
 
-  if (status === "sent") {
+  if (status === "sent" && report) {
     return (
-      <div className="glass-card rounded-2xl p-8 text-center sm:p-12">
-        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500/20">
-          <CheckCircle className="h-8 w-8 text-green-400" />
+      <div className="glass-card rounded-2xl p-6 sm:p-8">
+        <div className="mb-6 text-center">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500/20">
+            <CheckCircle className="h-8 w-8 text-green-400" />
+          </div>
+          <h3 className="text-2xl font-bold text-white">
+            Report Sent to Your Inbox!
+          </h3>
+          <p className="mx-auto mt-3 max-w-md text-gray-400">
+            Your personalized AI readiness report has been emailed. Here&apos;s
+            your instant summary — keep it handy.
+          </p>
         </div>
-        <h3 className="text-2xl font-bold text-white">
-          Your AI Audit Is On Its Way!
-        </h3>
-        <p className="mx-auto mt-3 max-w-md text-gray-400">
-          We&apos;ll review your submission and send a personalized AI readiness
-          report within 24 hours. Keep an eye on your inbox.
-        </p>
+
+        <AuditReportCard report={report} />
+
         <div className="mt-6 rounded-xl bg-surface p-4">
           <p className="text-sm text-gray-300">
             <strong className="text-white">What happens next:</strong>
           </p>
           <ol className="mt-2 space-y-1 text-left text-sm text-gray-400">
-            <li>1. We analyze your current AI maturity level</li>
-            <li>2. Identify top 3 automation opportunities</li>
-            <li>3. Send your personalized AI roadmap</li>
-            <li>4. Optional: Free 30-min strategy call to discuss</li>
+            <li>1. Review your report and note your top priority opportunity</li>
+            <li>2. We&apos;ll follow up within 24 hours with tailored insights</li>
+            <li>3. Optional: Free 30-min strategy call to discuss your roadmap</li>
           </ol>
         </div>
       </div>
@@ -177,7 +312,7 @@ export function AiAuditForm() {
               </div>
               {i < steps.length - 1 && (
                 <div
-                  className={`hidden h-0.5 w-8 sm:block lg:w-16 ${
+                  className={`hidden h-0.5 w-4 sm:block sm:w-6 lg:w-10 ${
                     isCompleted ? "bg-green-500/30" : "bg-border"
                   }`}
                 />
@@ -310,14 +445,29 @@ export function AiAuditForm() {
           </div>
         )}
 
-        {step === 5 && (
+        {step === 5 && report && (
           <div>
             <h3 className="text-lg font-bold text-white">
-              Where should we send your AI report?
+              Your AI Readiness Report
             </h3>
             <p className="mt-1 text-sm text-gray-400">
-              We&apos;ll send your personalized AI readiness report to this
-              email.
+              Generated instantly from your answers. Enter your email on the
+              next step to receive a copy.
+            </p>
+            <div className="mt-5">
+              <AuditReportCard report={report} />
+            </div>
+          </div>
+        )}
+
+        {step === 6 && (
+          <div>
+            <h3 className="text-lg font-bold text-white">
+              Get it emailed to you
+            </h3>
+            <p className="mt-1 text-sm text-gray-400">
+              We&apos;ll send your full AI readiness report to this email so you
+              can share it with your team.
             </p>
             <div className="mt-6 space-y-4">
               <div>
@@ -384,14 +534,14 @@ export function AiAuditForm() {
           <div />
         )}
 
-        {step < 5 ? (
+        {step < 6 ? (
           <button
             type="button"
             onClick={() => canProceed() && setStep(step + 1)}
             disabled={!canProceed()}
             className="flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-2.5 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25 disabled:opacity-40"
           >
-            Next
+            {step === 5 ? "Get It Emailed" : "Next"}
             <ArrowRight className="h-4 w-4" />
           </button>
         ) : (
@@ -404,11 +554,11 @@ export function AiAuditForm() {
             {status === "sending" ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" />
-                Submitting...
+                Sending...
               </>
             ) : (
               <>
-                Get My AI Report
+                Send My Report
                 <ArrowRight className="h-4 w-4" />
               </>
             )}

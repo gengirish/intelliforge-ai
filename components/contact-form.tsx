@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Send, Loader2 } from "lucide-react";
 
 const serviceOptions = [
@@ -12,6 +13,13 @@ const serviceOptions = [
   "Full AI Transformation (All Levels)",
   "Other / Not Sure",
 ];
+
+const planToService: Record<string, string> = {
+  "AI Foundations": "AI Foundations & Training (Level 1)",
+  "Workflow Automation": "Workflow Automation (Level 2)",
+  "AI Agent Development": "Agent Development (Level 4)",
+  "AI App Development": "App Development — Vibe Coding (Level 5)",
+};
 
 const companySizeOptions = [
   "Just me (Solo founder)",
@@ -30,15 +38,53 @@ const challengeOptions = [
   "Other",
 ];
 
+const defaultMessagePlaceholder =
+  "What would you like to automate or build with AI? What does success look like for you?";
+
+function getPrefillFromParams(searchParams: URLSearchParams) {
+  const intent = searchParams.get("intent");
+  const plan = searchParams.get("plan");
+
+  let service = "";
+  let messagePlaceholder = defaultMessagePlaceholder;
+
+  if (intent === "strategy-call") {
+    service = "Full AI Transformation (All Levels)";
+    messagePlaceholder =
+      "Tell us about your AI goals for the strategy call — what's your biggest challenge or opportunity right now?";
+  } else if (intent === "guide-request") {
+    const topic = searchParams.get("topic");
+    service = "Other / Not Sure";
+    messagePlaceholder = topic
+      ? `I'd like the guide: "${topic}". Please share when available.`
+      : "I'd like to request a guide from your blog. Please share when available.";
+  } else if (intent === "pricing" && plan) {
+    const matchedService = planToService[plan];
+    if (matchedService) {
+      service = matchedService;
+      messagePlaceholder = `I'm interested in the ${plan} plan. Here's a bit more about my project...`;
+    }
+  }
+
+  return { service, messagePlaceholder };
+}
+
 export function ContactForm() {
+  const searchParams = useSearchParams();
+  const prefill = useMemo(
+    () => getPrefillFromParams(searchParams),
+    [searchParams]
+  );
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    service: "",
+    service: prefill.service,
     companySize: "",
     challenge: "",
     message: "",
+    website: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
@@ -55,7 +101,16 @@ export function ContactForm() {
 
       if (res.ok) {
         setStatus("sent");
-        setFormData({ name: "", email: "", phone: "", service: "", companySize: "", challenge: "", message: "" });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          companySize: "",
+          challenge: "",
+          message: "",
+          website: "",
+        });
       } else {
         setStatus("error");
       }
@@ -86,6 +141,22 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      <div
+        className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={formData.website}
+          onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+        />
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-gray-300">
@@ -202,7 +273,7 @@ export function ContactForm() {
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           className="w-full resize-none rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
-          placeholder="What would you like to automate or build with AI? What does success look like for you?"
+          placeholder={prefill.messagePlaceholder}
         />
       </div>
 

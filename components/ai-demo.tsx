@@ -79,10 +79,11 @@ export function AiDemo() {
           <Sparkles className="h-6 w-6 text-white" aria-hidden="true" />
         </div>
         <h3 className="text-lg font-bold text-white">
-          See where you&apos;d start on our 5-level framework
+          Find Your Starting Level on Our 5-Level Framework
         </h3>
         <p className="mt-1 text-sm text-gray-400">
-          This is how we think about your business — try it.
+          A tailored recommendation based on your business type — not a live AI
+          demo. Select your industry to see where we&apos;d typically start.
         </p>
 
         <div className="relative mt-6">

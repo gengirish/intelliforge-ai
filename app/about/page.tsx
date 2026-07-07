@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -21,6 +22,9 @@ import { CaseStudyCard } from "@/components/case-study-card";
 import { StatBar } from "@/components/stat-bar";
 import { founder } from "@/lib/founder";
 import { caseStudies, testimonials } from "@/lib/constants";
+
+const FOUNDER_AVATAR_URL =
+  "https://avatars.githubusercontent.com/u/gengirish";
 
 export const metadata: Metadata = {
   title: "About",
@@ -184,9 +188,13 @@ export default function AboutPage() {
                     className="group flex h-64 flex-col items-center justify-center bg-gradient-to-br from-indigo/20 to-violet/20 transition-colors hover:from-indigo/30 hover:to-violet/30"
                     aria-label="View Girish Hiremath full portfolio"
                   >
-                    <span className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo to-violet text-2xl font-bold text-white">
-                      GH
-                    </span>
+                    <Image
+                      src={FOUNDER_AVATAR_URL}
+                      alt={founder.name}
+                      width={80}
+                      height={80}
+                      className="h-20 w-20 rounded-xl object-cover ring-2 ring-indigo/30 transition-transform group-hover:scale-105"
+                    />
                     <span className="mt-3 flex items-center gap-1.5 text-sm font-semibold text-cyan group-hover:text-cyan-light">
                       View full portfolio
                       <ExternalLink className="h-3.5 w-3.5" />

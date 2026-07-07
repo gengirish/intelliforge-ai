@@ -42,12 +42,22 @@ const EXCLUDE_SLUGS = new Set([
   "demo-profile",
 ]);
 
+const EXCLUDE_SLUG_SUFFIXES = ["-digital", "-portfolio", "-profile"] as const;
+
+function shouldExcludeSlug(slug: string): boolean {
+  if (EXCLUDE_SLUGS.has(slug)) return true;
+  return EXCLUDE_SLUG_SUFFIXES.some((suffix) => slug.endsWith(suffix));
+}
+
 export const FEATURED_VERCEL_SLUGS = [
   "multi-agent-deep-research",
   "complianceforge",
   "ai-native-agency",
   "interview-with-giri",
   "training-feedback",
+  "digital-product-ai",
+  "youtube-scrapper",
+  "campaignforge-ai",
 ] as const;
 
 type PortfolioMeta = Omit<PortfolioProject, "url"> & { vercelSlug: string };
@@ -70,6 +80,7 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     tags: ["Next.js", "AI Chatbot", "Portfolio", "RAG", "Vercel"],
     levels: [4, 5],
     icon: "UserCircle",
+    featured: true,
   },
   {
     vercelSlug: "multi-agent-deep-research",
@@ -99,6 +110,7 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     tags: ["API", "n8n", "Zapier", "Automation"],
     levels: [2, 5],
     icon: "Play",
+    featured: true,
   },
   {
     vercelSlug: "movemore",
@@ -159,6 +171,7 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     tags: ["AI Security", "Guardrails", "LLM Safety"],
     levels: [4, 5],
     icon: "Shield",
+    featured: true,
   },
   {
     vercelSlug: "pdfforge-frontend",
@@ -206,6 +219,7 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     tags: ["Marketing AI", "Multi-Agent", "Campaigns"],
     levels: [3, 4, 5],
     icon: "Megaphone",
+    featured: true,
   },
   {
     vercelSlug: "linkedin-post-generator",
@@ -486,7 +500,7 @@ export function buildPortfolioProjects(): PortfolioProject[] {
   }
 
   for (const { slug, productionUrl } of vercelProjects.projects) {
-    if (!productionUrl || EXCLUDE_SLUGS.has(slug) || seen.has(slug)) continue;
+    if (!productionUrl || shouldExcludeSlug(slug) || seen.has(slug)) continue;
     projects.push(buildAutoEntry(slug, productionUrl));
     seen.add(slug);
   }
@@ -499,6 +513,16 @@ export function buildPortfolioProjects(): PortfolioProject[] {
 }
 
 export const portfolioProjects = buildPortfolioProjects();
+
+export const homepagePortfolioLimit = 12;
+
+export function getHomepagePortfolio(
+  projects: PortfolioProject[],
+): PortfolioProject[] {
+  const featured = projects.filter((p) => p.featured);
+  const rest = projects.filter((p) => !p.featured);
+  return [...featured, ...rest].slice(0, homepagePortfolioLimit);
+}
 
 export const portfolioProjectCount = portfolioProjects.length;
 

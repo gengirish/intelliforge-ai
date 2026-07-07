@@ -12,7 +12,7 @@ License: Content may be cited with attribution to "IntelliForge AI" and a link b
 **Tagline:** AI Agent Development & Automation Company
 **Location:** Vamsiram's Jyothi Granules, Tower-2, Kondapur Main Road, Opp. Chirec School, Laxmi Nagar, Kondapur, Hyderabad, Telangana 500084
 **Legal status:** Individual Proprietorship
-**Email:** gen.girish@gmail.com
+**Email:** support@intelliforge.tech
 **Founded by:** Engineers with 13+ years of enterprise experience (banking, fintech, pharma, healthcare, telecom, IoT). M.Tech in Data Science & AI from IIIT Dharwad.
 **Mission alignment:** India's Bharat AI Mission (₹10,372 crore IndiaAI Mission).
 
@@ -204,7 +204,7 @@ A: Yes — App Development engagements include dedicated AI consultant access an
 
 ## Contact
 
-- **Email:** gen.girish@gmail.com
+- **Email:** support@intelliforge.tech
 - **Location:** Vamsiram's Jyothi Granules, Tower-2, Kondapur Main Road, Opp. Chirec School, Laxmi Nagar, Kondapur, Hyderabad, Telangana 500084
 - **LinkedIn:** https://linkedin.com/company/intelliforge-ai
 - **GitHub:** https://github.com/intelliforge-ai

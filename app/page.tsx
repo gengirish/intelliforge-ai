@@ -8,11 +8,14 @@ import { FeaturedCaseStudy } from "@/components/featured-case-study";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { AiDemo } from "@/components/ai-demo";
-import { services, caseStudies } from "@/lib/constants";
-import { portfolioProjects } from "@/lib/portfolio";
+import { HomeTestimonial } from "@/components/home-testimonial";
+import { services, caseStudies, testimonials } from "@/lib/constants";
+import { getHomepagePortfolio, portfolioProjects } from "@/lib/portfolio";
 
 const featuredCaseStudy =
   caseStudies.find((study) => study.featured) ?? caseStudies[0];
+
+const homepagePortfolio = getHomepagePortfolio(portfolioProjects);
 
 export default function HomePage() {
   return (
@@ -21,13 +24,13 @@ export default function HomePage() {
 
       <FounderSpotlight />
 
-      {/* Try it yourself — interactive demo */}
+      {/* Framework starting-point tool */}
       <section className="blueprint-grid bg-navy-light/50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Try It Yourself"
-            title="See AI in Action — Right Here, Right Now"
-            description="Most agencies show slides. We built a live demo you can use in seconds — pick your business type and get a tailored AI starting point. No signup, no sales call."
+            title="Find Your Starting Level on Our 5-Level Framework"
+            description="Pick your business type and get a tailored recommendation — which level to start at, what to automate first, and a realistic timeline. No signup required."
           />
           <AiDemo />
         </div>
@@ -68,6 +71,18 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Client testimonial */}
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="Client Voice"
+            title="What Teams Say After Shipping"
+            description="Real feedback from B2B teams we've automated, integrated, and shipped to production."
+          />
+          <HomeTestimonial testimonial={testimonials[0]} />
+        </div>
+      </section>
+
       {/* Portfolio */}
       <section id="portfolio" className="scroll-mt-20 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -77,7 +92,7 @@ export default function HomePage() {
             description="Real tools and products we've built — proof of what's possible at every level."
           />
 
-          <PortfolioGrid projects={portfolioProjects} />
+          <PortfolioGrid projects={homepagePortfolio} />
         </div>
       </section>
 

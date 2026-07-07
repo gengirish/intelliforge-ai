@@ -12,12 +12,12 @@
     "test:e2e:links": "playwright test e2e/link-check.spec.ts"
   },
   "dependencies": {
+    "agentmail": "^0.5.14",
     "framer-motion": "^12.34.3",
     "lucide-react": "^0.575.0",
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "resend": "^6.9.2"
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
