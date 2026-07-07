@@ -11,7 +11,11 @@ const EMAIL_PATTERN =
 
 function resolveAdminEmail(): string {
   const configured = process.env.CONTACT_EMAIL?.trim();
-  if (configured && EMAIL_PATTERN.test(configured)) {
+  if (
+    configured &&
+    EMAIL_PATTERN.test(configured) &&
+    !configured.toLowerCase().endsWith("@intelliforge.tech")
+  ) {
     return configured;
   }
   return siteConfig.email;
