@@ -130,7 +130,14 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
-                <span className="text-sm text-gray-400">{siteConfig.address}</span>
+                <a
+                  href={siteConfig.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-400 transition-colors hover:text-cyan"
+                >
+                  {siteConfig.address}
+                </a>
               </li>
             </ul>
             <div className="mt-6">

@@ -142,9 +142,23 @@ export default function ContactPage() {
                     <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-cyan" />
                     <div>
                       <p className="text-sm font-medium text-gray-300">Office</p>
-                      <p className="text-sm text-gray-400">{siteConfig.address}</p>
+                      <a
+                        href={siteConfig.mapsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-gray-400 hover:text-cyan"
+                      >
+                        {siteConfig.address}
+                      </a>
                       <p className="mt-1 text-xs text-gray-500">
-                        Virtual office via myHQ
+                        <a
+                          href={siteConfig.mapsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-cyan"
+                        >
+                          Open in Google Maps →
+                        </a>
                       </p>
                     </div>
                   </div>
@@ -165,14 +179,14 @@ export default function ContactPage() {
             <AnimateOnScroll delay={0.3}>
               <div className="overflow-hidden rounded-2xl border border-border">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.34203828824!2d78.24323105!3d17.4123487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  src={siteConfig.mapsEmbedUrl}
                   width="100%"
-                  height="200"
+                  height="240"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="IntelliForge AI - Hyderabad, Telangana"
+                  title="IntelliForge AI office — Jyothi Granules, Kondapur, Hyderabad"
                 />
               </div>
             </AnimateOnScroll>

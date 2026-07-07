@@ -18,6 +18,13 @@ export const siteConfig = {
     postalCode: "500084",
     country: "IN",
   },
+  mapsUrl: "https://maps.app.goo.gl/qHHtDmgLMUUHDuod7",
+  mapsEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3808.0408871197635!2d78.3485649!3d17.4617647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93f736f49d39%3A0x464b4748869662bf!2sJYOTHI%20GRANULES!5e0!3m2!1sen!2sin!4v1720000000000!5m2!1sen!2sin",
+  geo: {
+    latitude: 17.4617596,
+    longitude: 78.3511398,
+  },
   social: {
     linkedin: "https://linkedin.com/company/intelliforge-ai",
     github: "https://github.com/gengirish/intelliforge-ai",

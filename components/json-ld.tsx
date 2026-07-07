@@ -58,6 +58,12 @@ export const organizationSchema = {
     postalCode: siteConfig.postalAddress.postalCode,
     addressCountry: siteConfig.postalAddress.country,
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: siteConfig.geo.latitude,
+    longitude: siteConfig.geo.longitude,
+  },
+  hasMap: siteConfig.mapsUrl,
   areaServed: [
     { "@type": "Country", name: "India" },
     { "@type": "Place", name: "Worldwide (remote engagements)" },
@@ -114,6 +120,12 @@ export const professionalServiceSchema = {
     postalCode: siteConfig.postalAddress.postalCode,
     addressCountry: siteConfig.postalAddress.country,
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: siteConfig.geo.latitude,
+    longitude: siteConfig.geo.longitude,
+  },
+  hasMap: siteConfig.mapsUrl,
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
