@@ -5,7 +5,7 @@ export const siteConfig = {
     "IntelliForge AI is a Hyderabad-based AI agent development and workflow automation company — from prompt engineering to full AI app development. Aligned with the Bharat AI Mission.",
   url: "https://www.intelliforge.tech",
   founder: "Girish Hiremath",
-  email: "support@intelliforge.tech",
+  email: "gen.girish@gmail.com",
   phone: "+91 85559 60837",
   whatsapp: "918555960837",
   address:
