@@ -6,10 +6,11 @@ import {
 } from "@/lib/contact-emails";
 import { siteConfig } from "@/lib/constants";
 
-const ADMIN_EMAIL = process.env.CONTACT_EMAIL || siteConfig.email;
+const ADMIN_EMAIL = (process.env.CONTACT_EMAIL || siteConfig.email).trim();
 
 export async function POST(req: NextRequest) {
-  if (!process.env.AGENTMAIL_API_KEY) {
+  const apiKey = process.env.AGENTMAIL_API_KEY?.trim();
+  if (!apiKey) {
     console.error("Contact API error: AGENTMAIL_API_KEY is not configured");
     return NextResponse.json(
       { error: "Email service is not configured" },
