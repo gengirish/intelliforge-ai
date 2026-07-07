@@ -5,10 +5,19 @@ export const siteConfig = {
     "IntelliForge AI is a Hyderabad-based AI agent development and workflow automation company — from prompt engineering to full AI app development. Aligned with the Bharat AI Mission.",
   url: "https://www.intelliforge.tech",
   founder: "Girish Hiremath",
-  email: "contact@intelliforge.tech",
+  email: "gen.girish@gmail.com",
   phone: "+91 85559 60837",
   whatsapp: "918555960837",
-  address: "Virtual Office, Hyderabad, Telangana, India",
+  address:
+    "Vamsiram's Jyothi Granules, Tower-2, Kondapur Main Road, Opp. Chirec School, Laxmi Nagar, Kondapur, Hyderabad, Telangana 500084",
+  postalAddress: {
+    streetAddress:
+      "Vamsiram's Jyothi Granules, Tower-2, Kondapur Main Road, Opp. Chirec School, Laxmi Nagar, Kondapur",
+    locality: "Hyderabad",
+    region: "Telangana",
+    postalCode: "500084",
+    country: "IN",
+  },
   social: {
     linkedin: "https://linkedin.com/company/intelliforge-ai",
     github: "https://github.com/gengirish/intelliforge-ai",

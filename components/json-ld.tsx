@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/constants";
+
 interface JsonLdProps {
   data: Record<string, unknown>;
 }
@@ -50,9 +52,11 @@ export const organizationSchema = {
   knowsLanguage: ["English", "Hindi", "Telugu"],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Hyderabad",
-    addressRegion: "Telangana",
-    addressCountry: "IN",
+    streetAddress: siteConfig.postalAddress.streetAddress,
+    addressLocality: siteConfig.postalAddress.locality,
+    addressRegion: siteConfig.postalAddress.region,
+    postalCode: siteConfig.postalAddress.postalCode,
+    addressCountry: siteConfig.postalAddress.country,
   },
   areaServed: [
     { "@type": "Country", name: "India" },
@@ -61,7 +65,7 @@ export const organizationSchema = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",
-    email: "contact@intelliforge.tech",
+    email: siteConfig.email,
     availableLanguage: ["English", "Hindi"],
     areaServed: "Worldwide",
   },
@@ -104,10 +108,11 @@ export const professionalServiceSchema = {
     "AI consulting and development agency offering prompt engineering, workflow automation, AI agent development, and full AI app development.",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Hyderabad",
-    addressRegion: "Telangana",
-    postalCode: "500001",
-    addressCountry: "IN",
+    streetAddress: siteConfig.postalAddress.streetAddress,
+    addressLocality: siteConfig.postalAddress.locality,
+    addressRegion: siteConfig.postalAddress.region,
+    postalCode: siteConfig.postalAddress.postalCode,
+    addressCountry: siteConfig.postalAddress.country,
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
