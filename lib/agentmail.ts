@@ -13,7 +13,7 @@ let client: AgentMailClient | null = null;
 let inboxIdPromise: Promise<string> | null = null;
 
 function getApiKey(): string {
-  const apiKey = process.env.AGENTMAIL_API_KEY;
+  const apiKey = process.env.AGENTMAIL_API_KEY?.trim();
   if (!apiKey) {
     throw new Error("AGENTMAIL_API_KEY is not configured");
   }
@@ -28,7 +28,8 @@ function getClient(): AgentMailClient {
 }
 
 async function resolveInboxId(): Promise<string> {
-  const configuredInboxId = process.env.AGENTMAIL_INBOX_ID;
+  const configuredInboxId =
+    process.env.AGENTMAIL_INBOX_ID?.trim() || "contact@intelliforge.tech";
   if (configuredInboxId) {
     return configuredInboxId;
   }
@@ -36,9 +37,17 @@ async function resolveInboxId(): Promise<string> {
   if (!inboxIdPromise) {
     inboxIdPromise = (async () => {
       const agentmail = getClient();
+      const inboxes = await agentmail.inboxes.list({ limit: 50 });
+      const existing = inboxes.inboxes?.find(
+        (inbox) => inbox.inboxId === "contact@intelliforge.tech"
+      );
+      if (existing?.inboxId) {
+        return existing.inboxId;
+      }
+
       const inbox = await agentmail.inboxes.create({
-        clientId: "intelliforge-support-inbox",
-        username: process.env.AGENTMAIL_INBOX_USERNAME || "support",
+        clientId: "intelliforge-contact-inbox",
+        username: process.env.AGENTMAIL_INBOX_USERNAME || "contact",
         displayName: siteConfig.name,
         domain: process.env.AGENTMAIL_DOMAIN || "intelliforge.tech",
       });
