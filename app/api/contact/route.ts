@@ -6,7 +6,18 @@ import {
 } from "@/lib/contact-emails";
 import { siteConfig } from "@/lib/constants";
 
-const ADMIN_EMAIL = (process.env.CONTACT_EMAIL || siteConfig.email).trim();
+const EMAIL_PATTERN =
+  /^(?!\.)(?!.*\.\.)([A-Za-z0-9_'+\\-]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\.)+[A-Za-z]{2,}$/;
+
+function resolveAdminEmail(): string {
+  const configured = process.env.CONTACT_EMAIL?.trim();
+  if (configured && EMAIL_PATTERN.test(configured)) {
+    return configured;
+  }
+  return siteConfig.email;
+}
+
+const ADMIN_EMAIL = resolveAdminEmail();
 
 export async function POST(req: NextRequest) {
   const apiKey = process.env.AGENTMAIL_API_KEY?.trim();
