@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAgentMailErrorMessage, sendEmail } from "@/lib/agentmail";
+import { getAgentMailErrorMessage, sendEmail, sendEnquiryNotifications } from "@/lib/agentmail";
 import {
   buildAdminEmailHtml,
   buildConfirmationEmailHtml,
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
     const emailData = { name, email, phone, service, companySize, challenge, message };
 
     try {
-      await sendEmail({
+      await sendEnquiryNotifications({
         to: ADMIN_EMAIL,
         replyTo: email,
         subject: `New Inquiry: ${service} — from ${name}`,

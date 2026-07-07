@@ -2,11 +2,12 @@ import { AgentMailClient } from "agentmail";
 import { siteConfig } from "@/lib/constants";
 
 export type SendEmailInput = {
-  to: string;
+  to: string | string[];
   subject: string;
   html: string;
   text?: string;
   replyTo?: string;
+  fromInboxId?: string;
 };
 
 let client: AgentMailClient | null = null;
@@ -27,11 +28,16 @@ function getClient(): AgentMailClient {
   return client;
 }
 
-async function resolveInboxId(): Promise<string> {
-  const configuredInboxId =
-    process.env.AGENTMAIL_INBOX_ID?.trim() || "contact@intelliforge.tech";
-  if (configuredInboxId) {
-    return configuredInboxId;
+function resolveSupportInboxId(): string {
+  return (
+    process.env.AGENTMAIL_SUPPORT_INBOX_ID?.trim() || siteConfig.supportEmail
+  );
+}
+
+async function resolveOutboxInboxId(override?: string): Promise<string> {
+  const configured = override?.trim() || process.env.AGENTMAIL_INBOX_ID?.trim();
+  if (configured) {
+    return configured;
   }
 
   if (!inboxIdPromise) {
@@ -79,9 +85,10 @@ export async function sendEmail({
   html,
   text,
   replyTo,
+  fromInboxId,
 }: SendEmailInput): Promise<void> {
   const agentmail = getClient();
-  const inboxId = await resolveInboxId();
+  const inboxId = await resolveOutboxInboxId(fromInboxId);
 
   await agentmail.inboxes.messages.send(inboxId, {
     to,
@@ -89,6 +96,28 @@ export async function sendEmail({
     html,
     text: text ?? stripHtml(html),
     ...(replyTo ? { replyTo } : {}),
+  });
+}
+
+export async function sendEnquiryNotifications({
+  to,
+  subject,
+  html,
+  replyTo,
+}: {
+  to: string;
+  subject: string;
+  html: string;
+  replyTo?: string;
+}): Promise<void> {
+  const supportInboxId = resolveSupportInboxId();
+
+  await sendEmail({
+    fromInboxId: supportInboxId,
+    to,
+    subject,
+    html,
+    replyTo,
   });
 }
 

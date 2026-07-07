@@ -6,6 +6,7 @@ export const siteConfig = {
   url: "https://www.intelliforge.tech",
   founder: "Girish Hiremath",
   email: "gen.girish@gmail.com",
+  supportEmail: "support@intelliforge.tech",
   phone: "+91 85559 60837",
   whatsapp: "918555960837",
   address:
