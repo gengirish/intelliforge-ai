@@ -54,7 +54,7 @@ function guideRequestHref(title: string) {
 
 export default function BlogPage() {
   return (
-    <div className="pt-24 pb-24">
+    <div className="pt-8 pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="Blog"

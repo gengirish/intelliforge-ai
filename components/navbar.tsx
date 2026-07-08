@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Zap, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks, siteConfig, startingPrice } from "@/lib/constants";
+import { RagMasterClassPromo } from "@/components/rag-masterclass-promo";
+import { isEventUpcoming, ragMasterClass } from "@/lib/events";
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -19,12 +21,15 @@ export function Navbar() {
   const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
     "Hi! I'm interested in IntelliForge AI's services. Can we discuss?",
   )}`;
+  const showEventBanner = isEventUpcoming(ragMasterClass);
 
   return (
-    <nav
-      className="fixed top-0 z-50 w-full border-b border-border bg-navy/80 backdrop-blur-xl"
-      aria-label="Main navigation"
-    >
+    <header className="fixed top-0 z-50 w-full">
+      {showEventBanner && <RagMasterClassPromo />}
+      <nav
+        className="w-full border-b border-border bg-navy/80 backdrop-blur-xl"
+        aria-label="Main navigation"
+      >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5" aria-label="IntelliForge AI home">
           <div className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-indigo/30 bg-indigo/15">
@@ -125,6 +130,7 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+      </nav>
+    </header>
   );
 }

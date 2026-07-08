@@ -42,7 +42,7 @@ const benefits = [
 
 export default function AiAuditPage() {
   return (
-    <div className="pt-24 pb-24">
+    <div className="pt-8 pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="Free AI Audit"

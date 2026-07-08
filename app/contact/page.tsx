@@ -39,7 +39,7 @@ export default function ContactPage() {
     "flex items-center gap-4 rounded-2xl border border-indigo/30 bg-indigo/10 p-6 transition-colors hover:bg-indigo/20";
 
   return (
-    <div className="pt-24 pb-24">
+    <div className="pt-8 pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <SectionHeading

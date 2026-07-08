@@ -41,7 +41,7 @@ const faqs = [
 
 export default function PricingPage() {
   return (
-    <div className="pt-24 pb-24">
+    <div className="pt-8 pb-24">
       <JsonLd data={createFaqSchema(faqs)} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Page Header */}

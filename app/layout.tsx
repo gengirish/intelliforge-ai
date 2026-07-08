@@ -15,6 +15,7 @@ import {
   websiteSchema,
 } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
+import { SiteHeaderSpacer } from "@/components/site-header-spacer";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -123,6 +124,7 @@ export default function RootLayout({
         <JsonLd data={professionalServiceSchema} />
         <JsonLd data={websiteSchema} />
         <Navbar />
+        <SiteHeaderSpacer />
         <main className="min-h-screen">{children}</main>
         <Footer />
         <WhatsAppButton />

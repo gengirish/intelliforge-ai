@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/pricing",
     "/contact",
     "/ai-audit",
+    "/rag-masterclass",
     "/blog",
   ];
 
