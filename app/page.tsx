@@ -9,7 +9,6 @@ import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { AiDemo } from "@/components/ai-demo";
 import { HomeTestimonial } from "@/components/home-testimonial";
-import { RagMasterClassPromo } from "@/components/rag-masterclass-promo";
 import { services, caseStudies, testimonials } from "@/lib/constants";
 import { getHomepagePortfolio, portfolioProjects } from "@/lib/portfolio";
 
@@ -22,12 +21,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-
-      <section className="pb-8 pt-4">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <RagMasterClassPromo variant="card" />
-        </div>
-      </section>
 
       <FounderSpotlight />
 
