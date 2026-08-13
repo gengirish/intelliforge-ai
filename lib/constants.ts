@@ -86,8 +86,8 @@ export const services: ServiceLevel[] = [
     icon: "Workflow",
     badge: "Automation",
     exampleProduct: {
-      name: "YouTube Transcript Scraper",
-      url: "https://youtube-scrapper-pi.vercel.app/",
+      name: "PDFForge",
+      url: "https://pdfforge.intelliforge.tech",
     },
     description:
       "Stop doing busy work permanently. We implement RAG and MCP integrations that connect AI to your Slack, email, calendar, CRM — your entire operation. AI that knows your data gives accurate answers, not hallucinations.",

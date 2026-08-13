@@ -55,8 +55,21 @@ export const FEATURED_VERCEL_SLUGS = [
   "ai-native-agency",
   "interview-with-giri",
   "training-feedback",
-  "digital-product-ai",
-  "youtube-scrapper",
+  "campaignforge-ai",
+] as const;
+
+/**
+ * The landing-page showcase — deliberately short, and every entry is a product
+ * whose production URL was manually verified to load. Keep this list curated by
+ * hand: do NOT wire it back to `featured`, or dead Vercel deploys leak onto the
+ * homepage again. Re-verify before adding a slug here.
+ */
+export const HOMEPAGE_SLUGS = [
+  "multi-agent-deep-research",
+  "complianceforge",
+  "interview-with-giri",
+  "ai-native-agency",
+  "training-feedback",
   "campaignforge-ai",
 ] as const;
 
@@ -80,7 +93,6 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     tags: ["Next.js", "AI Chatbot", "Portfolio", "RAG", "Vercel"],
     levels: [4, 5],
     icon: "UserCircle",
-    featured: true,
   },
   {
     vercelSlug: "multi-agent-deep-research",
@@ -110,7 +122,6 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     tags: ["API", "n8n", "Zapier", "Automation"],
     levels: [2, 5],
     icon: "Play",
-    featured: true,
   },
   {
     vercelSlug: "movemore",
@@ -171,7 +182,6 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     tags: ["AI Security", "Guardrails", "LLM Safety"],
     levels: [4, 5],
     icon: "Shield",
-    featured: true,
   },
   {
     vercelSlug: "pdfforge-frontend",
@@ -514,15 +524,20 @@ export function buildPortfolioProjects(): PortfolioProject[] {
 
 export const portfolioProjects = buildPortfolioProjects();
 
-export const homepagePortfolioLimit = 12;
-
-export function getHomepagePortfolio(
-  projects: PortfolioProject[],
-): PortfolioProject[] {
-  const featured = projects.filter((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
-  return [...featured, ...rest].slice(0, homepagePortfolioLimit);
+/** Landing-page projects, in `HOMEPAGE_SLUGS` order, skipping any dropped deploy. */
+export function getHomepagePortfolio(): PortfolioProject[] {
+  const projects: PortfolioProject[] = [];
+  for (const slug of HOMEPAGE_SLUGS) {
+    const meta = metaBySlug.get(slug);
+    const url = urlBySlug.get(slug);
+    if (!meta || !url) continue;
+    const { vercelSlug: _, ...rest } = meta;
+    projects.push({ ...rest, url, featured: true });
+  }
+  return projects;
 }
+
+export const homepagePortfolio = getHomepagePortfolio();
 
 export const portfolioProjectCount = portfolioProjects.length;
 

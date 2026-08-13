@@ -10,12 +10,10 @@ import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { AiDemo } from "@/components/ai-demo";
 import { HomeTestimonial } from "@/components/home-testimonial";
 import { services, caseStudies, testimonials } from "@/lib/constants";
-import { getHomepagePortfolio, portfolioProjects } from "@/lib/portfolio";
+import { homepagePortfolio } from "@/lib/portfolio";
 
 const featuredCaseStudy =
   caseStudies.find((study) => study.featured) ?? caseStudies[0];
-
-const homepagePortfolio = getHomepagePortfolio(portfolioProjects);
 
 export default function HomePage() {
   return (
