@@ -15,6 +15,7 @@ import {
   websiteSchema,
 } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SiteHeaderSpacer } from "@/components/site-header-spacer";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -92,16 +93,6 @@ export default function RootLayout({
       <head>
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
         {/* LLM / AI search discovery (llmstxt.org) */}
         <link
           rel="alternate"
@@ -128,6 +119,7 @@ export default function RootLayout({
         <main className="min-h-screen">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <SpeedInsights />
       </body>
     </html>
   );

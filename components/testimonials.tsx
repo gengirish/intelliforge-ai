@@ -1,5 +1,3 @@
-"use client";
-
 import { Quote, Linkedin, BadgeCheck } from "lucide-react";
 import { AnimateOnScroll } from "./animate-on-scroll";
 import type { Testimonial } from "@/lib/constants";

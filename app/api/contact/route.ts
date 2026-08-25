@@ -18,6 +18,15 @@ function resolveAdminEmail(): string {
   ) {
     return configured;
   }
+  // siteConfig.email is the last resort. If it ever becomes an
+  // @intelliforge.tech address, enquiries would land in an unmonitored
+  // AgentMail alias instead of a real inbox — surface that loudly.
+  if (siteConfig.email.toLowerCase().endsWith("@intelliforge.tech")) {
+    console.error(
+      "Contact API misconfiguration: siteConfig.email is an @intelliforge.tech address, " +
+        "so admin enquiry notifications will not reach a monitored inbox.",
+    );
+  }
   return siteConfig.email;
 }
 

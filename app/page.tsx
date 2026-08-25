@@ -90,7 +90,17 @@ export default function HomePage() {
             description="Real tools and products we've built — proof of what's possible at every level."
           />
 
-          <PortfolioGrid projects={homepagePortfolio} />
+          <PortfolioGrid projects={homepagePortfolio} initialExpanded />
+
+          <AnimateOnScroll className="mt-12 text-center">
+            <Link
+              href="/portfolio"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-cyan transition-colors hover:text-cyan-light"
+            >
+              See every project we&apos;ve shipped
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </AnimateOnScroll>
         </div>
       </section>
 

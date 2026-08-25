@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Workflow, Palette, Bot, Code, type LucideIcon } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import type { ServiceLevel } from "@/lib/constants";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -73,20 +72,16 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
           </div>
         </div>
 
-        <AnimatePresence mode="wait">
-          {services
-            .filter((s) => s.level === displayedLevel)
-            .map((service) => {
-              const Icon = iconMap[service.icon] || Code;
-              return (
-                <motion.div
-                  key={service.level}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.25 }}
-                  className="glass-card mt-10 rounded-2xl p-8"
-                >
+        {services
+          .filter((s) => s.level === displayedLevel)
+          .map((service) => {
+            const Icon = iconMap[service.icon] || Code;
+            return (
+              <div
+                key={service.level}
+                className="rise-in glass-card mt-10 rounded-2xl p-8"
+                style={{ "--rise-from": "12px" } as CSSProperties}
+              >
                   <div className="flex items-start gap-4">
                     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo to-violet">
                       <Icon className="h-7 w-7 text-white" aria-hidden="true" />
@@ -122,10 +117,9 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
                       </Link>
                     </div>
                   </div>
-                </motion.div>
-              );
-            })}
-        </AnimatePresence>
+              </div>
+            );
+          })}
       </div>
 
       {/* Mobile: accordion */}
@@ -164,16 +158,9 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
                 />
               </button>
 
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="border-t border-border px-5 pb-5 pt-2">
+              <div className={`collapsible ${isOpen ? "collapsible-open" : ""}`}>
+                <div inert={!isOpen}>
+                  <div className="border-t border-border px-5 pb-5 pt-2">
                       <p className="text-sm text-violet">{service.subtitle}</p>
                       <p className="mt-2 text-sm leading-relaxed text-gray-400">
                         {service.description}
@@ -195,11 +182,10 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
                       >
                         Start here
                         <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                      </Link>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           );
         })}

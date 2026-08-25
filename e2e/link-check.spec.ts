@@ -40,7 +40,7 @@ async function checkUrl(
   source: string,
 ): Promise<AuditEntry> {
   try {
-    let response = await request.get(url, {
+    const response = await request.get(url, {
       maxRedirects: 5,
       timeout: 25_000,
       failOnStatusCode: false,

@@ -38,7 +38,7 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   // Blog hidden from nav — no published posts yet; /blog remains reachable via direct URL
@@ -450,7 +450,7 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const statBarItems = [
-  { value: "70+", label: "Production Apps on Vercel" },
+  { value: "M.Tech", label: "Data Science & AI, IIIT Dharwad" },
   { value: "14+", label: "Years Enterprise Engineering" },
   { value: "20+", label: "Client Hours Automated Weekly" },
   { value: "6", label: "Industry Verticals" },
@@ -459,7 +459,7 @@ export const statBarItems = [
 export const whyIntelliforge = [
   {
     icon: "Zap",
-    title: "70+ Production Apps on Vercel",
+    title: "Production Apps You Can Click",
     description:
       "Live URLs you can click — multi-agent research tools, RAG chatbots, n8n automations, and micro-SaaS dashboards. Built from Hyderabad, deployed globally on Vercel, not mockups in a deck.",
   },
