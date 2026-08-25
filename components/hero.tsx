@@ -1,12 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowRight, CalendarCheck, ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { MissionBadge } from "./mission-badge";
 import { startingPrice } from "@/lib/constants";
-import { portfolioProjectCount } from "@/lib/portfolio";
 
 type AudienceKey = "Startups" | "SaaS Companies" | "Enterprises" | "Agencies";
 
@@ -45,51 +43,38 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="rise-in">
             <MissionBadge />
-          </motion.div>
+          </div>
 
-          <motion.h1
-            className="font-display mx-auto mt-6 max-w-5xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+          <h1
+            className="rise-in font-display mx-auto mt-6 max-w-5xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
+            style={{ "--rise-delay": "0.1s", "--rise-from": "30px" } as CSSProperties}
           >
             Enterprise Engineers Who{" "}
             <span className="gradient-text">Ship AI for India</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            className="mx-auto mt-6 max-w-2xl text-lg text-gray-400 sm:text-xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <p
+            className="rise-in mx-auto mt-6 max-w-2xl text-lg text-gray-400 sm:text-xl"
+            style={{ "--rise-delay": "0.2s" } as CSSProperties}
           >
             Based in Hyderabad — we bridge Fortune 500 engineering with production
-            AI: RAG pipelines, multi-agent systems, full-stack apps.{" "}
-            {portfolioProjectCount}+ products live on Vercel through our 5-Level
-            Framework.
-          </motion.p>
+            AI: RAG pipelines, multi-agent systems, full-stack apps, shipped
+            through our 5-Level Framework.
+          </p>
 
-          <motion.p
-            className="mx-auto mt-3 max-w-xl text-sm text-gray-500"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.22 }}
+          <p
+            className="rise-in mx-auto mt-3 max-w-xl text-sm text-gray-500"
+            style={{ "--rise-delay": "0.22s", "--rise-from": "10px" } as CSSProperties}
           >
             Led by Girish Hiremath — 14+ years enterprise, M.Tech DSAI @ IIIT
             Dharwad
-          </motion.p>
+          </p>
 
-          <motion.div
-            className="mx-auto mt-6 flex flex-wrap items-center justify-center gap-2"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
+          <div
+            className="rise-in mx-auto mt-6 flex flex-wrap items-center justify-center gap-2"
+            style={{ "--rise-delay": "0.25s", "--rise-from": "10px" } as CSSProperties}
             role="tablist"
             aria-label="Target audience"
           >
@@ -109,35 +94,28 @@ export function Hero() {
                 {audience}
               </button>
             ))}
-          </motion.div>
+          </div>
 
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={activeAudience}
-              className="mx-auto mt-4 max-w-xl text-base text-gray-300"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.25 }}
-            >
-              {audienceCopy[activeAudience]}
-            </motion.p>
-          </AnimatePresence>
+          {/* Keyed so switching audience remounts the node and replays the
+              CSS fade — no animation library needed for a 250ms swap. */}
+          <p
+            key={activeAudience}
+            className="rise-in mx-auto mt-4 max-w-xl text-base text-gray-300"
+            style={{ "--rise-from": "8px" } as CSSProperties}
+          >
+            {audienceCopy[activeAudience]}
+          </p>
 
-          <motion.p
-            className="mt-4 text-sm font-medium text-cyan"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
+          <p
+            className="rise-in mt-4 text-sm font-medium text-cyan"
+            style={{ "--rise-delay": "0.35s", "--rise-from": "0px" } as CSSProperties}
           >
             Starting at {startingPrice}
-          </motion.p>
+          </p>
 
-          <motion.div
-            className="mx-auto mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+          <div
+            className="rise-in mx-auto mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center"
+            style={{ "--rise-delay": "0.3s" } as CSSProperties}
           >
             <Link
               href="/contact?intent=strategy-call"
@@ -162,7 +140,7 @@ export function Hero() {
                 aria-hidden="true"
               />
             </button>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

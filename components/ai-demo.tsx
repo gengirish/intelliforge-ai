@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Sparkles, ChevronDown, ArrowRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 type BusinessType =
   | ""
@@ -70,7 +69,20 @@ const businessInsights: Record<Exclude<BusinessType, "">, BusinessInsight> = {
 export function AiDemo() {
   const [business, setBusiness] = useState<BusinessType>("");
 
+  // The panel stays mounted so it can animate closed. `lastChosen` holds the
+  // most recent real selection so there is still something to render while it
+  // collapses after the user picks the placeholder option again.
+  const [lastChosen, setLastChosen] = useState<Exclude<BusinessType, ""> | null>(
+    null,
+  );
+
   const insight = business ? businessInsights[business] : null;
+  const panelInsight = lastChosen ? businessInsights[lastChosen] : null;
+
+  const handleChange = (value: BusinessType) => {
+    setBusiness(value);
+    if (value) setLastChosen(value);
+  };
 
   return (
     <div className="mx-auto max-w-2xl">
@@ -93,7 +105,7 @@ export function AiDemo() {
           <select
             id="business-type"
             value={business}
-            onChange={(e) => setBusiness(e.target.value as BusinessType)}
+            onChange={(e) => handleChange(e.target.value as BusinessType)}
             className="w-full appearance-none rounded-xl border border-border bg-surface px-4 py-3 pr-10 text-sm text-white transition-colors focus:border-indigo focus:outline-none"
           >
             <option value="" className="bg-navy">
@@ -121,56 +133,51 @@ export function AiDemo() {
           />
         </div>
 
-        <AnimatePresence>
-          {insight && (
-            <motion.div
-              initial={{ opacity: 0, y: 16, height: 0 }}
-              animate={{ opacity: 1, y: 0, height: "auto" }}
-              exit={{ opacity: 0, y: -8, height: 0 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-              className="overflow-hidden"
-            >
-              <div className="mt-6 rounded-xl border border-indigo/20 bg-indigo/5 p-5">
-                <h4 className="text-sm font-bold text-indigo">
-                  Top automation opportunities for you
-                </h4>
-                <ul className="mt-3 space-y-2">
-                  {insight.opportunities.map((idea, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-2 text-sm text-gray-300"
+        {/* Kept mounted so the panel can transition closed as well as open. */}
+        <div className={`collapsible ${insight ? "collapsible-open" : ""}`}>
+          <div inert={!insight}>
+            {panelInsight && (
+            <div className="mt-6 rounded-xl border border-indigo/20 bg-indigo/5 p-5">
+              <h4 className="text-sm font-bold text-indigo">
+                Top automation opportunities for you
+              </h4>
+              <ul className="mt-3 space-y-2">
+                {panelInsight.opportunities.map((idea, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-2 text-sm text-gray-300"
+                  >
+                    <span
+                      className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-indigo/20 text-xs font-bold text-indigo"
+                      aria-hidden="true"
                     >
-                      <span
-                        className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-indigo/20 text-xs font-bold text-indigo"
-                        aria-hidden="true"
-                      >
-                        {i + 1}
-                      </span>
-                      {idea}
-                    </li>
-                  ))}
-                </ul>
+                      {i + 1}
+                    </span>
+                    {idea}
+                  </li>
+                ))}
+              </ul>
 
-                <div className="mt-5 space-y-2 border-t border-indigo/10 pt-4">
-                  <p className="text-sm font-semibold text-cyan">
-                    {insight.recommendedLevel}
-                  </p>
-                  <p className="text-sm text-gray-400">
-                    {insight.roiTimeframe}
-                  </p>
-                </div>
-
-                <Link
-                  href="/contact?intent=strategy-call"
-                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-5 py-2.5 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
-                >
-                  Want this built for you? Book a free call
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
+              <div className="mt-5 space-y-2 border-t border-indigo/10 pt-4">
+                <p className="text-sm font-semibold text-cyan">
+                  {panelInsight.recommendedLevel}
+                </p>
+                <p className="text-sm text-gray-400">
+                  {panelInsight.roiTimeframe}
+                </p>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
+              <Link
+                href="/contact?intent=strategy-call"
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-5 py-2.5 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
+              >
+                Want this built for you? Book a free call
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

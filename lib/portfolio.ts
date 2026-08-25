@@ -2,53 +2,12 @@ import vercelProjects from "@/data/vercel-projects.json";
 import type { PortfolioProject } from "./constants";
 
 /** Vercel slugs excluded from public portfolio (infra, duplicates, client one-offs) */
-const EXCLUDE_SLUGS = new Set([
-  "intelliforge-ai",
-  "ai-agency-website",
-  "temp-deploy",
-  "dist",
-  "api",
-  "web",
-  "frontend",
-  "financial-insights",
-  "finai-dashboard",
-  "aegisforge-design-v2",
-  "agentguard-landing",
-  "agentmemory-landing",
-  "forgeid",
-  "forgeid-api",
-  "rlhf-annotation-frontend",
-  "landing",
-  "markdown-to-pdf-converter",
-  "movemore-app",
-  "campaignforge",
-  "dashboard",
-  "arun-anita-rsvp",
-  "gs-it-services",
-  "habit-tracker-app",
-  "movie-booking-frontend",
-  "student-management-system",
-  "eduflow-retrofit",
-  "trustgate-dashboard",
-  "facilityos-nvs",
-  "krishna-inamdar-portfolio",
-  "pavithra-hiremath-portfolio",
-  "avinash-upadhyay-profile",
-  "prashant-timmapur-digital",
-  "rohini-devan-digital",
-  "sonali-dutta-digital",
-  "visakh-vs-digital",
-  "demo-profile-master",
-  "demo-profile",
-]);
-
-const EXCLUDE_SLUG_SUFFIXES = ["-digital", "-portfolio", "-profile"] as const;
-
-function shouldExcludeSlug(slug: string): boolean {
-  if (EXCLUDE_SLUGS.has(slug)) return true;
-  return EXCLUDE_SLUG_SUFFIXES.some((suffix) => slug.endsWith(suffix));
-}
-
+/**
+ * Portfolio entries are curated only: a project appears here when it has an
+ * entry in PORTFOLIO_META with real copy, and its Vercel deploy is live.
+ * New deploys from `npm run sync:vercel` do NOT surface automatically — add a
+ * PORTFOLIO_META entry for anything you want shown.
+ */
 export const FEATURED_VERCEL_SLUGS = [
   "multi-agent-deep-research",
   "complianceforge",
@@ -74,13 +33,6 @@ export const HOMEPAGE_SLUGS = [
 ] as const;
 
 type PortfolioMeta = Omit<PortfolioProject, "url"> & { vercelSlug: string };
-
-function slugToTitle(slug: string): string {
-  return slug
-    .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
-}
 
 /** Curated copy + levels; URLs come from Vercel production deploys */
 const PORTFOLIO_META: PortfolioMeta[] = [
@@ -475,28 +427,12 @@ const urlBySlug = new Map(
     .map((p) => [p.slug, p.productionUrl as string]),
 );
 
-function buildAutoEntry(slug: string, url: string): PortfolioProject {
-  return {
-    title: slugToTitle(slug),
-    description: `Production AI product deployed on Vercel — ${slugToTitle(slug)}.`,
-    url,
-    tags: ["Next.js", "Vercel", "AI"],
-    levels: [5],
-    icon: "Zap",
-    featured: FEATURED_VERCEL_SLUGS.includes(
-      slug as (typeof FEATURED_VERCEL_SLUGS)[number],
-    ),
-  };
-}
-
 export function buildPortfolioProjects(): PortfolioProject[] {
-  const seen = new Set<string>();
   const projects: PortfolioProject[] = [];
 
   for (const meta of PORTFOLIO_META) {
     const url = urlBySlug.get(meta.vercelSlug);
     if (!url) continue;
-    seen.add(meta.vercelSlug);
     const { vercelSlug: _, ...rest } = meta;
     projects.push({
       ...rest,
@@ -507,12 +443,6 @@ export function buildPortfolioProjects(): PortfolioProject[] {
           meta.vercelSlug as (typeof FEATURED_VERCEL_SLUGS)[number],
         ),
     });
-  }
-
-  for (const { slug, productionUrl } of vercelProjects.projects) {
-    if (!productionUrl || shouldExcludeSlug(slug) || seen.has(slug)) continue;
-    projects.push(buildAutoEntry(slug, productionUrl));
-    seen.add(slug);
   }
 
   return projects.sort((a, b) => {
@@ -538,8 +468,6 @@ export function getHomepagePortfolio(): PortfolioProject[] {
 }
 
 export const homepagePortfolio = getHomepagePortfolio();
-
-export const portfolioProjectCount = portfolioProjects.length;
 
 export const vercelSyncMeta = {
   syncedAt: vercelProjects.syncedAt,

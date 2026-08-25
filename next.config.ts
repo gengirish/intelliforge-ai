@@ -7,12 +7,10 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-      },
-    ],
+    // No remote images are used. Add specific hosts here rather than
+    // reinstating a `hostname: "**"` wildcard, which lets the optimizer be
+    // pointed at any origin.
+    remotePatterns: [],
   },
 };
 

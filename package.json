@@ -12,8 +12,8 @@
     "test:e2e:links": "playwright test e2e/link-check.spec.ts"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
     "agentmail": "^0.5.14",
-    "framer-motion": "^12.34.3",
     "lucide-react": "^0.575.0",
     "next": "16.1.6",
     "react": "19.2.3",

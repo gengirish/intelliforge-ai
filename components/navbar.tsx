@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Zap, MessageCircle } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { navLinks, siteConfig, startingPrice } from "@/lib/constants";
 import { RagMasterClassPromo } from "@/components/rag-masterclass-promo";
 import { isEventUpcoming, ragMasterClass } from "@/lib/events";
@@ -86,50 +85,50 @@ export function Navbar() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="border-t border-border bg-navy lg:hidden"
-          >
-            <div className="space-y-1 px-4 py-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
-                    isActive(link.href)
-                      ? "bg-surface text-cyan"
-                      : "text-gray-300 hover:bg-surface hover:text-white"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+      {/* Always rendered so it can transition closed; `inert` keeps the links
+          out of the tab order while collapsed. */}
+      <div
+        className={`collapsible bg-navy lg:hidden ${
+          mobileOpen ? "collapsible-open border-t border-border" : ""
+        }`}
+      >
+        <div inert={!mobileOpen}>
+          <div className="space-y-1 px-4 py-4">
+            {navLinks.map((link) => (
               <Link
-                href="/contact?intent=strategy-call"
+                key={link.href}
+                href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 block rounded-full border border-indigo/40 px-5 py-3 text-center text-sm font-semibold text-indigo"
+                className={`block rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
+                  isActive(link.href)
+                    ? "bg-surface text-cyan"
+                    : "text-gray-300 hover:bg-surface hover:text-white"
+                }`}
               >
-                Book Free Strategy Call
+                {link.label}
               </Link>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
-                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-green-500/10 px-5 py-3 text-sm font-semibold text-green-400"
-              >
-                <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                Chat on WhatsApp
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ))}
+            <Link
+              href="/contact?intent=strategy-call"
+              onClick={() => setMobileOpen(false)}
+              className="mt-2 block rounded-full border border-indigo/40 px-5 py-3 text-center text-sm font-semibold text-indigo"
+            >
+              Book Free Strategy Call
+            </Link>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="mt-2 flex items-center justify-center gap-2 rounded-full bg-green-500/10 px-5 py-3 text-sm font-semibold text-green-400"
+            >
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
       </nav>
     </header>
   );

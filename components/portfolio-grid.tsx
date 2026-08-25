@@ -69,10 +69,15 @@ const filterPills: { label: string; value: LevelFilter }[] = [
 
 interface PortfolioGridProps {
   projects: PortfolioProject[];
+  /** Show the whole set immediately, for the dedicated /portfolio page. */
+  initialExpanded?: boolean;
 }
 
-export function PortfolioGrid({ projects }: PortfolioGridProps) {
-  const [expanded, setExpanded] = useState(false);
+export function PortfolioGrid({
+  projects,
+  initialExpanded = false,
+}: PortfolioGridProps) {
+  const [expanded, setExpanded] = useState(initialExpanded);
   const [levelFilter, setLevelFilter] = useState<LevelFilter>("all");
 
   const handleFilter = (value: LevelFilter) => {
