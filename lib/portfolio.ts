@@ -32,19 +32,28 @@ export const HOMEPAGE_SLUGS = [
   "campaignforge-ai",
 ] as const;
 
-type PortfolioMeta = Omit<PortfolioProject, "url"> & { vercelSlug: string };
+type PortfolioMeta = Omit<PortfolioProject, "url"> & {
+  vercelSlug: string;
+  /**
+   * Display this URL instead of the raw *.vercel.app production URL — for
+   * projects fronted by a custom domain. The slug must still resolve to a live
+   * deploy, so a deleted project drops out whether or not it has an override.
+   */
+  urlOverride?: string;
+};
 
 /** Curated copy + levels; URLs come from Vercel production deploys */
 const PORTFOLIO_META: PortfolioMeta[] = [
   {
-    vercelSlug: "digital-product-ai",
-    title: "AI Digital Profile",
+    vercelSlug: "eventsforge",
+    urlOverride: "https://eventsforge.intelliforge.tech",
+    title: "EventsForge",
     description:
-      'Interactive portfolio with a "Talk to My Resume" AI chatbot, neural-themed design, and SEO — built and deployed in hours.',
-    tagline: "Your resume, but it talks back to recruiters.",
-    tags: ["Next.js", "AI Chatbot", "Portfolio", "RAG", "Vercel"],
-    levels: [4, 5],
-    icon: "UserCircle",
+      "Event ticketing and registration platform — publish an event, sell tickets, collect custom registration details, and scan attendees in at the door.",
+    tagline: "Sell tickets, collect registrations, scan at the door.",
+    tags: ["Events", "Ticketing", "Registrations", "Full Stack"],
+    levels: [5],
+    icon: "CalendarDays",
   },
   {
     vercelSlug: "multi-agent-deep-research",
@@ -65,15 +74,6 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     tags: ["React", "PDF", "Documents", "Full Stack"],
     levels: [5],
     icon: "FileText",
-  },
-  {
-    vercelSlug: "youtube-scrapper",
-    title: "YouTube Transcript Scraper",
-    description:
-      "Extract transcripts from any YouTube video — API-ready for n8n, Zapier, and Make automation workflows.",
-    tags: ["API", "n8n", "Zapier", "Automation"],
-    levels: [2, 5],
-    icon: "Play",
   },
   {
     vercelSlug: "movemore",
@@ -125,15 +125,6 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     levels: [4, 5],
     icon: "ShieldCheck",
     featured: true,
-  },
-  {
-    vercelSlug: "aegisforge",
-    title: "AegisForge",
-    description:
-      "AI security platform monitoring agents, prompts, and workflows for misuse, jailbreaks, and policy violations.",
-    tags: ["AI Security", "Guardrails", "LLM Safety"],
-    levels: [4, 5],
-    icon: "Shield",
   },
   {
     vercelSlug: "pdfforge-frontend",
@@ -193,60 +184,6 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     icon: "Linkedin",
   },
   {
-    vercelSlug: "meetcoach",
-    title: "MeetCoach",
-    description:
-      "Real-time AI meeting coach — talk-time, sentiment, and actionable feedback after every sales or leadership call.",
-    tags: ["Meeting AI", "Sales Enablement", "Coaching"],
-    levels: [4, 5],
-    icon: "Mic",
-  },
-  {
-    vercelSlug: "medforce",
-    title: "MedForce",
-    description:
-      "Clinical workflow assistant — documentation, encounter summaries, and care plans with audit-ready compliance.",
-    tags: ["Healthcare AI", "Clinical", "Documentation"],
-    levels: [4, 5],
-    icon: "HeartPulse",
-  },
-  {
-    vercelSlug: "mortgageflowai",
-    title: "MortgageFlowAI",
-    description:
-      "AI loan origination — document collection, underwriting checks, and borrower communication automation.",
-    tags: ["Fintech", "Lending", "Document AI"],
-    levels: [4, 5],
-    icon: "Building",
-  },
-  {
-    vercelSlug: "fleetos",
-    title: "FleetOS",
-    description:
-      "AI fleet management — vehicle tracking, predictive maintenance, route optimization, and ops dashboard.",
-    tags: ["Logistics", "Fleet", "IoT", "Operations"],
-    levels: [4, 5],
-    icon: "Truck",
-  },
-  {
-    vercelSlug: "restaurantbrain",
-    title: "RestaurantBrain",
-    description:
-      "Restaurant ops AI — menu engineering, demand forecasting, review intelligence, and staff scheduling.",
-    tags: ["F&B", "Forecasting", "Vertical SaaS"],
-    levels: [4, 5],
-    icon: "Utensils",
-  },
-  {
-    vercelSlug: "pr-reviewer",
-    title: "PR Reviewer",
-    description:
-      "AI code-review agent for pull requests — flags risk, suggests fixes, and posts inline comments.",
-    tags: ["Developer Tools", "Code Review", "GitHub"],
-    levels: [4, 5],
-    icon: "GitPullRequest",
-  },
-  {
     vercelSlug: "rlhf-annotation-studio",
     title: "RLHF Annotation Studio",
     description:
@@ -254,24 +191,6 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     tags: ["RLHF", "LLM Training", "Annotation"],
     levels: [4, 5],
     icon: "Database",
-  },
-  {
-    vercelSlug: "sopforge",
-    title: "SOPForge",
-    description:
-      "AI-generated SOPs from recordings, transcripts, or notes — structured, versioned procedures teams follow.",
-    tags: ["Operations", "SOP", "Knowledge Base"],
-    levels: [2, 3, 5],
-    icon: "ClipboardList",
-  },
-  {
-    vercelSlug: "agentwatch",
-    title: "AgentWatch",
-    description:
-      "Observability for AI agents — trace steps, score outputs, catch regressions in multi-agent systems.",
-    tags: ["Observability", "AI Agents", "Monitoring"],
-    levels: [4, 5],
-    icon: "Activity",
   },
   {
     vercelSlug: "buildwithaigiri",
@@ -292,15 +211,6 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     icon: "Briefcase",
   },
   {
-    vercelSlug: "prompt-engg",
-    title: "Prompt Engineering Lab",
-    description:
-      "Interactive prompt engineering practice environment with PRD method exercises and templates.",
-    tags: ["Prompt Engineering", "Training", "Level 1"],
-    levels: [1, 2],
-    icon: "FileText",
-  },
-  {
     vercelSlug: "citeforge",
     title: "CiteForge",
     description:
@@ -317,42 +227,6 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     tags: ["Career", "Job Search", "AI Copilot"],
     levels: [4, 5],
     icon: "Briefcase",
-  },
-  {
-    vercelSlug: "thesis-radar",
-    title: "Thesis Radar",
-    description:
-      "Research thesis discovery and trend radar powered by AI literature scanning and summarization.",
-    tags: ["Research", "Academic", "AI"],
-    levels: [4, 5],
-    icon: "Brain",
-  },
-  {
-    vercelSlug: "contentforge",
-    title: "ContentForge",
-    description:
-      "Multi-format AI content pipeline — blogs, social, email, and ad copy with brand consistency.",
-    tags: ["Content AI", "Marketing", "Automation"],
-    levels: [3, 4],
-    icon: "Megaphone",
-  },
-  {
-    vercelSlug: "creditforge",
-    title: "CreditForge",
-    description:
-      "AI credit analysis and underwriting assistant for lenders and fintech teams.",
-    tags: ["Fintech", "Credit", "Underwriting"],
-    levels: [4, 5],
-    icon: "Building",
-  },
-  {
-    vercelSlug: "examforge",
-    title: "ExamForge",
-    description:
-      "AI exam generation, proctoring insights, and assessment analytics for educators and trainers.",
-    tags: ["EdTech", "Assessment", "AI"],
-    levels: [4, 5],
-    icon: "FileText",
   },
   {
     vercelSlug: "gaas",
@@ -431,12 +305,12 @@ export function buildPortfolioProjects(): PortfolioProject[] {
   const projects: PortfolioProject[] = [];
 
   for (const meta of PORTFOLIO_META) {
-    const url = urlBySlug.get(meta.vercelSlug);
-    if (!url) continue;
-    const { vercelSlug: _, ...rest } = meta;
+    const deployUrl = urlBySlug.get(meta.vercelSlug);
+    if (!deployUrl) continue;
+    const { vercelSlug: _, urlOverride, ...rest } = meta;
     projects.push({
       ...rest,
-      url,
+      url: urlOverride ?? deployUrl,
       featured:
         rest.featured ??
         FEATURED_VERCEL_SLUGS.includes(
@@ -461,8 +335,8 @@ export function getHomepagePortfolio(): PortfolioProject[] {
     const meta = metaBySlug.get(slug);
     const url = urlBySlug.get(slug);
     if (!meta || !url) continue;
-    const { vercelSlug: _, ...rest } = meta;
-    projects.push({ ...rest, url, featured: true });
+    const { vercelSlug: _, urlOverride, ...rest } = meta;
+    projects.push({ ...rest, url: urlOverride ?? url, featured: true });
   }
   return projects;
 }

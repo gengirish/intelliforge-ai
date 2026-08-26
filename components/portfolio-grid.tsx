@@ -26,6 +26,7 @@ import {
   Database,
   ClipboardList,
   Activity,
+  CalendarDays,
   type LucideIcon,
 } from "lucide-react";
 import { AnimateOnScroll } from "./animate-on-scroll";
@@ -55,6 +56,7 @@ const iconMap: Record<string, LucideIcon> = {
   Database,
   ClipboardList,
   Activity,
+  CalendarDays,
 };
 
 type LevelFilter = "all" | 1 | 2 | 4 | 5;
