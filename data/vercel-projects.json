@@ -1,632 +1,362 @@
 {
-  "syncedAt": "2026-06-30T04:13:03.190Z",
+  "syncedAt": "2026-08-26T03:20:32.578Z",
   "team": "girish-hiremaths-projects",
   "teamScope": "team_PsUWYasoQF6BYqGVcJUyL8wt",
-  "total": 104,
-  "withProductionUrl": 103,
+  "total": 59,
+  "withProductionUrl": 59,
   "projects": [
     {
-      "slug": "adversary-planner",
-      "productionUrl": "https://adversary-planner.vercel.app",
-      "updated": "35d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "aegisforge",
-      "productionUrl": "https://aegisforge-blond.vercel.app",
-      "updated": "38d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "aegisforge-design-v2",
-      "productionUrl": "https://aegisforge-design-v2.vercel.app",
-      "updated": "37d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "agentguard-landing",
-      "productionUrl": "https://agentguard-landing-eight.vercel.app",
-      "updated": "39d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "agentmemory-landing",
-      "productionUrl": "https://agentmemory-landing.vercel.app",
-      "updated": "39d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "agentpay",
-      "productionUrl": "https://agentpay-xi.vercel.app",
-      "updated": "35d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "agentwatch",
-      "productionUrl": "https://agentwatch-one.vercel.app",
-      "updated": "36d",
-      "nodeVersion": "24.x"
+      "slug": "│   Changelog:",
+      "productionUrl": "https://github.com/vercel/vercel/releases",
+      "updated": "│",
+      "nodeVersion": ""
     },
     {
       "slug": "ai-agency-website",
       "productionUrl": "https://ai-agency-website-pied.vercel.app",
-      "updated": "3d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "ai-changelog",
-      "productionUrl": "https://ai-changelog-delta.vercel.app",
-      "updated": "37d",
+      "updated": "9h",
       "nodeVersion": "24.x"
     },
     {
       "slug": "ai-financial-analyst",
       "productionUrl": "https://ai-financial-analyst-three.vercel.app",
-      "updated": "16h",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "ai-native-agency",
       "productionUrl": "https://agencyos.intelliforge.tech",
-      "updated": "45d",
+      "updated": "7d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "aios-landing",
       "productionUrl": "https://aios.intelliforge.tech",
-      "updated": "4d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
-      "slug": "api",
-      "productionUrl": "https://api-girish-hiremaths-projects.vercel.app",
+      "slug": "aishwarya-bhangarshettra-profile",
+      "productionUrl": "https://aishwarya-bhangarshettra-profile.vercel.app",
       "updated": "16d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "archdesk",
-      "productionUrl": "https://archdesk.vercel.app",
-      "updated": "35d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "arun-anita-rsvp",
-      "productionUrl": "https://arun-anita-rsvp.vercel.app",
-      "updated": "38d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "avinash-upadhyay-profile",
       "productionUrl": "https://avinash.intelliforge.digital",
-      "updated": "36d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "awaazos",
       "productionUrl": "https://awaazos.vercel.app",
-      "updated": "4d",
+      "updated": "6d",
       "nodeVersion": "24.x"
     },
     {
-      "slug": "ayush-os",
-      "productionUrl": "https://ayush-os.vercel.app",
-      "updated": "43d",
+      "slug": "bikshapathi-b-profile",
+      "productionUrl": "https://bikshapathi-b-profile-girish-hiremaths-projects.vercel.app",
+      "updated": "34d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "buildwithaigiri",
       "productionUrl": "https://mvplabs.intelliforge.tech",
-      "updated": "22d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "campaignforge",
-      "productionUrl": "https://campaignforge-nine.vercel.app",
-      "updated": "14d",
+      "updated": "32d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "campaignforge-ai",
-      "productionUrl": "https://campaignforge-ai-girish-hiremaths-projects.vercel.app",
-      "updated": "33d",
+      "productionUrl": "https://campaignforge.intelliforge.tech",
+      "updated": "8d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "chairos",
       "productionUrl": "https://aaramse.intelliforge.tech",
-      "updated": "29d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "citeforge",
       "productionUrl": "https://citeforgeai.com",
-      "updated": "39d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "complianceforge",
       "productionUrl": "https://complianceforge-ai.com",
-      "updated": "34d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "contentforge",
-      "productionUrl": "https://contentforge-psi-umber.vercel.app",
-      "updated": "20d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "creditforge",
-      "productionUrl": "https://creditforge-eta.vercel.app",
-      "updated": "35d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "dashboard",
       "productionUrl": "https://app.forgeid.ai",
-      "updated": "34d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "demo-profile",
-      "productionUrl": "https://demo-profile-alpha.vercel.app",
-      "updated": "37d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "demo-profile-master",
       "productionUrl": "https://srikanth.digital",
-      "updated": "40d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
-      "slug": "denialzero",
-      "productionUrl": "https://denialzero.vercel.app",
-      "updated": "40d",
+      "slug": "eventsforge",
+      "productionUrl": "https://eventsforge.vercel.app",
+      "updated": "39m",
       "nodeVersion": "24.x"
     },
     {
-      "slug": "digital-product-ai",
-      "productionUrl": "https://girishbhiremath.vercel.app",
-      "updated": "37d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "dist",
-      "productionUrl": "https://dist-girish-hiremaths-projects.vercel.app",
-      "updated": "37d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "dropflow",
-      "productionUrl": "https://dropflow-beta.vercel.app",
-      "updated": "43d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "eduflow",
-      "productionUrl": "https://eduflow-virid.vercel.app",
-      "updated": "36d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "eduflow-retrofit",
-      "productionUrl": "https://eduflow-retrofit.vercel.app",
-      "updated": "36d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "euaiact",
-      "productionUrl": "https://euaiact.vercel.app",
-      "updated": "34d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "examforge",
-      "productionUrl": "https://examforge-dun.vercel.app",
-      "updated": "36d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "facilityos-nvs",
-      "productionUrl": "https://facilityos-nvs.vercel.app",
-      "updated": "44d",
+      "slug": "fin-ai-analyst",
+      "productionUrl": "https://fin-ai-analyst.vercel.app",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "finai-dashboard",
       "productionUrl": "https://finai-dashboard-girish-hiremaths-projects.vercel.app",
-      "updated": "7d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "financial-insights",
       "productionUrl": "https://frontend-eta-black.vercel.app",
-      "updated": "7d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "fleetos",
-      "productionUrl": "https://fleetos-rho.vercel.app",
-      "updated": "44d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "forgeid",
       "productionUrl": "https://forgeid.ai",
-      "updated": "44d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "forgeid-api",
       "productionUrl": "https://forgeid-api.vercel.app",
-      "updated": "39d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "frontend",
-      "productionUrl": "https://frontend-girish-hiremaths-projects.vercel.app",
-      "updated": "1d",
+      "productionUrl": "https://frontend-two-sage-74.vercel.app",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "gaas",
       "productionUrl": "https://gaas.intelliforge.tech",
-      "updated": "38d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "gs-it-services",
-      "productionUrl": "https://gs-it-services.vercel.app",
       "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
-      "slug": "habit-tracker-app",
-      "productionUrl": "https://habit-tracker-app-ashen.vercel.app",
-      "updated": "35d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "hireshield",
-      "productionUrl": "https://hireshield-kappa.vercel.app",
-      "updated": "37d",
+      "slug": "girish-hiremath-profile",
+      "productionUrl": "https://founder.intelliforge.tech",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "hridlink",
       "productionUrl": "https://hridlink.vercel.app",
-      "updated": "13h",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "hrms-intelliforge",
       "productionUrl": "https://hrms.intelliforge.tech",
-      "updated": "11h",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "inkdown",
-      "productionUrl": "https://inkdown-two.vercel.app",
-      "updated": "41d",
+      "updated": "19d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "intelliforge-ai",
       "productionUrl": "https://www.intelliforge.tech",
-      "updated": "3d",
+      "updated": "6h",
+      "nodeVersion": "24.x"
+    },
+    {
+      "slug": "intelliforge-bootcamp",
+      "productionUrl": "https://intelliforge-bootcamp.vercel.app",
+      "updated": "9d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "interview-with-giri",
-      "productionUrl": "https://www.vettd-app.com",
-      "updated": "11d",
+      "productionUrl": "https://interview-with-giri-girish-hiremaths-projects.vercel.app",
+      "updated": "13d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "interviewcopilot",
       "productionUrl": "https://infinityhire.ai",
-      "updated": "35d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "job-hunt-forge",
       "productionUrl": "https://forgeahead.intelliforge.tech",
-      "updated": "6d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "krishna-inamdar-portfolio",
       "productionUrl": "https://krishna-inamdar-portfolio.vercel.app",
-      "updated": "15d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "landing",
-      "productionUrl": "https://landing-ruby-three-41.vercel.app",
-      "updated": "41d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "learning-bootcamp",
       "productionUrl": "https://upskill.intelliforge.tech",
-      "updated": "11h",
+      "updated": "9d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "linkedin-post-generator",
       "productionUrl": "https://share.intelliforge.tech",
-      "updated": "36d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "llm-spend-auditor",
-      "productionUrl": "https://llm-spend-auditor.vercel.app",
-      "updated": "40d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "localflash",
       "productionUrl": "https://localflash.shop",
-      "updated": "13d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "localvox",
-      "productionUrl": "https://localvox.vercel.app",
-      "updated": "42d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "maidaan-academy",
       "productionUrl": "https://www.maidaan.academy",
-      "updated": "11d",
+      "updated": "13h",
       "nodeVersion": "24.x"
     },
     {
       "slug": "markdown-to-pdf",
       "productionUrl": "https://certs.intelliforge.tech",
-      "updated": "4d",
+      "updated": "15h",
       "nodeVersion": "24.x"
     },
     {
       "slug": "markdown-to-pdf-converter",
-      "productionUrl": null,
-      "updated": "43d",
+      "productionUrl": "https://markdown-to-pdf-converter-gold.vercel.app",
+      "updated": "41d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "masterclass-first-agent",
       "productionUrl": "https://masterclass-first-agent.vercel.app",
-      "updated": "51d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "mcphub",
-      "productionUrl": "https://mcphub-ashen.vercel.app",
-      "updated": "35d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "medforce",
-      "productionUrl": "https://medforce-liart.vercel.app",
-      "updated": "43d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "meetcoach",
-      "productionUrl": "https://meetcoach.vercel.app",
-      "updated": "41d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "mortgageflowai",
-      "productionUrl": "https://mortgageflowai.vercel.app",
-      "updated": "42d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "movemore",
       "productionUrl": "https://movemore.intelliforge.tech",
-      "updated": "7d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "movemore-app",
-      "productionUrl": "https://movemore-app.vercel.app",
-      "updated": "11d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "movie-booking-frontend",
-      "productionUrl": "https://movie-booking-frontend-ten.vercel.app",
-      "updated": "42d",
+      "updated": "14d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "multi-agent-deep-research",
       "productionUrl": "https://deep-research.intelliforge.tech",
-      "updated": "23h",
+      "updated": "15d",
       "nodeVersion": "22.x"
     },
     {
-      "slug": "papersafe",
-      "productionUrl": "https://papersafe.vercel.app",
-      "updated": "44d",
+      "slug": "namma-nivasa",
+      "productionUrl": "https://namma-nivasa.vercel.app",
+      "updated": "9d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "pavithra-hiremath-portfolio",
       "productionUrl": "https://pavithra-hiremath-portfolio.vercel.app",
-      "updated": "15d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "pdfforge-frontend",
       "productionUrl": "https://pdfforge.intelliforge.tech",
-      "updated": "42d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "podcastclip",
-      "productionUrl": "https://podcastclip.vercel.app",
-      "updated": "36d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "pr-reviewer",
-      "productionUrl": "https://pr-reviewer-beryl.vercel.app",
-      "updated": "37d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "prashant-timmapur-digital",
       "productionUrl": "https://prashant-timmapur-digital.vercel.app",
-      "updated": "42d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
-      "slug": "prompt-engg",
-      "productionUrl": "https://prompt-engg-eight.vercel.app",
-      "updated": "8d",
+      "slug": "quorum",
+      "productionUrl": "https://quorum-girish-hiremaths-projects.vercel.app",
+      "updated": "13d",
+      "nodeVersion": "24.x"
+    },
+    {
+      "slug": "rakesh-muttalli-profile",
+      "productionUrl": "https://rakesh-muttalli-profile.vercel.app",
+      "updated": "18d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "remoteforge-web",
       "productionUrl": "https://remoteforge-web.vercel.app",
-      "updated": "5d",
+      "updated": "8d",
       "nodeVersion": "24.x"
     },
     {
-      "slug": "restaurantbrain",
-      "productionUrl": "https://restaurantbrain.vercel.app",
-      "updated": "40d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "rlhf-annotation-frontend",
-      "productionUrl": "https://rlhf-annotation-frontend.vercel.app",
-      "updated": "43d",
+      "slug": "reshma-jabeen-profile",
+      "productionUrl": "https://reshma-jabeen-profile.vercel.app",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "rlhf-annotation-studio",
-      "productionUrl": "https://rlhf-annotation-studio.vercel.app",
-      "updated": "37d",
+      "productionUrl": "https://rlhf-annotation-studio-girish-hiremaths-projects.vercel.app",
+      "updated": "24d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "rohini-devan-digital",
       "productionUrl": "https://rohini-devan-digital.vercel.app",
-      "updated": "43d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
-      "slug": "samarthos",
-      "productionUrl": "https://samarthos.vercel.app",
-      "updated": "37d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "satva-app",
-      "productionUrl": "https://satva-app-pink.vercel.app",
-      "updated": "13d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "sister-stride",
-      "productionUrl": "https://sister-stride.vercel.app",
-      "updated": "13d",
+      "slug": "skillsmcp-web",
+      "productionUrl": "https://skillsmcp-web.vercel.app",
+      "updated": "21h",
       "nodeVersion": "24.x"
     },
     {
       "slug": "sonali-dutta-digital",
       "productionUrl": "https://sonali-dutta-digital.vercel.app",
-      "updated": "44d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "sopforge",
-      "productionUrl": "https://sopforge.vercel.app",
-      "updated": "41d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "specforge",
-      "productionUrl": "https://specforge-mu.vercel.app",
-      "updated": "44d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "spinforge",
-      "productionUrl": "https://spinforge-seven.vercel.app",
-      "updated": "35d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "student-management-system",
-      "productionUrl": "https://student-management-system-alpha-nine.vercel.app",
-      "updated": "42d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "temp-deploy",
-      "productionUrl": "https://temp-deploy-eosin.vercel.app",
-      "updated": "35d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "thesis-radar",
-      "productionUrl": "https://thesis-radar-seven.vercel.app",
-      "updated": "4d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "training-feedback",
       "productionUrl": "https://learning.intelliforge.tech",
-      "updated": "11h",
+      "updated": "2d",
       "nodeVersion": "24.x"
     },
     {
-      "slug": "trustgate-dashboard",
-      "productionUrl": "https://trustgate-dashboard.vercel.app",
-      "updated": "40d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "vektor",
-      "productionUrl": "https://vektor-nu.vercel.app",
-      "updated": "40d",
+      "slug": "veena-benakatti-profile",
+      "productionUrl": "https://veena-benakatti-profile.vercel.app",
+      "updated": "44d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "visakh-vs-digital",
       "productionUrl": "https://visakh-vs-digital.vercel.app",
-      "updated": "35d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "web",
-      "productionUrl": "https://web-girish-hiremaths-projects.vercel.app",
-      "updated": "22d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "yc-idea",
-      "productionUrl": "https://yc-idea.vercel.app",
-      "updated": "35d",
+      "productionUrl": "https://web-puce-xi-31.vercel.app",
+      "updated": "18d",
       "nodeVersion": "24.x"
     },
     {
       "slug": "ycworthy",
       "productionUrl": "https://ycworthy.intelliforge.tech",
-      "updated": "43d",
-      "nodeVersion": "24.x"
-    },
-    {
-      "slug": "youtube-scrapper",
-      "productionUrl": "https://youtube-scrapper-pi.vercel.app",
-      "updated": "36d",
+      "updated": "45d",
       "nodeVersion": "24.x"
     }
   ]
