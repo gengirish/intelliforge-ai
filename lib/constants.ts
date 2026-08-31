@@ -5,7 +5,14 @@ export const siteConfig = {
     "IntelliForge AI is a Hyderabad-based AI agent development and workflow automation company — from prompt engineering to full AI app development. Aligned with the Bharat AI Mission.",
   url: "https://www.intelliforge.tech",
   founder: "Girish Hiremath",
-  email: "gen.girish@gmail.com",
+  /**
+   * Public-facing addresses only. Never put a personal inbox in siteConfig —
+   * client components import it, so it ships in the browser bundle, renders in
+   * the footer, and goes out in the JSON-LD. The private notification address
+   * is supplied at runtime via CONTACT_NOTIFY_CC (see app/api/contact/route.ts).
+   */
+  email: "contact@intelliforge.tech",
+  founderEmail: "founder@intelliforge.tech",
   supportEmail: "support@intelliforge.tech",
   phone: "+91 85559 60837",
   whatsapp: "918555960837",
