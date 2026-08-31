@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/constants";
 
 export type SendEmailInput = {
   to: string | string[];
+  cc?: string | string[];
   subject: string;
   html: string;
   text?: string;
@@ -81,6 +82,7 @@ export function getAgentMailErrorMessage(error: unknown): string {
 
 export async function sendEmail({
   to,
+  cc,
   subject,
   html,
   text,
@@ -95,17 +97,22 @@ export async function sendEmail({
     subject,
     html,
     text: text ?? stripHtml(html),
+    ...(cc && cc.length ? { cc } : {}),
     ...(replyTo ? { replyTo } : {}),
   });
 }
 
 export async function sendEnquiryNotifications({
   to,
+  cc,
   subject,
   html,
   replyTo,
 }: {
   to: string;
+  /** Private notification copy. Only ever used on the internal admin notice —
+   *  never on the confirmation that goes to the enquirer. */
+  cc?: string | string[];
   subject: string;
   html: string;
   replyTo?: string;
@@ -115,6 +122,7 @@ export async function sendEnquiryNotifications({
   await sendEmail({
     fromInboxId: supportInboxId,
     to,
+    cc,
     subject,
     html,
     replyTo,

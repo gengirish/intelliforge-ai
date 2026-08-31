@@ -40,13 +40,15 @@ CI (`.github/workflows/ci.yml`) gates PRs to `main` on lint + `tsc --noEmit` + b
 - Honeypot: a truthy `website` field silently returns success (bot trap).
 - `lib/agentmail.ts` wraps the AgentMail SDK — lazily creates/looks up the `contact@intelliforge.tech` inbox and sends. `sendEnquiryNotifications` sends admin notices **from** the support inbox so replies land in that AgentMail inbox.
 - `lib/contact-emails.ts` builds the admin + confirmation email HTML (with `escapeHtml`).
-- Admin recipient resolution (`resolveAdminEmail`) deliberately **rejects any `@intelliforge.tech` address** and falls back to `siteConfig.email` (gen.girish@gmail.com) so notifications reach a real inbox, not an unmonitored alias. Preserve this guard when touching routing.
+- Admin recipient resolution (`resolveAdminEmail`) sends to `siteConfig.email` (`contact@intelliforge.tech`), overridable via `CONTACT_EMAIL`. An earlier version rejected `@intelliforge.tech` addresses outright to avoid unmonitored aliases; that guard was **deliberately reversed** so all public communication uses branded addresses. The original concern is now covered by `CONTACT_NOTIFY_CC` instead.
+- **Never put a personal inbox in `siteConfig`.** Client components (`footer`, `navbar`, `json-ld`) import it, so anything there ships in the browser bundle, renders on every page, and goes out in JSON-LD and outbound email footers. `siteConfig` holds public addresses only: `email` (`contact@`), `founderEmail` (`founder@`), `supportEmail` (`support@`).
+- The private notification address is injected at runtime via `CONTACT_NOTIFY_CC` and applied **only to the internal admin notice**, never to the confirmation sent to the enquirer. Note that CC is visible on Reply-All; use BCC if that exposure matters.
 
 **Path alias:** `@/*` maps to the repo root (see `tsconfig.json`).
 
 ## Environment variables
 
-Server (email): `AGENTMAIL_API_KEY` (required for the contact route), `AGENTMAIL_INBOX_ID`, `AGENTMAIL_SUPPORT_INBOX_ID`, `AGENTMAIL_DOMAIN`, `AGENTMAIL_INBOX_USERNAME`, `CONTACT_EMAIL` (admin notification target — ignored if it's an `@intelliforge.tech` address).
+Server (email): `AGENTMAIL_API_KEY` (required for the contact route), `AGENTMAIL_INBOX_ID`, `AGENTMAIL_SUPPORT_INBOX_ID`, `AGENTMAIL_DOMAIN`, `AGENTMAIL_INBOX_USERNAME`, `CONTACT_EMAIL` (admin notification target; defaults to `siteConfig.email`), `CONTACT_NOTIFY_CC` (comma-separated private copy of each enquiry — kept out of the repo and the client bundle; unset means no private copy and a startup warning).
 
 Public (client): `NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_CLARITY_ID`, `NEXT_PUBLIC_WHATSAPP_NUMBER`, `NEXT_PUBLIC_CALENDLY_URL`.
 

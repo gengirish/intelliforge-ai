@@ -9,7 +9,7 @@ export const founder = {
   tagline:
     "14+ years building enterprise systems | M.Tech in Data Science & AI — IIIT Dharwad",
   portfolioUrl: "https://founder.intelliforge.tech/",
-  email: siteConfig.email,
+  email: siteConfig.founderEmail,
   bio: [
     "AI practitioner and full stack architect with 14+ years building enterprise software across compliance, pharma, banking, financial services, IoT, and telecom — from embedded systems and neural networks to leading full-stack teams at Fortune 500 companies.",
     "Currently Principal Software Engineer driving AI-powered compliance platforms in Hyderabad, while pursuing an M.Tech in Data Science & Artificial Intelligence from IIIT Dharwad (Institute of National Importance) — covering Deep Learning, NLP, Generative AI, Computer Vision, and Financial Analytics.",
@@ -27,7 +27,7 @@ export const founder = {
     portfolio: "https://founder.intelliforge.tech/",
     linkedin: "https://linkedin.com/company/intelliforge-ai",
     github: "https://github.com/gengirish",
-    email: `mailto:${siteConfig.email}`,
+    email: `mailto:${siteConfig.founderEmail}`,
   },
   stats: [
     { value: "14+", label: "Years Experience" },
