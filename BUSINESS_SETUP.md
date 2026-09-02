@@ -101,6 +101,20 @@ An Individual Proprietorship (Sole Proprietorship) is the simplest business stru
 - Connect custom domain
 - Enable SSL (automatic with Vercel)
 
+### Booking / Strategy Call Scheduler
+Every "Book Free Strategy Call" CTA on the site reads `NEXT_PUBLIC_CALENDLY_URL`. While it is unset the CTAs fall back to the contact form — usable, but no self-serve booking.
+
+- [ ] Create a free [Calendly](https://calendly.com) account (API access works on the Free plan; a new account already ships with a **30 Minute Meeting** event type)
+- [ ] Rename that event to something like *Free AI Strategy Call* and set your availability
+- [ ] Generate a personal access token: Calendly → **Integrations → API & Webhooks**
+- [ ] Add `CALENDLY_API_TOKEN=<token>` to `.env.local` (gitignored — never commit it)
+- [ ] Run `npm run sync:calendly` to list your event types, then `npm run sync:calendly -- --write` to write `NEXT_PUBLIC_CALENDLY_URL` into `.env.local`
+- [ ] Add the same `NEXT_PUBLIC_CALENDLY_URL` in the Vercel dashboard for **Production, Preview and Development**
+- [ ] **Redeploy** — `NEXT_PUBLIC_*` values are inlined at build time, so a dashboard change alone will not reach the live site
+- [ ] Verify on `https://www.intelliforge.tech/contact` that the card opens Calendly in a new tab
+
+Free-plan limits worth knowing: one active event type, Calendly branding stays, no round-robin/team routing, and webhooks need a paid tier. [Cal.com](https://cal.com) is a drop-in alternative if those bite — the same env var accepts any `https://` scheduling link.
+
 ---
 
 ## 4. Financial & Tax Setup
@@ -195,7 +209,8 @@ An Individual Proprietorship (Sole Proprietorship) is the simplest business stru
 5. **Professional Tax Registration**
 6. **Domain + Email setup**
 7. **Deploy website on Vercel**
-8. **Start invoicing clients**
+8. **Connect the Calendly booking link** (see §3 — until then the strategy-call CTAs only reach the contact form)
+9. **Start invoicing clients**
 
 ---
 

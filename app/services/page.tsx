@@ -17,6 +17,7 @@ import { ServiceCard } from "@/components/service-card";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { services, aiDigitalProfile } from "@/lib/constants";
+import { BookCallLink } from "@/components/book-call-link";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -213,13 +214,12 @@ export default function ServicesPage() {
           <p className="mt-2 text-gray-400">
             Book a free 30-minute strategy call. We&apos;ll assess where you are and map your AI roadmap.
           </p>
-          <Link
-            href="/contact?intent=strategy-call"
+          <BookCallLink
             className="group mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25"
           >
             Book Free AI Strategy Call
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          </BookCallLink>
         </AnimateOnScroll>
       </div>
     </div>

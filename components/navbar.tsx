@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Zap, MessageCircle } from "lucide-react";
 import { navLinks, siteConfig, startingPrice } from "@/lib/constants";
+import { BookCallLink } from "@/components/book-call-link";
 import { RagMasterClassPromo } from "@/components/rag-masterclass-promo";
 import { isEventUpcoming, ragMasterClass } from "@/lib/events";
 
@@ -63,12 +64,9 @@ export function Navbar() {
           <span className="text-xs font-medium text-gray-500">
             From {startingPrice}
           </span>
-          <Link
-            href="/contact?intent=strategy-call"
-            className="rounded-full border border-indigo/40 px-5 py-2.5 text-sm font-semibold text-indigo transition-all hover:border-indigo hover:bg-indigo/10"
-          >
+          <BookCallLink className="rounded-full border border-indigo/40 px-5 py-2.5 text-sm font-semibold text-indigo transition-all hover:border-indigo hover:bg-indigo/10">
             Book Free Strategy Call
-          </Link>
+          </BookCallLink>
         </div>
 
         <button
@@ -108,13 +106,12 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact?intent=strategy-call"
+            <BookCallLink
               onClick={() => setMobileOpen(false)}
               className="mt-2 block rounded-full border border-indigo/40 px-5 py-3 text-center text-sm font-semibold text-indigo"
             >
               Book Free Strategy Call
-            </Link>
+            </BookCallLink>
             <a
               href={whatsappUrl}
               target="_blank"

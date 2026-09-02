@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Sparkles, ChevronDown, ArrowRight } from "lucide-react";
+import { BookCallLink } from "@/components/book-call-link";
 
 type BusinessType =
   | ""
@@ -167,13 +167,12 @@ export function AiDemo() {
                 </p>
               </div>
 
-              <Link
-                href="/contact?intent=strategy-call"
+              <BookCallLink
                 className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-5 py-2.5 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
               >
                 Want this built for you? Book a free call
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
+              </BookCallLink>
             </div>
             )}
           </div>

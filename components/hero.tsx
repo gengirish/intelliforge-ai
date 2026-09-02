@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, type CSSProperties } from "react";
-import Link from "next/link";
 import { ArrowRight, CalendarCheck, ChevronDown } from "lucide-react";
 import { MissionBadge } from "./mission-badge";
 import { startingPrice } from "@/lib/constants";
+import { BookCallLink } from "@/components/book-call-link";
 
 type AudienceKey = "Startups" | "SaaS Companies" | "Enterprises" | "Agencies";
 
@@ -117,8 +117,7 @@ export function Hero() {
             className="rise-in mx-auto mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center"
             style={{ "--rise-delay": "0.3s" } as CSSProperties}
           >
-            <Link
-              href="/contact?intent=strategy-call"
+            <BookCallLink
               className="group flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25 sm:w-auto"
             >
               <CalendarCheck className="h-4 w-4" aria-hidden="true" />
@@ -127,7 +126,7 @@ export function Hero() {
                 className="h-4 w-4 transition-transform group-hover:translate-x-1"
                 aria-hidden="true"
               />
-            </Link>
+            </BookCallLink>
             <button
               type="button"
               onClick={scrollToPortfolio}

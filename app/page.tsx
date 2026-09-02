@@ -11,6 +11,7 @@ import { AiDemo } from "@/components/ai-demo";
 import { HomeTestimonial } from "@/components/home-testimonial";
 import { services, caseStudies, testimonials } from "@/lib/constants";
 import { homepagePortfolio } from "@/lib/portfolio";
+import { BookCallLink } from "@/components/book-call-link";
 
 const featuredCaseStudy =
   caseStudies.find((study) => study.featured) ?? caseStudies[0];
@@ -120,12 +121,11 @@ export default function HomePage() {
                   starting level on the framework.
                 </p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                  <Link
-                    href="/contact?intent=strategy-call"
+                  <BookCallLink
                     className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-indigo transition-all hover:bg-gray-100"
                   >
                     Book Free AI Strategy Call
-                  </Link>
+                  </BookCallLink>
                   <Link
                     href="/ai-audit"
                     className="rounded-full border border-white/30 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-white/10"

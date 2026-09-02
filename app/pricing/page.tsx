@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { JsonLd, createFaqSchema } from "@/components/json-ld";
 import { pricingTiers } from "@/lib/constants";
+import { BookCallLink } from "@/components/book-call-link";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -102,13 +103,12 @@ export default function PricingPage() {
             Book a free strategy call — no commitment, no pressure. We&apos;ll map the right plan for your goals.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/contact?intent=strategy-call"
+            <BookCallLink
               className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25"
             >
               Book Free Strategy Call
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </BookCallLink>
             <Link
               href="/ai-audit"
               className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-semibold text-gray-300 transition-colors hover:bg-surface hover:text-white"

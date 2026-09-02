@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "sync:vercel": "node scripts/sync-vercel-projects.mjs",
+    "sync:calendly": "node scripts/sync-calendly.mjs",
     "test:e2e": "playwright test",
     "test:e2e:links": "playwright test e2e/link-check.spec.ts"
   },

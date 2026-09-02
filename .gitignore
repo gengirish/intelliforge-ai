@@ -50,3 +50,6 @@ next-env.d.ts
 .vercel
 .env*.local
 .env*
+
+# local CLI scratch output
+/data/vercel-raw.txt

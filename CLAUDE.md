@@ -19,6 +19,8 @@ npm run test:e2e:links   # link-check spec only
 npx playwright test e2e/link-check.spec.ts -g "some title"   # single test by title
 
 npm run sync:vercel      # regenerate data/vercel-projects.json from the Vercel CLI
+npm run sync:calendly            # list Calendly event types (needs CALENDLY_API_TOKEN in .env.local)
+npm run sync:calendly -- --write # also write NEXT_PUBLIC_CALENDLY_URL into .env.local
 ```
 
 CI (`.github/workflows/ci.yml`) gates PRs to `main` on lint + `tsc --noEmit` + build — all three must pass.
@@ -48,12 +50,16 @@ CI (`.github/workflows/ci.yml`) gates PRs to `main` on lint + `tsc --noEmit` + b
 
 ## Environment variables
 
+Server (tooling only, never read by the app): `CALENDLY_API_TOKEN` — a Calendly personal access token used by `npm run sync:calendly` to read your event types' scheduling URLs. Works on any Calendly plan including Free; generate it in Calendly → Integrations → API & Webhooks.
+
 Server (email): `AGENTMAIL_API_KEY` (required for the contact route), `AGENTMAIL_INBOX_ID`, `AGENTMAIL_SUPPORT_INBOX_ID`, `AGENTMAIL_DOMAIN`, `AGENTMAIL_INBOX_USERNAME`, `CONTACT_EMAIL` (admin notification target; defaults to `siteConfig.email`), `CONTACT_NOTIFY_CC` (comma-separated private copy of each enquiry — kept out of the repo and the client bundle; unset means no private copy and a startup warning).
 
 Public (client): `NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_CLARITY_ID`, `NEXT_PUBLIC_WHATSAPP_NUMBER`, `NEXT_PUBLIC_CALENDLY_URL`.
+
+`NEXT_PUBLIC_CALENDLY_URL` drives every "Book … Strategy Call" CTA through `siteConfig.bookingUrl` → `components/book-call-link.tsx`. Set = external scheduler link opened in a new tab; unset = fall back to the contact form (navigate to `/contact?intent=strategy-call`, or scroll to `#contact-form` when already on `/contact`). `NEXT_PUBLIC_*` is inlined at build time, so setting it in Vercel requires a redeploy to take effect. Add new booking CTAs with `<BookCallLink>`, never a hardcoded `/contact?intent=strategy-call` link — hardcoded ones dead-end when the visitor is already on `/contact`.
 
 `serverExternalPackages: ["agentmail"]` in `next.config.ts` keeps the SDK out of the bundle — keep it there if adding AgentMail usage.
 
 ## Other docs
 
-`BUSINESS_SETUP.md` (ops/business context), `docs/branding-assets.md`, `public/branding/README.md`.
+`BUSINESS_SETUP.md` (ops/business context, and the running checklist of outstanding setup TODOs — including connecting the Calendly booking link), `docs/branding-assets.md`, `public/branding/README.md`.
