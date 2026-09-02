@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { PortfolioGrid } from "@/components/portfolio-grid";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { portfolioProjects } from "@/lib/portfolio";
+import { BookCallLink } from "@/components/book-call-link";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -40,13 +40,12 @@ export default function PortfolioPage() {
               Book a free strategy call and we&apos;ll map which level of the
               framework your first build should start at.
             </p>
-            <Link
-              href="/contact?intent=strategy-call"
+            <BookCallLink
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
             >
               Book Free AI Strategy Call
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            </BookCallLink>
           </div>
         </AnimateOnScroll>
       </div>

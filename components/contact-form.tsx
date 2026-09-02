@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Send, Loader2 } from "lucide-react";
 
@@ -87,6 +87,21 @@ export function ContactForm() {
     website: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  // The initial state above only runs on mount, so a client-side navigation to
+  // /contact with a different `intent` left the Service select untouched. Sync
+  // it here, but never overwrite a choice the visitor has already made.
+  const appliedPrefillService = useRef(prefill.service);
+  useEffect(() => {
+    if (prefill.service && prefill.service !== appliedPrefillService.current) {
+      setFormData((prev) =>
+        prev.service === "" || prev.service === appliedPrefillService.current
+          ? { ...prev, service: prefill.service }
+          : prev
+      );
+    }
+    appliedPrefillService.current = prefill.service;
+  }, [prefill.service]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

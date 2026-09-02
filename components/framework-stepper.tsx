@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, type CSSProperties } from "react";
-import Link from "next/link";
 import { ArrowRight, BookOpen, Workflow, Palette, Bot, Code, type LucideIcon } from "lucide-react";
 import type { ServiceLevel } from "@/lib/constants";
+import { BookCallLink } from "@/components/book-call-link";
 
 const iconMap: Record<string, LucideIcon> = {
   BookOpen,
@@ -108,13 +108,12 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
                           {service.exampleProduct.name} →
                         </a>
                       </p>
-                      <Link
-                        href="/contact?intent=strategy-call"
+                      <BookCallLink
                         className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-indigo transition-colors hover:text-cyan"
                       >
                         Start here
                         <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                      </Link>
+                      </BookCallLink>
                     </div>
                   </div>
               </div>
@@ -176,13 +175,12 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
                           {service.exampleProduct.name} →
                         </a>
                       </p>
-                      <Link
-                        href="/contact?intent=strategy-call"
+                      <BookCallLink
                         className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-indigo"
                       >
                         Start here
                         <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
+                    </BookCallLink>
                   </div>
                 </div>
               </div>

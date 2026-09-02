@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   ArrowRight,
   Award,
@@ -22,6 +21,7 @@ import { StatBar } from "@/components/stat-bar";
 import { FounderAvatar } from "@/components/founder-avatar";
 import { founder } from "@/lib/founder";
 import { caseStudies, testimonials } from "@/lib/constants";
+import { BookCallLink } from "@/components/book-call-link";
 
 export const metadata: Metadata = {
   title: "About",
@@ -458,13 +458,12 @@ export default function AboutPage() {
           <p className="mt-2 text-gray-400">
             14+ years of enterprise engineering meets cutting-edge AI. Book a free call to discuss your goals.
           </p>
-          <Link
-            href="/contact?intent=strategy-call"
+          <BookCallLink
             className="group mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25"
           >
             Book Free AI Strategy Call
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          </BookCallLink>
         </AnimateOnScroll>
       </div>
     </div>

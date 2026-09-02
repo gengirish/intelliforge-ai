@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   ArrowRight,
   BookOpen,
@@ -19,6 +18,7 @@ import {
   isEventUpcoming,
   ragMasterClass,
 } from "@/lib/events";
+import { BookCallLink } from "@/components/book-call-link";
 
 export const metadata: Metadata = {
   title: "RAG Systems & Architecture Masterclass",
@@ -182,13 +182,12 @@ export default function RagMasterClassPage() {
                     View course on Learning
                     <ExternalLink className="h-4 w-4" aria-hidden="true" />
                   </a>
-                  <Link
-                    href="/contact?intent=strategy-call"
+                  <BookCallLink
                     className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-gray-300 hover:bg-surface"
                   >
                     Book a strategy call
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
+                  </BookCallLink>
                 </div>
               </div>
             )}

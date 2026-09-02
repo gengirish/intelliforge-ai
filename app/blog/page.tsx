@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Clock, Tag } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
+import { BookCallLink } from "@/components/book-call-link";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -116,12 +117,11 @@ export default function BlogPage() {
                 Get a free AI audit
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <Link
-                href="/contact?intent=strategy-call"
+              <BookCallLink
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-indigo/40 hover:bg-surface-hover"
               >
                 Book a strategy call
-              </Link>
+              </BookCallLink>
             </div>
           </div>
         </AnimateOnScroll>
