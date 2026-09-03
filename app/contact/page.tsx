@@ -76,7 +76,7 @@ export default function ContactPage() {
           <div className="space-y-6 lg:col-span-2">
             {/* Calendly Booking */}
             <AnimateOnScroll delay={0.05}>
-              <BookCallLink className={bookingCardClass}>
+              <BookCallLink testId="contact-book-call-cta" className={bookingCardClass}>
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo to-violet">
                   <CalendarCheck className="h-6 w-6 text-white" />
                 </div>

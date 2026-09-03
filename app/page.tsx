@@ -122,6 +122,7 @@ export default function HomePage() {
                 </p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                   <BookCallLink
+                    testId="closing-book-call-cta"
                     className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-indigo transition-all hover:bg-gray-100"
                   >
                     Book Free AI Strategy Call

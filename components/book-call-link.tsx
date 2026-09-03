@@ -11,6 +11,8 @@ type BookCallLinkProps = {
   className?: string;
   onClick?: () => void;
   children: React.ReactNode;
+  /** Stable hook for e2e tests to disambiguate the several CTAs that share visible text. */
+  testId?: string;
 };
 
 /**
@@ -21,7 +23,7 @@ type BookCallLinkProps = {
  * fallback links to `/contact` from `/contact` — a same-route soft navigation
  * that does nothing at all.
  */
-export function BookCallLink({ className, onClick, children }: BookCallLinkProps) {
+export function BookCallLink({ className, onClick, children, testId }: BookCallLinkProps) {
   const pathname = usePathname();
   const bookingUrl = siteConfig.bookingUrl;
 
@@ -33,6 +35,7 @@ export function BookCallLink({ className, onClick, children }: BookCallLinkProps
         rel="noopener noreferrer"
         className={className}
         onClick={onClick}
+        data-testid={testId}
       >
         {children}
       </a>
@@ -47,6 +50,7 @@ export function BookCallLink({ className, onClick, children }: BookCallLinkProps
       <a
         href={`#${CONTACT_FORM_ID}`}
         className={className}
+        data-testid={testId}
         onClick={(e) => {
           onClick?.();
           const form = document.getElementById(CONTACT_FORM_ID);
@@ -74,7 +78,7 @@ export function BookCallLink({ className, onClick, children }: BookCallLinkProps
   }
 
   return (
-    <Link href={bookingUrl} className={className} onClick={onClick}>
+    <Link href={bookingUrl} className={className} onClick={onClick} data-testid={testId}>
       {children}
     </Link>
   );

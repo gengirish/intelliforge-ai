@@ -118,6 +118,7 @@ export function Hero() {
             style={{ "--rise-delay": "0.3s" } as CSSProperties}
           >
             <BookCallLink
+              testId="hero-book-call-cta"
               className="group flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25 sm:w-auto"
             >
               <CalendarCheck className="h-4 w-4" aria-hidden="true" />
