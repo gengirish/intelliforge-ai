@@ -15,6 +15,7 @@ import {
   websiteSchema,
 } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
+import { OmniDimWidget } from "@/components/omnidim-widget";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SiteHeaderSpacer } from "@/components/site-header-spacer";
 
@@ -119,6 +120,7 @@ export default function RootLayout({
         <main className="min-h-screen">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <OmniDimWidget />
         <SpeedInsights />
       </body>
     </html>

@@ -60,7 +60,7 @@ Server (email): `AGENTMAIL_API_KEY` (required for the contact route), `AGENTMAIL
 
 Server (voice agent): `OMNIDIM_API_KEY` — OmniDimension platform API key (from omnidim.io/api-management). **Server-only, never `NEXT_PUBLIC_*`** — it can create/edit/delete agents and dispatch calls, unlike a web-widget `secret_key` which is meant to be public. `OMNIDIM_CONFIRMATION_AGENT_ID` — the agent id dispatched by the Calendly webhook. `CALENDLY_WEBHOOK_SIGNING_KEY` — shared secret used to verify `Calendly-Webhook-Signature`; must match the `signing_key` the webhook subscription was created with.
 
-Public (client): `NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_CLARITY_ID`, `NEXT_PUBLIC_WHATSAPP_NUMBER`, `NEXT_PUBLIC_CALENDLY_URL`.
+Public (client): `NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_CLARITY_ID`, `NEXT_PUBLIC_WHATSAPP_NUMBER`, `NEXT_PUBLIC_CALENDLY_URL`, `NEXT_PUBLIC_OMNIDIM_WIDGET_SECRET_KEY` (`components/omnidim-widget.tsx` — the "IntelliForge AI Studio" website voice widget, agent id 248463 on OmniDimension; unset renders nothing).
 
 `NEXT_PUBLIC_CALENDLY_URL` drives every "Book … Strategy Call" CTA through `siteConfig.bookingUrl` → `components/book-call-link.tsx`. Set = external scheduler link opened in a new tab; unset = fall back to the contact form (navigate to `/contact?intent=strategy-call`, or scroll to `#contact-form` when already on `/contact`). `NEXT_PUBLIC_*` is inlined at build time, so setting it in Vercel requires a redeploy to take effect. Add new booking CTAs with `<BookCallLink>`, never a hardcoded `/contact?intent=strategy-call` link — hardcoded ones dead-end when the visitor is already on `/contact`.
 
