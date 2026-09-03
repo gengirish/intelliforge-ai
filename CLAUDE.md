@@ -38,7 +38,11 @@ CI (`.github/workflows/ci.yml`) gates PRs to `main` on lint + `tsc --noEmit` + b
 
 **Pages** are `app/*/page.tsx` (App Router). `app/layout.tsx` wires global fonts, Navbar/Footer, JSON-LD structured data, and analytics. `app/sitemap.ts`, `app/robots.ts`, `app/opengraph-image.tsx`, `app/icon.tsx` are generated SEO/asset routes. `public/llms.txt` / `llms-full.txt` are maintained for LLM crawlers.
 
-**The one dynamic path: contact/lead email.** `app/api/contact/route.ts` is the only server route.
+**Voice agent confirmation calls.** `app/api/calendly-webhook/route.ts` receives Calendly's `invitee.created` webhook when someone books the AI Strategy Call, verifies `Calendly-Webhook-Signature` (HMAC-SHA256, 180s replay tolerance — see the function docstring for the exact scheme), and dispatches an outbound call via `lib/omnidimension.ts` (OmniDimension platform, agent id in `OMNIDIM_CONFIRMATION_AGENT_ID`) to confirm the booking.
+- **Phone number is best-effort, not guaranteed.** Calendly's booking form doesn't collect a phone number by default — only its optional "text me reminders" opt-in (`text_reminder_number`) does, and the invitee has to check that box themselves. Bookings without one silently skip the confirmation call (logged, not an error). To make coverage reliable, add a required phone-number question to the event type in the Calendly dashboard (Event Types → AI Strategy Call → Invitee Questions) — the Calendly API cannot do this, it's dashboard-only.
+- The webhook subscription itself is created once via Calendly's `POST /webhook_subscriptions` API (not in this repo — see chat/ops history), pointing at `https://www.intelliforge.tech/api/calendly-webhook` with the signing key mirrored in `CALENDLY_WEBHOOK_SIGNING_KEY`.
+
+**Contact/lead email.** `app/api/contact/route.ts` is the site's other server route.
 - Honeypot: a truthy `website` field silently returns success (bot trap).
 - `lib/agentmail.ts` wraps the AgentMail SDK — lazily creates/looks up the `contact@intelliforge.tech` inbox and sends. `sendEnquiryNotifications` sends admin notices **from** the support inbox so replies land in that AgentMail inbox.
 - `lib/contact-emails.ts` builds the admin + confirmation email HTML (with `escapeHtml`).
@@ -53,6 +57,8 @@ CI (`.github/workflows/ci.yml`) gates PRs to `main` on lint + `tsc --noEmit` + b
 Server (tooling only, never read by the app): `CALENDLY_API_TOKEN` — a Calendly personal access token used by `npm run sync:calendly` to read your event types' scheduling URLs. Works on any Calendly plan including Free; generate it in Calendly → Integrations → API & Webhooks.
 
 Server (email): `AGENTMAIL_API_KEY` (required for the contact route), `AGENTMAIL_INBOX_ID`, `AGENTMAIL_SUPPORT_INBOX_ID`, `AGENTMAIL_DOMAIN`, `AGENTMAIL_INBOX_USERNAME`, `CONTACT_EMAIL` (admin notification target; defaults to `siteConfig.email`), `CONTACT_NOTIFY_CC` (comma-separated private copy of each enquiry — kept out of the repo and the client bundle; unset means no private copy and a startup warning).
+
+Server (voice agent): `OMNIDIM_API_KEY` — OmniDimension platform API key (from omnidim.io/api-management). **Server-only, never `NEXT_PUBLIC_*`** — it can create/edit/delete agents and dispatch calls, unlike a web-widget `secret_key` which is meant to be public. `OMNIDIM_CONFIRMATION_AGENT_ID` — the agent id dispatched by the Calendly webhook. `CALENDLY_WEBHOOK_SIGNING_KEY` — shared secret used to verify `Calendly-Webhook-Signature`; must match the `signing_key` the webhook subscription was created with.
 
 Public (client): `NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_CLARITY_ID`, `NEXT_PUBLIC_WHATSAPP_NUMBER`, `NEXT_PUBLIC_CALENDLY_URL`.
 
