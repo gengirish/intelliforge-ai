@@ -66,25 +66,64 @@ function isValidCalendlySignature(
 }
 
 const PREP_QUESTION_HINT = "prepare";
+const PHONE_QUESTION_HINT = "phone";
 
 function findPrepAnswer(qa: CalendlyQuestionAndAnswer[]): string | undefined {
   return qa.find((entry) => entry.question.toLowerCase().includes(PREP_QUESTION_HINT))
     ?.answer;
 }
 
+function findPhoneAnswer(qa: CalendlyQuestionAndAnswer[]): string | undefined {
+  return qa.find((entry) => entry.question.toLowerCase().includes(PHONE_QUESTION_HINT))
+    ?.answer;
+}
+
+/**
+ * OmniDimension requires E.164 (leading +, country code, no separators).
+ * Invitees type phone numbers in whatever format they like, so this
+ * normalizes the common cases rather than rejecting anything not already
+ * E.164: strips spaces/dashes/parens, keeps a leading +, and assumes a bare
+ * 10-digit number is Indian (IntelliForge's primary market) since that's
+ * the shape a local invitee is most likely to type. Anything else is
+ * treated as unparseable rather than guessed at.
+ */
+function normalizePhoneNumber(raw: string): string | null {
+  const cleaned = raw.trim().replace(/[\s\-().]/g, "");
+  if (/^\+\d{8,15}$/.test(cleaned)) return cleaned;
+  if (/^\d{10}$/.test(cleaned)) return `+91${cleaned}`;
+  return null;
+}
+
 /**
  * Triggers the "IntelliForge AI Strategy Call Confirmation" OmniDimension
- * agent to call the prospect right after they book. Best-effort: Calendly's
- * booking form only collects a phone number if the invitee opts into SMS
- * reminders (`text_reminder_number`), so bookings without one are skipped
- * rather than treated as an error — see CLAUDE.md for the tracked follow-up
- * to make a phone question required on the event type.
+ * agent to call the prospect right after they book.
+ *
+ * Phone number source, in priority order:
+ *  1. A custom "Phone Number" invitee question on the event type (reliable,
+ *     available on every Calendly plan — add it under Event Types → Invitee
+ *     Questions).
+ *  2. `text_reminder_number` — Calendly's optional SMS-reminders opt-in.
+ *     Gated behind Calendly's Teams plan or higher, so this is a bonus
+ *     fallback, not something to rely on: it won't appear on the booking
+ *     form at all on Free/Essentials/Professional plans.
+ *
+ * Best-effort either way: bookings with neither are skipped, not errored.
  */
 async function triggerConfirmationCall(payload: CalendlyInviteePayload) {
-  const toNumber = payload.text_reminder_number;
-  if (!toNumber) {
+  const questionAnswer = findPhoneAnswer(payload.questions_and_answers);
+  const rawNumber = questionAnswer || payload.text_reminder_number;
+
+  if (!rawNumber) {
     console.warn(
       `Calendly webhook: no phone number for ${payload.email} — skipping confirmation call.`,
+    );
+    return;
+  }
+
+  const toNumber = normalizePhoneNumber(rawNumber);
+  if (!toNumber) {
+    console.warn(
+      `Calendly webhook: unparseable phone number "${rawNumber}" for ${payload.email} — skipping confirmation call.`,
     );
     return;
   }
