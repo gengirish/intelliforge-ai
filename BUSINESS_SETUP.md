@@ -113,22 +113,21 @@ Every "Book Free Strategy Call" CTA on the site reads `NEXT_PUBLIC_CALENDLY_URL`
 - [ ] **Redeploy** — `NEXT_PUBLIC_*` values are inlined at build time, so a dashboard change alone will not reach the live site
 - [ ] Verify on `https://www.intelliforge.tech/contact` that the card opens Calendly in a new tab
 
-Free-plan limits worth knowing: one active event type, Calendly branding stays, no round-robin/team routing, and webhooks need a paid tier. [Cal.com](https://cal.com) is a drop-in alternative if those bite — the same env var accepts any `https://` scheduling link.
+Free-plan limits worth knowing: one active event type, Calendly branding stays, no round-robin/team routing. Webhook subscriptions (`POST /webhook_subscriptions`) work fine on Free via a personal access token — verified 2026-09-04 by creating a live subscription and having it fire on a real booking; an earlier note here claiming webhooks require a paid plan was wrong. [Cal.com](https://cal.com) is a drop-in alternative if Free's other limits bite — the same env var accepts any `https://` scheduling link.
 
 ### Voice Confirmation Calls (Calendly Webhook → OmniDimension)
-`app/api/calendly-webhook/route.ts` + `lib/omnidimension.ts` receive Calendly's `invitee.created` event and trigger an outbound OmniDimension call confirming the booking — but no live Calendly webhook subscription exists yet, so nothing calls the route on real bookings.
+`app/api/calendly-webhook/route.ts` + `lib/omnidimension.ts` receive Calendly's `invitee.created` event and trigger an outbound OmniDimension call (agent id in `OMNIDIM_CONFIRMATION_AGENT_ID`) confirming the booking.
 
-**⏸ Blocked / deferred (2026-09-04):** the Calendly account is on the **Free plan**, which has no webhook or API access at all — webhook subscriptions require **Standard** or above (~$120/year). Decided to defer upgrading until there's budget/volume to justify it; revisit this section before resuming.
+**✅ Live as of 2026-09-04.** A previous note here claimed this was blocked on Calendly's Free plan requiring a Standard-tier upgrade (~$120/year) — that was checked in error. Webhook subscriptions work on Free via a personal access token; the live subscription was created and verified firing on a real booking the same day.
 
-- [x] Confirm the Calendly account is on a **paid plan** — webhook subscriptions 403 on Free → **confirmed Free plan, blocked**
 - [x] Commit and merge `app/api/calendly-webhook/route.ts` + `lib/omnidimension.ts` so the route ships to production
-- [ ] **Upgrade Calendly to Standard (or above)** — unblocks everything below
-- [ ] Add `CALENDLY_WEBHOOK_SIGNING_KEY`, `OMNIDIM_API_KEY`, `OMNIDIM_CONFIRMATION_AGENT_ID` to the Vercel project's **Production** env vars, then redeploy
-- [ ] Verify the route is live: `curl -i https://www.intelliforge.tech/api/calendly-webhook -X POST` should return `401 Invalid signature`, not 404/500
-- [ ] Test the OmniDimension leg independently (bad `OMNIDIM_API_KEY`/agent id fails silently — the route only logs `OmniDimensionError`, never surfaces it)
-- [ ] Create the live subscription via `POST https://api.calendly.com/webhook_subscriptions` (`events: ["invitee.created"]`, `scope: "organization"`, `signing_key` = the same value as `CALENDLY_WEBHOOK_SIGNING_KEY`) — check `GET /webhook_subscriptions` first to avoid duplicates
-- [ ] Book a real test appointment with the SMS-reminder box checked and confirm the call fires (check Vercel function logs)
-- [ ] Make the phone-number question **required** on the event type (Calendly dashboard → Event Types → Invitee Questions) — today it's opt-in only, so bookings without it silently skip the call
+- [x] Add `CALENDLY_WEBHOOK_SIGNING_KEY`, `OMNIDIM_API_KEY`, `OMNIDIM_CONFIRMATION_AGENT_ID` to the Vercel project's Production/Preview/Development env vars, redeployed
+- [x] Verify the route is live: `POST https://www.intelliforge.tech/api/calendly-webhook` returns `401 Invalid signature` on an unsigned request, not 404/500
+- [x] Test the OmniDimension leg independently — dispatched a real call, confirmed via `GET /calls/logs`
+- [x] Create the live subscription via `POST https://api.calendly.com/webhook_subscriptions` — active, `GET /webhook_subscriptions` confirms it (uri ends `d636faf6-b951-40f1-926d-9985dd43780c`)
+- [x] Confirmed firing on a real booking — call transcript captured name, date/time, matched the agent's own guardrails (correctly refused an in-call reschedule request, redirected to the Calendly link)
+- [x] Phone number source fixed 2026-09-04: a custom **"Phone Number" invitee question** (Event Types → AI Strategy Call → Invitee Questions), not Calendly's SMS-reminders opt-in — that field is gated behind Calendly's Teams plan and doesn't appear on Free/Essentials/Professional at all, which is why the original best-effort approach silently never worked in testing
+- [ ] **Still needed:** mark that Phone Number question **required** on the event type — right now it's opt-in, so bookings without an answer silently skip the confirmation call. Dashboard-only, the Calendly API can't set this.
 
 ---
 
