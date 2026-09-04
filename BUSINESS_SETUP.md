@@ -118,8 +118,11 @@ Free-plan limits worth knowing: one active event type, Calendly branding stays, 
 ### Voice Confirmation Calls (Calendly Webhook → OmniDimension)
 `app/api/calendly-webhook/route.ts` + `lib/omnidimension.ts` receive Calendly's `invitee.created` event and trigger an outbound OmniDimension call confirming the booking — but no live Calendly webhook subscription exists yet, so nothing calls the route on real bookings.
 
-- [ ] Confirm the Calendly account is on a **paid plan** — webhook subscriptions 403 on Free
+**⏸ Blocked / deferred (2026-09-04):** the Calendly account is on the **Free plan**, which has no webhook or API access at all — webhook subscriptions require **Standard** or above (~$120/year). Decided to defer upgrading until there's budget/volume to justify it; revisit this section before resuming.
+
+- [x] Confirm the Calendly account is on a **paid plan** — webhook subscriptions 403 on Free → **confirmed Free plan, blocked**
 - [x] Commit and merge `app/api/calendly-webhook/route.ts` + `lib/omnidimension.ts` so the route ships to production
+- [ ] **Upgrade Calendly to Standard (or above)** — unblocks everything below
 - [ ] Add `CALENDLY_WEBHOOK_SIGNING_KEY`, `OMNIDIM_API_KEY`, `OMNIDIM_CONFIRMATION_AGENT_ID` to the Vercel project's **Production** env vars, then redeploy
 - [ ] Verify the route is live: `curl -i https://www.intelliforge.tech/api/calendly-webhook -X POST` should return `401 Invalid signature`, not 404/500
 - [ ] Test the OmniDimension leg independently (bad `OMNIDIM_API_KEY`/agent id fails silently — the route only logs `OmniDimensionError`, never surfaces it)
