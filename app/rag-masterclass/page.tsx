@@ -88,6 +88,7 @@ export default function RagMasterClassPage() {
 
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          as="h1"
           label="Live Masterclass"
           title={ragMasterClass.title}
           description={ragMasterClass.description}

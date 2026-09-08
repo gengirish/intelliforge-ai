@@ -40,6 +40,7 @@ export default function ServicesPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <SectionHeading
+          as="h1"
           label="Services"
           title="Five Levels to AI Mastery"
           description="Our services follow a proven 5-level roadmap. Start wherever you are and progress at your pace — each level builds on the last."

@@ -7,6 +7,7 @@ import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { JsonLd, createFaqSchema } from "@/components/json-ld";
 import { pricingTiers } from "@/lib/constants";
 import { BookCallLink } from "@/components/book-call-link";
+import { faqs } from "@/lib/faqs";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -21,25 +22,6 @@ export const metadata: Metadata = {
   },
 };
 
-const faqs = [
-  {
-    q: "AI is everywhere now. What makes IntelliForge different?",
-    a: "Access to AI is easy; shipping reliable outcomes is hard. We design, build, and deploy production-ready workflows, agents, and AI apps with clear KPIs from day one. The result: faster execution, lower operating effort, and systems your teams can trust.",
-  },
-  {
-    q: "How does licensing work for AI solutions?",
-    a: "Our model is simple: IntelliForge covers implementation and support, while your organization owns run-time licenses (LLM APIs, cloud, and tooling). You get full cost transparency, operational control, and no lock-in.",
-  },
-  {
-    q: "Can you explain the 5 levels briefly?",
-    a: "Level 1: Foundations (team capability + use cases). Level 2: Automation (remove repetitive work). Level 3: Creative Studio (scale output quality and speed). Level 4: Agents (autonomous, 24/7 task execution). Level 5: AI Apps (custom, production-grade products).",
-  },
-  {
-    q: "Which organizations are you targeting initially?",
-    a: "Our initial focus is SaaS companies, digital agencies, startups, and enterprise teams with repeatable knowledge workflows (research, ops, marketing, reporting). These teams typically see ROI fastest - often in weeks, not months.",
-  },
-];
-
 export default function PricingPage() {
   return (
     <div className="pt-8 pb-24">
@@ -47,6 +29,7 @@ export default function PricingPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <SectionHeading
+          as="h1"
           label="Pricing"
           title="Invest in Your AI Future"
           description="Transparent pricing with no hidden fees. Pick the level that matches where you are — and where you want to go."

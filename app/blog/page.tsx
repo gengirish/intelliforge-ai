@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   description:
     "Insights on AI automation, agent development, RAG, prompt engineering, and building AI-powered businesses. From the IntelliForge AI team.",
   alternates: { canonical: "/blog" },
+  // The three entries below are lead magnets, not published articles — there is
+  // no /blog/[slug] route behind them. Keeping the page indexable pointed
+  // crawlers and LLM citations at a contact form. Drop this block (and add the
+  // route back to lib/routes.ts) when real posts ship.
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Blog | IntelliForge AI",
     description:
@@ -58,9 +63,10 @@ export default function BlogPage() {
     <div className="pt-8 pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          as="h1"
           label="Blog"
-          title="AI Insights & Guides"
-          description="Practical insights on AI automation, agent development, and building AI-powered businesses."
+          title="AI Guides — Request a Copy"
+          description="In-depth guides on AI automation and agent development. Request any guide below and we'll send it to your inbox."
         />
 
         <div className="mx-auto max-w-3xl space-y-8">

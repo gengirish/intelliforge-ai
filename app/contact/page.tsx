@@ -41,6 +41,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <SectionHeading
+          as="h1"
           label="Contact Us"
           title="Let's Build Your AI Future"
           description="Book a free strategy call, send us a message, or chat instantly on WhatsApp."

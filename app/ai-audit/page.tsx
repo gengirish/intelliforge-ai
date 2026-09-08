@@ -45,6 +45,7 @@ export default function AiAuditPage() {
     <div className="pt-8 pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          as="h1"
           label="Free AI Audit"
           title="Get Your AI Readiness Report"
           description="Answer 5 quick questions and receive a personalized AI automation roadmap for your business — completely free."
