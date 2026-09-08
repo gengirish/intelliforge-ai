@@ -19,7 +19,7 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
   return (
     <div>
       <p className="mb-8 text-center text-sm text-gray-500">
-        From teams we&apos;ve worked with
+        LinkedIn recommendations from engineers Girish has worked with
       </p>
       <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
         {testimonials.map((t, i) => (
@@ -51,12 +51,14 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
                       .join("")}
                 </div>
 
-                <div
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-surface text-xs font-bold text-gray-300"
-                  aria-hidden="true"
-                >
-                  {companyInitials(t.company)}
-                </div>
+                {t.company && (
+                  <div
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-surface text-xs font-bold text-gray-300"
+                    aria-hidden="true"
+                  >
+                    {companyInitials(t.company)}
+                  </div>
+                )}
 
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
@@ -82,7 +84,7 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
                     )}
                   </div>
                   <p className="text-xs text-gray-400">
-                    {t.role}, {t.company}
+                    {t.company ? `${t.role}, ${t.company}` : t.role}
                   </p>
                   {t.linkedinUrl && (
                     <Linkedin

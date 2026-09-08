@@ -347,67 +347,32 @@ export type CaseStudy = {
   featured?: boolean;
 };
 
+/**
+ * Only engagements we can stand behind publicly. Two earlier entries — a
+ * Hyderabad market research firm and a Mumbai marketing agency, both "under
+ * NDA" — were removed rather than reworded: an unverifiable client story is
+ * worse than a short list. Add a new one only when the client and the numbers
+ * are real, and prefer ones with a link a visitor can open.
+ */
 export const caseStudies: CaseStudy[] = [
   {
-    client: "Confidential — Hyderabad Analytics Firm",
-    clientDescriptor:
-      "B2B market research firm, ~50 employees, HITEC City corridor",
-    location: "Hyderabad, Telangana",
-    industry: "Market Research & Analytics",
+    client: "Independent cloud architect",
     featured: true,
-    problem:
-      "Competitive landscape reports took 12–15 analyst-hours each — pulling SEC filings, trade press, LinkedIn headcount data, and notes from the internal CRM by hand. Senior staff were reviewing drafts instead of doing actual analysis.",
-    solution:
-      "Shipped a multi-agent deep research system: RAG over the client's proprietary brief library, parallel web-research agents for live sources, and a synthesis agent that outputs cited reports with a human review checkpoint before delivery.",
-    impact: [
-      "Full competitive brief in ~90 min vs. 1–2 days",
-      "~75% less analyst time on data gathering",
-      "Every claim traceable to source or internal doc",
-    ],
-    tech: ["Multi-Agent AI", "RAG", "LangGraph", "Python", "FastAPI"],
-    productUsed: "Multi-Agent Deep Research",
-    productUrl: "https://deep-research.intelliforge.tech",
-    timeline: "4 weeks",
-  },
-  {
-    client: "Independent Cloud Architect",
-    clientDescriptor:
-      "Senior AWS/Azure consultant, 12+ years, solo practice",
+    clientDescriptor: "AWS and Azure consultant, solo practice",
     location: "Bengaluru, Karnataka",
     industry: "Professional Services",
     problem:
-      "Six weeks of back-and-forth with a freelance web dev on a static portfolio. Recruiters skimmed PDFs and missed the migration and FinOps projects that actually mattered for senior roles.",
+      "A static portfolio had stalled in redesign. Recruiters skimmed the PDF and missed the migration and FinOps work that mattered most for senior roles.",
     solution:
-      "Built an AI Digital Profile on Next.js with RAG over project write-ups, certifications, and case notes — plus a 'Talk to My Resume' chatbot so visitors can ask about specific engagements instead of scrolling.",
+      "We built an AI Digital Profile on Next.js, with RAG over the project write-ups, certifications and case notes. A \"Talk to My Resume\" chatbot lets a visitor ask about one specific engagement rather than scroll past it.",
     impact: [
       "Live on Vercel in under 48 hours",
-      "Recruiters citing chatbot answers in outreach",
-      "40+ AI queries/week within first month",
+      "The full project history is queryable, and the site is public at the link below",
     ],
     tech: ["Next.js", "RAG", "Vercel AI SDK", "Vercel"],
     productUsed: "AI Digital Profile",
     productUrl: "https://girishbhiremath.vercel.app",
     timeline: "2 days",
-  },
-  {
-    client: "Confidential — Performance Marketing Agency",
-    clientDescriptor:
-      "Content-led agency, ~15-person ops team, Andheri West",
-    location: "Mumbai, Maharashtra",
-    industry: "Digital Marketing",
-    problem:
-      "Three ops staff spent most of Monday copying YouTube transcripts, reformatting competitor teardowns, and stitching markdown into client PDFs — roughly 22 hours/week of work that didn't need human judgment.",
-    solution:
-      "Deployed the YouTube transcript scraper API, a markdown-to-PDF converter, and wired both into n8n workflows that pull URLs from a shared sheet, run transcripts, and drop finished reports into client Notion workspaces overnight.",
-    impact: [
-      "~22 hrs/week reclaimed for strategy work",
-      "Zero manual copy-paste on weekly reports",
-      "Pipeline runs unattended Sun→Mon before standup",
-    ],
-    tech: ["n8n", "FastAPI", "React", "Notion API"],
-    productUsed: "YouTube Transcript Scraper + Markdown to PDF",
-    productUrl: "https://youtube-scrapper-pi.vercel.app/",
-    timeline: "3 weeks",
   },
 ];
 
@@ -415,46 +380,19 @@ export type Testimonial = {
   quote: string;
   author: string;
   role: string;
-  company: string;
+  /** Omit when we can't name the employer accurately. Rendered conditionally. */
+  company?: string;
   linkedinUrl?: string;
   verified?: boolean;
   avatarInitials?: string;
 };
 
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "We had three people copying YouTube transcripts every Monday. Girish hooked the scraper API into our n8n flow in about two weeks — transcripts land in Notion before we've finished coffee. He stayed on through the weird edge cases, not just the happy path.",
-    author: "Rahul M.",
-    role: "CTO",
-    company: "Pune B2B SaaS, ~30 engineers",
-    avatarInitials: "RM",
-  },
-  {
-    quote:
-      "Our analysts didn't trust 'AI research' until they saw a multi-agent report pulling from our internal data room plus live web sources — with citations. A competitive brief that ate a full day is now maybe 90 minutes, and there's still a human sign-off before it goes to clients.",
-    author: "Priya S.",
-    role: "Head of Research",
-    company: "Hyderabad analytics firm (NDA)",
-    avatarInitials: "PS",
-  },
-  {
-    quote:
-      "I was six weeks into a portfolio redesign that wasn't going anywhere. IntelliForge shipped the AI Digital Profile with RAG over my project docs in a weekend. Recruiters messaged saying they asked the bot about my Kubernetes work — that's weird, and honestly better than another PDF.",
-    author: "Ananya R.",
-    role: "Cloud Architect",
-    company: "Independent consultant, Bengaluru",
-    avatarInitials: "AR",
-  },
-  {
-    quote:
-      "Started with a prompt workshop for eight engineers in Hyderabad, ended up with a RAG chatbot over our Confluence. Six months later we added an n8n agent that triages L1 support tickets. Not a keynote transformation — just systems that actually run in prod.",
-    author: "Suresh P.",
-    role: "VP Engineering",
-    company: "RegTech SaaS, ~120 employees",
-    avatarInitials: "SP",
-  },
-];
+/**
+ * Empty until testimonials we can attribute accurately are ready — the previous
+ * set was removed pending verification. Consumers render their section only
+ * when this is non-empty, so re-adding entries here restores the UI.
+ */
+export const testimonials: Testimonial[] = [];
 
 export const statBarItems = [
   { value: "M.Tech", label: "Data Science & AI, IIIT Dharwad" },
@@ -468,24 +406,24 @@ export const whyIntelliforge = [
     icon: "Zap",
     title: "Production Apps You Can Click",
     description:
-      "Live URLs you can click — multi-agent research tools, RAG chatbots, n8n automations, and micro-SaaS dashboards. Built from Hyderabad, deployed globally on Vercel, not mockups in a deck.",
+      "Multi-agent research tools, RAG chatbots, n8n automations, micro-SaaS dashboards. Every one has a live URL you can open right now. Built in Hyderabad, deployed on Vercel.",
   },
   {
     icon: "Shield",
     title: "14+ Years Enterprise Engineering",
     description:
-      "Banking, pharma, telecom, compliance, IoT — Fortune 500 delivery before the AI wave. Every IntelliForge build inherits that rigor, plus ongoing M.Tech DSAI work at IIIT Dharwad.",
+      "Banking, pharma, telecom, compliance, IoT. Fourteen years of Fortune 500 delivery before the AI wave, and an M.Tech in Data Science and AI in progress at IIIT Dharwad.",
   },
   {
     icon: "Zap",
     title: "All Five Levels, One Team",
     description:
-      "Prompt workshops for your Hyderabad or Tier-II team today; multi-agent systems and full-stack apps next quarter. No handoffs between a trainer, an integrator, and a dev shop.",
+      "Prompt workshops for your team this month, multi-agent systems and full-stack apps next quarter. You are not handing off between a trainer, an integrator and a dev shop.",
   },
   {
     icon: "Users",
     title: "Human-in-the-Loop by Default",
     description:
-      "Indian businesses can't afford hallucinated compliance answers or rogue agents. We design review checkpoints, audit trails, and escalation paths — aligned with responsible AI practice under Bharat AI Mission goals.",
+      "Indian businesses can't afford hallucinated compliance answers or rogue agents. Every system we ship has review checkpoints, audit trails and an escalation path.",
   },
 ];

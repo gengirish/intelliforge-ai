@@ -15,12 +15,11 @@ import {
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { MissionBadge } from "@/components/mission-badge";
-import { Testimonials } from "@/components/testimonials";
 import { CaseStudyCard } from "@/components/case-study-card";
 import { StatBar } from "@/components/stat-bar";
 import { FounderAvatar } from "@/components/founder-avatar";
 import { founder } from "@/lib/founder";
-import { caseStudies, testimonials } from "@/lib/constants";
+import { caseStudies } from "@/lib/constants";
 import { BookCallLink } from "@/components/book-call-link";
 
 export const metadata: Metadata = {
@@ -42,6 +41,7 @@ export default function AboutPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <SectionHeading
+          as="h1"
           label="About Us"
           title="Building India's AI Future"
           description="Founded in Hyderabad with a mission to make AI accessible to businesses of every size — from startups to enterprises."
@@ -64,13 +64,13 @@ export default function AboutPage() {
                 <p>
                   We follow the <strong className="text-white">AI Generalist</strong>{" "}
                   philosophy. In a world where one person can use AI to solve problems across
-                  marketing, design, code, research, and content, companies don&apos;t need
-                  five specialists anymore — they need one partner who can orchestrate AI to
-                  solve all five problems.
+                  marketing, design, code, research, and content, most companies no longer
+                  need five specialists. They need one partner who can orchestrate AI across
+                  all five.
                 </p>
                 <p>
-                  That&apos;s IntelliForge AI. We&apos;re not just a vendor — we&apos;re your
-                  AI department.
+                  That is what IntelliForge AI does. Think of us as your AI department
+                  rather than another vendor.
                 </p>
               </div>
             </div>
@@ -426,29 +426,34 @@ export default function AboutPage() {
           <StatBar />
         </section>
 
-        {/* More case studies */}
-        <section className="mb-20">
-          <SectionHeading
-            label="Case Studies"
-            title="More Client Work"
-            description="Detailed outcomes from engagements across research, consulting, and marketing — with live products you can try."
-          />
-          <div className="grid gap-8 lg:grid-cols-3">
-            {caseStudies.map((study, i) => (
-              <CaseStudyCard key={study.client} study={study} index={i} />
-            ))}
-          </div>
-        </section>
+        {/* Client work. The grid tracks the number of published case studies so
+            a short list stays centred instead of stranding one card in a
+            three-column row. */}
+        {caseStudies.length > 0 && (
+          <section className="mb-20">
+            <SectionHeading
+              label="Case Studies"
+              title="Client Work"
+              description="Engagements we can show publicly. Each one links to a product you can open and use."
+            />
+            <div
+              className={`mx-auto grid gap-8 ${
+                caseStudies.length === 1
+                  ? "max-w-2xl"
+                  : caseStudies.length === 2
+                    ? "max-w-4xl md:grid-cols-2"
+                    : "lg:grid-cols-3"
+              }`}
+            >
+              {caseStudies.map((study, i) => (
+                <CaseStudyCard key={study.client} study={study} index={i} />
+              ))}
+            </div>
+          </section>
+        )}
 
-        {/* Client testimonials */}
-        <section className="mb-20">
-          <SectionHeading
-            label="Testimonials"
-            title="What Clients Tell Us"
-            description="Feedback from teams we've worked with across startups, enterprises, and agencies."
-          />
-          <Testimonials testimonials={testimonials} />
-        </section>
+        {/* The colleague recommendations above are the site's only testimonials,
+            so there is no second testimonial section here to duplicate them. */}
 
         {/* CTA */}
         <AnimateOnScroll className="text-center">

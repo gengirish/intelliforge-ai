@@ -5,6 +5,12 @@ interface SectionHeadingProps {
   title: string;
   description?: string;
   centered?: boolean;
+  /**
+   * Heading level to render. Every page needs exactly one `h1` for crawlers and
+   * LLM extractors that use it as the document-title anchor — pass `as="h1"` on
+   * the page's primary heading and leave the rest at the `h2` default.
+   */
+  as?: "h1" | "h2";
 }
 
 export function SectionHeading({
@@ -12,6 +18,7 @@ export function SectionHeading({
   title,
   description,
   centered = true,
+  as: Heading = "h2",
 }: SectionHeadingProps) {
   return (
     <AnimateOnScroll className={`mb-16 ${centered ? "text-center" : ""}`}>
@@ -28,9 +35,9 @@ export function SectionHeading({
           </span>
         </div>
       )}
-      <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+      <Heading className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
         {title}
-      </h2>
+      </Heading>
       {description && (
         <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
           {description}

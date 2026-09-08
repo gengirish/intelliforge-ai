@@ -9,11 +9,13 @@ import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { AiDemo } from "@/components/ai-demo";
 import { HomeTestimonial } from "@/components/home-testimonial";
-import { services, caseStudies, testimonials } from "@/lib/constants";
+import { services, caseStudies, type CaseStudy } from "@/lib/constants";
+import { testimonials } from "@/lib/founder";
 import { homepagePortfolio } from "@/lib/portfolio";
 import { BookCallLink } from "@/components/book-call-link";
 
-const featuredCaseStudy =
+/** `undefined` when the list is empty, in which case the section is skipped. */
+const featuredCaseStudy: CaseStudy | undefined =
   caseStudies.find((study) => study.featured) ?? caseStudies[0];
 
 export default function HomePage() {
@@ -59,28 +61,33 @@ export default function HomePage() {
       </section>
 
       {/* Featured case study */}
-      <section className="section-blueprint py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="Case Study"
-            title="Real Results, Real Impact"
-            description="How we helped a research firm cut report time by 10x with a multi-agent AI system."
-          />
-          <FeaturedCaseStudy study={featuredCaseStudy} />
-        </div>
-      </section>
+      {featuredCaseStudy && (
+        <section className="section-blueprint py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              label="Case Study"
+              title="One Engagement, Start to Finish"
+              description="How a consultant's stalled portfolio redesign became a live AI Digital Profile in under 48 hours. The result is public, and the link is below."
+            />
+            <FeaturedCaseStudy study={featuredCaseStudy} />
+          </div>
+        </section>
+      )}
 
-      {/* Client testimonial */}
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="Client Voice"
-            title="What Teams Say After Shipping"
-            description="Real feedback from B2B teams we've automated, integrated, and shipped to production."
-          />
-          <HomeTestimonial testimonial={testimonials[0]} />
-        </div>
-      </section>
+      {/* Recommendation — hidden while `testimonials` is empty, rather than
+          rendering a heading with nothing under it. */}
+      {testimonials.length > 0 && (
+        <section className="py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              label="Recommendation"
+              title="What Engineers Who Worked With Girish Say"
+              description="A LinkedIn recommendation from a former colleague. Client references are available on request, under NDA."
+            />
+            <HomeTestimonial testimonial={testimonials[0]} />
+          </div>
+        </section>
+      )}
 
       {/* Portfolio */}
       <section id="portfolio" className="scroll-mt-20 py-24">

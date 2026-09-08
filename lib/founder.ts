@@ -1,5 +1,5 @@
 /** Sourced from https://founder.intelliforge.tech/ — sync when portfolio updates */
-import { siteConfig } from "./constants";
+import { siteConfig, type Testimonial } from "./constants";
 
 export const founder = {
   name: "Girish Hiremath",
@@ -71,18 +71,26 @@ export const founder = {
       tags: ["Java", "OpenCV", "Android", "Neural Networks"],
     },
   ],
+  /**
+   * Real LinkedIn recommendations from named former colleagues. These are the
+   * only testimonials on the site: the four "client" quotes that used to live
+   * in constants.ts were unattributable, so they were removed rather than
+   * rewritten. Add `linkedinUrl` + `verified: true` per person once the
+   * recommendation permalinks are collected, and the cards will render the
+   * "Verified via LinkedIn" badge.
+   */
   colleagueTestimonials: [
     {
       quote:
         "'Genuine Expert' is the phrase that comes to mind when I think about Girish. His ability to handle multiple tasks was unlike any I've seen before. He has very good problem solving and debugging skills. He has guided me like a mentor and I have learnt a lot from him.",
       author: "Phalani Medavarapu",
-      role: "Colleague",
+      role: "Engineer, worked with Girish directly",
     },
     {
       quote:
         "Girish is an amazing colleague to work with. He always keeps the team motivated and progressive with his proactiveness towards problem-solving. His core technical skills in Java, Angular, and Agile project management stand exemplary for his team(s).",
       author: "Bharadwaj Sista",
-      role: "Colleague",
+      role: "Engineer, worked with Girish directly",
     },
   ],
   publications: [
@@ -161,3 +169,10 @@ export const founder = {
     "AI / Machine Learning",
   ],
 };
+
+/**
+ * The site-wide testimonial set. Deliberately small: two real, named people
+ * beat four unverifiable ones. Framed as colleague recommendations everywhere
+ * it renders, never as client quotes.
+ */
+export const testimonials: Testimonial[] = founder.colleagueTestimonials;

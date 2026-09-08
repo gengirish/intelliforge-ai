@@ -24,9 +24,10 @@ export default function PortfolioPage() {
     <section className="py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          as="h1"
           label="Portfolio"
           title="Built by Us, Powered by AI"
-          description="Every project below is live on Vercel with a URL you can open right now — not mockups in a deck. Filter by the framework level each one sits at."
+          description="Every project below is live on Vercel with a URL you can open right now. Filter by the framework level each one sits at."
         />
 
         <PortfolioGrid projects={portfolioProjects} initialExpanded />

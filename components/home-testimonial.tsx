@@ -40,7 +40,9 @@ export function HomeTestimonial({ testimonial }: HomeTestimonialProps) {
               {testimonial.author}
             </p>
             <p className="text-xs text-gray-400">
-              {testimonial.role}, {testimonial.company}
+              {testimonial.company
+                ? `${testimonial.role}, ${testimonial.company}`
+                : testimonial.role}
             </p>
           </div>
         </figcaption>

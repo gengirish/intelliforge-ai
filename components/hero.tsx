@@ -3,6 +3,8 @@
 import { useState, type CSSProperties } from "react";
 import { ArrowRight, CalendarCheck, ChevronDown } from "lucide-react";
 import { MissionBadge } from "./mission-badge";
+import { FounderAvatar } from "./founder-avatar";
+import { founder } from "@/lib/founder";
 import { startingPrice } from "@/lib/constants";
 import { BookCallLink } from "@/components/book-call-link";
 
@@ -35,11 +37,10 @@ export function Hero() {
 
   return (
     <section className="hero-gradient relative overflow-hidden pb-20 pt-8 sm:pb-32 sm:pt-12">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -left-4 top-1/4 h-72 w-72 rounded-full bg-indigo/10 blur-3xl" />
-        <div className="absolute -right-4 top-1/3 h-96 w-96 rounded-full bg-violet/10 blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-cyan/5 blur-3xl" />
-      </div>
+      {/* No decorative blur blobs here on purpose. The three-gradient-orb hero is
+          the house style of every AI agency template, and this pitch is one named
+          senior engineer, not an abstract. The founder byline below carries the
+          hero instead. */}
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
@@ -59,18 +60,31 @@ export function Hero() {
             className="rise-in mx-auto mt-6 max-w-2xl text-lg text-gray-400 sm:text-xl"
             style={{ "--rise-delay": "0.2s" } as CSSProperties}
           >
-            Based in Hyderabad — we bridge Fortune 500 engineering with production
-            AI: RAG pipelines, multi-agent systems, full-stack apps, shipped
-            through our 5-Level Framework.
+            We build RAG pipelines, multi-agent systems and full-stack AI apps
+            from Hyderabad, on top of fourteen years of Fortune 500 engineering.
+            Our 5-Level Framework decides where you start.
           </p>
 
-          <p
-            className="rise-in mx-auto mt-3 max-w-xl text-sm text-gray-500"
+          {/* The person, not a logo wall. Swap FOUNDER_PHOTO in
+              components/founder-avatar.tsx for a real headshot and this becomes
+              a face at the top of the page. */}
+          <a
+            href={founder.portfolioUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rise-in group mx-auto mt-6 flex w-fit items-center gap-3 rounded-full border border-border bg-surface/60 py-2 pl-2 pr-5 text-left transition-colors hover:border-indigo/50"
             style={{ "--rise-delay": "0.22s", "--rise-from": "10px" } as CSSProperties}
           >
-            Led by Girish Hiremath — 14+ years enterprise, M.Tech DSAI @ IIIT
-            Dharwad
-          </p>
+            <FounderAvatar size={40} className="rounded-full" />
+            <span className="text-sm leading-tight">
+              <span className="block font-semibold text-white">
+                Built by {founder.name}
+              </span>
+              <span className="block text-xs text-gray-500">
+                14 years enterprise engineering. M.Tech DSAI, IIIT Dharwad.
+              </span>
+            </span>
+          </a>
 
           <div
             className="rise-in mx-auto mt-6 flex flex-wrap items-center justify-center gap-2"
