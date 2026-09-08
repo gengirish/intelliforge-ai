@@ -78,17 +78,17 @@ export default function BlogPage() {
                     <Tag className="h-3 w-3" />
                     {post.category}
                   </span>
-                  <span className="flex items-center gap-1 text-gray-500">
+                  <span className="flex items-center gap-1 text-subtle">
                     <Clock className="h-3 w-3" />
                     {post.readTime}
                   </span>
-                  <span className="text-gray-500">{post.date}</span>
+                  <span className="text-subtle">{post.date}</span>
                 </div>
 
-                <h2 className="mt-4 text-xl font-bold text-white group-hover:text-cyan transition-colors">
+                <h2 className="mt-4 text-xl font-bold text-heading group-hover:text-cyan transition-colors">
                   {post.title}
                 </h2>
-                <p className="mt-2 text-sm leading-relaxed text-gray-400">
+                <p className="mt-2 text-sm leading-relaxed text-muted">
                   {post.excerpt}
                 </p>
 
@@ -108,23 +108,23 @@ export default function BlogPage() {
 
         <AnimateOnScroll className="mt-16">
           <div className="mx-auto max-w-2xl rounded-2xl border border-indigo/20 bg-gradient-to-br from-indigo/5 via-navy-light to-violet/5 p-8 text-center sm:p-12">
-            <h3 className="text-xl font-bold text-white sm:text-2xl">
+            <h3 className="text-xl font-bold text-heading sm:text-2xl">
               Ready to put these ideas to work?
             </h3>
-            <p className="mt-2 text-sm text-gray-400">
+            <p className="mt-2 text-sm text-muted">
               Guides are in progress — meanwhile, get a personalized AI readiness
               report or book a strategy call with our team.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/ai-audit"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-3 text-sm font-semibold text-on-accent transition-all hover:shadow-lg hover:shadow-indigo/25"
               >
                 Get a free AI audit
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <BookCallLink
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-indigo/40 hover:bg-surface-hover"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-heading transition-colors hover:border-indigo/40 hover:bg-surface-hover"
               >
                 Book a strategy call
               </BookCallLink>

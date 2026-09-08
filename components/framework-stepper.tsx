@@ -50,18 +50,18 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
                     className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 transition-all ${
                       isActive
                         ? "border-indigo bg-gradient-to-br from-indigo to-violet shadow-lg shadow-indigo/30"
-                        : "border-gray-600 bg-navy-card group-hover:border-indigo/50"
+                        : "border-faint bg-navy-card group-hover:border-indigo/50"
                     }`}
                   >
                     <span
-                      className={`text-sm font-bold ${isActive ? "text-white" : "text-gray-400"}`}
+                      className={`text-sm font-bold ${isActive ? "text-heading" : "text-muted"}`}
                     >
                       {service.level}
                     </span>
                   </div>
                   <span
                     className={`mt-3 text-xs font-semibold uppercase tracking-wider ${
-                      isActive ? "text-cyan" : "text-gray-500"
+                      isActive ? "text-cyan" : "text-subtle"
                     }`}
                   >
                     {service.badge}
@@ -84,20 +84,20 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
               >
                   <div className="flex items-start gap-4">
                     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo to-violet">
-                      <Icon className="h-7 w-7 text-white" aria-hidden="true" />
+                      <Icon className="h-7 w-7 text-on-accent" aria-hidden="true" />
                     </div>
                     <div className="flex-1">
                       <span className="text-xs font-semibold uppercase tracking-wider text-cyan">
                         Level {service.level} · {service.badge}
                       </span>
-                      <h3 className="mt-1 text-xl font-bold text-white">
+                      <h3 className="mt-1 text-xl font-bold text-heading">
                         {service.title}
                       </h3>
                       <p className="mt-2 text-sm text-violet">{service.subtitle}</p>
-                      <p className="mt-3 text-sm leading-relaxed text-gray-400">
+                      <p className="mt-3 text-sm leading-relaxed text-muted">
                         {service.description}
                       </p>
-                      <p className="mt-4 text-sm text-gray-300">
+                      <p className="mt-4 text-sm text-body">
                         Example:{" "}
                         <a
                           href={service.exampleProduct.url}
@@ -138,19 +138,19 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
                 className="flex w-full items-center gap-4 p-5 text-left"
                 aria-expanded={isOpen}
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo to-violet text-sm font-bold text-white">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo to-violet text-sm font-bold text-on-accent">
                   {service.level}
                 </div>
                 <div className="flex-1">
                   <span className="text-xs font-semibold uppercase tracking-wider text-cyan">
                     {service.badge}
                   </span>
-                  <h3 className="text-base font-bold text-white">
+                  <h3 className="text-base font-bold text-heading">
                     {service.title}
                   </h3>
                 </div>
                 <ArrowRight
-                  className={`h-4 w-4 shrink-0 text-gray-400 transition-transform ${
+                  className={`h-4 w-4 shrink-0 text-muted transition-transform ${
                     isOpen ? "rotate-90" : ""
                   }`}
                   aria-hidden="true"
@@ -161,10 +161,10 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
                 <div inert={!isOpen}>
                   <div className="border-t border-border px-5 pb-5 pt-2">
                       <p className="text-sm text-violet">{service.subtitle}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-gray-400">
+                      <p className="mt-2 text-sm leading-relaxed text-muted">
                         {service.description}
                       </p>
-                      <p className="mt-3 text-sm text-gray-300">
+                      <p className="mt-3 text-sm text-body">
                         Example:{" "}
                         <a
                           href={service.exampleProduct.url}

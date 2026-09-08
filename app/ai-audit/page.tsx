@@ -58,7 +58,7 @@ export default function AiAuditPage() {
 
           <div className="space-y-6 lg:col-span-2">
             <AnimateOnScroll>
-              <h3 className="text-lg font-bold text-white">
+              <h3 className="text-lg font-bold text-heading">
                 What You&apos;ll Get
               </h3>
               <div className="mt-4 space-y-4">
@@ -71,10 +71,10 @@ export default function AiAuditPage() {
                           <Icon className="h-5 w-5 text-indigo" />
                         </div>
                         <div>
-                          <h4 className="text-sm font-bold text-white">
+                          <h4 className="text-sm font-bold text-heading">
                             {benefit.title}
                           </h4>
-                          <p className="mt-0.5 text-xs text-gray-400">
+                          <p className="mt-0.5 text-xs text-muted">
                             {benefit.desc}
                           </p>
                         </div>

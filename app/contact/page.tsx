@@ -65,7 +65,7 @@ export default function ContactPage() {
                 id={CONTACT_FORM_ID}
                 className="glass-card scroll-mt-24 rounded-2xl p-6 sm:p-8"
               >
-                <h3 className="mb-6 text-xl font-bold text-white">
+                <h3 className="mb-6 text-xl font-bold text-heading">
                   Tell Us About Your AI Goals
                 </h3>
                 <ContactPageForm />
@@ -79,11 +79,11 @@ export default function ContactPage() {
             <AnimateOnScroll delay={0.05}>
               <BookCallLink testId="contact-book-call-cta" className={bookingCardClass}>
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo to-violet">
-                  <CalendarCheck className="h-6 w-6 text-white" />
+                  <CalendarCheck className="h-6 w-6 text-on-accent" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-white">Book Free Strategy Call</h4>
-                  <p className="text-sm text-gray-400">
+                  <h4 className="font-bold text-heading">Book Free Strategy Call</h4>
+                  <p className="text-sm text-muted">
                     30-min call to discuss your AI goals
                   </p>
                 </div>
@@ -99,11 +99,11 @@ export default function ContactPage() {
                 className="flex items-center gap-4 rounded-2xl border border-green-500/30 bg-green-500/10 p-6 transition-colors hover:bg-green-500/20"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-green-500">
-                  <MessageCircle className="h-6 w-6 text-white" />
+                  <MessageCircle className="h-6 w-6 text-on-accent" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-white">Instant Chat on WhatsApp</h4>
-                  <p className="text-sm text-gray-400">
+                  <h4 className="font-bold text-heading">Instant Chat on WhatsApp</h4>
+                  <p className="text-sm text-muted">
                     Quick response, usually within minutes
                   </p>
                 </div>
@@ -113,15 +113,15 @@ export default function ContactPage() {
             {/* Contact Details */}
             <AnimateOnScroll delay={0.2}>
               <div className="glass-card rounded-2xl p-6">
-                <h4 className="mb-4 font-bold text-white">Contact Information</h4>
+                <h4 className="mb-4 font-bold text-heading">Contact Information</h4>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <Mail className="mt-0.5 h-5 w-5 shrink-0 text-cyan" />
                     <div>
-                      <p className="text-sm font-medium text-gray-300">Email</p>
+                      <p className="text-sm font-medium text-body">Email</p>
                       <a
                         href={`mailto:${siteConfig.email}`}
-                        className="text-sm text-gray-400 hover:text-cyan"
+                        className="text-sm text-muted hover:text-cyan"
                       >
                         {siteConfig.email}
                       </a>
@@ -130,10 +130,10 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3">
                     <Phone className="mt-0.5 h-5 w-5 shrink-0 text-cyan" />
                     <div>
-                      <p className="text-sm font-medium text-gray-300">Phone</p>
+                      <p className="text-sm font-medium text-body">Phone</p>
                       <a
                         href={`tel:${siteConfig.phone}`}
-                        className="text-sm text-gray-400 hover:text-cyan"
+                        className="text-sm text-muted hover:text-cyan"
                       >
                         {siteConfig.phone}
                       </a>
@@ -142,16 +142,16 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3">
                     <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-cyan" />
                     <div>
-                      <p className="text-sm font-medium text-gray-300">Office</p>
+                      <p className="text-sm font-medium text-body">Office</p>
                       <a
                         href={siteConfig.mapsUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-gray-400 hover:text-cyan"
+                        className="text-sm text-muted hover:text-cyan"
                       >
                         {siteConfig.address}
                       </a>
-                      <p className="mt-1 text-xs text-gray-500">
+                      <p className="mt-1 text-xs text-subtle">
                         <a
                           href={siteConfig.mapsUrl}
                           target="_blank"
@@ -166,8 +166,8 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3">
                     <Clock className="mt-0.5 h-5 w-5 shrink-0 text-cyan" />
                     <div>
-                      <p className="text-sm font-medium text-gray-300">Business Hours</p>
-                      <p className="text-sm text-gray-400">
+                      <p className="text-sm font-medium text-body">Business Hours</p>
+                      <p className="text-sm text-muted">
                         Mon – Sat: 9:00 AM – 7:00 PM IST
                       </p>
                     </div>

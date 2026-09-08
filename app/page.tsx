@@ -119,10 +119,10 @@ export default function HomePage() {
             <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo via-violet to-indigo p-12 text-center sm:p-16">
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
               <div className="relative">
-                <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
+                <h2 className="font-display text-3xl font-bold text-on-accent sm:text-4xl">
                   Ready to Ship Production AI?
                 </h2>
-                <p className="mx-auto mt-4 max-w-xl text-lg text-white/80">
+                <p className="mx-auto mt-4 max-w-xl text-lg text-on-accent/80">
                   Hyderabad-based, Bharat AI aligned — from prompt workshops to
                   multi-agent systems. Book a call and we&apos;ll map your
                   starting level on the framework.
@@ -130,13 +130,13 @@ export default function HomePage() {
                 <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                   <BookCallLink
                     testId="closing-book-call-cta"
-                    className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-indigo transition-all hover:bg-gray-100"
+                    className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-indigo transition-all hover:bg-white/90"
                   >
                     Book Free AI Strategy Call
                   </BookCallLink>
                   <Link
                     href="/ai-audit"
-                    className="rounded-full border border-white/30 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-white/10"
+                    className="rounded-full border border-white/30 px-8 py-4 text-sm font-semibold text-on-accent transition-all hover:bg-white/10"
                   >
                     Get Free AI Audit
                   </Link>

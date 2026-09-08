@@ -7,10 +7,10 @@ export function StatBar() {
       <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-4">
         {statBarItems.map((stat) => (
           <div key={stat.label} className="text-center">
-            <p className="text-3xl font-bold text-white sm:text-4xl">
+            <p className="text-3xl font-bold text-heading sm:text-4xl">
               {stat.value}
             </p>
-            <p className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-500 sm:text-sm">
+            <p className="mt-1 text-xs font-medium uppercase tracking-wider text-subtle sm:text-sm">
               {stat.label}
             </p>
           </div>

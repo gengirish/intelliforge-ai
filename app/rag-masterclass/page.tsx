@@ -36,10 +36,10 @@ export const metadata: Metadata = {
 function CopyField({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-xl border border-border bg-surface px-4 py-3">
-      <p className="text-xs font-medium uppercase tracking-wider text-gray-500">
+      <p className="text-xs font-medium uppercase tracking-wider text-subtle">
         {label}
       </p>
-      <p className="mt-1 font-mono text-sm text-white">{value}</p>
+      <p className="mt-1 font-mono text-sm text-heading">{value}</p>
     </div>
   );
 }
@@ -101,8 +101,8 @@ export default function RagMasterClassPage() {
                 <div className="mb-6 flex items-start gap-3 rounded-xl border border-cyan/20 bg-cyan/5 p-4">
                   <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-cyan" />
                   <div>
-                    <p className="font-semibold text-white">{eventDate}</p>
-                    <p className="mt-1 text-sm text-gray-400">
+                    <p className="font-semibold text-heading">{eventDate}</p>
+                    <p className="mt-1 text-sm text-muted">
                       {timeRange} · {ragMasterClass.seats} · Instructor:{" "}
                       {ragMasterClass.host}
                     </p>
@@ -120,20 +120,20 @@ export default function RagMasterClassPage() {
                   <ExternalLink className="h-4 w-4" aria-hidden="true" />
                 </a>
 
-                <p className="mt-4 text-center text-sm text-gray-500">
+                <p className="mt-4 text-center text-sm text-subtle">
                   3 hours live · recording included · free RAG primer available on
                   the course page
                 </p>
 
                 <div className="mt-8 border-t border-border pt-8">
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">
                     Already enrolled? Join on Zoom
                   </h3>
                   <a
                     href={ragMasterClass.zoom.joinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-gray-300 transition-colors hover:bg-surface hover:text-white"
+                    className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-body transition-colors hover:bg-surface hover:text-heading"
                   >
                     <Video className="h-4 w-4" aria-hidden="true" />
                     Join Zoom Meeting
@@ -166,10 +166,10 @@ export default function RagMasterClassPage() {
               </>
             ) : (
               <div className="text-center">
-                <p className="text-lg font-semibold text-white">
+                <p className="text-lg font-semibold text-heading">
                   This session has ended
                 </p>
-                <p className="mt-2 text-sm text-gray-400">
+                <p className="mt-2 text-sm text-muted">
                   Missed it? Check the course page for the recording, or book a
                   strategy call for private RAG workshops.
                 </p>
@@ -178,13 +178,13 @@ export default function RagMasterClassPage() {
                     href={ragMasterClass.courseUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-3 text-sm font-semibold text-white"
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-3 text-sm font-semibold text-on-accent"
                   >
                     View course on Learning
                     <ExternalLink className="h-4 w-4" aria-hidden="true" />
                   </a>
                   <BookCallLink
-                    className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-gray-300 hover:bg-surface"
+                    className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-body hover:bg-surface"
                   >
                     Book a strategy call
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -196,14 +196,14 @@ export default function RagMasterClassPage() {
         </AnimateOnScroll>
 
         <AnimateOnScroll className="mt-12">
-          <h2 className="font-display text-xl font-bold text-white">
+          <h2 className="font-display text-xl font-bold text-heading">
             Session agenda
           </h2>
           <ul className="mt-4 space-y-3">
             {ragMasterClass.agenda.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-3 text-sm text-gray-400"
+                className="flex items-start gap-3 text-sm text-muted"
               >
                 <Check
                   className="mt-0.5 h-4 w-4 shrink-0 text-forge"
@@ -216,14 +216,14 @@ export default function RagMasterClassPage() {
         </AnimateOnScroll>
 
         <AnimateOnScroll className="mt-12">
-          <h2 className="font-display text-xl font-bold text-white">
+          <h2 className="font-display text-xl font-bold text-heading">
             What you&apos;ll learn
           </h2>
           <ul className="mt-4 space-y-3">
             {ragMasterClass.topics.map((topic) => (
               <li
                 key={topic}
-                className="flex items-start gap-3 text-sm text-gray-400"
+                className="flex items-start gap-3 text-sm text-muted"
               >
                 <Check
                   className="mt-0.5 h-4 w-4 shrink-0 text-cyan"
@@ -237,7 +237,7 @@ export default function RagMasterClassPage() {
 
         <AnimateOnScroll className="mt-12">
           <div className="rounded-2xl border border-indigo/20 bg-indigo/5 p-6 text-center">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-muted">
               Full course outline, free demo, and enrollment on{" "}
               <a
                 href={ragMasterClass.courseUrl}

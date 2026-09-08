@@ -13,10 +13,10 @@ export function MissionBadge({ size = "sm" }: MissionBadgeProps) {
           <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-cyan">
             Our Commitment
           </p>
-          <h3 className="text-xl font-bold text-white sm:text-2xl">
+          <h3 className="text-xl font-bold text-heading sm:text-2xl">
             Aligned with the Bharat AI Mission
           </h3>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-gray-400">
+          <p className="mx-auto mt-3 max-w-xl text-sm text-muted">
             Democratizing AI for India — building an inclusive AI ecosystem that empowers
             communities, safeguards societal interests, and makes AI accessible to all. Part
             of India&apos;s &#8377;10,372 crore IndiaAI Mission initiative.

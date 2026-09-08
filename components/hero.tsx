@@ -49,7 +49,7 @@ export function Hero() {
           </div>
 
           <h1
-            className="rise-in font-display mx-auto mt-6 max-w-5xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
+            className="rise-in font-display mx-auto mt-6 max-w-5xl text-4xl font-bold leading-tight text-heading sm:text-5xl lg:text-6xl"
             style={{ "--rise-delay": "0.1s", "--rise-from": "30px" } as CSSProperties}
           >
             Enterprise Engineers Who{" "}
@@ -57,7 +57,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="rise-in mx-auto mt-6 max-w-2xl text-lg text-gray-400 sm:text-xl"
+            className="rise-in mx-auto mt-6 max-w-2xl text-lg text-muted sm:text-xl"
             style={{ "--rise-delay": "0.2s" } as CSSProperties}
           >
             We build RAG pipelines, multi-agent systems and full-stack AI apps
@@ -77,10 +77,10 @@ export function Hero() {
           >
             <FounderAvatar size={40} className="rounded-full" />
             <span className="text-sm leading-tight">
-              <span className="block font-semibold text-white">
+              <span className="block font-semibold text-heading">
                 Built by {founder.name}
               </span>
-              <span className="block text-xs text-gray-500">
+              <span className="block text-xs text-subtle">
                 14 years enterprise engineering. M.Tech DSAI, IIIT Dharwad.
               </span>
             </span>
@@ -101,7 +101,7 @@ export function Hero() {
                 onClick={() => setActiveAudience(audience)}
                 className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
                   activeAudience === audience
-                    ? "bg-gradient-to-r from-indigo to-violet text-white shadow-lg shadow-indigo/20"
+                    ? "bg-gradient-to-r from-indigo to-violet text-on-accent shadow-lg shadow-indigo/20"
                     : "bg-gradient-to-r from-indigo/15 to-violet/15 text-indigo hover:from-indigo/25 hover:to-violet/25"
                 }`}
               >
@@ -114,7 +114,7 @@ export function Hero() {
               CSS fade — no animation library needed for a 250ms swap. */}
           <p
             key={activeAudience}
-            className="rise-in mx-auto mt-4 max-w-xl text-base text-gray-300"
+            className="rise-in mx-auto mt-4 max-w-xl text-base text-body"
             style={{ "--rise-from": "8px" } as CSSProperties}
           >
             {audienceCopy[activeAudience]}
@@ -133,7 +133,7 @@ export function Hero() {
           >
             <BookCallLink
               testId="hero-book-call-cta"
-              className="group flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25 sm:w-auto"
+              className="group flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-on-accent transition-all hover:shadow-xl hover:shadow-indigo/25 sm:w-auto"
             >
               <CalendarCheck className="h-4 w-4" aria-hidden="true" />
               Book Free AI Strategy Call
@@ -145,7 +145,7 @@ export function Hero() {
             <button
               type="button"
               onClick={scrollToPortfolio}
-              className="group flex w-full items-center justify-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-semibold text-gray-300 transition-colors hover:bg-surface hover:text-white sm:w-auto"
+              className="group flex w-full items-center justify-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-semibold text-body transition-colors hover:bg-surface hover:text-heading sm:w-auto"
               aria-label="Scroll to portfolio section"
             >
               See Our Work

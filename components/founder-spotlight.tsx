@@ -20,11 +20,11 @@ export function FounderSpotlight() {
               <div className="flex items-start gap-4">
                 <FounderAvatar size={56} className="rounded-xl" />
                 <div>
-                  <h2 className="font-display text-xl font-bold text-white sm:text-2xl">
+                  <h2 className="font-display text-xl font-bold text-heading sm:text-2xl">
                     {founder.name}
                   </h2>
                   <p className="mt-1 text-sm text-cyan">{founder.title}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-gray-400">
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
                     IoT and neural networks since 2012 — now bridging legacy
                     enterprise systems and modern AI for Indian businesses.
                   </p>
@@ -38,7 +38,7 @@ export function FounderSpotlight() {
               </p>
               <ul className="mt-4 space-y-3">
                 {proofPoints.map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-sm text-gray-300">
+                  <li key={point} className="flex items-start gap-3 text-sm text-body">
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-indigo/20">
                       <Check className="h-3 w-3 text-indigo" aria-hidden="true" />
                     </span>
@@ -59,7 +59,7 @@ export function FounderSpotlight() {
                 </a>
                 <Link
                   href="/about"
-                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-gray-400 transition-colors hover:text-white"
+                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-muted transition-colors hover:text-heading"
                 >
                   Our story
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

@@ -10,7 +10,7 @@ export function WhatsAppButton() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2">
-      <span className="rounded-full bg-green-500/90 px-2.5 py-1 text-xs font-semibold text-white shadow-md sm:hidden">
+      <span className="rounded-full bg-green-500/90 px-2.5 py-1 text-xs font-semibold text-on-accent shadow-md sm:hidden">
         Chat
       </span>
       <span className="pop-in inline-flex">
@@ -18,7 +18,7 @@ export function WhatsAppButton() {
           href={`https://wa.me/${whatsappNumber}?text=${message}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-lg shadow-green-500/30 transition-transform hover:scale-110"
+          className="relative flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-on-accent shadow-lg shadow-green-500/30 transition-transform hover:scale-110"
           aria-label="Chat on WhatsApp"
         >
           <span className="absolute inset-0 animate-ping rounded-full bg-green-500 opacity-30" />

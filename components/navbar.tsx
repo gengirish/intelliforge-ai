@@ -8,6 +8,7 @@ import { navLinks, siteConfig, startingPrice } from "@/lib/constants";
 import { BookCallLink } from "@/components/book-call-link";
 import { RagMasterClassPromo } from "@/components/rag-masterclass-promo";
 import { isEventUpcoming, ragMasterClass } from "@/lib/events";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -30,106 +31,113 @@ export function Navbar() {
         className="w-full border-b border-border bg-navy/80 backdrop-blur-xl"
         aria-label="Main navigation"
       >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="IntelliForge AI home">
-          <div className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-indigo/30 bg-indigo/15">
-            <span
-              className="absolute bottom-0 left-1 right-1 h-0.5 rounded-full bg-forge/70"
-              aria-hidden="true"
-            />
-            <Zap className="h-4 w-4 text-indigo" aria-hidden="true" />
-          </div>
-          <span className="font-display text-lg font-bold tracking-tight text-white">
-            Intelli<span className="text-forge">Forge</span> AI
-          </span>
-        </Link>
-
-        <div className="hidden items-center gap-1 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                isActive(link.href)
-                  ? "bg-surface text-cyan"
-                  : "text-gray-300 hover:bg-surface hover:text-white"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        <div className="hidden items-center gap-3 lg:flex">
-          <span className="text-xs font-medium text-gray-500">
-            From {startingPrice}
-          </span>
-          <BookCallLink
-            testId="navbar-book-call-cta-desktop"
-            className="rounded-full border border-indigo/40 px-5 py-2.5 text-sm font-semibold text-indigo transition-all hover:border-indigo hover:bg-indigo/10"
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/"
+            className="flex items-center gap-2.5"
+            aria-label="IntelliForge AI home"
           >
-            Book Free Strategy Call
-          </BookCallLink>
-        </div>
+            <div className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-indigo/30 bg-indigo/15">
+              <span
+                className="absolute bottom-0 left-1 right-1 h-0.5 rounded-full bg-forge/70"
+                aria-hidden="true"
+              />
+              <Zap className="h-4 w-4 text-indigo" aria-hidden="true" />
+            </div>
+            <span className="font-display text-lg font-bold tracking-tight text-heading">
+              Intelli<span className="text-forge">Forge</span> AI
+            </span>
+          </Link>
 
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="rounded-lg p-2 text-gray-300 hover:bg-surface lg:hidden"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-        >
-          {mobileOpen ? (
-            <X className="h-5 w-5" aria-hidden="true" />
-          ) : (
-            <Menu className="h-5 w-5" aria-hidden="true" />
-          )}
-        </button>
-      </div>
-
-      {/* Always rendered so it can transition closed; `inert` keeps the links
-          out of the tab order while collapsed. */}
-      <div
-        className={`collapsible bg-navy lg:hidden ${
-          mobileOpen ? "collapsible-open border-t border-border" : ""
-        }`}
-      >
-        <div inert={!mobileOpen}>
-          <div className="space-y-1 px-4 py-4">
+          <div className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className={`block rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
+                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   isActive(link.href)
                     ? "bg-surface text-cyan"
-                    : "text-gray-300 hover:bg-surface hover:text-white"
+                    : "text-body hover:bg-surface hover:text-heading"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
+          </div>
+
+          <div className="hidden items-center gap-3 lg:flex">
+            <ThemeToggle />
+            <span className="text-xs font-medium text-subtle">
+              From {startingPrice}
+            </span>
             <BookCallLink
-              testId="navbar-book-call-cta-mobile"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 block rounded-full border border-indigo/40 px-5 py-3 text-center text-sm font-semibold text-indigo"
+              testId="navbar-book-call-cta-desktop"
+              className="rounded-full border border-indigo/40 px-5 py-2.5 text-sm font-semibold text-indigo transition-all hover:border-indigo hover:bg-indigo/10"
             >
               Book Free Strategy Call
             </BookCallLink>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 flex items-center justify-center gap-2 rounded-full bg-green-500/10 px-5 py-3 text-sm font-semibold text-green-400"
+          </div>
+
+          <div className="flex items-center gap-1 lg:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="rounded-lg p-2 text-body hover:bg-surface"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
             >
-              <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              Chat on WhatsApp
-            </a>
+              {mobileOpen ? (
+                <X className="h-5 w-5" aria-hidden="true" />
+              ) : (
+                <Menu className="h-5 w-5" aria-hidden="true" />
+              )}
+            </button>
           </div>
         </div>
-      </div>
 
+        {/* Always rendered so it can transition closed; `inert` keeps the links
+          out of the tab order while collapsed. */}
+        <div
+          className={`collapsible bg-navy lg:hidden ${
+            mobileOpen ? "collapsible-open border-t border-border" : ""
+          }`}
+        >
+          <div inert={!mobileOpen}>
+            <div className="space-y-1 px-4 py-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`block rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
+                    isActive(link.href)
+                      ? "bg-surface text-cyan"
+                      : "text-body hover:bg-surface hover:text-heading"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <BookCallLink
+                testId="navbar-book-call-cta-mobile"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 block rounded-full border border-indigo/40 px-5 py-3 text-center text-sm font-semibold text-indigo"
+              >
+                Book Free Strategy Call
+              </BookCallLink>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-green-500/10 px-5 py-3 text-sm font-semibold text-success"
+              >
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
       </nav>
     </header>
   );

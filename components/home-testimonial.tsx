@@ -24,22 +24,22 @@ export function HomeTestimonial({ testimonial }: HomeTestimonialProps) {
 
         <Quote className="h-5 w-5 text-indigo/30" aria-hidden="true" />
 
-        <blockquote className="mt-4 text-base leading-relaxed text-gray-100 sm:text-lg">
+        <blockquote className="mt-4 text-base leading-relaxed text-strong sm:text-lg">
           &ldquo;{testimonial.quote}&rdquo;
         </blockquote>
 
         <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
           <div
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo to-violet text-sm font-bold text-white"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo to-violet text-sm font-bold text-on-accent"
             aria-hidden="true"
           >
             {initials}
           </div>
           <div>
-            <p className="text-sm font-semibold text-white">
+            <p className="text-sm font-semibold text-heading">
               {testimonial.author}
             </p>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-muted">
               {testimonial.company
                 ? `${testimonial.role}, ${testimonial.company}`
                 : testimonial.role}

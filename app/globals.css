@@ -1,23 +1,121 @@
 @import "tailwindcss";
 
+/* Theme tokens.
+   `@theme inline` is what makes runtime theming work: Tailwind emits the raw
+   `var(--tone-*)` reference into every utility instead of freezing the value,
+   so flipping the `.dark` class on <html> repaints the whole site. Add new
+   colors as a --tone-* pair (light on :root, dark on .dark) and alias them
+   here — never hardcode a hex in a component. */
 @theme inline {
-  --color-background: #0a0b1e;
-  --color-foreground: #e5e7eb;
-  --color-navy: #0a0b1e;
-  --color-navy-light: #111827;
-  --color-navy-card: #1a1b2e;
-  --color-indigo: #6366f1;
-  --color-violet: #8b5cf6;
-  --color-cyan: #06b6d4;
-  --color-cyan-light: #22d3ee;
-  --color-forge: #f59e0b;
-  --color-surface: rgba(255, 255, 255, 0.05);
-  --color-surface-hover: rgba(255, 255, 255, 0.1);
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-border-glow: rgba(99, 102, 241, 0.3);
+  --color-background: var(--tone-bg);
+  --color-foreground: var(--tone-body);
+  --color-navy: var(--tone-bg);
+  --color-navy-light: var(--tone-bg-alt);
+  --color-navy-card: var(--tone-card);
+
+  /* Text ramp, darkest to lightest in the current theme. */
+  --color-heading: var(--tone-heading);
+  --color-strong: var(--tone-strong);
+  --color-body: var(--tone-body);
+  --color-muted: var(--tone-muted);
+  --color-subtle: var(--tone-subtle);
+  --color-faint: var(--tone-faint);
+  /* Text sitting on a solid indigo/violet/green fill — white in both themes. */
+  --color-on-accent: #ffffff;
+
+  --color-indigo: var(--tone-indigo);
+  --color-violet: var(--tone-violet);
+  --color-cyan: var(--tone-cyan);
+  --color-cyan-light: var(--tone-cyan-light);
+  --color-forge: var(--tone-forge);
+  --color-surface: var(--tone-surface);
+  --color-surface-hover: var(--tone-surface-hover);
+  --color-border: var(--tone-border);
+  --color-border-glow: var(--tone-border-glow);
+  --color-success: var(--tone-success);
+  --color-danger: var(--tone-danger);
   --font-sans: var(--font-source-sans), system-ui, -apple-system, sans-serif;
   --font-display: var(--font-plus-jakarta), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+/* Light theme (default). */
+:root {
+  color-scheme: light;
+
+  --tone-bg: #fdfdff;
+  --tone-bg-alt: #f4f6fb;
+  --tone-card: #ffffff;
+
+  --tone-heading: #0b1020;
+  --tone-strong: #1c2438;
+  --tone-body: #3a4459;
+  --tone-muted: #55607a;
+  --tone-subtle: #6a7488;
+  --tone-faint: #98a1b3;
+
+  --tone-indigo: #4f46e5;
+  --tone-violet: #7c3aed;
+  --tone-cyan: #0e7490;
+  --tone-cyan-light: #0891b2;
+  --tone-forge: #b45309;
+
+  --tone-surface: rgba(11, 16, 32, 0.04);
+  --tone-surface-hover: rgba(11, 16, 32, 0.07);
+  --tone-border: rgba(11, 16, 32, 0.12);
+  --tone-border-glow: rgba(79, 70, 229, 0.35);
+  --tone-success: #15803d;
+  --tone-danger: #b91c1c;
+
+  /* Decorative layers used by the utility classes below. */
+  --tone-grid-line: rgba(79, 70, 229, 0.07);
+  --tone-glass-bg: rgba(255, 255, 255, 0.72);
+  --tone-glass-bg-hover: rgba(255, 255, 255, 0.92);
+  --tone-glass-border: rgba(11, 16, 32, 0.09);
+  --tone-glass-shadow: 0 1px 2px rgba(11, 16, 32, 0.05);
+  --tone-glass-shadow-hover: 0 8px 30px rgba(79, 70, 229, 0.12);
+  --tone-hero-1: rgba(99, 102, 241, 0.14);
+  --tone-hero-2: rgba(139, 92, 246, 0.08);
+  --tone-nav-bg: rgba(253, 253, 255, 0.85);
+}
+
+/* Dark theme — the original palette. */
+.dark {
+  color-scheme: dark;
+
+  --tone-bg: #0a0b1e;
+  --tone-bg-alt: #111827;
+  --tone-card: #1a1b2e;
+
+  --tone-heading: #ffffff;
+  --tone-strong: #e5e7eb;
+  --tone-body: #d1d5db;
+  --tone-muted: #9ca3af;
+  --tone-subtle: #6b7280;
+  --tone-faint: #4b5563;
+
+  --tone-indigo: #6366f1;
+  --tone-violet: #8b5cf6;
+  --tone-cyan: #06b6d4;
+  --tone-cyan-light: #22d3ee;
+  --tone-forge: #f59e0b;
+
+  --tone-surface: rgba(255, 255, 255, 0.05);
+  --tone-surface-hover: rgba(255, 255, 255, 0.1);
+  --tone-border: rgba(255, 255, 255, 0.1);
+  --tone-border-glow: rgba(99, 102, 241, 0.3);
+  --tone-success: #4ade80;
+  --tone-danger: #f87171;
+
+  --tone-grid-line: rgba(99, 102, 241, 0.035);
+  --tone-glass-bg: rgba(255, 255, 255, 0.05);
+  --tone-glass-bg-hover: rgba(255, 255, 255, 0.08);
+  --tone-glass-border: rgba(255, 255, 255, 0.1);
+  --tone-glass-shadow: none;
+  --tone-glass-shadow-hover: 0 0 30px rgba(99, 102, 241, 0.1);
+  --tone-hero-1: rgba(99, 102, 241, 0.22);
+  --tone-hero-2: rgba(139, 92, 246, 0.08);
+  --tone-nav-bg: rgba(10, 11, 30, 0.8);
 }
 
 html {
@@ -31,7 +129,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, var(--tone-indigo), var(--tone-violet));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -39,8 +137,8 @@ body {
 
 .blueprint-grid {
   background-image:
-    linear-gradient(rgba(99, 102, 241, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.035) 1px, transparent 1px);
+    linear-gradient(var(--tone-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tone-grid-line) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -55,8 +153,8 @@ body {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(99, 102, 241, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+    linear-gradient(var(--tone-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tone-grid-line) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
 }
@@ -66,29 +164,27 @@ body {
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--tone-glass-bg);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--tone-glass-border);
+  box-shadow: var(--tone-glass-shadow);
   transition: all 0.3s ease;
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.1);
+  background: var(--tone-glass-bg-hover);
+  border-color: var(--tone-border-glow);
+  box-shadow: var(--tone-glass-shadow-hover);
 }
 
 .hero-gradient {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       ellipse 80% 50% at 50% -20%,
-      rgba(99, 102, 241, 0.22),
+      var(--tone-hero-1),
       transparent
     ),
-    radial-gradient(
-      ellipse 50% 35% at 85% 60%,
-      rgba(139, 92, 246, 0.08),
-      transparent
-    );
+    radial-gradient(ellipse 50% 35% at 85% 60%, var(--tone-hero-2), transparent);
 }
 
 .glow-border {
@@ -101,7 +197,7 @@ body {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, var(--tone-indigo), var(--tone-violet));
   mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -131,10 +227,10 @@ body {
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 20px var(--tone-border-glow);
   }
   50% {
-    box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 40px var(--tone-border-glow);
   }
 }
 
@@ -248,5 +344,27 @@ body {
 
   .collapsible {
     transition: none;
+  }
+}
+
+/* Theme transition: colors cross-fade on toggle, but never on first paint
+   (the class lands before hydration) and never for reduced-motion users. */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    fill 0.25s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition,
+  .theme-transition *,
+  .theme-transition *::before,
+  .theme-transition *::after {
+    transition: none !important;
   }
 }

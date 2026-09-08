@@ -19,6 +19,10 @@ import { OmniDimWidget } from "@/components/omnidim-widget";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SiteHeaderSpacer } from "@/components/site-header-spacer";
 
+/* Runs before first paint so the stored theme is applied without a flash.
+   Kept inline (not a component) because it must execute ahead of hydration. */
+const themeInitScript = `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}var r=document.documentElement;r.classList.toggle("dark",t==="dark");r.style.colorScheme=t;}catch(e){}})();`;
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin"],
@@ -90,8 +94,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
         {/* LLM / AI search discovery (llmstxt.org) */}

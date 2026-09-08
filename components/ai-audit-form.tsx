@@ -79,10 +79,10 @@ function AuditReportCard({ report }: { report: AuditReport }) {
             <p className="text-xs font-medium uppercase tracking-wider text-indigo-300">
               Your AI Maturity
             </p>
-            <h4 className="mt-1 text-xl font-bold text-white">
+            <h4 className="mt-1 text-xl font-bold text-heading">
               {report.maturityLabel}
             </h4>
-            <p className="mt-1 text-sm text-gray-400">
+            <p className="mt-1 text-sm text-muted">
               Level {report.maturityLevel} of 5
             </p>
           </div>
@@ -109,14 +109,14 @@ function AuditReportCard({ report }: { report: AuditReport }) {
             Recommended Path
           </p>
         </div>
-        <p className="mt-2 text-lg font-semibold text-white">
+        <p className="mt-2 text-lg font-semibold text-heading">
           Level {report.recommendedLevel}: {report.recommendedService}
         </p>
-        <div className="mt-3 flex items-center gap-2 text-sm text-gray-400">
+        <div className="mt-3 flex items-center gap-2 text-sm text-muted">
           <Clock className="h-4 w-4 shrink-0 text-violet-400" />
           <span>
             Estimated timeline:{" "}
-            <strong className="text-gray-200">{report.estimatedTimeline}</strong>
+            <strong className="text-strong">{report.estimatedTimeline}</strong>
           </span>
         </div>
       </div>
@@ -133,7 +133,7 @@ function AuditReportCard({ report }: { report: AuditReport }) {
           {report.topOpportunities.map((opp, i) => (
             <li
               key={opp}
-              className="flex gap-3 text-sm text-gray-300"
+              className="flex gap-3 text-sm text-body"
             >
               <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-indigo/20 text-xs font-bold text-indigo-300">
                 {i + 1}
@@ -153,7 +153,7 @@ function AuditReportCard({ report }: { report: AuditReport }) {
           {report.nextSteps.map((step) => (
             <li
               key={step}
-              className="flex gap-2 text-sm text-gray-400"
+              className="flex gap-2 text-sm text-muted"
             >
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" />
               {step}
@@ -258,12 +258,12 @@ export function AiAuditForm() {
       <div className="glass-card rounded-2xl p-6 sm:p-8">
         <div className="mb-6 text-center">
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500/20">
-            <CheckCircle className="h-8 w-8 text-green-400" />
+            <CheckCircle className="h-8 w-8 text-success" />
           </div>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-bold text-heading">
             Report Sent to Your Inbox!
           </h3>
-          <p className="mx-auto mt-3 max-w-md text-gray-400">
+          <p className="mx-auto mt-3 max-w-md text-muted">
             Your personalized AI readiness report has been emailed. Here&apos;s
             your instant summary — keep it handy.
           </p>
@@ -272,10 +272,10 @@ export function AiAuditForm() {
         <AuditReportCard report={report} />
 
         <div className="mt-6 rounded-xl bg-surface p-4">
-          <p className="text-sm text-gray-300">
-            <strong className="text-white">What happens next:</strong>
+          <p className="text-sm text-body">
+            <strong className="text-heading">What happens next:</strong>
           </p>
-          <ol className="mt-2 space-y-1 text-left text-sm text-gray-400">
+          <ol className="mt-2 space-y-1 text-left text-sm text-muted">
             <li>1. Review your report and note your top priority opportunity</li>
             <li>2. We&apos;ll follow up within 24 hours with tailored insights</li>
             <li>3. Optional: Free 30-min strategy call to discuss your roadmap</li>
@@ -298,10 +298,10 @@ export function AiAuditForm() {
               <div
                 className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold transition-all ${
                   isActive
-                    ? "bg-gradient-to-br from-indigo to-violet text-white"
+                    ? "bg-gradient-to-br from-indigo to-violet text-on-accent"
                     : isCompleted
-                      ? "bg-green-500/20 text-green-400"
-                      : "bg-surface text-gray-500"
+                      ? "bg-green-500/20 text-success"
+                      : "bg-surface text-subtle"
                 }`}
               >
                 {isCompleted ? (
@@ -326,10 +326,10 @@ export function AiAuditForm() {
       <div className="min-h-[280px]">
         {step === 1 && (
           <div>
-            <h3 className="text-lg font-bold text-white">
+            <h3 className="text-lg font-bold text-heading">
               How big is your company?
             </h3>
-            <p className="mt-1 text-sm text-gray-400">
+            <p className="mt-1 text-sm text-muted">
               This helps us tailor recommendations to your scale.
             </p>
             <div className="mt-6 space-y-3">
@@ -342,8 +342,8 @@ export function AiAuditForm() {
                   }
                   className={`w-full rounded-xl border px-4 py-3 text-left text-sm transition-all ${
                     formData.companySize === size.value
-                      ? "border-indigo bg-indigo/10 text-white"
-                      : "border-border bg-surface text-gray-300 hover:border-indigo/50"
+                      ? "border-indigo bg-indigo/10 text-heading"
+                      : "border-border bg-surface text-body hover:border-indigo/50"
                   }`}
                 >
                   {size.label}
@@ -355,10 +355,10 @@ export function AiAuditForm() {
 
         {step === 2 && (
           <div>
-            <h3 className="text-lg font-bold text-white">
+            <h3 className="text-lg font-bold text-heading">
               What industry are you in?
             </h3>
-            <p className="mt-1 text-sm text-gray-400">
+            <p className="mt-1 text-sm text-muted">
               Different industries have different AI opportunities.
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -369,8 +369,8 @@ export function AiAuditForm() {
                   onClick={() => setFormData({ ...formData, industry: ind })}
                   className={`rounded-xl border px-4 py-3 text-left text-sm transition-all ${
                     formData.industry === ind
-                      ? "border-indigo bg-indigo/10 text-white"
-                      : "border-border bg-surface text-gray-300 hover:border-indigo/50"
+                      ? "border-indigo bg-indigo/10 text-heading"
+                      : "border-border bg-surface text-body hover:border-indigo/50"
                   }`}
                 >
                   {ind}
@@ -382,10 +382,10 @@ export function AiAuditForm() {
 
         {step === 3 && (
           <div>
-            <h3 className="text-lg font-bold text-white">
+            <h3 className="text-lg font-bold text-heading">
               What tools do you currently use?
             </h3>
-            <p className="mt-1 text-sm text-gray-400">
+            <p className="mt-1 text-sm text-muted">
               Select all that apply. This helps us understand your current stack.
             </p>
             <div className="mt-6 space-y-3">
@@ -396,16 +396,16 @@ export function AiAuditForm() {
                   onClick={() => toggleTool(tool)}
                   className={`w-full rounded-xl border px-4 py-3 text-left text-sm transition-all ${
                     formData.tools.includes(tool)
-                      ? "border-indigo bg-indigo/10 text-white"
-                      : "border-border bg-surface text-gray-300 hover:border-indigo/50"
+                      ? "border-indigo bg-indigo/10 text-heading"
+                      : "border-border bg-surface text-body hover:border-indigo/50"
                   }`}
                 >
                   <span className="flex items-center gap-2">
                     <span
                       className={`flex h-5 w-5 items-center justify-center rounded border text-xs ${
                         formData.tools.includes(tool)
-                          ? "border-indigo bg-indigo text-white"
-                          : "border-gray-500"
+                          ? "border-indigo bg-indigo text-on-accent"
+                          : "border-subtle"
                       }`}
                     >
                       {formData.tools.includes(tool) && "✓"}
@@ -420,10 +420,10 @@ export function AiAuditForm() {
 
         {step === 4 && (
           <div>
-            <h3 className="text-lg font-bold text-white">
+            <h3 className="text-lg font-bold text-heading">
               What&apos;s your biggest challenge?
             </h3>
-            <p className="mt-1 text-sm text-gray-400">
+            <p className="mt-1 text-sm text-muted">
               We&apos;ll focus our recommendations on solving this.
             </p>
             <div className="mt-6 space-y-3">
@@ -434,8 +434,8 @@ export function AiAuditForm() {
                   onClick={() => setFormData({ ...formData, challenge: ch })}
                   className={`w-full rounded-xl border px-4 py-3 text-left text-sm transition-all ${
                     formData.challenge === ch
-                      ? "border-indigo bg-indigo/10 text-white"
-                      : "border-border bg-surface text-gray-300 hover:border-indigo/50"
+                      ? "border-indigo bg-indigo/10 text-heading"
+                      : "border-border bg-surface text-body hover:border-indigo/50"
                   }`}
                 >
                   {ch}
@@ -447,10 +447,10 @@ export function AiAuditForm() {
 
         {step === 5 && report && (
           <div>
-            <h3 className="text-lg font-bold text-white">
+            <h3 className="text-lg font-bold text-heading">
               Your AI Readiness Report
             </h3>
-            <p className="mt-1 text-sm text-gray-400">
+            <p className="mt-1 text-sm text-muted">
               Generated instantly from your answers. Enter your email on the
               next step to receive a copy.
             </p>
@@ -462,10 +462,10 @@ export function AiAuditForm() {
 
         {step === 6 && (
           <div>
-            <h3 className="text-lg font-bold text-white">
+            <h3 className="text-lg font-bold text-heading">
               Get it emailed to you
             </h3>
-            <p className="mt-1 text-sm text-gray-400">
+            <p className="mt-1 text-sm text-muted">
               We&apos;ll send your full AI readiness report to this email so you
               can share it with your team.
             </p>
@@ -473,7 +473,7 @@ export function AiAuditForm() {
               <div>
                 <label
                   htmlFor="audit-name"
-                  className="mb-1.5 block text-sm font-medium text-gray-300"
+                  className="mb-1.5 block text-sm font-medium text-body"
                 >
                   Full Name
                 </label>
@@ -485,14 +485,14 @@ export function AiAuditForm() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
+                  className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-heading placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
                   placeholder="Your full name"
                 />
               </div>
               <div>
                 <label
                   htmlFor="audit-email"
-                  className="mb-1.5 block text-sm font-medium text-gray-300"
+                  className="mb-1.5 block text-sm font-medium text-body"
                 >
                   Work Email
                 </label>
@@ -504,14 +504,14 @@ export function AiAuditForm() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
+                  className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-heading placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
                   placeholder="you@company.com"
                 />
               </div>
             </div>
 
             {status === "error" && (
-              <p className="mt-4 text-sm text-red-400">
+              <p className="mt-4 text-sm text-danger">
                 Something went wrong. Please try again.
               </p>
             )}
@@ -525,7 +525,7 @@ export function AiAuditForm() {
           <button
             type="button"
             onClick={() => setStep(step - 1)}
-            className="flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-gray-300 transition-colors hover:bg-surface"
+            className="flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-body transition-colors hover:bg-surface"
           >
             <ArrowLeft className="h-4 w-4" />
             Back
@@ -539,7 +539,7 @@ export function AiAuditForm() {
             type="button"
             onClick={() => canProceed() && setStep(step + 1)}
             disabled={!canProceed()}
-            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-2.5 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25 disabled:opacity-40"
+            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-2.5 text-sm font-semibold text-on-accent transition-all hover:shadow-lg hover:shadow-indigo/25 disabled:opacity-40"
           >
             {step === 5 ? "Get It Emailed" : "Next"}
             <ArrowRight className="h-4 w-4" />
@@ -549,7 +549,7 @@ export function AiAuditForm() {
             type="button"
             onClick={handleSubmit}
             disabled={!canProceed() || status === "sending"}
-            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-2.5 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25 disabled:opacity-40"
+            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-2.5 text-sm font-semibold text-on-accent transition-all hover:shadow-lg hover:shadow-indigo/25 disabled:opacity-40"
           >
             {status === "sending" ? (
               <>

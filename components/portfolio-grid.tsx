@@ -114,8 +114,8 @@ export function PortfolioGrid({
             onClick={() => handleFilter(pill.value)}
             className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all sm:text-sm ${
               levelFilter === pill.value
-                ? "bg-gradient-to-r from-indigo to-violet text-white"
-                : "border border-border text-gray-400 hover:border-indigo/30 hover:text-white"
+                ? "bg-gradient-to-r from-indigo to-violet text-on-accent"
+                : "border border-border text-muted hover:border-indigo/30 hover:text-heading"
             }`}
             aria-pressed={levelFilter === pill.value}
           >
@@ -148,18 +148,18 @@ export function PortfolioGrid({
                 >
                   <div className="mb-4 flex items-center justify-between">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo to-violet transition-transform group-hover:scale-110">
-                      <Icon className="h-6 w-6 text-white" aria-hidden="true" />
+                      <Icon className="h-6 w-6 text-on-accent" aria-hidden="true" />
                     </div>
                     <ExternalLink
-                      className="h-4 w-4 text-gray-500 transition-colors group-hover:text-cyan"
+                      className="h-4 w-4 text-subtle transition-colors group-hover:text-cyan"
                       aria-hidden="true"
                     />
                   </div>
 
-                  <h3 className="text-lg font-bold text-white transition-colors group-hover:text-cyan">
+                  <h3 className="text-lg font-bold text-heading transition-colors group-hover:text-cyan">
                     {project.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-400">
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
                     {project.description}
                   </p>
 
@@ -176,7 +176,7 @@ export function PortfolioGrid({
                 </a>
 
                 <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center bg-navy/90 p-6 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
-                  <p className="text-center text-sm font-medium text-white">
+                  <p className="text-center text-sm font-medium text-heading">
                     {tagline}
                   </p>
                   <a
@@ -209,7 +209,7 @@ export function PortfolioGrid({
       )}
 
       {expanded && levelFilter !== "all" && filtered.length === 0 && (
-        <p className="mt-8 text-center text-sm text-gray-400">
+        <p className="mt-8 text-center text-sm text-muted">
           No projects match this filter.
         </p>
       )}

@@ -25,10 +25,10 @@ export function RagMasterClassPromo({ variant = "banner" }: RagMasterClassPromoP
             <p className="text-xs font-semibold uppercase tracking-wider text-forge">
               Live Masterclass · {ragMasterClass.price} · Recording included
             </p>
-            <h2 className="mt-2 font-display text-2xl font-bold text-white sm:text-3xl">
+            <h2 className="mt-2 font-display text-2xl font-bold text-heading sm:text-3xl">
               {ragMasterClass.title}
             </h2>
-            <p className="mt-2 text-sm text-gray-400 sm:text-base">
+            <p className="mt-2 text-sm text-muted sm:text-base">
               {ragMasterClass.subtitle}. Instructor: {ragMasterClass.host}.
             </p>
             <p className="mt-3 flex items-center gap-2 text-sm font-medium text-cyan">
@@ -48,7 +48,7 @@ export function RagMasterClassPromo({ variant = "banner" }: RagMasterClassPromoP
             </a>
             <Link
               href="/rag-masterclass"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-gray-300 transition-colors hover:bg-surface hover:text-white"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-body transition-colors hover:bg-surface hover:text-heading"
             >
               Zoom details for attendees
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -62,9 +62,9 @@ export function RagMasterClassPromo({ variant = "banner" }: RagMasterClassPromoP
   return (
     <div className="border-b border-forge/20 bg-gradient-to-r from-forge/10 via-indigo/5 to-violet/5">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-3 sm:flex-row sm:px-6 lg:px-8">
-        <p className="text-center text-sm text-gray-300 sm:text-left">
+        <p className="text-center text-sm text-body sm:text-left">
           <span className="font-semibold text-forge">{ragMasterClass.title}</span>
-          <span className="mx-2 hidden text-gray-600 sm:inline" aria-hidden="true">
+          <span className="mx-2 hidden text-faint sm:inline" aria-hidden="true">
             ·
           </span>
           <span className="mt-1 block sm:mt-0 sm:inline">
@@ -74,7 +74,7 @@ export function RagMasterClassPromo({ variant = "banner" }: RagMasterClassPromoP
         <div className="flex items-center gap-3">
           <Link
             href="/rag-masterclass"
-            className="text-sm font-medium text-gray-400 transition-colors hover:text-white"
+            className="text-sm font-medium text-muted transition-colors hover:text-heading"
           >
             Zoom details
           </Link>

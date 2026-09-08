@@ -19,7 +19,7 @@ export function PricingCard({ tier, index }: PricingCardProps) {
         }`}
       >
         {tier.highlighted && (
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-indigo to-violet px-4 py-1 text-xs font-bold text-white">
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-indigo to-violet px-4 py-1 text-xs font-bold text-on-accent">
             MOST POPULAR
           </div>
         )}
@@ -28,17 +28,17 @@ export function PricingCard({ tier, index }: PricingCardProps) {
           <span className="text-xs font-semibold uppercase tracking-wider text-cyan">
             {tier.levels}
           </span>
-          <h3 className="mt-1 text-2xl font-bold text-white">{tier.name}</h3>
+          <h3 className="mt-1 text-2xl font-bold text-heading">{tier.name}</h3>
           <div className="mt-4 flex items-baseline gap-1">
-            <span className="text-4xl font-bold text-white">{tier.price}</span>
-            <span className="text-sm text-gray-400">/ {tier.period}</span>
+            <span className="text-4xl font-bold text-heading">{tier.price}</span>
+            <span className="text-sm text-muted">/ {tier.period}</span>
           </div>
-          <p className="mt-3 text-sm text-gray-400">{tier.description}</p>
+          <p className="mt-3 text-sm text-muted">{tier.description}</p>
         </div>
 
         <ul className="mb-8 space-y-3">
           {tier.features.map((feature) => (
-            <li key={feature} className="flex items-start gap-3 text-sm text-gray-300">
+            <li key={feature} className="flex items-start gap-3 text-sm text-body">
               <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
               {feature}
             </li>
@@ -49,8 +49,8 @@ export function PricingCard({ tier, index }: PricingCardProps) {
           href={`/contact?intent=pricing&plan=${encodeURIComponent(tier.name)}`}
           className={`block w-full rounded-full py-3 text-center text-sm font-semibold transition-all ${
             tier.highlighted
-              ? "bg-gradient-to-r from-indigo to-violet text-white hover:shadow-lg hover:shadow-indigo/25"
-              : "border border-border bg-surface text-white hover:bg-surface-hover"
+              ? "bg-gradient-to-r from-indigo to-violet text-on-accent hover:shadow-lg hover:shadow-indigo/25"
+              : "border border-border bg-surface text-heading hover:bg-surface-hover"
           }`}
         >
           {tier.cta}

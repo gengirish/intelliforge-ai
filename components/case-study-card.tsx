@@ -23,10 +23,10 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
             <span className="inline-block rounded-full bg-cyan/10 px-3 py-1 text-xs font-semibold text-cyan">
               {study.industry}
             </span>
-            <h3 className="mt-3 text-lg font-bold text-white transition-colors group-hover:text-cyan">
+            <h3 className="mt-3 text-lg font-bold text-heading transition-colors group-hover:text-cyan">
               {study.client}
             </h3>
-            <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-500">
+            <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-subtle">
               {extended.clientDescriptor && (
                 <span>{extended.clientDescriptor}</span>
               )}
@@ -37,7 +37,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
                 </span>
               )}
               {(extended.clientDescriptor || extended.location) && (
-                <span className="text-gray-600" aria-hidden="true">
+                <span className="text-faint" aria-hidden="true">
                   ·
                 </span>
               )}
@@ -54,7 +54,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
             <h4 className="text-[11px] font-semibold uppercase tracking-wider text-indigo/80">
               Problem
             </h4>
-            <p className="mt-1.5 text-sm leading-relaxed text-gray-400">
+            <p className="mt-1.5 text-sm leading-relaxed text-muted">
               {study.problem}
             </p>
           </div>
@@ -63,7 +63,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
             <h4 className="text-[11px] font-semibold uppercase tracking-wider text-indigo/80">
               Solution
             </h4>
-            <p className="mt-1.5 text-sm leading-relaxed text-gray-300">
+            <p className="mt-1.5 text-sm leading-relaxed text-body">
               {study.solution}
             </p>
           </div>
@@ -76,10 +76,10 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
               className="flex items-center gap-2 rounded-lg border border-green-500/15 bg-green-500/5 px-3 py-2"
             >
               <TrendingUp
-                className="h-3.5 w-3.5 shrink-0 text-green-400"
+                className="h-3.5 w-3.5 shrink-0 text-success"
                 aria-hidden="true"
               />
-              <span className="text-sm font-medium text-green-300">
+              <span className="text-sm font-medium text-success">
                 {metric}
               </span>
             </div>
@@ -101,7 +101,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
             {study.tech.map((tag) => (
               <span
                 key={tag}
-                className="rounded-md bg-surface px-2 py-0.5 text-[11px] text-gray-500"
+                className="rounded-md bg-surface px-2 py-0.5 text-[11px] text-subtle"
               >
                 {tag}
               </span>

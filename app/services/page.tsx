@@ -50,17 +50,17 @@ export default function ServicesPage() {
         <AnimateOnScroll>
           <div className="mb-20 rounded-2xl border border-border bg-navy-light p-8 sm:p-10">
             <div className="mx-auto max-w-3xl text-center">
-              <h3 className="text-xl font-bold text-white sm:text-2xl">
+              <h3 className="text-xl font-bold text-heading sm:text-2xl">
                 We Don&apos;t Build Cooks. We Build{" "}
                 <span className="gradient-text">AI Chefs.</span>
               </h3>
-              <p className="mt-4 text-gray-400">
+              <p className="mt-4 text-muted">
                 Most people using AI are cooks — they copy a prompt, paste it in, and get a
                 result. Until that same prompt fails on a different problem. An AI generalist
-                is a <strong className="text-white">chef</strong>: when something breaks, the
+                is a <strong className="text-heading">chef</strong>: when something breaks, the
                 chef adapts. And the head chef doesn&apos;t cook every dish — they orchestrate
                 specialists. That&apos;s where AI is going:{" "}
-                <strong className="text-white">
+                <strong className="text-heading">
                   you are the head chef, your AI agents are your specialists.
                 </strong>
               </p>
@@ -79,10 +79,10 @@ export default function ServicesPage() {
         <AnimateOnScroll>
           <div className="mt-20 rounded-2xl border border-border bg-navy-light p-8 sm:p-10">
             <div className="mx-auto max-w-3xl text-center">
-              <h3 className="text-xl font-bold text-white sm:text-2xl">
+              <h3 className="text-xl font-bold text-heading sm:text-2xl">
                 All Five Levels, Working Together
               </h3>
-              <p className="mt-4 text-gray-400">
+              <p className="mt-4 text-muted">
                 Imagine building an executive assistant: You start with{" "}
                 <strong className="text-cyan">prompt engineering</strong> for your
                 communication style (Level 1). Plug it into your calendar, Slack, and email
@@ -110,7 +110,7 @@ export default function ServicesPage() {
               <div className="grid gap-10 lg:grid-cols-2">
                 {/* Left — Description + Features */}
                 <div>
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-muted leading-relaxed">
                     {aiDigitalProfile.description}
                   </p>
 
@@ -125,14 +125,14 @@ export default function ServicesPage() {
                     ))}
                   </div>
 
-                  <h4 className="mt-6 text-sm font-semibold uppercase tracking-wider text-gray-300">
+                  <h4 className="mt-6 text-sm font-semibold uppercase tracking-wider text-body">
                     What&apos;s Included
                   </h4>
                   <ul className="mt-3 space-y-3">
                     {aiDigitalProfile.features.map((feature, i) => {
                       const Icon = featureIcons[i] || Check;
                       return (
-                        <li key={feature} className="flex items-start gap-3 text-sm text-gray-300">
+                        <li key={feature} className="flex items-start gap-3 text-sm text-body">
                           <Icon className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
                           {feature}
                         </li>
@@ -154,7 +154,7 @@ export default function ServicesPage() {
 
                 {/* Right — Tiers */}
                 <div>
-                  <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-300">
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-body">
                     Pricing Tiers
                   </h4>
                   <div className="mt-3 space-y-4">
@@ -168,13 +168,13 @@ export default function ServicesPage() {
                           }`}
                         >
                           <div className="flex items-center justify-between">
-                            <h5 className="font-bold text-white">{tier.name}</h5>
+                            <h5 className="font-bold text-heading">{tier.name}</h5>
                             <span className="text-lg font-bold gradient-text">
                               {tier.price}
                             </span>
                           </div>
-                          <p className="mt-1 text-sm text-gray-400">{tier.includes}</p>
-                          <div className="mt-2 flex items-center gap-1.5 text-xs text-gray-500">
+                          <p className="mt-1 text-sm text-muted">{tier.includes}</p>
+                          <div className="mt-2 flex items-center gap-1.5 text-xs text-subtle">
                             <Clock className="h-3 w-3" />
                             {tier.turnaround}
                           </div>
@@ -183,12 +183,12 @@ export default function ServicesPage() {
                     ))}
                   </div>
 
-                  <h4 className="mt-8 text-sm font-semibold uppercase tracking-wider text-gray-300">
+                  <h4 className="mt-8 text-sm font-semibold uppercase tracking-wider text-body">
                     Who It&apos;s For
                   </h4>
                   <ul className="mt-3 space-y-2">
                     {aiDigitalProfile.targetAudience.map((audience) => (
-                      <li key={audience} className="flex items-start gap-2 text-sm text-gray-400">
+                      <li key={audience} className="flex items-start gap-2 text-sm text-muted">
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
                         {audience}
                       </li>
@@ -197,7 +197,7 @@ export default function ServicesPage() {
 
                   <Link
                     href="/contact"
-                    className="mt-6 block w-full rounded-full bg-gradient-to-r from-indigo to-violet py-3 text-center text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
+                    className="mt-6 block w-full rounded-full bg-gradient-to-r from-indigo to-violet py-3 text-center text-sm font-semibold text-on-accent transition-all hover:shadow-lg hover:shadow-indigo/25"
                   >
                     Get Your AI Digital Profile
                   </Link>
@@ -209,14 +209,14 @@ export default function ServicesPage() {
 
         {/* CTA */}
         <AnimateOnScroll className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-bold text-heading">
             Not sure which level is right for you?
           </h3>
-          <p className="mt-2 text-gray-400">
+          <p className="mt-2 text-muted">
             Book a free 30-minute strategy call. We&apos;ll assess where you are and map your AI roadmap.
           </p>
           <BookCallLink
-            className="group mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25"
+            className="group mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-on-accent transition-all hover:shadow-xl hover:shadow-indigo/25"
           >
             Book Free AI Strategy Call
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

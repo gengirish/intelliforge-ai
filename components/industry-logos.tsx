@@ -21,7 +21,7 @@ export function IndustryLogos() {
   return (
     <AnimateOnScroll>
       <div className="text-center">
-        <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">
+        <p className="text-xs font-semibold uppercase tracking-widest text-subtle">
           Trusted Across Industries
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
@@ -30,7 +30,7 @@ export function IndustryLogos() {
             return (
               <div
                 key={industry.name}
-                className="flex items-center gap-2 text-gray-500 transition-colors hover:text-gray-300"
+                className="flex items-center gap-2 text-subtle transition-colors hover:text-body"
               >
                 <Icon className="h-5 w-5" />
                 <span className="text-sm font-medium">{industry.name}</span>

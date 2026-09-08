@@ -44,7 +44,7 @@ export default function PricingPage() {
 
         {/* Custom Note */}
         <AnimateOnScroll className="mt-12 text-center">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-muted">
             All prices are starting prices in INR. Final pricing depends on scope and
             complexity.{" "}
             <Link href="/contact" className="font-medium text-cyan hover:text-cyan-light">
@@ -66,11 +66,11 @@ export default function PricingPage() {
             {faqs.map((faq, i) => (
               <AnimateOnScroll key={i} delay={i * 0.05}>
                 <div className="glass-card rounded-xl p-6">
-                  <h3 className="flex items-start gap-2 text-base font-bold text-white">
+                  <h3 className="flex items-start gap-2 text-base font-bold text-heading">
                     <HelpCircle className="mt-0.5 h-5 w-5 shrink-0 text-indigo" />
                     {faq.q}
                   </h3>
-                  <p className="mt-2 pl-7 text-sm leading-relaxed text-gray-400">{faq.a}</p>
+                  <p className="mt-2 pl-7 text-sm leading-relaxed text-muted">{faq.a}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -79,22 +79,22 @@ export default function PricingPage() {
 
         {/* CTA */}
         <AnimateOnScroll className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-bold text-heading">
             Not sure which plan is right for you?
           </h3>
-          <p className="mt-2 text-gray-400">
+          <p className="mt-2 text-muted">
             Book a free strategy call — no commitment, no pressure. We&apos;ll map the right plan for your goals.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <BookCallLink
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-on-accent transition-all hover:shadow-xl hover:shadow-indigo/25"
             >
               Book Free Strategy Call
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </BookCallLink>
             <Link
               href="/ai-audit"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-semibold text-gray-300 transition-colors hover:bg-surface hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-semibold text-body transition-colors hover:bg-surface hover:text-heading"
             >
               Get Free AI Audit
             </Link>

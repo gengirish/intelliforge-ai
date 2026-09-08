@@ -51,18 +51,18 @@ export default function AboutPage() {
         <AnimateOnScroll>
           <div className="mb-20 grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <h3 className="text-2xl font-bold text-white sm:text-3xl">
+              <h3 className="text-2xl font-bold text-heading sm:text-3xl">
                 From Enterprise Engineering to{" "}
                 <span className="gradient-text">AI Innovation</span>
               </h3>
-              <div className="mt-6 space-y-4 text-gray-400">
+              <div className="mt-6 space-y-4 text-muted">
                 <p>
                   IntelliForge AI was born from a simple observation: while big tech companies
                   race ahead with AI, millions of businesses in India are left behind — not
                   because AI is too hard, but because no one is meeting them where they are.
                 </p>
                 <p>
-                  We follow the <strong className="text-white">AI Generalist</strong>{" "}
+                  We follow the <strong className="text-heading">AI Generalist</strong>{" "}
                   philosophy. In a world where one person can use AI to solve problems across
                   marketing, design, code, research, and content, most companies no longer
                   need five specialists. They need one partner who can orchestrate AI across
@@ -79,7 +79,7 @@ export default function AboutPage() {
                 <AnimateOnScroll key={stat.label} delay={i * 0.1}>
                   <div className="glass-card rounded-2xl p-6 text-center">
                     <div className="text-3xl font-bold gradient-text">{stat.value}</div>
-                    <div className="mt-1 text-sm text-gray-400">{stat.label}</div>
+                    <div className="mt-1 text-sm text-muted">{stat.label}</div>
                   </div>
                 </AnimateOnScroll>
               ))}
@@ -91,12 +91,12 @@ export default function AboutPage() {
         <section className="mb-20">
           <AnimateOnScroll>
             <div className="rounded-2xl border border-indigo/20 bg-gradient-to-br from-indigo/5 via-navy-light to-violet/5 p-8 sm:p-12">
-              <h3 className="text-2xl font-bold text-white sm:text-3xl">
+              <h3 className="text-2xl font-bold text-heading sm:text-3xl">
                 {founder.originStory.title}
               </h3>
               <div className="mt-6 space-y-4">
                 {founder.originStory.paragraphs.map((p, i) => (
-                  <p key={i} className="text-gray-400 leading-relaxed">
+                  <p key={i} className="text-muted leading-relaxed">
                     {p}
                   </p>
                 ))}
@@ -112,10 +112,10 @@ export default function AboutPage() {
               <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
                 <div>
                   <MissionBadge />
-                  <h3 className="mt-4 text-2xl font-bold text-white">
+                  <h3 className="mt-4 text-2xl font-bold text-heading">
                     Aligned with Bharat AI Mission
                   </h3>
-                  <p className="mt-4 text-gray-400">
+                  <p className="mt-4 text-muted">
                     The Bharat AI Mission envisions an India where AI innovation is accessible
                     to all — empowering communities and safeguarding societal interests. As
                     part of the government&apos;s &#8377;10,372 crore IndiaAI Mission, we
@@ -145,7 +145,7 @@ export default function AboutPage() {
                     <AnimateOnScroll key={pillar.title} delay={i * 0.1}>
                       <div className="rounded-xl bg-surface p-4">
                         <h4 className="text-sm font-bold text-cyan">{pillar.title}</h4>
-                        <p className="mt-1 text-sm text-gray-400">{pillar.desc}</p>
+                        <p className="mt-1 text-sm text-muted">{pillar.desc}</p>
                       </div>
                     </AnimateOnScroll>
                   ))}
@@ -195,9 +195,9 @@ export default function AboutPage() {
                     </span>
                   </a>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-white">{founder.name}</h3>
+                    <h3 className="text-xl font-bold text-heading">{founder.name}</h3>
                     <p className="text-sm text-cyan">{founder.title}</p>
-                    <p className="mt-4 text-sm italic text-gray-400">
+                    <p className="mt-4 text-sm italic text-muted">
                       &ldquo;{founder.tagline}&rdquo;
                     </p>
 
@@ -206,7 +206,7 @@ export default function AboutPage() {
                         href={founder.socialLinks.portfolio}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-muted transition-colors hover:bg-indigo/20 hover:text-indigo"
                         aria-label="Founder portfolio"
                       >
                         <User className="h-4 w-4" />
@@ -215,7 +215,7 @@ export default function AboutPage() {
                         href={founder.socialLinks.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-muted transition-colors hover:bg-indigo/20 hover:text-indigo"
                         aria-label="LinkedIn"
                       >
                         <Linkedin className="h-4 w-4" />
@@ -224,14 +224,14 @@ export default function AboutPage() {
                         href={founder.socialLinks.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-muted transition-colors hover:bg-indigo/20 hover:text-indigo"
                         aria-label="GitHub"
                       >
                         <Github className="h-4 w-4" />
                       </a>
                       <a
                         href={founder.socialLinks.email}
-                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-muted transition-colors hover:bg-indigo/20 hover:text-indigo"
                         aria-label="Email Girish Hiremath"
                       >
                         <Mail className="h-4 w-4" />
@@ -243,8 +243,8 @@ export default function AboutPage() {
                         <div key={cred.label} className="flex items-start gap-2">
                           <Award className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
                           <div>
-                            <p className="text-sm font-semibold text-white">{cred.label}</p>
-                            <p className="text-xs text-gray-400">{cred.detail}</p>
+                            <p className="text-sm font-semibold text-heading">{cred.label}</p>
+                            <p className="text-xs text-muted">{cred.detail}</p>
                           </div>
                         </div>
                       ))}
@@ -259,7 +259,7 @@ export default function AboutPage() {
               <AnimateOnScroll delay={0.1}>
                 <div className="space-y-4">
                   {founder.bio.map((paragraph, i) => (
-                    <p key={i} className="text-gray-400 leading-relaxed">
+                    <p key={i} className="text-muted leading-relaxed">
                       {paragraph}
                     </p>
                   ))}
@@ -269,7 +269,7 @@ export default function AboutPage() {
               {/* Industry Experience */}
               <AnimateOnScroll delay={0.2}>
                 <div className="mt-8">
-                  <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gray-300">
+                  <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-body">
                     <Briefcase className="h-4 w-4 text-indigo" />
                     Industry Experience
                   </h4>
@@ -277,7 +277,7 @@ export default function AboutPage() {
                     {founder.industries.map((industry) => (
                       <span
                         key={industry}
-                        className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-medium text-gray-300"
+                        className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-medium text-body"
                       >
                         {industry}
                       </span>
@@ -289,7 +289,7 @@ export default function AboutPage() {
               {/* Skills-to-Services Mapping */}
               <AnimateOnScroll delay={0.3}>
                 <div className="mt-8">
-                  <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gray-300">
+                  <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-body">
                     <Brain className="h-4 w-4 text-indigo" />
                     Skills Powering Each Service Level
                   </h4>
@@ -299,12 +299,12 @@ export default function AboutPage() {
                         key={item.level}
                         className="flex items-start gap-3 rounded-xl bg-surface p-3"
                       >
-                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-indigo to-violet text-xs font-bold text-white">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-indigo to-violet text-xs font-bold text-on-accent">
                           {item.level}
                         </span>
                         <div>
-                          <p className="text-sm font-semibold text-white">{item.service}</p>
-                          <p className="text-xs text-gray-400">{item.skills}</p>
+                          <p className="text-sm font-semibold text-heading">{item.service}</p>
+                          <p className="text-xs text-muted">{item.skills}</p>
                         </div>
                       </div>
                     ))}
@@ -315,7 +315,7 @@ export default function AboutPage() {
               {/* AI/ML Toolkit */}
               <AnimateOnScroll delay={0.35}>
                 <div className="mt-8">
-                  <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gray-300">
+                  <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-body">
                     <Sparkles className="h-4 w-4 text-indigo" />
                     AI/ML Toolkit
                   </h4>
@@ -323,7 +323,7 @@ export default function AboutPage() {
                     {founder.toolkit.map((skill) => (
                       <span
                         key={skill}
-                        className="rounded-full border border-border bg-surface px-3 py-1 text-xs text-gray-300"
+                        className="rounded-full border border-border bg-surface px-3 py-1 text-xs text-body"
                       >
                         {skill}
                       </span>
@@ -335,7 +335,7 @@ export default function AboutPage() {
               {/* Publications & Links */}
               <AnimateOnScroll delay={0.4}>
                 <div className="mt-8">
-                  <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gray-300">
+                  <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-body">
                     <BookOpen className="h-4 w-4 text-indigo" />
                     Portfolio & Demos
                   </h4>
@@ -350,8 +350,8 @@ export default function AboutPage() {
                       >
                         <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
                         <div>
-                          <p className="text-sm font-semibold text-white">{pub.title}</p>
-                          <p className="text-xs text-gray-400">{pub.type}</p>
+                          <p className="text-sm font-semibold text-heading">{pub.title}</p>
+                          <p className="text-xs text-muted">{pub.type}</p>
                         </div>
                       </a>
                     ))}
@@ -364,8 +364,8 @@ export default function AboutPage() {
           {/* Featured enterprise work (from founder portfolio) */}
           <AnimateOnScroll delay={0.2}>
             <div className="mt-12">
-              <h4 className="text-lg font-bold text-white">Featured Enterprise Work</h4>
-              <p className="mt-1 text-sm text-gray-400">
+              <h4 className="text-lg font-bold text-heading">Featured Enterprise Work</h4>
+              <p className="mt-1 text-sm text-muted">
                 Highlights from{" "}
                 <a
                   href={founder.portfolioUrl}
@@ -382,13 +382,13 @@ export default function AboutPage() {
                     <span className="text-xs font-semibold uppercase tracking-wider text-cyan">
                       {project.domain}
                     </span>
-                    <h5 className="mt-2 font-bold text-white">{project.title}</h5>
-                    <p className="mt-2 text-sm text-gray-400">{project.impact}</p>
+                    <h5 className="mt-2 font-bold text-heading">{project.title}</h5>
+                    <p className="mt-2 text-sm text-muted">{project.impact}</p>
                     <div className="mt-3 flex flex-wrap gap-1.5">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-border px-2 py-0.5 text-[10px] text-gray-500"
+                          className="rounded-full border border-border px-2 py-0.5 text-[10px] text-subtle"
                         >
                           {tag}
                         </span>
@@ -403,15 +403,15 @@ export default function AboutPage() {
           {/* Colleague testimonials from founder portfolio */}
           <AnimateOnScroll delay={0.3}>
             <div className="mt-12">
-              <h4 className="text-lg font-bold text-white">What Colleagues Say</h4>
+              <h4 className="text-lg font-bold text-heading">What Colleagues Say</h4>
               <div className="mt-6 grid gap-6 md:grid-cols-2">
                 {founder.colleagueTestimonials.map((t) => (
                   <blockquote
                     key={t.author}
-                    className="glass-card rounded-xl p-6 text-base leading-relaxed text-gray-200"
+                    className="glass-card rounded-xl p-6 text-base leading-relaxed text-strong"
                   >
                     &ldquo;{t.quote}&rdquo;
-                    <footer className="mt-4 text-sm text-gray-400">
+                    <footer className="mt-4 text-sm text-muted">
                       — {t.author}, {t.role}
                     </footer>
                   </blockquote>
@@ -457,14 +457,14 @@ export default function AboutPage() {
 
         {/* CTA */}
         <AnimateOnScroll className="text-center">
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-bold text-heading">
             Let&apos;s Build Something Together
           </h3>
-          <p className="mt-2 text-gray-400">
+          <p className="mt-2 text-muted">
             14+ years of enterprise engineering meets cutting-edge AI. Book a free call to discuss your goals.
           </p>
           <BookCallLink
-            className="group mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-indigo/25"
+            className="group mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-on-accent transition-all hover:shadow-xl hover:shadow-indigo/25"
           >
             Book Free AI Strategy Call
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

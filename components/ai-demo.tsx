@@ -88,12 +88,12 @@ export function AiDemo() {
     <div className="mx-auto max-w-2xl">
       <div className="glass-card rounded-2xl p-6 sm:p-8">
         <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo to-violet">
-          <Sparkles className="h-6 w-6 text-white" aria-hidden="true" />
+          <Sparkles className="h-6 w-6 text-on-accent" aria-hidden="true" />
         </div>
-        <h3 className="text-lg font-bold text-white">
+        <h3 className="text-lg font-bold text-heading">
           Find Your Starting Level on Our 5-Level Framework
         </h3>
-        <p className="mt-1 text-sm text-gray-400">
+        <p className="mt-1 text-sm text-muted">
           A tailored recommendation based on your business type — not a live AI
           demo. Select your industry to see where we&apos;d typically start.
         </p>
@@ -106,7 +106,7 @@ export function AiDemo() {
             id="business-type"
             value={business}
             onChange={(e) => handleChange(e.target.value as BusinessType)}
-            className="w-full appearance-none rounded-xl border border-border bg-surface px-4 py-3 pr-10 text-sm text-white transition-colors focus:border-indigo focus:outline-none"
+            className="w-full appearance-none rounded-xl border border-border bg-surface px-4 py-3 pr-10 text-sm text-heading transition-colors focus:border-indigo focus:outline-none"
           >
             <option value="" className="bg-navy">
               Choose your business type...
@@ -128,7 +128,7 @@ export function AiDemo() {
             </option>
           </select>
           <ChevronDown
-            className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"
+            className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-subtle"
             aria-hidden="true"
           />
         </div>
@@ -145,7 +145,7 @@ export function AiDemo() {
                 {panelInsight.opportunities.map((idea, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-2 text-sm text-gray-300"
+                    className="flex items-start gap-2 text-sm text-body"
                   >
                     <span
                       className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-indigo/20 text-xs font-bold text-indigo"
@@ -162,13 +162,13 @@ export function AiDemo() {
                 <p className="text-sm font-semibold text-cyan">
                   {panelInsight.recommendedLevel}
                 </p>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-muted">
                   {panelInsight.roiTimeframe}
                 </p>
               </div>
 
               <BookCallLink
-                className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-5 py-2.5 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-5 py-2.5 text-sm font-semibold text-on-accent transition-all hover:shadow-lg hover:shadow-indigo/25"
               >
                 Want this built for you? Book a free call
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />

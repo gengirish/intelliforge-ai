@@ -138,15 +138,15 @@ export function ContactForm() {
     return (
       <div className="glass-card rounded-2xl p-8 text-center">
         <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500/20">
-          <Send className="h-8 w-8 text-green-400" />
+          <Send className="h-8 w-8 text-success" />
         </div>
-        <h3 className="text-xl font-bold text-white">Message Sent!</h3>
-        <p className="mt-2 text-gray-400">
+        <h3 className="text-xl font-bold text-heading">Message Sent!</h3>
+        <p className="mt-2 text-muted">
           Thank you for reaching out. A confirmation email is on its way, and we&apos;ll get back to you within 30 minutes during business hours.
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="mt-6 rounded-full border border-border px-6 py-2 text-sm text-gray-300 transition-colors hover:bg-surface"
+          className="mt-6 rounded-full border border-border px-6 py-2 text-sm text-body transition-colors hover:bg-surface"
         >
           Send Another Message
         </button>
@@ -174,7 +174,7 @@ export function ContactForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-gray-300">
+          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-body">
             Full Name
           </label>
           <input
@@ -183,12 +183,12 @@ export function ContactForm() {
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
+            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-heading placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
             placeholder="Your full name"
           />
         </div>
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-gray-300">
+          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-body">
             Email Address
           </label>
           <input
@@ -197,7 +197,7 @@ export function ContactForm() {
             required
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
+            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-heading placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
             placeholder="you@company.com"
           />
         </div>
@@ -205,7 +205,7 @@ export function ContactForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-gray-300">
+          <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-body">
             Phone Number
           </label>
           <input
@@ -213,12 +213,12 @@ export function ContactForm() {
             type="tel"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
+            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-heading placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
             placeholder="+91 XXXXX XXXXX"
           />
         </div>
         <div>
-          <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-gray-300">
+          <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-body">
             Service Interest
           </label>
           <select
@@ -226,7 +226,7 @@ export function ContactForm() {
             required
             value={formData.service}
             onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white transition-colors focus:border-indigo focus:outline-none"
+            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-heading transition-colors focus:border-indigo focus:outline-none"
           >
             <option value="" className="bg-navy">Select a service...</option>
             {serviceOptions.map((opt) => (
@@ -240,14 +240,14 @@ export function ContactForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="companySize" className="mb-1.5 block text-sm font-medium text-gray-300">
+          <label htmlFor="companySize" className="mb-1.5 block text-sm font-medium text-body">
             Company Size
           </label>
           <select
             id="companySize"
             value={formData.companySize}
             onChange={(e) => setFormData({ ...formData, companySize: e.target.value })}
-            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white transition-colors focus:border-indigo focus:outline-none"
+            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-heading transition-colors focus:border-indigo focus:outline-none"
           >
             <option value="" className="bg-navy">Select company size...</option>
             {companySizeOptions.map((opt) => (
@@ -258,14 +258,14 @@ export function ContactForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="challenge" className="mb-1.5 block text-sm font-medium text-gray-300">
+          <label htmlFor="challenge" className="mb-1.5 block text-sm font-medium text-body">
             Biggest Challenge
           </label>
           <select
             id="challenge"
             value={formData.challenge}
             onChange={(e) => setFormData({ ...formData, challenge: e.target.value })}
-            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white transition-colors focus:border-indigo focus:outline-none"
+            className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-heading transition-colors focus:border-indigo focus:outline-none"
           >
             <option value="" className="bg-navy">What&apos;s your biggest challenge?</option>
             {challengeOptions.map((opt) => (
@@ -278,7 +278,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-gray-300">
+        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-body">
           Tell Us About Your AI Goals
         </label>
         <textarea
@@ -287,13 +287,13 @@ export function ContactForm() {
           rows={4}
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className="w-full resize-none rounded-xl border border-border bg-surface px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
+          className="w-full resize-none rounded-xl border border-border bg-surface px-4 py-3 text-sm text-heading placeholder-gray-500 transition-colors focus:border-indigo focus:outline-none"
           placeholder={prefill.messagePlaceholder}
         />
       </div>
 
       {status === "error" && (
-        <p className="text-sm text-red-400">
+        <p className="text-sm text-danger">
           Something went wrong. Please try again or reach out via WhatsApp.
         </p>
       )}
@@ -301,7 +301,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet py-3.5 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25 disabled:opacity-50"
+        className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet py-3.5 text-sm font-semibold text-on-accent transition-all hover:shadow-lg hover:shadow-indigo/25 disabled:opacity-50"
       >
         {status === "sending" ? (
           <>

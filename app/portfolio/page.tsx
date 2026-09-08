@@ -34,15 +34,15 @@ export default function PortfolioPage() {
 
         <AnimateOnScroll className="mt-16 text-center">
           <div className="glass-card mx-auto max-w-2xl rounded-2xl p-8">
-            <h2 className="font-display text-2xl font-bold text-white">
+            <h2 className="font-display text-2xl font-bold text-heading">
               Want something like this for your business?
             </h2>
-            <p className="mx-auto mt-3 max-w-lg text-sm text-gray-400">
+            <p className="mx-auto mt-3 max-w-lg text-sm text-muted">
               Book a free strategy call and we&apos;ll map which level of the
               framework your first build should start at.
             </p>
             <BookCallLink
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-3 text-sm font-semibold text-on-accent transition-all hover:shadow-lg hover:shadow-indigo/25"
             >
               Book Free AI Strategy Call
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

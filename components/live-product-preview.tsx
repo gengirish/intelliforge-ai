@@ -82,7 +82,7 @@ export function LiveProductPreview({
           <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
         </div>
-        <div className="min-w-0 flex-1 truncate rounded-md bg-surface px-3 py-1.5 font-mono text-[11px] text-gray-400">
+        <div className="min-w-0 flex-1 truncate rounded-md bg-surface px-3 py-1.5 font-mono text-[11px] text-muted">
           {displayUrl}
         </div>
       </div>
@@ -97,11 +97,11 @@ export function LiveProductPreview({
             aria-hidden="true"
           >
             <div className="flex h-full flex-col gap-4 p-6">
-              <div className="h-4 w-1/3 rounded-md bg-white/5" />
-              <div className="h-3 w-2/3 rounded-md bg-white/5" />
-              <div className="mt-4 h-3 w-full rounded-md bg-white/5" />
-              <div className="h-3 w-5/6 rounded-md bg-white/5" />
-              <div className="mt-auto h-24 w-full rounded-lg bg-white/5" />
+              <div className="h-4 w-1/3 rounded-md bg-surface" />
+              <div className="h-3 w-2/3 rounded-md bg-surface" />
+              <div className="mt-4 h-3 w-full rounded-md bg-surface" />
+              <div className="h-3 w-5/6 rounded-md bg-surface" />
+              <div className="mt-auto h-24 w-full rounded-lg bg-surface" />
             </div>
             <span className="sr-only">Loading live product preview</span>
           </div>
@@ -123,10 +123,10 @@ export function LiveProductPreview({
 
         {loadState === "blocked" && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-gradient-to-br from-indigo/15 via-violet/10 to-cyan/5 p-8 text-center">
-            <p className="text-lg font-semibold text-white">
+            <p className="text-lg font-semibold text-heading">
               {study.productUsed}
             </p>
-            <p className="max-w-xs text-sm text-gray-400">
+            <p className="max-w-xs text-sm text-muted">
               This live demo can&apos;t be embedded here. Open it in a new tab
               to explore the full product.
             </p>
@@ -134,7 +134,7 @@ export function LiveProductPreview({
               href={study.productUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-indigo/25"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-3 text-sm font-semibold text-on-accent transition-all hover:shadow-lg hover:shadow-indigo/25"
             >
               Open live demo
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

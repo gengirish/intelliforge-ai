@@ -31,7 +31,7 @@ export function FounderAvatar({ size, className = "" }: FounderAvatarProps) {
         alt={founder.name}
         width={size}
         height={size}
-        className={`shrink-0 object-cover ring-1 ring-white/10 ${className}`}
+        className={`shrink-0 object-cover ring-1 ring-border ${className}`}
       />
     );
   }
@@ -40,7 +40,7 @@ export function FounderAvatar({ size, className = "" }: FounderAvatarProps) {
     <span
       aria-hidden="true"
       style={{ width: size, height: size, fontSize: Math.round(size * 0.36) }}
-      className={`flex shrink-0 items-center justify-center bg-gradient-to-br from-indigo to-violet font-display font-bold text-white ring-1 ring-white/10 ${className}`}
+      className={`flex shrink-0 items-center justify-center bg-gradient-to-br from-indigo to-violet font-display font-bold text-on-accent ring-1 ring-border ${className}`}
     >
       {initials}
     </span>

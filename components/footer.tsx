@@ -27,13 +27,13 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo to-violet">
-                <Zap className="h-5 w-5 text-white" />
+                <Zap className="h-5 w-5 text-on-accent" />
               </div>
-              <span className="text-lg font-bold text-white">
+              <span className="text-lg font-bold text-heading">
                 Intelli<span className="text-cyan">Forge</span> AI
               </span>
             </Link>
-            <p className="text-sm leading-relaxed text-gray-400">
+            <p className="text-sm leading-relaxed text-muted">
               {siteConfig.description}
             </p>
             <div className="flex items-center gap-3">
@@ -45,7 +45,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-gray-400 transition-colors hover:bg-indigo/20 hover:text-indigo"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-muted transition-colors hover:bg-indigo/20 hover:text-indigo"
                     aria-label={social.label}
                   >
                     <Icon className="h-4 w-4" />
@@ -56,7 +56,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-300">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-body">
               Navigation
             </h3>
             <ul className="space-y-3">
@@ -64,7 +64,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 transition-colors hover:text-cyan"
+                    className="text-sm text-muted transition-colors hover:text-cyan"
                   >
                     {link.label}
                   </Link>
@@ -82,7 +82,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-300">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-body">
               Services
             </h3>
             <ul className="space-y-3">
@@ -96,7 +96,7 @@ export function Footer() {
                 <li key={service}>
                   <Link
                     href="/services"
-                    className="text-sm text-gray-400 transition-colors hover:text-cyan"
+                    className="text-sm text-muted transition-colors hover:text-cyan"
                   >
                     {service}
                   </Link>
@@ -106,7 +106,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-300">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-body">
               Contact
             </h3>
             <ul className="space-y-3">
@@ -114,7 +114,7 @@ export function Footer() {
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="text-sm text-gray-400 transition-colors hover:text-cyan"
+                  className="text-sm text-muted transition-colors hover:text-cyan"
                 >
                   {siteConfig.email}
                 </a>
@@ -123,7 +123,7 @@ export function Footer() {
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
                 <a
                   href="tel:+918555960837"
-                  className="text-sm text-gray-400 transition-colors hover:text-cyan"
+                  className="text-sm text-muted transition-colors hover:text-cyan"
                 >
                   {siteConfig.phone}
                 </a>
@@ -134,7 +134,7 @@ export function Footer() {
                   href={siteConfig.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-gray-400 transition-colors hover:text-cyan"
+                  className="text-sm text-muted transition-colors hover:text-cyan"
                 >
                   {siteConfig.address}
                 </a>
@@ -155,7 +155,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-border pt-8 text-center">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-subtle">
             &copy; {new Date().getFullYear()} IntelliForge AI. All rights reserved.
             Individual Proprietorship — Hyderabad, Telangana, India.
           </p>

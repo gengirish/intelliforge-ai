@@ -18,7 +18,7 @@ function companyInitials(company: string): string {
 export function Testimonials({ testimonials }: TestimonialsProps) {
   return (
     <div>
-      <p className="mb-8 text-center text-sm text-gray-500">
+      <p className="mb-8 text-center text-sm text-subtle">
         LinkedIn recommendations from engineers Girish has worked with
       </p>
       <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
@@ -35,13 +35,13 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
                 aria-hidden="true"
               />
 
-              <blockquote className="mt-4 text-base leading-relaxed text-gray-100">
+              <blockquote className="mt-4 text-base leading-relaxed text-strong">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 
               <footer className="mt-6 flex items-center gap-3 border-t border-border pt-5">
                 <div
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo to-violet text-sm font-bold text-white"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo to-violet text-sm font-bold text-on-accent"
                   aria-hidden="true"
                 >
                   {t.avatarInitials ??
@@ -53,7 +53,7 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
 
                 {t.company && (
                   <div
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-surface text-xs font-bold text-gray-300"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-surface text-xs font-bold text-body"
                     aria-hidden="true"
                   >
                     {companyInitials(t.company)}
@@ -67,12 +67,12 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
                         href={t.linkedinUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-semibold text-white hover:text-cyan"
+                        className="text-sm font-semibold text-heading hover:text-cyan"
                       >
                         {t.author}
                       </a>
                     ) : (
-                      <p className="text-sm font-semibold text-white">
+                      <p className="text-sm font-semibold text-heading">
                         {t.author}
                       </p>
                     )}
@@ -83,12 +83,12 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-gray-400">
+                  <p className="text-xs text-muted">
                     {t.company ? `${t.role}, ${t.company}` : t.role}
                   </p>
                   {t.linkedinUrl && (
                     <Linkedin
-                      className="mt-1 h-3 w-3 text-gray-500"
+                      className="mt-1 h-3 w-3 text-subtle"
                       aria-hidden="true"
                     />
                   )}
