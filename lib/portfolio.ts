@@ -307,6 +307,27 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     icon: "FilePlus",
   },
   {
+    vercelSlug: "facilityos-nvs",
+    title: "FacilityOS",
+    description:
+      "School operations platform for Navodaya-scale residential schools — facilities, maintenance and AMC tickets, exams and CBSE report cards, and compliance in one role-aware workspace.",
+    tagline: "One system for facilities, academics, and compliance.",
+    tags: ["EdTech", "Operations", "Multi-Tenant", "Full Stack"],
+    levels: [5],
+    icon: "Building",
+  },
+  {
+    vercelSlug: "certforge",
+    urlOverride: "https://certforge.intelliforge.tech",
+    title: "CertForge",
+    description:
+      "Verifiable credentials for bootcamps, internships, and events — issue tamper-evident certificates in bulk from CSV or REST, recipients keep them in a public passport, and anyone can verify one from its ID.",
+    tagline: "Ship a cohort's credentials in one upload.",
+    tags: ["Credentials", "Open Badges", "API", "Full Stack"],
+    levels: [5],
+    icon: "ShieldCheck",
+  },
+  {
     vercelSlug: "masterclass-first-agent",
     title: "First Agent Masterclass",
     description:
