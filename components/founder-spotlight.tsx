@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { ArrowRight, Check, ExternalLink } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { AnimateOnScroll } from "./animate-on-scroll";
 import { FounderAvatar } from "./founder-avatar";
 import { founder } from "@/lib/founder";
 
 const proofPoints = [
-  "Fortune 500 delivery across banking, pharma, telecom, compliance, and IoT",
-  "M.Tech in Data Science & AI — IIIT Dharwad (Institute of National Importance)",
   "Production AI shipped on Vercel — RAG systems, multi-agent workflows, full-stack apps",
+  "All five levels, one team — from prompt workshops to full AI applications",
+  "Human-in-the-loop by default — review checkpoints, audit trails, escalation paths",
 ];
 
 export function FounderSpotlight() {
@@ -25,8 +25,8 @@ export function FounderSpotlight() {
                   </h2>
                   <p className="mt-1 text-sm text-cyan">{founder.title}</p>
                   <p className="mt-3 text-sm leading-relaxed text-muted">
-                    IoT and neural networks since 2012 — now bridging legacy
-                    enterprise systems and modern AI for Indian businesses.
+                    Bridging existing business systems and modern AI for
+                    Indian businesses of every size.
                   </p>
                 </div>
               </div>
@@ -48,18 +48,9 @@ export function FounderSpotlight() {
               </ul>
 
               <div className="mt-6 flex flex-wrap items-center gap-4">
-                <a
-                  href={founder.portfolioUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-cyan transition-colors hover:text-cyan-light"
-                >
-                  View full portfolio
-                  <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                </a>
                 <Link
                   href="/about"
-                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-muted transition-colors hover:text-heading"
+                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-cyan transition-colors hover:text-cyan-light"
                 >
                   Our story
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

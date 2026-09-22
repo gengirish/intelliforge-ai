@@ -9,8 +9,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { AiDemo } from "@/components/ai-demo";
 import { HomeTestimonial } from "@/components/home-testimonial";
-import { services, caseStudies, type CaseStudy } from "@/lib/constants";
-import { testimonials } from "@/lib/founder";
+import { services, caseStudies, testimonials, type CaseStudy } from "@/lib/constants";
 import { homepagePortfolio } from "@/lib/portfolio";
 import { BookCallLink } from "@/components/book-call-link";
 
@@ -80,9 +79,8 @@ export default function HomePage() {
         <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <SectionHeading
-              label="Recommendation"
-              title="What Engineers Who Worked With Girish Say"
-              description="A LinkedIn recommendation from a former colleague. Client references are available on request, under NDA."
+              label="Testimonial"
+              title="What Clients Say"
             />
             <HomeTestimonial testimonial={testimonials[0]} />
           </div>

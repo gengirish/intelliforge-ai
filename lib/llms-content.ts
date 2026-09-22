@@ -11,6 +11,10 @@ import { founder } from "./founder";
 import { portfolioProjects } from "./portfolio";
 import { absoluteUrl, siteRoutes } from "./routes";
 
+/** Company-level summary. The founder is cited by name and title only. */
+const LONG_DESCRIPTION =
+  "IntelliForge AI ships hands-on AI products: RAG systems, multi-agent workflows, and production apps deployed on Vercel.";
+
 /**
  * llms.txt and llms-full.txt are generated from the same typed modules that
  * render the site, so they cannot drift. They were previously hand-written
@@ -51,7 +55,7 @@ export function buildLlmsTxt(): string {
 
 > ${siteConfig.description}
 
-Founded by ${founder.name} — ${founder.headline} ${founder.bio[2]}
+Founded by ${founder.name}. ${LONG_DESCRIPTION}
 
 ## Core offerings
 
@@ -184,13 +188,12 @@ License: Content may be cited with attribution to "${CITATION_NAME}" and a link 
 **Email:** ${siteConfig.email}
 **Phone:** ${siteConfig.phone}
 **Founder:** ${founder.name} — ${founder.title}
-**Founder headline:** ${founder.headline}
 
 **One-line description:** ${siteConfig.description}
 
 **Long description:**
 
-${founder.bio.join("\n\n")}
+${LONG_DESCRIPTION}
 
 ---
 
@@ -236,15 +239,11 @@ ${faqSections}
 
 **${founder.name}** — ${founder.title}
 
-${founder.bio.join("\n\n")}
-
 ### ${founder.originStory.title}
 
 ${founder.originStory.paragraphs.join("\n\n")}
 
-**Toolkit:** ${founder.toolkit.join(", ")}
-
-**Links:** portfolio ${founder.socialLinks.portfolio} · LinkedIn ${founder.socialLinks.linkedin} · GitHub ${founder.socialLinks.github}
+**Links:** LinkedIn ${founder.socialLinks.linkedin} · GitHub ${founder.socialLinks.github}
 
 ---
 

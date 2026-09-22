@@ -67,7 +67,7 @@ export const siteRoutes: SiteRoute[] = [
   {
     path: "/about",
     title: "About",
-    summary: "Founder background, mission, and Bharat AI Mission alignment.",
+    summary: "Company story, mission, and Bharat AI Mission alignment.",
     priority: 0.8,
     changeFrequency: "monthly",
     sources: ["app/about/page.tsx", "lib/founder.ts"],

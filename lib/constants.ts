@@ -258,8 +258,6 @@ export const pricingTiers: PricingTier[] = [
 ];
 
 export const trustItems = [
-  "14+ Years Experience",
-  "Fortune 500 Clients",
   "Banking & Fintech",
   "Pharma & Healthcare",
   "Telecom & IoT",
@@ -395,10 +393,10 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [];
 
 export const statBarItems = [
-  { value: "M.Tech", label: "Data Science & AI, IIIT Dharwad" },
-  { value: "14+", label: "Years Enterprise Engineering" },
   { value: "20+", label: "Client Hours Automated Weekly" },
   { value: "6", label: "Industry Verticals" },
+  { value: "5", label: "AI Readiness Levels" },
+  { value: "100%", label: "IP Transferred to Clients" },
 ];
 
 export const whyIntelliforge = [
@@ -410,9 +408,9 @@ export const whyIntelliforge = [
   },
   {
     icon: "Shield",
-    title: "14+ Years Enterprise Engineering",
+    title: "Transparent Pricing, Full IP Transfer",
     description:
-      "Banking, pharma, telecom, compliance, IoT. Fourteen years of Fortune 500 delivery before the AI wave, and an M.Tech in Data Science and AI in progress at IIIT Dharwad.",
+      "Clear pricing in INR and full ownership of everything we build for you: code, prompts and workflows. No lock-in to IntelliForge.",
   },
   {
     icon: "Zap",

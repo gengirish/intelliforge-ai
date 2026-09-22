@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type CSSProperties } from "react";
+import Link from "next/link";
 import { ArrowRight, CalendarCheck, ChevronDown } from "lucide-react";
 import { MissionBadge } from "./mission-badge";
 import { FounderAvatar } from "./founder-avatar";
@@ -61,17 +62,14 @@ export function Hero() {
             style={{ "--rise-delay": "0.2s" } as CSSProperties}
           >
             We build RAG pipelines, multi-agent systems and full-stack AI apps
-            from Hyderabad, on top of fourteen years of Fortune 500 engineering.
-            Our 5-Level Framework decides where you start.
+            from Hyderabad. Our 5-Level Framework decides where you start.
           </p>
 
           {/* The person, not a logo wall. Swap FOUNDER_PHOTO in
               components/founder-avatar.tsx for a real headshot and this becomes
               a face at the top of the page. */}
-          <a
-            href={founder.portfolioUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/about"
             className="rise-in group mx-auto mt-6 flex w-fit items-center gap-3 rounded-full border border-border bg-surface/60 py-2 pl-2 pr-5 text-left transition-colors hover:border-indigo/50"
             style={{ "--rise-delay": "0.22s", "--rise-from": "10px" } as CSSProperties}
           >
@@ -80,11 +78,9 @@ export function Hero() {
               <span className="block font-semibold text-heading">
                 Built by {founder.name}
               </span>
-              <span className="block text-xs text-subtle">
-                14 years enterprise engineering. M.Tech DSAI, IIIT Dharwad.
-              </span>
+              <span className="block text-xs text-subtle">{founder.title}</span>
             </span>
-          </a>
+          </Link>
 
           <div
             className="rise-in mx-auto mt-6 flex flex-wrap items-center justify-center gap-2"
