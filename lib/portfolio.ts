@@ -185,6 +185,7 @@ const PORTFOLIO_META: PortfolioMeta[] = [
   },
   {
     vercelSlug: "rlhf-annotation-studio",
+    urlOverride: "https://rlhf-studio.intelliforge.tech",
     title: "RLHF Annotation Studio",
     description:
       "Annotation platform for RLHF, SFT, and red-teaming — built for AI labs fine-tuning LLMs.",
@@ -275,12 +276,35 @@ const PORTFOLIO_META: PortfolioMeta[] = [
   },
   {
     vercelSlug: "awaazos",
+    urlOverride: "https://awaazos.intelliforge.tech",
     title: "AwaazOS",
     description:
       "Voice-first AI platform for multilingual content creation and audio workflow automation.",
     tags: ["Voice AI", "Audio", "Multilingual"],
     levels: [3, 4],
     icon: "Mic",
+  },
+  {
+    vercelSlug: "quorum",
+    urlOverride: "https://quorum.intelliforge.tech",
+    title: "Quorum",
+    description:
+      "AI research team for boutique investment firms — provenance-first theses, bull/bear debate with a risk committee, decision memory, and audit-ready evidence.",
+    tagline: "Defensible investment theses your IC can actually ship.",
+    tags: ["Multi-Agent", "Investment Research", "FinTech"],
+    levels: [4, 5],
+    icon: "Briefcase",
+  },
+  {
+    vercelSlug: "research-to-deck",
+    urlOverride: "https://citedeck.intelliforge.tech",
+    title: "CiteDeck",
+    description:
+      "Name a topic and get a cited PowerPoint — screens the OpenAlex corpus, reads the papers that matter, and composes slides with per-bullet citations and speaker notes.",
+    tagline: "Fifty papers in, one cited deck out.",
+    tags: ["Deep Research", "Citations", "Presentations"],
+    levels: [4, 5],
+    icon: "FilePlus",
   },
   {
     vercelSlug: "masterclass-first-agent",

@@ -327,7 +327,7 @@ export const aiDigitalProfile: ProductizedService = {
     "Freelancers who need a portfolio fast",
     "Anyone who wants their resume to talk back",
   ],
-  demoUrl: "https://girishbhiremath.vercel.app",
+  demoUrl: "https://girish-hiremath-profile.vercel.app",
 };
 
 export type CaseStudy = {
@@ -369,7 +369,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     tech: ["Next.js", "RAG", "Vercel AI SDK", "Vercel"],
     productUsed: "AI Digital Profile",
-    productUrl: "https://girishbhiremath.vercel.app",
+    productUrl: "https://girish-hiremath-profile.vercel.app",
     timeline: "2 days",
   },
 ];
