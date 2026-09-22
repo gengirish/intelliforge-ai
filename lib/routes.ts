@@ -70,7 +70,7 @@ export const siteRoutes: SiteRoute[] = [
     summary: "Company story, mission, and Bharat AI Mission alignment.",
     priority: 0.8,
     changeFrequency: "monthly",
-    sources: ["app/about/page.tsx", "lib/founder.ts"],
+    sources: ["app/about/page.tsx"],
   },
   {
     path: "/contact",

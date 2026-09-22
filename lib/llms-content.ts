@@ -1,5 +1,6 @@
 import {
   caseStudies,
+  originStory,
   pricingTiers,
   services,
   siteConfig,
@@ -7,11 +8,10 @@ import {
   whyIntelliforge,
 } from "./constants";
 import { faqs } from "./faqs";
-import { founder } from "./founder";
 import { portfolioProjects } from "./portfolio";
 import { absoluteUrl, siteRoutes } from "./routes";
 
-/** Company-level summary. The founder is cited by name and title only. */
+/** Company-level summary. The founder is named only in the site footer. */
 const LONG_DESCRIPTION =
   "IntelliForge AI ships hands-on AI products: RAG systems, multi-agent workflows, and production apps deployed on Vercel.";
 
@@ -55,7 +55,7 @@ export function buildLlmsTxt(): string {
 
 > ${siteConfig.description}
 
-Founded by ${founder.name}. ${LONG_DESCRIPTION}
+${LONG_DESCRIPTION}
 
 ## Core offerings
 
@@ -187,7 +187,6 @@ License: Content may be cited with attribution to "${CITATION_NAME}" and a link 
 **Legal status:** Individual Proprietorship
 **Email:** ${siteConfig.email}
 **Phone:** ${siteConfig.phone}
-**Founder:** ${founder.name} — ${founder.title}
 
 **One-line description:** ${siteConfig.description}
 
@@ -235,15 +234,9 @@ ${faqSections}
 
 ---
 
-## Founder
+## ${originStory.title}
 
-**${founder.name}** — ${founder.title}
-
-### ${founder.originStory.title}
-
-${founder.originStory.paragraphs.join("\n\n")}
-
-**Links:** LinkedIn ${founder.socialLinks.linkedin} · GitHub ${founder.socialLinks.github}
+${originStory.paragraphs.join("\n\n")}
 
 ---
 

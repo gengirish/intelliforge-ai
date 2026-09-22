@@ -257,6 +257,14 @@ export const pricingTiers: PricingTier[] = [
   },
 ];
 
+export const originStory = {
+  title: "Why IntelliForge Started",
+  paragraphs: [
+    "IntelliForge AI started from a pattern we kept seeing: businesses had real problems AI could solve, but adoption stalled for lack of practitioners who could bridge existing systems and modern AI.",
+    "IntelliForge AI was founded to be that bridge — democratizing AI for Indian businesses of every size, from solo founders in Tier II cities to enterprise teams in metros. Aligned with the Bharat AI Mission, we ship production AI in weeks, not months.",
+  ],
+};
+
 export const trustItems = [
   "Banking & Fintech",
   "Pharma & Healthcare",

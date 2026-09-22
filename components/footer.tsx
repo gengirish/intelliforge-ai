@@ -159,6 +159,9 @@ export function Footer() {
             &copy; {new Date().getFullYear()} IntelliForge AI. All rights reserved.
             Individual Proprietorship — Hyderabad, Telangana, India.
           </p>
+          <p className="mt-2 text-sm text-subtle">
+            Founded by {siteConfig.founder}.
+          </p>
         </div>
       </div>
     </footer>

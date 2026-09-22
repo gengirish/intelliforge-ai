@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/hero";
-import { FounderSpotlight } from "@/components/founder-spotlight";
 import { FrameworkStepper } from "@/components/framework-stepper";
 import { PortfolioGrid } from "@/components/portfolio-grid";
 import { FeaturedCaseStudy } from "@/components/featured-case-study";
@@ -22,7 +21,6 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <FounderSpotlight />
 
       {/* Framework starting-point tool */}
       <section className="blueprint-grid bg-navy-light/50 py-24">

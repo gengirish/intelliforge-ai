@@ -1,11 +1,8 @@
 "use client";
 
 import { useState, type CSSProperties } from "react";
-import Link from "next/link";
 import { ArrowRight, CalendarCheck, ChevronDown } from "lucide-react";
 import { MissionBadge } from "./mission-badge";
-import { FounderAvatar } from "./founder-avatar";
-import { founder } from "@/lib/founder";
 import { startingPrice } from "@/lib/constants";
 import { BookCallLink } from "@/components/book-call-link";
 
@@ -39,9 +36,7 @@ export function Hero() {
   return (
     <section className="hero-gradient relative overflow-hidden pb-20 pt-8 sm:pb-32 sm:pt-12">
       {/* No decorative blur blobs here on purpose. The three-gradient-orb hero is
-          the house style of every AI agency template, and this pitch is one named
-          senior engineer, not an abstract. The founder byline below carries the
-          hero instead. */}
+          the house style of every AI agency template. */}
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
@@ -64,23 +59,6 @@ export function Hero() {
             We build RAG pipelines, multi-agent systems and full-stack AI apps
             from Hyderabad. Our 5-Level Framework decides where you start.
           </p>
-
-          {/* The person, not a logo wall. Swap FOUNDER_PHOTO in
-              components/founder-avatar.tsx for a real headshot and this becomes
-              a face at the top of the page. */}
-          <Link
-            href="/about"
-            className="rise-in group mx-auto mt-6 flex w-fit items-center gap-3 rounded-full border border-border bg-surface/60 py-2 pl-2 pr-5 text-left transition-colors hover:border-indigo/50"
-            style={{ "--rise-delay": "0.22s", "--rise-from": "10px" } as CSSProperties}
-          >
-            <FounderAvatar size={40} className="rounded-full" />
-            <span className="text-sm leading-tight">
-              <span className="block font-semibold text-heading">
-                Built by {founder.name}
-              </span>
-              <span className="block text-xs text-subtle">{founder.title}</span>
-            </span>
-          </Link>
 
           <div
             className="rise-in mx-auto mt-6 flex flex-wrap items-center justify-center gap-2"

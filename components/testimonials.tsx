@@ -19,7 +19,7 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
   return (
     <div>
       <p className="mb-8 text-center text-sm text-subtle">
-        LinkedIn recommendations from engineers Girish has worked with
+        LinkedIn recommendations
       </p>
       <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
         {testimonials.map((t, i) => (

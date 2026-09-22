@@ -75,12 +75,6 @@ export const organizationSchema = {
     availableLanguage: ["English", "Hindi"],
     areaServed: "Worldwide",
   },
-  founder: {
-    "@type": "Person",
-    name: "Girish Hiremath",
-    jobTitle: "Founder",
-    email: siteConfig.email,
-  },
   sameAs: [
     "https://linkedin.com/company/intelliforge-ai",
     "https://github.com/gengirish",

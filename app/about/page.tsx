@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
-import { ArrowRight, ExternalLink, Linkedin, Github, Mail } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { MissionBadge } from "@/components/mission-badge";
 import { CaseStudyCard } from "@/components/case-study-card";
 import { StatBar } from "@/components/stat-bar";
-import { FounderAvatar } from "@/components/founder-avatar";
-import { founder } from "@/lib/founder";
-import { caseStudies } from "@/lib/constants";
+import { caseStudies, originStory } from "@/lib/constants";
 import { BookCallLink } from "@/components/book-call-link";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about IntelliForge AI — a Hyderabad-based AI agency founded by Girish Hiremath, aligned with India's Bharat AI Mission.",
+    "Learn about IntelliForge AI — a Hyderabad-based AI agency making AI accessible to businesses of every size, aligned with India's Bharat AI Mission.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About | IntelliForge AI",
@@ -70,10 +68,10 @@ export default function AboutPage() {
           <AnimateOnScroll>
             <div className="rounded-2xl border border-indigo/20 bg-gradient-to-br from-indigo/5 via-navy-light to-violet/5 p-8 sm:p-12">
               <h3 className="text-2xl font-bold text-heading sm:text-3xl">
-                {founder.originStory.title}
+                {originStory.title}
               </h3>
               <div className="mt-6 space-y-4">
-                {founder.originStory.paragraphs.map((p, i) => (
+                {originStory.paragraphs.map((p, i) => (
                   <p key={i} className="text-muted leading-relaxed">
                     {p}
                   </p>
@@ -138,45 +136,6 @@ export default function AboutPage() {
                 >
                   Visit bharataimission.org
                   <ExternalLink className="h-3.5 w-3.5" />
-                </a>
-              </div>
-            </div>
-          </AnimateOnScroll>
-        </section>
-
-        {/* Founder Section */}
-        <section className="mb-20">
-          <SectionHeading label="Founder" title="Meet the Founder" />
-          <AnimateOnScroll>
-            <div className="glass-card mx-auto flex max-w-md flex-col items-center rounded-2xl p-8 text-center">
-              <FounderAvatar size={80} className="rounded-xl" />
-              <h3 className="mt-4 text-xl font-bold text-heading">{founder.name}</h3>
-              <p className="text-sm text-cyan">{founder.title}</p>
-              <div className="mt-4 flex flex-wrap justify-center gap-3">
-                <a
-                  href={founder.socialLinks.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-muted transition-colors hover:bg-indigo/20 hover:text-indigo"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-4 w-4" />
-                </a>
-                <a
-                  href={founder.socialLinks.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-muted transition-colors hover:bg-indigo/20 hover:text-indigo"
-                  aria-label="GitHub"
-                >
-                  <Github className="h-4 w-4" />
-                </a>
-                <a
-                  href={founder.socialLinks.email}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-muted transition-colors hover:bg-indigo/20 hover:text-indigo"
-                  aria-label="Email the founder"
-                >
-                  <Mail className="h-4 w-4" />
                 </a>
               </div>
             </div>
