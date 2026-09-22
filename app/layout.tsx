@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title:
       "IntelliForge AI — AI Agent Development & Workflow Automation Company",
     description:
-      "We build AI agents, automate workflows, and ship AI apps — in weeks, not months. Hyderabad-based, serving India and beyond.",
+      "We build AI agents, automate workflows, and ship AI apps — in weeks, not months. Hyderabad-based, serving clients worldwide.",
     url: "https://www.intelliforge.tech",
     siteName: "IntelliForge AI",
     locale: "en_IN",

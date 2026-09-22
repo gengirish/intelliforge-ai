@@ -53,7 +53,7 @@ export function Hero() {
             style={{ "--rise-delay": "0.1s", "--rise-from": "30px" } as CSSProperties}
           >
             Enterprise Engineers Who{" "}
-            <span className="gradient-text">Ship AI for India</span>
+            <span className="gradient-text">Ship AI Worldwide</span>
           </h1>
 
           <p
