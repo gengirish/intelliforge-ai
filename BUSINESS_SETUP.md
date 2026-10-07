@@ -113,19 +113,31 @@ Every "Book Free Strategy Call" CTA on the site reads `NEXT_PUBLIC_CALENDLY_URL`
 - [ ] **Redeploy** — `NEXT_PUBLIC_*` values are inlined at build time, so a dashboard change alone will not reach the live site
 - [ ] Verify on `https://www.intelliforge.tech/contact` that the card opens Calendly in a new tab
 
-Free-plan limits worth knowing: one active event type, Calendly branding stays, no round-robin/team routing. Webhook subscriptions (`POST /webhook_subscriptions`) work fine on Free via a personal access token — verified 2026-09-04 by creating a live subscription and having it fire on a real booking; an earlier note here claiming webhooks require a paid plan was wrong. [Cal.com](https://cal.com) is a drop-in alternative if Free's other limits bite — the same env var accepts any `https://` scheduling link.
+Free-plan limits worth knowing: one active event type, Calendly branding stays, no round-robin/team routing. **Webhook subscriptions (`POST /webhook_subscriptions`) require the Standard plan or higher.** Verified 2026-10-07: `POST /webhook_subscriptions` returns `Permission Denied — "Please upgrade your Calendly account to Standard"` on this account, at both `user` and `organization` scope. The subscription created on 2026-09-03 was almost certainly made while a Standard trial was active; once that lapsed, deliveries stopped silently. Two earlier notes in this file flip-flopped on this — the "works on Free" version was wrong. [Cal.com](https://cal.com) is a drop-in alternative if Free's other limits bite — the same env var accepts any `https://` scheduling link.
 
 ### Voice Confirmation Calls (Calendly Webhook → OmniDimension)
 `app/api/calendly-webhook/route.ts` + `lib/omnidimension.ts` receive Calendly's `invitee.created` event and trigger an outbound OmniDimension call (agent id in `OMNIDIM_CONFIRMATION_AGENT_ID`) confirming the booking.
 
-**✅ Live as of 2026-09-04.** A previous note here claimed this was blocked on Calendly's Free plan requiring a Standard-tier upgrade (~$120/year) — that was checked in error. Webhook subscriptions work on Free via a personal access token; the live subscription was created and verified firing on a real booking the same day.
+**⚠️ Not working as of 2026-10-07 — blocked on the Calendly plan.** The code is deployed and correct; the Calendly webhook subscription no longer exists and cannot be recreated on the current plan.
+
+What was verified on 2026-10-07:
+- The route is live and healthy — a correctly signed POST to `https://www.intelliforge.tech/api/calendly-webhook` returns `200 {"success":true}`, and an unsigned one returns `401`.
+- All four env vars (`OMNIDIM_API_KEY`, `OMNIDIM_CONFIRMATION_AGENT_ID`, `CALENDLY_WEBHOOK_SIGNING_KEY`, `NEXT_PUBLIC_OMNIDIM_WIDGET_SECRET_KEY`) are set in Vercel Production and match `.env.local`.
+- Calendly captures the number correctly: `'Contact Number' -> '+91 ...'`, question required.
+- A real test booking on 2026-10-07 produced **no** OmniDimension call. Call logs show nothing since 2026-09-28, and no confirmation-agent call since 2026-09-03 — i.e. before the subscription was created. The "confirmed firing on a real booking" note below was never actually true.
+- `POST /webhook_subscriptions` is refused: Standard plan required.
+
+To restore it, pick one:
+1. **Upgrade Calendly to Standard** and recreate the subscription with `signing_key` = `CALENDLY_WEBHOOK_SIGNING_KEY`.
+2. **Move to [Cal.com](https://cal.com)** — webhooks are on the free tier. `NEXT_PUBLIC_CALENDLY_URL` takes any `https://` scheduling link, but the webhook payload shape differs, so `app/api/calendly-webhook/route.ts` needs a parser for it.
+3. **Poll instead of subscribe** — a Vercel cron route reading `GET /scheduled_events` + `/invitees` on the Free plan and dispatching calls for new bookings. Needs somewhere to record which invitees were already called, so repeats don't get dialled twice.
 
 - [x] Commit and merge `app/api/calendly-webhook/route.ts` + `lib/omnidimension.ts` so the route ships to production
 - [x] Add `CALENDLY_WEBHOOK_SIGNING_KEY`, `OMNIDIM_API_KEY`, `OMNIDIM_CONFIRMATION_AGENT_ID` to the Vercel project's Production/Preview/Development env vars, redeployed
 - [x] Verify the route is live: `POST https://www.intelliforge.tech/api/calendly-webhook` returns `401 Invalid signature` on an unsigned request, not 404/500
 - [x] Test the OmniDimension leg independently — dispatched a real call, confirmed via `GET /calls/logs`
-- [x] Create the live subscription via `POST https://api.calendly.com/webhook_subscriptions` — active, `GET /webhook_subscriptions` confirms it (uri ends `d636faf6-b951-40f1-926d-9985dd43780c`)
-- [x] Confirmed firing on a real booking — call transcript captured name, date/time, matched the agent's own guardrails (correctly refused an in-call reschedule request, redirected to the Calendly link)
+- [ ] **Blocked:** the subscription (uri ended `d636faf6-b951-40f1-926d-9985dd43780c`, created 2026-09-03) was deleted on 2026-10-07 while trying to recreate it with a known signing key; the recreate was refused — Standard plan required. Nothing is subscribed now.
+- [ ] ~~Confirmed firing on a real booking~~ — this was recorded on 2026-09-04 but no call log supports it; the 2026-09-01/03 confirmation calls in OmniDimension were manual dispatch tests. The end-to-end path has never been observed working.
 - [x] Phone number source fixed 2026-09-04: a custom **"Phone Number" invitee question** (Event Types → AI Strategy Call → Invitee Questions), not Calendly's SMS-reminders opt-in — that field is gated behind Calendly's Teams plan and doesn't appear on Free/Essentials/Professional at all, which is why the original best-effort approach silently never worked in testing
 - [x] Phone question marked **required** on the event type (2026-10-07) — verified via `GET /event_types`: `'Contact Number'` type=`phone_number`, `required=true`. Dashboard-only; the Calendly API can't set this.
 - [x] Webhook phone lookup made label-agnostic (2026-10-07) — the question had been renamed "Phone Number" → "Contact Number", which the old `includes("phone")` match would have missed, silently skipping every confirmation call.
