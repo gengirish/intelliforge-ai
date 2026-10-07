@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="IntelliForge AI">
+  <title>IntelliForge AI</title>
+  <defs>
+    <linearGradient id="ifg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#ifg)"/>
+  <polygon points="265.81,157.87 167.68,275.63 256.00,275.63 246.19,354.13 344.32,236.37 256.00,236.37 265.81,157.87" fill="#ffffff"/>
+</svg>

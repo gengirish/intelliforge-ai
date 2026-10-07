@@ -2,6 +2,14 @@
 
 This document lists **digital assets** the site expects, **pixel sizes**, and **where files live**. Replace interim marks (`app/icon.svg`, `public/logo.svg`) when a designer delivers the final identity.
 
+## Sponsor / partner asset pack
+
+`public/branding/` holds the generated logo lockups, marks and banners (plus a
+company blurb and usage rules) for sponsorships, events and press — see
+`public/branding/README.md`. Regenerate with `python scripts/build-brand-assets.py`
+after any brand change. These are derived from the interim mark below; a designer
+pass still replaces the underlying identity.
+
 ## Design skill note
 
 Final **logo, app icon, and illustration** should come from a human-led brand pass (shape, spacing, trademark). The repo ships an **interim** favicon/mark that matches the **existing** navbar motif (indigo → violet gradient + bolt) so tabs and schema are not broken.
