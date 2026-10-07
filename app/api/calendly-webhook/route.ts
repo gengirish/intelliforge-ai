@@ -66,16 +66,36 @@ function isValidCalendlySignature(
 }
 
 const PREP_QUESTION_HINT = "prepare";
-const PHONE_QUESTION_HINT = "phone";
+
+/**
+ * Calendly's `questions_and_answers` entries carry only the question's label —
+ * not its type — so the phone question has to be found by text. The label is
+ * edited in the Calendly dashboard and has already been "Phone Number" and
+ * "Contact Number", so match any of the words an invitee-facing label is
+ * likely to use rather than one exact spelling.
+ */
+const PHONE_QUESTION_HINTS = ["phone", "mobile", "contact number", "whatsapp", "cell"];
 
 function findPrepAnswer(qa: CalendlyQuestionAndAnswer[]): string | undefined {
   return qa.find((entry) => entry.question.toLowerCase().includes(PREP_QUESTION_HINT))
     ?.answer;
 }
 
+/**
+ * Label match first; failing that, any answer that parses as a phone number.
+ * The fallback means renaming the question in the dashboard can't silently
+ * switch confirmation calls off again — prose answers (like the "anything to
+ * help prepare" box) can't match, since normalizePhoneNumber only accepts a
+ * string that is entirely a number.
+ */
 function findPhoneAnswer(qa: CalendlyQuestionAndAnswer[]): string | undefined {
-  return qa.find((entry) => entry.question.toLowerCase().includes(PHONE_QUESTION_HINT))
-    ?.answer;
+  const labelled = qa.find((entry) => {
+    const question = entry.question.toLowerCase();
+    return PHONE_QUESTION_HINTS.some((hint) => question.includes(hint));
+  })?.answer;
+  if (labelled) return labelled;
+
+  return qa.find((entry) => entry.answer && normalizePhoneNumber(entry.answer))?.answer;
 }
 
 /**
@@ -99,9 +119,10 @@ function normalizePhoneNumber(raw: string): string | null {
  * agent to call the prospect right after they book.
  *
  * Phone number source, in priority order:
- *  1. A custom "Phone Number" invitee question on the event type (reliable,
- *     available on every Calendly plan — add it under Event Types → Invitee
- *     Questions).
+ *  1. A custom phone invitee question on the event type (reliable, available
+ *     on every Calendly plan — add it under Event Types → Invitee Questions,
+ *     and mark it required). Found by label, with any numeric answer as a
+ *     fallback, so the exact label does not matter — see findPhoneAnswer.
  *  2. `text_reminder_number` — Calendly's optional SMS-reminders opt-in.
  *     Gated behind Calendly's Teams plan or higher, so this is a bonus
  *     fallback, not something to rely on: it won't appear on the booking

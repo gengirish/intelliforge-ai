@@ -127,7 +127,8 @@ Free-plan limits worth knowing: one active event type, Calendly branding stays, 
 - [x] Create the live subscription via `POST https://api.calendly.com/webhook_subscriptions` — active, `GET /webhook_subscriptions` confirms it (uri ends `d636faf6-b951-40f1-926d-9985dd43780c`)
 - [x] Confirmed firing on a real booking — call transcript captured name, date/time, matched the agent's own guardrails (correctly refused an in-call reschedule request, redirected to the Calendly link)
 - [x] Phone number source fixed 2026-09-04: a custom **"Phone Number" invitee question** (Event Types → AI Strategy Call → Invitee Questions), not Calendly's SMS-reminders opt-in — that field is gated behind Calendly's Teams plan and doesn't appear on Free/Essentials/Professional at all, which is why the original best-effort approach silently never worked in testing
-- [ ] **Still needed:** mark that Phone Number question **required** on the event type — right now it's opt-in, so bookings without an answer silently skip the confirmation call. Dashboard-only, the Calendly API can't set this.
+- [x] Phone question marked **required** on the event type (2026-10-07) — verified via `GET /event_types`: `'Contact Number'` type=`phone_number`, `required=true`. Dashboard-only; the Calendly API can't set this.
+- [x] Webhook phone lookup made label-agnostic (2026-10-07) — the question had been renamed "Phone Number" → "Contact Number", which the old `includes("phone")` match would have missed, silently skipping every confirmation call.
 
 ---
 
