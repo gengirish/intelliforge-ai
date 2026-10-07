@@ -127,10 +127,22 @@ What was verified on 2026-10-07:
 - A real test booking on 2026-10-07 produced **no** OmniDimension call. Call logs show nothing since 2026-09-28, and no confirmation-agent call since 2026-09-03 — i.e. before the subscription was created. The "confirmed firing on a real booking" note below was never actually true.
 - `POST /webhook_subscriptions` is refused: Standard plan required.
 
-To restore it, pick one:
-1. **Upgrade Calendly to Standard** and recreate the subscription with `signing_key` = `CALENDLY_WEBHOOK_SIGNING_KEY`.
-2. **Move to [Cal.com](https://cal.com)** — webhooks are on the free tier. `NEXT_PUBLIC_CALENDLY_URL` takes any `https://` scheduling link, but the webhook payload shape differs, so `app/api/calendly-webhook/route.ts` needs a parser for it.
-3. **Poll instead of subscribe** — a Vercel cron route reading `GET /scheduled_events` + `/invitees` on the Free plan and dispatching calls for new bookings. Needs somewhere to record which invitees were already called, so repeats don't get dialled twice.
+**Decision (2026-10-07): move to [Cal.com](https://cal.com)**, whose free tier includes webhooks. The code is done and merged — `app/api/cal-webhook/route.ts` replaces the Calendly route. What remains is dashboard setup, below.
+
+### Cal.com migration checklist
+
+- [ ] Create a [Cal.com](https://cal.com) account and claim a username (e.g. `intelliforge` or `gen-girish`)
+- [ ] Create a **30-minute event type** named **AI Strategy Call** — the e2e suite and the OmniDimension agent script both expect that exact name — and set availability
+- [ ] Add a **required phone booking question** (Event Type → Advanced → Booking questions). Cal.com's built-in **Phone** field is ideal; any label works, since the route matches `phone`/`mobile`/`contact number`/`whatsapp`/`cell` and falls back to any numeric answer
+- [ ] Keep a free-text question for context (anything with "prepare"/"notes" in the label feeds the agent's `topic`; Cal.com's own `additionalNotes` is used first)
+- [ ] Settings → Developer → **Webhooks** → New: URL `https://www.intelliforge.tech/api/cal-webhook`, event **BOOKING_CREATED**, and set a **secret**
+- [ ] Add that secret to Vercel as `CAL_WEBHOOK_SECRET` (Production/Preview/Development), and to `.env.local`
+- [ ] Set `NEXT_PUBLIC_BOOKING_URL` to the new Cal.com link in Vercel **and** `.env.local`, then **redeploy** — `NEXT_PUBLIC_*` is inlined at build time
+- [ ] Verify the route: an unsigned `POST https://www.intelliforge.tech/api/cal-webhook` must return `401`, not 404/500
+- [ ] Make a real test booking and confirm the call lands; check OmniDimension call logs if it doesn't
+- [ ] Update the e2e suite: run with `PLAYWRIGHT_BOOKING_URL=<new cal.com link>`; the Calendly-specific day-grid assertion auto-skips for non-Calendly hosts, so tighten it against Cal.com's markup once the link is live
+- [ ] Once live, retire the Calendly account: remove `CALENDLY_API_TOKEN`, `CALENDLY_WEBHOOK_SIGNING_KEY` and `NEXT_PUBLIC_CALENDLY_URL` from Vercel and `.env.local`, and delete `scripts/sync-calendly.mjs` + its `sync:calendly` npm script
+- [ ] Existing Calendly bookings stay on Calendly — keep that account alive until the last one has happened
 
 - [x] Commit and merge `app/api/calendly-webhook/route.ts` + `lib/omnidimension.ts` so the route ships to production
 - [x] Add `CALENDLY_WEBHOOK_SIGNING_KEY`, `OMNIDIM_API_KEY`, `OMNIDIM_CONFIRMATION_AGENT_ID` to the Vercel project's Production/Preview/Development env vars, redeployed

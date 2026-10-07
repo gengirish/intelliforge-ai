@@ -3,8 +3,14 @@ import path from "node:path";
 
 /**
  * End-to-end proof that every "Book a Strategy Call" CTA on the deployed site
- * opens the real Calendly booking page (not the /contact fallback). Runs
+ * opens the real external booking page (not the /contact fallback). Runs
  * against PLAYWRIGHT_BASE_URL (defaults to production — see playwright.config.ts).
+ *
+ * The scheduler is being moved from Calendly to Cal.com (Calendly gates webhook
+ * subscriptions behind its Standard plan). Point PLAYWRIGHT_BOOKING_URL at
+ * whichever scheduling link the site is serving; it defaults to the Calendly
+ * one. The deep widget assertion below is Calendly-specific and is skipped for
+ * any other host.
  *
  * Screenshot + video evidence is written to e2e/evidence/ so each scenario has
  * a visual record, not just an assertion result.
@@ -14,7 +20,14 @@ test.use({ video: "on", screenshot: "on" });
 const EVIDENCE_DIR = path.join(process.cwd(), "e2e", "evidence", "screenshots");
 const shot = (name: string) => path.join(EVIDENCE_DIR, name);
 
-const CALENDLY_URL_PATTERN = /calendly\.com\/gen-girish\/30min/;
+const BOOKING_URL =
+  process.env.PLAYWRIGHT_BOOKING_URL ?? "https://calendly.com/gen-girish/30min";
+const BOOKING_HOST = new URL(BOOKING_URL).host;
+const IS_CALENDLY = BOOKING_HOST.endsWith("calendly.com");
+/** The scheduling URL without its scheme, escaped for use as a literal match. */
+const BOOKING_URL_PATTERN = new RegExp(
+  BOOKING_URL.replace(/^https?:\/\//, "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+);
 
 /** Click a CTA, wait for its popup to fully settle, screenshot it, and assert it's the real booking widget. */
 async function clickAndCapturePopup(
@@ -28,7 +41,7 @@ async function clickAndCapturePopup(
   await expect(popup.getByText(/AI Strategy Call/i).first()).toBeVisible({ timeout: 15_000 });
   await popup.screenshot({ path: shot(screenshotName), fullPage: true });
 
-  expect(popup.url()).toMatch(CALENDLY_URL_PATTERN);
+  expect(popup.url()).toMatch(BOOKING_URL_PATTERN);
   await popup.close();
 }
 
@@ -41,7 +54,7 @@ test.describe("Book Your Strategy Call — end to end", () => {
     await expect(cta).toBeVisible();
     await page.screenshot({ path: shot("01-homepage-hero.png") });
 
-    await expect(cta).toHaveAttribute("href", CALENDLY_URL_PATTERN);
+    await expect(cta).toHaveAttribute("href", BOOKING_URL_PATTERN);
     await expect(cta).toHaveAttribute("target", "_blank");
 
     await clickAndCapturePopup(context, cta, "02-hero-calendly-popup.png");
@@ -55,7 +68,7 @@ test.describe("Book Your Strategy Call — end to end", () => {
     await expect(cta).toBeVisible();
     await page.screenshot({ path: shot("03-navbar-desktop-services.png") });
 
-    await expect(cta).toHaveAttribute("href", CALENDLY_URL_PATTERN);
+    await expect(cta).toHaveAttribute("href", BOOKING_URL_PATTERN);
 
     await clickAndCapturePopup(context, cta, "04-navbar-calendly-popup.png");
   });
@@ -74,7 +87,7 @@ test.describe("Book Your Strategy Call — end to end", () => {
     await page.waitForTimeout(350);
     await page.screenshot({ path: shot("05-mobile-menu-open.png") });
 
-    await expect(mobileCta).toHaveAttribute("href", CALENDLY_URL_PATTERN);
+    await expect(mobileCta).toHaveAttribute("href", BOOKING_URL_PATTERN);
 
     const [popup] = await Promise.all([
       context.waitForEvent("page"),
@@ -86,7 +99,7 @@ test.describe("Book Your Strategy Call — end to end", () => {
     await expect(popup.getByText(/AI Strategy Call/i).first()).toBeVisible({ timeout: 15_000 });
     await popup.screenshot({ path: shot("06-mobile-calendly-popup.png"), fullPage: true });
 
-    expect(popup.url()).toMatch(CALENDLY_URL_PATTERN);
+    expect(popup.url()).toMatch(BOOKING_URL_PATTERN);
     await popup.close();
   });
 
@@ -100,7 +113,7 @@ test.describe("Book Your Strategy Call — end to end", () => {
     await expect(cta).toBeVisible();
     await page.screenshot({ path: shot("10-homepage-closing-cta.png") });
 
-    await expect(cta).toHaveAttribute("href", CALENDLY_URL_PATTERN);
+    await expect(cta).toHaveAttribute("href", BOOKING_URL_PATTERN);
 
     await clickAndCapturePopup(context, cta, "11-closing-cta-calendly-popup.png");
   });
@@ -119,23 +132,28 @@ test.describe("Book Your Strategy Call — end to end", () => {
     // Regression guard for the exact bug BookCallLink exists to prevent: on
     // /contact the fallback link used to point at /contact itself (a dead
     // same-route navigation). It must go straight to Calendly instead.
-    await expect(cta).toHaveAttribute("href", CALENDLY_URL_PATTERN);
+    await expect(cta).toHaveAttribute("href", BOOKING_URL_PATTERN);
     await expect(cta).not.toHaveAttribute("href", /^#|\/contact$/);
 
     await clickAndCapturePopup(context, cta, "08-contact-calendly-popup.png");
   });
 
-  test("Calendly booking page renders a live, bookable widget", async ({ page }) => {
-    // This hits calendly.com directly (a third-party page, not our own site)
+  test("booking page renders a live, bookable widget", async ({ page }) => {
+    // This hits the scheduler directly (a third-party page, not our own site)
     // as the last test in a video-recording run, after five prior tests have
     // kept ffmpeg busy encoding — give it more room than the other, same-origin
     // scenarios so contention doesn't make an otherwise-fine load flaky.
     test.slow();
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto("https://calendly.com/gen-girish/30min");
+    await page.goto(BOOKING_URL);
     await page.waitForLoadState("networkidle").catch(() => {});
 
     await expect(page.getByText(/AI Strategy Call/i).first()).toBeVisible({ timeout: 30_000 });
+    await page.screenshot({ path: shot("09-booking-widget-live.png"), fullPage: true });
+
+    // The day-grid assertion below reads Calendly's accessible names, so it
+    // only applies while Calendly is the scheduler.
+    test.skip(!IS_CALENDLY, `day-grid assertion is Calendly-specific (host: ${BOOKING_HOST})`);
     // A real, active Calendly widget renders a month calendar grid with at
     // least one enabled, bookable day — proof this isn't a broken/removed
     // event type. Calendly gives each day button an accessible name like
@@ -144,6 +162,5 @@ test.describe("Book Your Strategy Call — end to end", () => {
     await expect(
       page.getByRole("button", { name: /Times available/ }).first(),
     ).toBeVisible({ timeout: 15_000 });
-    await page.screenshot({ path: shot("09-calendly-widget-live.png"), fullPage: true });
   });
 });

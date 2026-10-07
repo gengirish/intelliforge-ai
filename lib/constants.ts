@@ -39,8 +39,16 @@ export const siteConfig = {
     youtube: "https://youtube.com/@intelliforge-ai",
     twitter: "https://twitter.com/intelliforge_ai",
   },
+  /**
+   * External scheduler link for every "Book a strategy call" CTA.
+   * NEXT_PUBLIC_BOOKING_URL is provider-neutral (Cal.com since 2026-10-07);
+   * NEXT_PUBLIC_CALENDLY_URL is still read so an un-migrated environment keeps
+   * working. Unset = fall back to the contact form.
+   */
   bookingUrl:
-    process.env.NEXT_PUBLIC_CALENDLY_URL || "/contact?intent=strategy-call",
+    process.env.NEXT_PUBLIC_BOOKING_URL ||
+    process.env.NEXT_PUBLIC_CALENDLY_URL ||
+    "/contact?intent=strategy-call",
 };
 
 export const navLinks = [

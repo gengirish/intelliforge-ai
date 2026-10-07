@@ -18,8 +18,9 @@ type BookCallLinkProps = {
 /**
  * Single entry point for every "Book a strategy call" CTA.
  *
- * `siteConfig.bookingUrl` is the Calendly link when NEXT_PUBLIC_CALENDLY_URL is
- * set, otherwise it falls back to the contact form. Without this component the
+ * `siteConfig.bookingUrl` is the external scheduler link when
+ * NEXT_PUBLIC_BOOKING_URL (or legacy NEXT_PUBLIC_CALENDLY_URL) is set,
+ * otherwise it falls back to the contact form. Without this component the
  * fallback links to `/contact` from `/contact` — a same-route soft navigation
  * that does nothing at all.
  */
