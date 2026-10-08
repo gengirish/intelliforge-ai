@@ -6,11 +6,11 @@ import path from "node:path";
  * opens the real external booking page (not the /contact fallback). Runs
  * against PLAYWRIGHT_BASE_URL (defaults to production — see playwright.config.ts).
  *
- * The scheduler is being moved from Calendly to Cal.com (Calendly gates webhook
- * subscriptions behind its Standard plan). Point PLAYWRIGHT_BOOKING_URL at
- * whichever scheduling link the site is serving; it defaults to the Calendly
- * one. The deep widget assertion below is Calendly-specific and is skipped for
- * any other host.
+ * The scheduler moved from Calendly to Cal.com on 2026-10-07 (Calendly gates
+ * webhook subscriptions behind its Standard plan). PLAYWRIGHT_BOOKING_URL
+ * overrides the link under test. The day-grid assertion at the end reads
+ * Calendly's accessible names and now auto-skips; replace it with the
+ * equivalent Cal.com markup when someone has the page open to inspect.
  *
  * Screenshot + video evidence is written to e2e/evidence/ so each scenario has
  * a visual record, not just an assertion result.
@@ -21,7 +21,7 @@ const EVIDENCE_DIR = path.join(process.cwd(), "e2e", "evidence", "screenshots");
 const shot = (name: string) => path.join(EVIDENCE_DIR, name);
 
 const BOOKING_URL =
-  process.env.PLAYWRIGHT_BOOKING_URL ?? "https://calendly.com/gen-girish/30min";
+  process.env.PLAYWRIGHT_BOOKING_URL ?? "https://cal.com/intelliforge/ai-strategy-call";
 const BOOKING_HOST = new URL(BOOKING_URL).host;
 const IS_CALENDLY = BOOKING_HOST.endsWith("calendly.com");
 /** The scheduling URL without its scheme, escaped for use as a literal match. */

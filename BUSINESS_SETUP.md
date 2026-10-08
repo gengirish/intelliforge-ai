@@ -131,14 +131,14 @@ What was verified on 2026-10-07:
 
 ### Cal.com migration checklist
 
-- [ ] Create a [Cal.com](https://cal.com) account and claim a username (e.g. `intelliforge` or `gen-girish`)
-- [ ] Create a **30-minute event type** named **AI Strategy Call** — the e2e suite and the OmniDimension agent script both expect that exact name — and set availability
-- [ ] Add a **required phone booking question** (Event Type → Advanced → Booking questions). Cal.com's built-in **Phone** field is ideal; any label works, since the route matches `phone`/`mobile`/`contact number`/`whatsapp`/`cell` and falls back to any numeric answer
+- [x] Cal.com account created, username `intelliforge`
+- [x] **AI Strategy Call** event type live at https://cal.com/intelliforge/ai-strategy-call — the e2e suite and the OmniDimension agent script both expect that exact name — and set availability
+- [ ] **Confirm the phone booking question is marked REQUIRED** — this is the exact setting that silently broke confirmation calls under Calendly, and it can't be verified from outside the dashboard. Add a **required phone booking question** (Event Type → Advanced → Booking questions). Cal.com's built-in **Phone** field is ideal; any label works, since the route matches `phone`/`mobile`/`contact number`/`whatsapp`/`cell` and falls back to any numeric answer
 - [ ] Keep a free-text question for context (anything with "prepare"/"notes" in the label feeds the agent's `topic`; Cal.com's own `additionalNotes` is used first)
-- [ ] Settings → Developer → **Webhooks** → New: URL `https://www.intelliforge.tech/api/cal-webhook`, event **BOOKING_CREATED**, and set a **secret**
-- [ ] Add that secret to Vercel as `CAL_WEBHOOK_SECRET` (Production/Preview/Development), and to `.env.local`
-- [ ] Set `NEXT_PUBLIC_BOOKING_URL` to the new Cal.com link in Vercel **and** `.env.local`, then **redeploy** — `NEXT_PUBLIC_*` is inlined at build time
-- [ ] Verify the route: an unsigned `POST https://www.intelliforge.tech/api/cal-webhook` must return `401`, not 404/500
+- [x] Webhook created: `https://www.intelliforge.tech/api/cal-webhook`, **BOOKING_CREATED**, with a secret
+- [x] `CAL_WEBHOOK_SECRET` set in Vercel and `.env.local` — **but it is only 11 characters; rotate it to 32+ random hex** (an HMAC secret this short is brute-forceable offline from one captured delivery)
+- [x] `NEXT_PUBLIC_BOOKING_URL` set and redeployed — the live site's CTAs point at the Cal.com link
+- [x] Route verified: unsigned `POST /api/cal-webhook` returns `401` (it returned `500` until the secret was set, and `/api/calendly-webhook` is now `404`)
 - [ ] Make a real test booking and confirm the call lands; check OmniDimension call logs if it doesn't
 - [ ] Update the e2e suite: run with `PLAYWRIGHT_BOOKING_URL=<new cal.com link>`; the Calendly-specific day-grid assertion auto-skips for non-Calendly hosts, so tighten it against Cal.com's markup once the link is live
 - [ ] Once live, retire the Calendly account: remove `CALENDLY_API_TOKEN`, `CALENDLY_WEBHOOK_SIGNING_KEY` and `NEXT_PUBLIC_CALENDLY_URL` from Vercel and `.env.local`, and delete `scripts/sync-calendly.mjs` + its `sync:calendly` npm script
