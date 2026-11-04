@@ -1,11 +1,17 @@
 import { AnimateOnScroll } from "./animate-on-scroll";
 import { statBarItems } from "@/lib/constants";
+import { portfolioProjects } from "@/lib/portfolio";
+
+const stats = [
+  { value: String(portfolioProjects.length), label: "Live Projects" },
+  ...statBarItems,
+];
 
 export function StatBar() {
   return (
     <AnimateOnScroll>
       <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-4">
-        {statBarItems.map((stat) => (
+        {stats.map((stat) => (
           <div key={stat.label} className="text-center">
             <p className="text-3xl font-bold text-heading sm:text-4xl">
               {stat.value}

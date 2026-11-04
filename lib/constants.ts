@@ -351,7 +351,8 @@ export type CaseStudy = {
   clientDescriptor?: string;
   location?: string;
   industry: string;
-  problem: string;
+  /** Omit for our own projects, which had no client problem to report. */
+  problem?: string;
   solution: string;
   impact: string[];
   tech: string[];
@@ -362,7 +363,7 @@ export type CaseStudy = {
 };
 
 /**
- * Only engagements we can stand behind publicly. Two earlier entries — a
+ * Only work we can stand behind publicly, labelled as client or our own. Two earlier entries — a
  * Hyderabad market research firm and a Mumbai marketing agency, both "under
  * NDA" — were removed rather than reworded: an unverifiable client story is
  * worse than a short list. Add a new one only when the client and the numbers
@@ -370,13 +371,10 @@ export type CaseStudy = {
  */
 export const caseStudies: CaseStudy[] = [
   {
-    client: "Independent cloud architect",
+    client: "Our own AI Digital Profile",
     featured: true,
-    clientDescriptor: "AWS and Azure consultant, solo practice",
-    location: "Bengaluru, Karnataka",
-    industry: "Professional Services",
-    problem:
-      "A static portfolio had stalled in redesign. Recruiters skimmed the PDF and missed the migration and FinOps work that mattered most for senior roles.",
+    clientDescriptor: "Built for ourselves first",
+    industry: "Internal Project",
     solution:
       "We built an AI Digital Profile on Next.js, with RAG over the project write-ups, certifications and case notes. A \"Talk to My Resume\" chatbot lets a visitor ask about one specific engagement rather than scroll past it.",
     impact: [
@@ -409,7 +407,6 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [];
 
 export const statBarItems = [
-  { value: "20+", label: "Client Hours Automated Weekly" },
   { value: "6", label: "Industry Verticals" },
   { value: "5", label: "AI Readiness Levels" },
   { value: "100%", label: "IP Transferred to Clients" },

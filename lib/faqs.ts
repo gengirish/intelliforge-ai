@@ -22,6 +22,6 @@ export const faqs: Faq[] = [
   },
   {
     q: "Which organizations are you targeting initially?",
-    a: "Our initial focus is SaaS companies, digital agencies, startups, and enterprise teams with repeatable knowledge workflows (research, ops, marketing, reporting). These teams typically see ROI fastest - often in weeks, not months.",
+    a: "Our initial focus is SaaS companies, digital agencies, startups, and enterprise teams with repeatable knowledge workflows (research, ops, marketing, reporting). These teams tend to get value fastest, because the work is repeatable.",
   },
 ];

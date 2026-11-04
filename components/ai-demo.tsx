@@ -16,7 +16,6 @@ type BusinessType =
 type BusinessInsight = {
   opportunities: string[];
   recommendedLevel: string;
-  roiTimeframe: string;
 };
 
 const businessInsights: Record<Exclude<BusinessType, "">, BusinessInsight> = {
@@ -27,7 +26,6 @@ const businessInsights: Record<Exclude<BusinessType, "">, BusinessInsight> = {
       "RAG-powered internal knowledge base for support and sales teams",
     ],
     recommendedLevel: "Start at Level 2 — Workflow Automation",
-    roiTimeframe: "Most similar businesses see results in 4–6 weeks",
   },
   agency: {
     opportunities: [
@@ -36,16 +34,14 @@ const businessInsights: Record<Exclude<BusinessType, "">, BusinessInsight> = {
       "Automated client reporting with AI-generated insights and summaries",
     ],
     recommendedLevel: "Start at Level 3 — AI Creative Studio",
-    roiTimeframe: "Most similar businesses see results in 3–5 weeks",
   },
   ecommerce: {
     opportunities: [
-      "AI customer support agent handling 80% of common queries 24/7",
+      "AI customer support agent that answers common queries 24/7",
       "Automated inventory forecasting using sales pattern analysis",
       "AI product description generator trained on your brand voice",
     ],
     recommendedLevel: "Start at Level 2 — Workflow Automation",
-    roiTimeframe: "Most similar businesses see results in 4–6 weeks",
   },
   consulting: {
     opportunities: [
@@ -54,16 +50,14 @@ const businessInsights: Record<Exclude<BusinessType, "">, BusinessInsight> = {
       "Automated report generation from raw data with executive summaries",
     ],
     recommendedLevel: "Start at Level 4 — AI Agent Development",
-    roiTimeframe: "Most similar businesses see results in 5–8 weeks",
   },
   startup: {
     opportunities: [
-      "AI-powered MVP prototyping — describe features, ship in days not months",
+      "AI-powered MVP prototyping — describe features, get to a working prototype fast",
       "Automated competitor monitoring and market intelligence agent",
       "Multi-channel outreach automation with personalized AI messaging",
     ],
     recommendedLevel: "Start at Level 5 — AI App Development",
-    roiTimeframe: "Most similar businesses see results in 2–4 weeks",
   },
 };
 
@@ -162,12 +156,9 @@ export function AiDemo() {
                 ))}
               </ul>
 
-              <div className="mt-5 space-y-2 border-t border-indigo/10 pt-4">
+              <div className="mt-5 border-t border-indigo/10 pt-4">
                 <p className="text-sm font-semibold text-cyan">
                   {panelInsight.recommendedLevel}
-                </p>
-                <p className="text-sm text-muted">
-                  {panelInsight.roiTimeframe}
                 </p>
               </div>
 
