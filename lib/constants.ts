@@ -122,7 +122,7 @@ export const services: ServiceLevel[] = [
     badge: "Creative",
     exampleProduct: {
       name: "CampaignForge AI",
-      url: "https://campaignforge-ai-three.vercel.app",
+      url: "https://campaignforge.intelliforge.tech",
     },
     description:
       "Build production-grade content pipelines at scale. Tool chaining from image generation to video to audio — all with brand consistency. What used to take teams of five now takes one person and AI.",
@@ -141,7 +141,7 @@ export const services: ServiceLevel[] = [
     icon: "Bot",
     badge: "Agents",
     exampleProduct: {
-      name: "Multi-Agent Deep Research",
+      name: "Chronicle",
       url: "https://deep-research.intelliforge.tech",
     },
     description:
