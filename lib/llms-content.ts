@@ -136,8 +136,7 @@ ${project.description}
     .map(
       (study) => `### ${study.client}${study.clientDescriptor ? ` — ${study.clientDescriptor}` : ""}
 - Industry: ${study.industry}${study.location ? `\n- Location: ${study.location}` : ""}
-- Problem: ${study.problem}
-- Solution: ${study.solution}
+${study.problem ? `- Problem: ${study.problem}\n` : ""}- Solution: ${study.solution}
 - Impact:
 ${study.impact.map((line) => `  - ${line}`).join("\n")}
 - Tech: ${study.tech.join(", ")}

@@ -37,7 +37,7 @@ const blogPosts = [
     slug: "how-to-automate-business-workflows-using-ai",
     title: "How to Automate Business Workflows Using AI",
     excerpt:
-      "A practical guide to identifying automation opportunities, choosing the right tools (n8n, Zapier, Make), and implementing AI-powered workflows that save 20+ hours per week.",
+      "A practical guide to identifying automation opportunities, choosing the right tools (n8n, Zapier, Make), and implementing AI-powered workflows that save your team time.",
     category: "Automation",
     readTime: "10 min read",
     date: "March 2026",

@@ -147,15 +147,15 @@ export default function AboutPage() {
           <StatBar />
         </section>
 
-        {/* Client work. The grid tracks the number of published case studies so
+        {/* Published work. The grid tracks the number of published case studies so
             a short list stays centred instead of stranding one card in a
             three-column row. */}
         {caseStudies.length > 0 && (
           <section className="mb-20">
             <SectionHeading
               label="Case Studies"
-              title="Client Work"
-              description="Engagements we can show publicly. Each one links to a product you can open and use."
+              title="Our Own Work"
+              description="Projects we can show publicly. Each one links to a product you can open and use."
             />
             <div
               className={`mx-auto grid gap-8 ${
