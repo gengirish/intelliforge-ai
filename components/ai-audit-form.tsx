@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import {
   ArrowRight,
   ArrowLeft,
@@ -245,6 +246,7 @@ export function AiAuditForm() {
       });
       if (res.ok) {
         setStatus("sent");
+        trackEvent("ai_audit_submit");
       } else {
         setStatus("error");
       }
@@ -537,7 +539,11 @@ export function AiAuditForm() {
         {step < 6 ? (
           <button
             type="button"
-            onClick={() => canProceed() && setStep(step + 1)}
+            onClick={() => {
+              if (!canProceed()) return;
+              if (step === 1) trackEvent("ai_audit_start");
+              setStep(step + 1);
+            }}
             disabled={!canProceed()}
             className="flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-6 py-2.5 text-sm font-semibold text-on-accent transition-all hover:shadow-lg hover:shadow-indigo/25 disabled:opacity-40"
           >

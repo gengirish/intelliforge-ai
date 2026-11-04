@@ -1,4 +1,4 @@
-import { TrendingUp, ExternalLink, Clock } from "lucide-react";
+import { Check, ExternalLink, Clock } from "lucide-react";
 import { AnimateOnScroll } from "./animate-on-scroll";
 import { LiveProductPreview } from "./live-product-preview";
 import type { CaseStudy } from "@/lib/constants";
@@ -78,7 +78,7 @@ export function FeaturedCaseStudy({ study }: FeaturedCaseStudyProps) {
                   key={metric}
                   className="rounded-xl border border-green-500/20 bg-green-500/10 px-4 py-4"
                 >
-                  <TrendingUp
+                  <Check
                     className="h-4 w-4 text-success"
                     aria-hidden="true"
                   />

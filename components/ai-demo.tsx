@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Sparkles, ChevronDown, ArrowRight } from "lucide-react";
 import { BookCallLink } from "@/components/book-call-link";
+import { trackEvent } from "@/lib/analytics";
 
 type BusinessType =
   | ""
@@ -81,7 +82,10 @@ export function AiDemo() {
 
   const handleChange = (value: BusinessType) => {
     setBusiness(value);
-    if (value) setLastChosen(value);
+    if (value) {
+      setLastChosen(value);
+      trackEvent("starting_level_select", { business_type: value });
+    }
   };
 
   return (
@@ -91,7 +95,7 @@ export function AiDemo() {
           <Sparkles className="h-6 w-6 text-on-accent" aria-hidden="true" />
         </div>
         <h3 className="text-lg font-bold text-heading">
-          Find Your Starting Level on Our 5-Level Framework
+          Get Your Recommendation
         </h3>
         <p className="mt-1 text-sm text-muted">
           A tailored recommendation based on your business type — not a live AI
@@ -168,6 +172,7 @@ export function AiDemo() {
               </div>
 
               <BookCallLink
+                testId="starting-level-book-call-cta"
                 className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-5 py-2.5 text-sm font-semibold text-on-accent transition-all hover:shadow-lg hover:shadow-indigo/25"
               >
                 Want this built for you? Book a free call

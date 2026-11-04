@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Send, Loader2 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const serviceOptions = [
   "AI Foundations & Training (Level 1)",
@@ -116,6 +117,10 @@ export function ContactForm() {
 
       if (res.ok) {
         setStatus("sent");
+        // A filled honeypot gets a fake success from the route, so it is not a lead.
+        if (!formData.website) {
+          trackEvent("contact_submit", { service: formData.service || "unspecified" });
+        }
         setFormData({
           name: "",
           email: "",
