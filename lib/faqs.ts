@@ -1,13 +1,36 @@
+import { pricingTiers } from "./constants";
+
 export type Faq = {
   q: string;
   a: string;
+  /** Also shown in the home page FAQ. */
+  home?: boolean;
 };
+
+const startingPrices = pricingTiers
+  .map((tier) => `${tier.price} for ${tier.name}`)
+  .join(", ");
 
 /**
  * Rendered on /pricing, emitted as FAQPage JSON-LD, and folded into
  * llms-full.txt. Kept here so all three stay in step.
  */
 export const faqs: Faq[] = [
+  {
+    q: "What does it cost?",
+    a: `Starting prices in INR: ${startingPrices}. The final price depends on scope and complexity. LLM API, cloud and tooling costs are separate, and you pay them directly on your own accounts.`,
+    home: true,
+  },
+  {
+    q: "Who owns what you build?",
+    a: "You do. The code, prompts and workflows we build for you are yours in full, and there's no lock-in to IntelliForge.",
+    home: true,
+  },
+  {
+    q: "What happens to our data?",
+    a: "Your LLM, cloud and tooling accounts stay in your organization's name, so your data runs through accounts you control. We agree which data a system can touch while scoping the work, before we build it.",
+    home: true,
+  },
   {
     q: "AI is everywhere now. What makes IntelliForge different?",
     a: "Access to AI is easy; shipping reliable outcomes is hard. We design, build, and deploy production-ready workflows, agents, and AI apps with clear KPIs from day one. The result: faster execution, lower operating effort, and systems your teams can trust.",
