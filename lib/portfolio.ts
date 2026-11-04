@@ -15,6 +15,8 @@ export const FEATURED_VERCEL_SLUGS = [
   "interview-with-giri",
   "training-feedback",
   "campaignforge-ai",
+  "certforge",
+  "research-to-deck",
 ] as const;
 
 /**
@@ -25,11 +27,11 @@ export const FEATURED_VERCEL_SLUGS = [
  */
 export const HOMEPAGE_SLUGS = [
   "multi-agent-deep-research",
-  "complianceforge",
-  "interview-with-giri",
-  "ai-native-agency",
-  "training-feedback",
+  "certforge",
+  "research-to-deck",
   "campaignforge-ai",
+  "interview-with-giri",
+  "complianceforge",
 ] as const;
 
 type PortfolioMeta = Omit<PortfolioProject, "url"> & {
@@ -57,11 +59,11 @@ const PORTFOLIO_META: PortfolioMeta[] = [
   },
   {
     vercelSlug: "multi-agent-deep-research",
-    title: "Multi-Agent Deep Research",
+    title: "Chronicle",
     description:
-      "AI deep-research platform where multiple agents work in parallel to produce cited reports — fast and autonomous.",
-    tagline: "Parallel AI agents that compile cited research reports in minutes.",
-    tags: ["Multi-Agent", "RAG", "LLM", "Deep Research"],
+      "Market sizing for founders — agents search the web, papers, and news, score every source, flag contradictions, and deliver a cited TAM/SAM/SOM report.",
+    tagline: "Market sizing you can defend in the room.",
+    tags: ["Market Research", "Multi-Agent", "Citations", "Founders"],
     levels: [4, 5],
     icon: "Brain",
     featured: true,
@@ -168,8 +170,9 @@ const PORTFOLIO_META: PortfolioMeta[] = [
     vercelSlug: "campaignforge-ai",
     title: "CampaignForge AI",
     description:
-      "End-to-end AI marketing campaigns — ideation, copy, creatives, channels, and performance via multi-agent orchestration.",
-    tags: ["Marketing AI", "Multi-Agent", "Campaigns"],
+      "White-label campaign engine for agencies — one brief becomes strategy, SEO, copy, and brand QA under your logo, with human sign-off before anything ships.",
+    tagline: "Take on more clients without hiring.",
+    tags: ["Marketing AI", "Multi-Agent", "Agencies", "White-Label"],
     levels: [3, 4, 5],
     icon: "Megaphone",
     featured: true,
