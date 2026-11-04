@@ -22,7 +22,7 @@ export function IndustryLogos() {
     <AnimateOnScroll>
       <div className="text-center">
         <p className="text-xs font-semibold uppercase tracking-widest text-subtle">
-          Trusted Across Industries
+          Engineering Experience Across
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
           {industries.map((industry) => {

@@ -5,6 +5,8 @@ interface SectionHeadingProps {
   title: string;
   description?: string;
   centered?: boolean;
+  /** Replaces the default bottom margin when something sits close beneath. */
+  className?: string;
   /**
    * Heading level to render. Every page needs exactly one `h1` for crawlers and
    * LLM extractors that use it as the document-title anchor — pass `as="h1"` on
@@ -18,10 +20,11 @@ export function SectionHeading({
   title,
   description,
   centered = true,
+  className = "mb-10 sm:mb-16",
   as: Heading = "h2",
 }: SectionHeadingProps) {
   return (
-    <AnimateOnScroll className={`mb-16 ${centered ? "text-center" : ""}`}>
+    <AnimateOnScroll className={`${className} ${centered ? "text-center" : ""}`}>
       {label && (
         <div
           className={`mb-4 flex items-center gap-2 ${centered ? "justify-center" : ""}`}
@@ -39,7 +42,7 @@ export function SectionHeading({
         {title}
       </Heading>
       {description && (
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted">
+        <p className={`mt-4 max-w-2xl text-lg text-muted ${centered ? "mx-auto" : ""}`}>
           {description}
         </p>
       )}

@@ -10,10 +10,10 @@ interface AnimateOnScrollProps {
 }
 
 const directionMap = {
-  up: { x: "0", y: "40px" },
-  down: { x: "0", y: "-40px" },
-  left: { x: "40px", y: "0" },
-  right: { x: "-40px", y: "0" },
+  up: { x: "0", y: "16px" },
+  down: { x: "0", y: "-16px" },
+  left: { x: "16px", y: "0" },
+  right: { x: "-16px", y: "0" },
 };
 
 export function AnimateOnScroll({

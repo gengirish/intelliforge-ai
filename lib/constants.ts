@@ -412,6 +412,29 @@ export const statBarItems = [
   { value: "100%", label: "IP Transferred to Clients" },
 ];
 
+export const audiences = [
+  {
+    name: "Startups",
+    icon: "Rocket",
+    copy: "Idea to AI-powered MVP — without burning runway on the wrong stack.",
+  },
+  {
+    name: "SaaS Companies",
+    icon: "Layers",
+    copy: "Embed agents in your product, cut churn, and ship features your competitors can't copy.",
+  },
+  {
+    name: "Enterprises",
+    icon: "Building2",
+    copy: "Production AI that respects compliance and legacy systems — banking, pharma, telecom, IoT.",
+  },
+  {
+    name: "Agencies",
+    icon: "Handshake",
+    copy: "White-label AI builds. You keep the client; we handle the engineering.",
+  },
+];
+
 export const whyIntelliforge = [
   {
     icon: "Zap",
@@ -426,7 +449,7 @@ export const whyIntelliforge = [
       "Clear pricing in INR and full ownership of everything we build for you: code, prompts and workflows. No lock-in to IntelliForge.",
   },
   {
-    icon: "Zap",
+    icon: "Layers",
     title: "All Five Levels, One Team",
     description:
       "Prompt workshops for your team this month, multi-agent systems and full-stack apps next quarter. You are not handing off between a trainer, an integrator and a dev shop.",

@@ -73,11 +73,14 @@ interface PortfolioGridProps {
   projects: PortfolioProject[];
   /** Show the whole set immediately, for the dedicated /portfolio page. */
   initialExpanded?: boolean;
+  /** Home page version: numbered cards, no filters, three projects on phones. */
+  compact?: boolean;
 }
 
 export function PortfolioGrid({
   projects,
   initialExpanded = false,
+  compact = false,
 }: PortfolioGridProps) {
   const [expanded, setExpanded] = useState(initialExpanded);
   const [levelFilter, setLevelFilter] = useState<LevelFilter>("all");
@@ -102,6 +105,7 @@ export function PortfolioGrid({
 
   return (
     <>
+      {!compact && (
       <div
         className="mb-8 flex flex-wrap items-center justify-center gap-2"
         role="group"
@@ -123,9 +127,12 @@ export function PortfolioGrid({
           </button>
         ))}
       </div>
+      )}
 
       <div
-        className="grid gap-8 transition-all duration-500 md:grid-cols-2 lg:grid-cols-3"
+        className={`grid gap-8 transition-all duration-500 md:grid-cols-2 lg:grid-cols-3 ${
+          compact ? "max-md:[&>*:nth-child(n+4)]:hidden" : ""
+        }`}
         style={{
           maxHeight: expanded ? "none" : undefined,
         }}
@@ -156,6 +163,11 @@ export function PortfolioGrid({
                     />
                   </div>
 
+                  {compact && (
+                    <p className="mb-2 font-mono text-xs font-medium uppercase tracking-widest text-subtle">
+                      {String(i + 1).padStart(2, "0")} / Level {project.levels.join(", ")}
+                    </p>
+                  )}
                   <h3 className="text-lg font-bold text-heading transition-colors group-hover:text-cyan">
                     {project.title}
                   </h3>
@@ -163,16 +175,18 @@ export function PortfolioGrid({
                     {project.description}
                   </p>
 
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.levels.map((level) => (
-                      <span
-                        key={level}
-                        className="rounded-full bg-gradient-to-r from-indigo/20 to-violet/20 px-2.5 py-0.5 text-xs font-semibold text-indigo"
-                      >
-                        Level {level}
-                      </span>
-                    ))}
-                  </div>
+                  {!compact && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.levels.map((level) => (
+                        <span
+                          key={level}
+                          className="rounded-full bg-gradient-to-r from-indigo/20 to-violet/20 px-2.5 py-0.5 text-xs font-semibold text-indigo"
+                        >
+                          Level {level}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </a>
 
                 <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center bg-navy/90 p-6 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
