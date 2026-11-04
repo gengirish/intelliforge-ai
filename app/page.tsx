@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/hero";
+import { IndustryLogos } from "@/components/industry-logos";
+import { MissionBadge } from "@/components/mission-badge";
+import { WhyIntelliforge } from "@/components/why-intelliforge";
 import { FrameworkStepper } from "@/components/framework-stepper";
+import { AudienceCards } from "@/components/audience-cards";
 import { PortfolioGrid } from "@/components/portfolio-grid";
 import { FeaturedCaseStudy } from "@/components/featured-case-study";
 import { SectionHeading } from "@/components/section-heading";
@@ -21,31 +25,39 @@ export default function HomePage() {
     <>
       <Hero />
 
+      {/* Proof band */}
+      <section className="border-y border-border bg-navy-light/50 py-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <IndustryLogos />
+          <div className="mt-6 text-center">
+            <MissionBadge />
+          </div>
+        </div>
+      </section>
 
-      {/* Framework starting-point tool */}
-      <section className="blueprint-grid bg-navy-light/50 py-24">
+      {/* Why IntelliForge */}
+      <section className="py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            label="Try It Yourself"
-            title="Find Your Starting Level on Our 5-Level Framework"
-            description="Pick your business type and get a tailored recommendation — which level to start at, what to automate first, and a realistic timeline. No signup required."
+            label="Why IntelliForge"
+            title="What You Get When You Work With Us"
+            description="One team, transparent pricing and full ownership of everything we build for you."
           />
-          <AiDemo />
+          <WhyIntelliforge />
         </div>
       </section>
 
       {/* 5-Level Framework */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="Our 5-Level Framework"
-            title="From AI Foundations to Full Applications"
-            description="A clear roadmap that takes your business from learning how to talk to AI all the way to building production-grade AI applications."
-          />
-
-          <FrameworkStepper services={services} />
-
-          <AnimateOnScroll className="mt-12 text-center">
+      <section className="section-blueprint py-14 sm:py-24">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[2fr_3fr] lg:gap-16 lg:px-8">
+          <div className="lg:sticky lg:top-24 lg:self-start">
+            <SectionHeading
+              centered={false}
+              className="mb-6"
+              label="Our 5-Level Framework"
+              title="From AI Foundations to Full Applications"
+              description="A clear roadmap that takes your business from learning how to talk to AI all the way to building production-grade AI applications."
+            />
             <Link
               href="/services"
               className="group inline-flex items-center gap-2 text-sm font-semibold text-cyan transition-colors hover:text-cyan-light"
@@ -53,13 +65,47 @@ export default function HomePage() {
               See our full 5-level AI framework
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
+          </div>
+
+          <FrameworkStepper services={services} />
+        </div>
+      </section>
+
+      {/* Framework starting-point tool */}
+      <section id="starting-level" className="scroll-mt-20 py-14 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="Try It Yourself"
+            title="Find Your Starting Level on Our 5-Level Framework"
+            description="Pick your business type and get a tailored recommendation: which level to start at and what to automate first. No signup required."
+          />
+          <AiDemo />
+          <AnimateOnScroll className="mt-8 text-center">
+            <Link
+              href="/ai-audit"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-cyan transition-colors hover:text-cyan-light"
+            >
+              Want a fuller assessment? Get a free AI audit
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </AnimateOnScroll>
         </div>
       </section>
 
-      {/* Featured case study */}
+      {/* Who it's for */}
+      <section className="section-blueprint py-14 sm:py-24">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="Who It's For"
+            title="Start From Where You Are"
+          />
+          <AudienceCards />
+        </div>
+      </section>
+
+      {/* Featured project */}
       {featuredCaseStudy && (
-        <section className="section-blueprint py-24">
+        <section className="py-14 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <SectionHeading
               label="Case Study"
@@ -86,17 +132,17 @@ export default function HomePage() {
       )}
 
       {/* Portfolio */}
-      <section id="portfolio" className="scroll-mt-20 py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section id="portfolio" className="section-blueprint scroll-mt-20 py-14 sm:py-24">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Portfolio"
             title="Built by Us, Powered by AI"
             description="Real tools and products we've built — proof of what's possible at every level."
           />
 
-          <PortfolioGrid projects={homepagePortfolio} initialExpanded />
+          <PortfolioGrid projects={homepagePortfolio} initialExpanded compact />
 
-          <AnimateOnScroll className="mt-12 text-center">
+          <AnimateOnScroll className="mt-8 text-center sm:mt-12">
             <Link
               href="/portfolio"
               className="group inline-flex items-center gap-2 text-sm font-semibold text-cyan transition-colors hover:text-cyan-light"
@@ -108,35 +154,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="py-24">
+      {/* Closing CTA */}
+      <section className="py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo via-violet to-indigo p-12 text-center sm:p-16">
-              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
-              <div className="relative">
-                <h2 className="font-display text-3xl font-bold text-on-accent sm:text-4xl">
-                  Ready to Ship Production AI?
-                </h2>
-                <p className="mx-auto mt-4 max-w-xl text-lg text-on-accent/80">
-                  Hyderabad-based, Bharat AI aligned — from prompt workshops to
-                  multi-agent systems. Book a call and we&apos;ll map your
-                  starting level on the framework.
-                </p>
-                <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                  <BookCallLink
-                    testId="closing-book-call-cta"
-                    className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-indigo transition-all hover:bg-white/90"
-                  >
-                    Book Free AI Strategy Call
-                  </BookCallLink>
-                  <Link
-                    href="/ai-audit"
-                    className="rounded-full border border-white/30 px-8 py-4 text-sm font-semibold text-on-accent transition-all hover:bg-white/10"
-                  >
-                    Get Free AI Audit
-                  </Link>
-                </div>
+            <div className="glass-card rounded-3xl p-6 text-center sm:p-16">
+              <h2 className="font-display text-3xl font-bold text-heading sm:text-4xl">
+                Ready to Ship Production AI?
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-lg text-muted">
+                Hyderabad-based, Bharat AI aligned — from prompt workshops to
+                multi-agent systems. Book a free call and we&apos;ll scope your
+                idea and product together.
+              </p>
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <BookCallLink
+                  testId="closing-book-call-cta"
+                  className="rounded-full bg-gradient-to-r from-indigo to-violet px-8 py-4 text-sm font-semibold text-on-accent transition-all hover:shadow-xl hover:shadow-indigo/25"
+                >
+                  Book Free AI Strategy Call
+                </BookCallLink>
+                <Link
+                  href="/ai-audit"
+                  className="rounded-full border border-border px-8 py-4 text-sm font-semibold text-body transition-colors hover:bg-surface hover:text-heading"
+                >
+                  Get Free AI Audit
+                </Link>
               </div>
             </div>
           </AnimateOnScroll>

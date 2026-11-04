@@ -1,52 +1,19 @@
-"use client";
-
-import { useState, type CSSProperties } from "react";
+import { type CSSProperties } from "react";
 import { ArrowRight, CalendarCheck, ChevronDown } from "lucide-react";
-import { MissionBadge } from "./mission-badge";
-import { startingPrice } from "@/lib/constants";
 import { BookCallLink } from "@/components/book-call-link";
-
-type AudienceKey = "Startups" | "SaaS Companies" | "Enterprises" | "Agencies";
-
-const audiences: AudienceKey[] = [
-  "Startups",
-  "SaaS Companies",
-  "Enterprises",
-  "Agencies",
-];
-
-const audienceCopy: Record<AudienceKey, string> = {
-  Startups:
-    "Idea to AI-powered MVP — without burning runway on the wrong stack.",
-  "SaaS Companies":
-    "Embed agents in your product, cut churn, and ship features your competitors can't copy.",
-  Enterprises:
-    "Production AI that respects compliance and legacy systems — banking, pharma, telecom, IoT.",
-  Agencies:
-    "White-label AI builds. You keep the client; we handle the engineering.",
-};
+import { StatBar } from "@/components/stat-bar";
 
 export function Hero() {
-  const [activeAudience, setActiveAudience] = useState<AudienceKey>("Startups");
-
-  const scrollToPortfolio = () => {
-    document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section className="hero-gradient relative overflow-hidden pb-20 pt-8 sm:pb-32 sm:pt-12">
+    <section className="hero-gradient relative overflow-hidden pb-10 pt-12 sm:pb-20 sm:pt-16">
       {/* No decorative blur blobs here on purpose. The three-gradient-orb hero is
           the house style of every AI agency template. */}
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <div className="rise-in">
-            <MissionBadge />
-          </div>
-
           <h1
-            className="rise-in font-display mx-auto mt-6 max-w-5xl text-balance text-4xl font-bold leading-tight text-heading sm:text-5xl lg:text-6xl"
-            style={{ "--rise-delay": "0.1s", "--rise-from": "30px" } as CSSProperties}
+            className="rise-in font-display mx-auto max-w-5xl text-balance text-4xl font-bold leading-tight text-heading sm:text-5xl lg:text-6xl"
+            style={{ "--rise-from": "30px" } as CSSProperties}
           >
             We Build AI Agents, Automate Workflows, and Ship AI Apps{" "}
             <span className="gradient-text sm:whitespace-nowrap">in Weeks, Not Months</span>
@@ -54,56 +21,15 @@ export function Hero() {
 
           <p
             className="rise-in mx-auto mt-6 max-w-2xl text-lg text-muted sm:text-xl"
-            style={{ "--rise-delay": "0.2s" } as CSSProperties}
+            style={{ "--rise-delay": "0.1s" } as CSSProperties}
           >
-            We build RAG pipelines, multi-agent systems and full-stack AI apps
+            RAG pipelines, multi-agent systems and full-stack AI apps, built
             from Hyderabad. Our 5-Level Framework decides where you start.
           </p>
 
           <div
-            className="rise-in mx-auto mt-6 flex flex-wrap items-center justify-center gap-2"
-            style={{ "--rise-delay": "0.25s", "--rise-from": "10px" } as CSSProperties}
-            role="tablist"
-            aria-label="Target audience"
-          >
-            {audiences.map((audience) => (
-              <button
-                key={audience}
-                type="button"
-                role="tab"
-                aria-selected={activeAudience === audience}
-                onClick={() => setActiveAudience(audience)}
-                className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
-                  activeAudience === audience
-                    ? "bg-gradient-to-r from-indigo to-violet text-on-accent shadow-lg shadow-indigo/20"
-                    : "bg-gradient-to-r from-indigo/15 to-violet/15 text-indigo hover:from-indigo/25 hover:to-violet/25"
-                }`}
-              >
-                {audience}
-              </button>
-            ))}
-          </div>
-
-          {/* Keyed so switching audience remounts the node and replays the
-              CSS fade — no animation library needed for a 250ms swap. */}
-          <p
-            key={activeAudience}
-            className="rise-in mx-auto mt-4 max-w-xl text-base text-body"
-            style={{ "--rise-from": "8px" } as CSSProperties}
-          >
-            {audienceCopy[activeAudience]}
-          </p>
-
-          <p
-            className="rise-in mt-4 text-sm font-medium text-cyan"
-            style={{ "--rise-delay": "0.35s", "--rise-from": "0px" } as CSSProperties}
-          >
-            Starting at {startingPrice}
-          </p>
-
-          <div
             className="rise-in mx-auto mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center"
-            style={{ "--rise-delay": "0.3s" } as CSSProperties}
+            style={{ "--rise-delay": "0.2s" } as CSSProperties}
           >
             <BookCallLink
               testId="hero-book-call-cta"
@@ -116,26 +42,28 @@ export function Hero() {
                 aria-hidden="true"
               />
             </BookCallLink>
-            <button
-              type="button"
-              onClick={scrollToPortfolio}
+            <a
+              href="#starting-level"
               className="group flex w-full items-center justify-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-semibold text-body transition-colors hover:bg-surface hover:text-heading sm:w-auto"
-              aria-label="Scroll to portfolio section"
             >
-              See Our Work
+              Find Your Starting Level
               <ChevronDown
                 className="h-4 w-4 transition-transform group-hover:translate-y-0.5"
                 aria-hidden="true"
               />
-            </button>
+            </a>
           </div>
 
           <p
             className="rise-in mt-4 text-sm text-muted"
-            style={{ "--rise-delay": "0.35s", "--rise-from": "0px" } as CSSProperties}
+            style={{ "--rise-delay": "0.25s", "--rise-from": "0px" } as CSSProperties}
           >
             Free call: we scope your idea and product together.
           </p>
+        </div>
+
+        <div className="mt-8 border-t border-border pt-8 sm:mt-12 sm:pt-10">
+          <StatBar />
         </div>
       </div>
     </section>
