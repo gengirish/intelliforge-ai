@@ -12,6 +12,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { AiDemo } from "@/components/ai-demo";
 import { HomeTestimonial } from "@/components/home-testimonial";
+import { HomeFaq } from "@/components/home-faq";
 import { services, caseStudies, testimonials, type CaseStudy } from "@/lib/constants";
 import { homepagePortfolio } from "@/lib/portfolio";
 import { BookCallLink } from "@/components/book-call-link";
@@ -151,6 +152,17 @@ export default function HomePage() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-14 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="FAQ"
+            title="Cost, Ownership and Your Data"
+          />
+          <HomeFaq />
         </div>
       </section>
 
