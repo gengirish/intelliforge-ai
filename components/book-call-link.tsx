@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { trackEvent } from "@/lib/analytics";
 import { siteConfig } from "@/lib/constants";
 
 const CONTACT_PATH = "/contact";
@@ -11,7 +12,7 @@ type BookCallLinkProps = {
   className?: string;
   onClick?: () => void;
   children: React.ReactNode;
-  /** Stable hook for e2e tests to disambiguate the several CTAs that share visible text. */
+  /** Stable hook for e2e tests and analytics to disambiguate the several CTAs that share visible text. */
   testId?: string;
 };
 
@@ -28,6 +29,11 @@ export function BookCallLink({ className, onClick, children, testId }: BookCallL
   const pathname = usePathname();
   const bookingUrl = siteConfig.bookingUrl;
 
+  const handleClick = () => {
+    trackEvent("book_call_click", { cta: testId ?? "untagged", page: pathname });
+    onClick?.();
+  };
+
   if (bookingUrl.startsWith("http")) {
     return (
       <a
@@ -35,7 +41,7 @@ export function BookCallLink({ className, onClick, children, testId }: BookCallL
         target="_blank"
         rel="noopener noreferrer"
         className={className}
-        onClick={onClick}
+        onClick={handleClick}
         data-testid={testId}
       >
         {children}
@@ -53,7 +59,7 @@ export function BookCallLink({ className, onClick, children, testId }: BookCallL
         className={className}
         data-testid={testId}
         onClick={(e) => {
-          onClick?.();
+          handleClick();
           const form = document.getElementById(CONTACT_FORM_ID);
           if (!form) return;
           e.preventDefault();
@@ -79,7 +85,7 @@ export function BookCallLink({ className, onClick, children, testId }: BookCallL
   }
 
   return (
-    <Link href={bookingUrl} className={className} onClick={onClick} data-testid={testId}>
+    <Link href={bookingUrl} className={className} onClick={handleClick} data-testid={testId}>
       {children}
     </Link>
   );

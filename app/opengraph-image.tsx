@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "IntelliForge AI — Enterprise Engineers Who Ship AI Worldwide";
+export const alt = "IntelliForge AI — We Build AI Agents, Automate Workflows, and Ship AI Apps in Weeks, Not Months";
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -86,7 +86,7 @@ export default function OpenGraphImage() {
             fontFamily: "system-ui, sans-serif",
           }}
         >
-          Enterprise Engineers Who Ship AI Worldwide
+          We Build AI Agents, Automate Workflows, and Ship AI Apps in Weeks, Not Months
         </p>
         <div
           style={{

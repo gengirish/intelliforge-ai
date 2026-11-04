@@ -40,7 +40,7 @@ export default function HomePage() {
           <SectionHeading
             label="Our 5-Level Framework"
             title="From AI Foundations to Full Applications"
-            description="A proven roadmap that takes your business from learning how to talk to AI all the way to building production-grade AI applications."
+            description="A clear roadmap that takes your business from learning how to talk to AI all the way to building production-grade AI applications."
           />
 
           <FrameworkStepper services={services} />
@@ -63,8 +63,8 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <SectionHeading
               label="Case Study"
-              title="One Engagement, Start to Finish"
-              description="How a consultant's stalled portfolio redesign became a live AI Digital Profile in under 48 hours. The result is public, and the link is below."
+              title="We Built This for Ourselves First"
+              description="Before offering an AI Digital Profile to anyone else, we built our own. It's public, so you can open it and ask it questions."
             />
             <FeaturedCaseStudy study={featuredCaseStudy} />
           </div>

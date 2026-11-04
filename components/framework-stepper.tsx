@@ -54,7 +54,7 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
                     }`}
                   >
                     <span
-                      className={`text-sm font-bold ${isActive ? "text-heading" : "text-muted"}`}
+                      className={`text-sm font-bold ${isActive ? "text-on-accent" : "text-muted"}`}
                     >
                       {service.level}
                     </span>
@@ -109,6 +109,7 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
                         </a>
                       </p>
                       <BookCallLink
+                        testId="framework-book-call-cta-desktop"
                         className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-indigo transition-colors hover:text-cyan"
                       >
                         Start here
@@ -176,6 +177,7 @@ export function FrameworkStepper({ services }: FrameworkStepperProps) {
                         </a>
                       </p>
                       <BookCallLink
+                        testId="framework-book-call-cta-mobile"
                         className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-indigo"
                       >
                         Start here

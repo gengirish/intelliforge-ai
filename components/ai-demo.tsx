@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Sparkles, ChevronDown, ArrowRight } from "lucide-react";
 import { BookCallLink } from "@/components/book-call-link";
+import { trackEvent } from "@/lib/analytics";
 
 type BusinessType =
   | ""
@@ -15,7 +16,6 @@ type BusinessType =
 type BusinessInsight = {
   opportunities: string[];
   recommendedLevel: string;
-  roiTimeframe: string;
 };
 
 const businessInsights: Record<Exclude<BusinessType, "">, BusinessInsight> = {
@@ -26,7 +26,6 @@ const businessInsights: Record<Exclude<BusinessType, "">, BusinessInsight> = {
       "RAG-powered internal knowledge base for support and sales teams",
     ],
     recommendedLevel: "Start at Level 2 — Workflow Automation",
-    roiTimeframe: "Most similar businesses see results in 4–6 weeks",
   },
   agency: {
     opportunities: [
@@ -35,16 +34,14 @@ const businessInsights: Record<Exclude<BusinessType, "">, BusinessInsight> = {
       "Automated client reporting with AI-generated insights and summaries",
     ],
     recommendedLevel: "Start at Level 3 — AI Creative Studio",
-    roiTimeframe: "Most similar businesses see results in 3–5 weeks",
   },
   ecommerce: {
     opportunities: [
-      "AI customer support agent handling 80% of common queries 24/7",
+      "AI customer support agent that answers common queries 24/7",
       "Automated inventory forecasting using sales pattern analysis",
       "AI product description generator trained on your brand voice",
     ],
     recommendedLevel: "Start at Level 2 — Workflow Automation",
-    roiTimeframe: "Most similar businesses see results in 4–6 weeks",
   },
   consulting: {
     opportunities: [
@@ -53,16 +50,14 @@ const businessInsights: Record<Exclude<BusinessType, "">, BusinessInsight> = {
       "Automated report generation from raw data with executive summaries",
     ],
     recommendedLevel: "Start at Level 4 — AI Agent Development",
-    roiTimeframe: "Most similar businesses see results in 5–8 weeks",
   },
   startup: {
     opportunities: [
-      "AI-powered MVP prototyping — describe features, ship in days not months",
+      "AI-powered MVP prototyping — describe features, get to a working prototype fast",
       "Automated competitor monitoring and market intelligence agent",
       "Multi-channel outreach automation with personalized AI messaging",
     ],
     recommendedLevel: "Start at Level 5 — AI App Development",
-    roiTimeframe: "Most similar businesses see results in 2–4 weeks",
   },
 };
 
@@ -81,7 +76,10 @@ export function AiDemo() {
 
   const handleChange = (value: BusinessType) => {
     setBusiness(value);
-    if (value) setLastChosen(value);
+    if (value) {
+      setLastChosen(value);
+      trackEvent("starting_level_select", { business_type: value });
+    }
   };
 
   return (
@@ -91,7 +89,7 @@ export function AiDemo() {
           <Sparkles className="h-6 w-6 text-on-accent" aria-hidden="true" />
         </div>
         <h3 className="text-lg font-bold text-heading">
-          Find Your Starting Level on Our 5-Level Framework
+          Get Your Recommendation
         </h3>
         <p className="mt-1 text-sm text-muted">
           A tailored recommendation based on your business type — not a live AI
@@ -158,16 +156,14 @@ export function AiDemo() {
                 ))}
               </ul>
 
-              <div className="mt-5 space-y-2 border-t border-indigo/10 pt-4">
+              <div className="mt-5 border-t border-indigo/10 pt-4">
                 <p className="text-sm font-semibold text-cyan">
                   {panelInsight.recommendedLevel}
-                </p>
-                <p className="text-sm text-muted">
-                  {panelInsight.roiTimeframe}
                 </p>
               </div>
 
               <BookCallLink
+                testId="starting-level-book-call-cta"
                 className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo to-violet px-5 py-2.5 text-sm font-semibold text-on-accent transition-all hover:shadow-lg hover:shadow-indigo/25"
               >
                 Want this built for you? Book a free call

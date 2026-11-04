@@ -43,7 +43,7 @@ export default function ServicesPage() {
           as="h1"
           label="Services"
           title="Five Levels to AI Mastery"
-          description="Our services follow a proven 5-level roadmap. Start wherever you are and progress at your pace — each level builds on the last."
+          description="Our services follow a clear 5-level roadmap. Start wherever you are and progress at your pace — each level builds on the last."
         />
 
         {/* AI Generalist Philosophy */}

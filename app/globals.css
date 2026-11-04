@@ -368,3 +368,19 @@ body {
     transition: none !important;
   }
 }
+
+/* OmniDimension voice widget, injected by its script with z-index 9999. Its
+   label makes it wide enough to cover WhatsAppButton on phones and crowd the
+   hero CTA on short laptops, so show the icon only. These selectors are the
+   vendor's, not ours: recheck them if the widget changes. */
+#chat-helper-button {
+  width: 56px !important;
+  height: 56px !important;
+  padding: 0 !important;
+  justify-content: center;
+  border-radius: 9999px;
+}
+
+#chat-helper-button > span {
+  display: none !important;
+}

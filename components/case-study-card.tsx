@@ -1,4 +1,4 @@
-import { TrendingUp, ExternalLink, MapPin, Clock } from "lucide-react";
+import { Check, ExternalLink, MapPin, Clock } from "lucide-react";
 import { AnimateOnScroll } from "./animate-on-scroll";
 import type { CaseStudy } from "@/lib/constants";
 
@@ -50,14 +50,16 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
         </div>
 
         <div className="mt-5 space-y-4 border-t border-border pt-5">
-          <div>
-            <h4 className="text-[11px] font-semibold uppercase tracking-wider text-indigo/80">
-              Problem
-            </h4>
-            <p className="mt-1.5 text-sm leading-relaxed text-muted">
-              {study.problem}
-            </p>
-          </div>
+          {study.problem && (
+            <div>
+              <h4 className="text-[11px] font-semibold uppercase tracking-wider text-indigo/80">
+                Problem
+              </h4>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted">
+                {study.problem}
+              </p>
+            </div>
+          )}
 
           <div>
             <h4 className="text-[11px] font-semibold uppercase tracking-wider text-indigo/80">
@@ -75,7 +77,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
               key={metric}
               className="flex items-center gap-2 rounded-lg border border-green-500/15 bg-green-500/5 px-3 py-2"
             >
-              <TrendingUp
+              <Check
                 className="h-3.5 w-3.5 shrink-0 text-success"
                 aria-hidden="true"
               />

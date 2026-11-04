@@ -45,11 +45,11 @@ export function Hero() {
           </div>
 
           <h1
-            className="rise-in font-display mx-auto mt-6 max-w-5xl text-4xl font-bold leading-tight text-heading sm:text-5xl lg:text-6xl"
+            className="rise-in font-display mx-auto mt-6 max-w-5xl text-balance text-4xl font-bold leading-tight text-heading sm:text-5xl lg:text-6xl"
             style={{ "--rise-delay": "0.1s", "--rise-from": "30px" } as CSSProperties}
           >
-            Enterprise Engineers Who{" "}
-            <span className="gradient-text">Ship AI Worldwide</span>
+            We Build AI Agents, Automate Workflows, and Ship AI Apps{" "}
+            <span className="gradient-text sm:whitespace-nowrap">in Weeks, Not Months</span>
           </h1>
 
           <p
@@ -129,6 +129,13 @@ export function Hero() {
               />
             </button>
           </div>
+
+          <p
+            className="rise-in mt-4 text-sm text-muted"
+            style={{ "--rise-delay": "0.35s", "--rise-from": "0px" } as CSSProperties}
+          >
+            Free call: we scope your idea and product together.
+          </p>
         </div>
       </div>
     </section>

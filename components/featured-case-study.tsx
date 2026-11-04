@@ -1,6 +1,5 @@
-import { TrendingUp, ExternalLink, Clock } from "lucide-react";
+import { Check, ExternalLink, Clock } from "lucide-react";
 import { AnimateOnScroll } from "./animate-on-scroll";
-import { LiveProductPreview } from "./live-product-preview";
 import type { CaseStudy } from "@/lib/constants";
 
 type CaseStudyMeta = CaseStudy & {
@@ -19,17 +18,16 @@ function getMetaLine(study: CaseStudyMeta): string {
 
 export function FeaturedCaseStudy({ study }: FeaturedCaseStudyProps) {
   const extended = study as CaseStudyMeta;
-  const displayUrl = study.productUrl.replace(/^https?:\/\//, "");
 
   return (
     <AnimateOnScroll>
       <div className="glass-card overflow-hidden rounded-3xl">
         <div className="grid gap-0 lg:grid-cols-2">
-          {/* Left: narrative + impact */}
+          {/* Left: narrative */}
           <div className="flex flex-col p-6 sm:p-8 lg:p-10">
             <div className="flex flex-wrap items-center gap-2">
               <span className="inline-block rounded-full bg-cyan/10 px-3 py-1 text-xs font-semibold text-cyan">
-                Featured case study
+                Featured project
               </span>
               <span className="inline-block rounded-full border border-border px-3 py-1 text-xs font-medium text-muted">
                 {study.industry}
@@ -53,18 +51,20 @@ export function FeaturedCaseStudy({ study }: FeaturedCaseStudyProps) {
             </p>
 
             <div className="mt-8 space-y-6">
-              <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-subtle">
-                  The problem
-                </h4>
-                <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
-                  {study.problem}
-                </p>
-              </div>
+              {study.problem && (
+                <div>
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-subtle">
+                    The problem
+                  </h4>
+                  <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
+                    {study.problem}
+                  </p>
+                </div>
+              )}
 
               <div>
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-subtle">
-                  Our solution
+                  What we built
                 </h4>
                 <p className="mt-2 text-sm leading-relaxed text-body sm:text-base">
                   {study.solution}
@@ -72,17 +72,26 @@ export function FeaturedCaseStudy({ study }: FeaturedCaseStudyProps) {
               </div>
             </div>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          </div>
+
+          {/* Right: results and a link. A link rather than an embed, because
+              the live site names the founder and the homepage must not. */}
+          <div className="flex flex-col border-t border-border bg-navy-light/30 p-6 sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-subtle">
+              The result
+            </h4>
+
+            <div className="mt-4 grid gap-3">
               {study.impact.map((metric) => (
                 <div
                   key={metric}
-                  className="rounded-xl border border-green-500/20 bg-green-500/10 px-4 py-4"
+                  className="flex items-start gap-3 rounded-xl border border-green-500/20 bg-green-500/10 px-4 py-4"
                 >
-                  <TrendingUp
-                    className="h-4 w-4 text-success"
+                  <Check
+                    className="mt-0.5 h-4 w-4 shrink-0 text-success"
                     aria-hidden="true"
                   />
-                  <p className="mt-2 text-sm font-semibold leading-snug text-success">
+                  <p className="text-sm font-semibold leading-snug text-success">
                     {metric}
                   </p>
                 </div>
@@ -99,23 +108,14 @@ export function FeaturedCaseStudy({ study }: FeaturedCaseStudyProps) {
               </span>
               <span>{study.tech.join(" · ")}</span>
             </div>
-          </div>
-
-          {/* Right: live product preview */}
-          <div className="border-t border-border bg-navy-light/30 p-6 sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-subtle">
-              Live product
-            </p>
-
-            <LiveProductPreview study={study} displayUrl={displayUrl} />
 
             <a
               href={study.productUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-cyan hover:text-cyan-light"
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-cyan hover:text-cyan-light"
             >
-              {study.productUsed}
+              Open the {study.productUsed}
               <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
           </div>
